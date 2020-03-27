@@ -22,6 +22,7 @@ assignees: ''
 # :alembic: Investigation
 
  - [x] Créer un issue de suivi technique en remplacant le `_startup_name_` par le nom de la startup.
+ - [ ] Créer un label `startup: _startup_name_` et l'assigner à cette issue.
  - [ ] Identifier un.e lead technique pour la startup et l'assigner à cette issue.
  - [ ] Créer une team Github pour la startup et y ajouter les membres de la startup.
  - [ ] Créer un repo à partir de la [SocialGouv/sample-next-app](https://github.com/SocialGouv/sample-next-app).
