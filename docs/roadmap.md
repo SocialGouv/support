@@ -9,7 +9,7 @@
 #### 2. Développement de la Sample App
 
 - La sample recense les best practices à mettre en place
-- Elle incluse un pipeline type fonctionnel
+- Elle inclus un pipeline K8S fonctionnel
 - Est maintenue par la communauté
 
 [Voir sur GitHub](https://github.com/SocialGouv/sample-next-app)
@@ -28,7 +28,3 @@ Voir possibilité d'un autre acteur cloud FR : scaleway/ovh
 - Onboarding
 - Utilisation des pipelines
 - Process de déploiement
-
-```
-
-```

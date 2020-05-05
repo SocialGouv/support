@@ -8,14 +8,20 @@ Nous utilisons [notre GitLab interne](https://gitlab.factory.social.gouv.fr/) po
 
 Les pipelines et images docker sont autant que possible mutualisés sur nos repos GitHub [gitlab-ci-yml](https://github.com/SocialGouv/gitlab-ci-yml) et [docker](https://github.com/SocialGouv/docker).
 
-## Kubernetes
+## Kubernetes (K8S)
 
 Notre cible de déploiement est Kubernetes.
 
 Vous devez donc containeriser votre application, à minima avec docker-compose.
 
-## Base de données
+Voir les [best practices Kubernetes](/kubernetes).
 
-La fabrique propose des [Postgres managés](https://azure.microsoft.com/fr-fr/services/postgresql/#overview) qui sont backupés automatiquement, à -30J en "just-in-time" puis via des archives quotidiennes au-delà.
+## Bases de données
+
+La fabrique propose des [Postgres managés](https://azure.microsoft.com/fr-fr/services/postgresql/#overview) qui sont backupés automatiquement, à J-7 en "just-in-time" puis via des archives quotidiennes au-delà.
 
 La restauration des données se fait sur demande à l'équipe OPS.
+
+## On-demand
+
+Si vous avez d'autres besoins, l'équipe SRE est à votre disposition pour en discuter.
