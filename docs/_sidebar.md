@@ -8,15 +8,16 @@
 
 - Standards
 
-  - [Best practices](best-practices.md)
+  - [Présentation](standards.md)
 
-- Infrastructure
+* Infrastructure
 
   - [Présentation](infrastructure.md)
 
-- Projets
+* Projets
 
   - [Sample app](https://github.com/SocialGouv/sample-next-app)
+  - [Linters](https://github.com/SocialGouv/linters)
   - [Images docker](https://github.com/SocialGouv/docker)
   - [Packages helm](https://github.com/SocialGouv/helm-charts)
   - [Jobs GitLab](https://github.com/SocialGouv/gitlab-ci-yml)
