@@ -16,10 +16,26 @@ Nous utilisons GitHub pour tous nos projets publics et exceptionnellement notre 
 
 Nous encourageons l'utilisation de [semantic-release](https://github.com/semantic-release/semantic-release) pour générer automagiquement les changelogs et releases.
 
-### Workflow dev
+### GIT Flow
 
-- Une fois le premier MVP réalisé, la branche master est protégée par des reviews
-- Une PR peut être imparfaite, charge à l'auteur de communiquer sur la dette et créer les issues techniques afférentes
+> les `releases` sont déclenchées via un Job manuel du pipeline et executent `semantic-release`
+
+#### Phase de lancement
+
+Lors du démarrage du projet, il est d'usage d'adopter un workflow simple qui permet d'itérer très rapidement sur les premiers prototypes.
+
+- branche par défaut : `dev`
+- les `pull-requests` permettent de déployer des environnements de review. `[SHA].dev.[PRODUIT].fabrique.social.gouv.fr`
+- **[TODO]** la branche `dev` permet de recevoir toutes les PRs dans un environnement `latest` avec une URL stable : `latest.dev.[PRODUIT].fabrique.social.gouv.fr`
+- le merge de `dev` vers `master` permet d'envoyer directement en `production` : `[PRODUIT].fabrique.social.gouv.fr`
+
+#### Lancement MVP
+
+Une fois le premier MVP réalisé :
+
+- la branche `master` est protégée par des code reviews.
+- chaque `release` déploie dans un environnement de préprod : `[VERSION].preprod.[PRODUIT].fabrique.social.gouv.fr`
+- le déploiement en `production` se fait depuis un Job manuel du pipeline de la release vers `[PRODUIT].fabrique.social.gouv.fr`
 
 ## Accessibilité (A11Y)
 
