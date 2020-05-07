@@ -24,10 +24,14 @@ Nous encourageons l'utilisation de [semantic-release](https://github.com/semanti
 
 Lors du démarrage du projet, il est d'usage d'adopter un workflow simple qui permet d'itérer très rapidement sur les premiers prototypes.
 
+[![](_media/git-flow-simple.png ":size=700x280")](https://excalidraw.com/#json=5705723333836800,mheBbpRc0IBIgzXenOybhQ)
+
 - branche par défaut : `dev`
 - les `pull-requests` permettent de déployer des environnements de review. `[SHA].dev.[PRODUIT].fabrique.social.gouv.fr`
 - **[TODO]** la branche `dev` permet de recevoir toutes les PRs dans un environnement `latest` avec une URL stable : `latest.dev.[PRODUIT].fabrique.social.gouv.fr`
 - le merge de `dev` vers `master` permet d'envoyer directement en `production` : `[PRODUIT].fabrique.social.gouv.fr`
+
+Ce flow est expliqué en détail dans https://nvie.com/posts/a-successful-git-branching-model
 
 #### Lancement MVP
 
