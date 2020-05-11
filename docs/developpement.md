@@ -1,12 +1,10 @@
 # Développement
 
-> Les solutions Google sont proscrites par le Ministère du fait de l'utilisation qui est faite des données collectées par Google.
-
-> L'utilisation de services SAAS tiers doit être soumise à l'équipe #Legal
+> Les solutions Google sont proscrites par le Ministère du fait de l'utilisation qui est faite des données collectées par Google. L'utilisation de services SAAS tiers doit être soumise à l'équipe #Legal de la fabrique.
 
 ## Conventions de la fabrique
 
-Nous utilisons GitHub pour tous nos projets publics et exceptionnellement notre GitLab interne pour les projets plus sensibles.
+GitHub est utilisé pour tous nos projets publics et exceptionnellement notre GitLab interne pour les projets plus sensibles.
 
 - Utiliser la [licence Apache-2.0](https://www.numerique.gouv.fr/publications/politique-logiciel-libre/pratique/#aide-au-choix-de-la-licence) pour les codes sources
 - Standardiser le code avec nos linters : https://github.com/SocialGouv/linters
@@ -20,26 +18,25 @@ Nous encourageons l'utilisation de [semantic-release](https://github.com/semanti
 
 > les `releases` sont déclenchées via un Job manuel du pipeline et executent `semantic-release`
 
-#### Phase de lancement
+[![](_media/git-flow-simple.png ":size=700x280")](https://excalidraw.com/#json=4862780838510592,zs4LSGlOakVxt7FOJyO0Nw)
 
-Lors du démarrage du projet, il est d'usage d'adopter un workflow simple qui permet d'itérer très rapidement sur les premiers prototypes.
-
-[![](_media/git-flow-simple.png ":size=700x280")](https://excalidraw.com/#json=5705723333836800,mheBbpRc0IBIgzXenOybhQ)
-
-- branche par défaut : `dev`
-- les `pull-requests` permettent de déployer des environnements de review. `[SHA].dev.[PRODUIT].fabrique.social.gouv.fr`
-- **[TODO]** la branche `dev` permet de recevoir toutes les PRs dans un environnement `latest` avec une URL stable : `latest.dev.[PRODUIT].fabrique.social.gouv.fr`
-- le merge de `dev` vers `master` permet d'envoyer directement en `production` : `[PRODUIT].fabrique.social.gouv.fr`
+- La branche par défaut est `master`
+- les `pull-requests` permettent de déployer des environnements de review.
+- Le clic sur le job `release` déclenche le déploiement d'un envrironnement de `pré-production`.
+- Le clic sur `deploy to prod` depuis un pipeline de release déclenche une mise en production.
 
 Ce flow est expliqué en détail dans https://nvie.com/posts/a-successful-git-branching-model
 
-#### Lancement MVP
+> 💡 Une fois le premier MVP réalisé, la branche `master` est protégée par des code reviews.
 
-Une fois le premier MVP réalisé :
+#### Urls des environnements
 
-- la branche `master` est protégée par des code reviews.
-- chaque `release` déploie dans un environnement de préprod : `[VERSION].preprod.[PRODUIT].fabrique.social.gouv.fr`
-- le déploiement en `production` se fait depuis un Job manuel du pipeline de la release vers `[PRODUIT].fabrique.social.gouv.fr`
+| Url                                             | Usage            |
+| ----------------------------------------------- | ---------------- |
+| feature-x.dev.[PRODUIT].fabrique.social.gouv.fr | feature branches |
+| master.dev.[PRODUIT].fabrique.social.gouv.fr    | latest           |
+| vX.Y.Z.dev.[PRODUIT].fabrique.social.gouv.fr    | releases         |
+| [PRODUIT].fabrique.social.gouv.fr               | production       |
 
 ## Accessibilité (A11Y)
 
