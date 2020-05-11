@@ -13,6 +13,7 @@ Nous utilisons GitHub pour tous nos projets publics et exceptionnellement notre 
 - Maintenir son projet à jour avec notre config renovate : https://github.com/SocialGouv/renovate-config
 - Conventionner les commits GIT : https://conventionalcommits.org/
 - Conventionner le versionning : https://semver.org
+- Conventionner les commentires : https://conventionalcomments.org/
 
 Nous encourageons l'utilisation de [semantic-release](https://github.com/semantic-release/semantic-release) pour générer automagiquement les changelogs et releases.
 
