@@ -1,6 +1,8 @@
 # Kubernetes (K8S)
 
-## 12 factors apps
+![big picture](_media/kubernetes-big-picture.png ":size=800x400")
+
+## Best practices : 12 factors apps
 
 > Il s'agit de 12 principes d'architecture généraux et de processus utiles pour faire tourner une application dans un environnement _cloud_. Ça s'applique donc directement aux applications qui doivent tourner dans _K8s_. Voir aussi https://12factor.net/fr/
 
@@ -38,3 +40,17 @@ _Long story short_ :
 Pour faire du profiling comme pour faire de l'analyse sur des données métier, vous pouver exposer un endpoint `/metrics` (ou avec un autre nom mais c'est un standard d'usage) qui sera scrappé par _Prometheus_, la brique de collecte du cluster K8s.
 
 Le format des données exposées sur `/metrics` doit être en _Open Metrics_, et c'est généralement dispo dans les _libs_ & _frameworks_ que vous utilisez déjà. Un exemple de ce que l'on peut faire avec NodeJS : https://blog.risingstack.com/node-js-performance-monitoring-with-prometheus/
+
+## Les outils pour utiliser kubernetes
+
+L'équipe SRE vous accompagne pour créer les [pipelines de déploiement](https://github.com/SocialGouv/gitlab-ci-yml) de vos applications vers k8s.
+
+Le [CLI k9s](https://k9scli.io/) est l'outil ultime pour monitorer ses déploiements, consulter les logs, se connecter en shell à vos containers... [Rancher](https://rancher.com) est un équivalent en interface web.
+
+Pour accéder à votre cluster :
+
+- installer `kubectl` et `k9s`
+- récupérer votre fichier `kubeconfig` depuis Rancher et le positionner dans `~/.kube/config`
+- lancer `k9s -A` pour accéder au cluster et toutes vos ressources. enjoy :)
+
+Plus de détails sur l'administration kube avec k9s sur [cet article](https://opensource.com/article/20/5/kubernetes-administration).
