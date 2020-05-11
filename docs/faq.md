@@ -14,3 +14,13 @@ Un exemple de référence est [dispo ici](https://github.com/SocialGouv/kosko-ch
 Une fois le workflow implémenté, l'équipe SRE vous fournit un `NPM_TOKEN` pour la publication npm
 
 > Les packages npm doivent être publiés en tant que `@socialgouv/package-name`.
+
+## Utiliser la CI GitLab
+
+Pour utiliser GitLab et y faire tourner des jobs de CI/CD, il faut :
+
+ - créer un compte sur https://gitlab.factory.social.gouv.fr avec l'auth GitHub
+ - créer un nouveau projet en choissant "CI/CD pipelines for external repo"
+ - choisir le projet GitHub source
+
+GitLab synchronisera alors automatiquement le repo à chaque push sur GitHub et executera les jobs définis dans `.gitlab-ci.yml`
