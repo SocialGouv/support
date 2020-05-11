@@ -52,3 +52,5 @@ Pour accéder à votre cluster :
 - installer `kubectl` et `k9s`
 - récupérer votre fichier `kubeconfig` depuis Rancher et le positionner dans `~/.kube/config`
 - lancer `k9s -A` pour accéder au cluster et toutes vos ressources. enjoy :)
+
+Plus de détails sur l'administration kube avec k9s sur [cet article](https://opensource.com/article/20/5/kubernetes-administration).
