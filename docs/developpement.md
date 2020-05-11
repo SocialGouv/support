@@ -18,7 +18,7 @@ Nous encourageons l'utilisation de [semantic-release](https://github.com/semanti
 
 > les `releases` sont déclenchées via un Job manuel du pipeline et executent `semantic-release`
 
-[![](_media/git-flow-simple.png ":size=700x280")](https://excalidraw.com/#json=4862780838510592,zs4LSGlOakVxt7FOJyO0Nw)
+[![](_media/git-flow-simple.png ":size=700x280")](https://excalidraw.com/#json=5356159804375040,hgxteyUzoTTrIn5exBsUDA)
 
 - La branche par défaut est `master`
 - les `pull-requests` permettent de déployer des environnements de review.
@@ -33,9 +33,9 @@ Ce flow est expliqué en détail dans https://nvie.com/posts/a-successful-git-br
 
 | Url                                             | Usage            |
 | ----------------------------------------------- | ---------------- |
-| feature-x.dev.[PRODUIT].fabrique.social.gouv.fr | feature branches |
-| master.dev.[PRODUIT].fabrique.social.gouv.fr    | latest           |
-| vX.Y.Z.dev.[PRODUIT].fabrique.social.gouv.fr    | releases         |
+| feature-x.[PRODUIT].dev.fabrique.social.gouv.fr | feature branches |
+| master.[PRODUIT].dev.fabrique.social.gouv.fr    | latest           |
+| vX.Y.Z.[PRODUIT].dev.fabrique.social.gouv.fr    | releases         |
 | [PRODUIT].fabrique.social.gouv.fr               | production       |
 
 ## Accessibilité (A11Y)
