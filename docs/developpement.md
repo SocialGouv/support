@@ -30,7 +30,7 @@ Ce flow est expliqué en détail dans https://nvie.com/posts/a-successful-git-br
 
 > 💡 Une fois le premier MVP réalisé, la branche `master` est protégée par des code reviews.
 
-#### Urls des environnements
+### Urls des environnements
 
 | Url                                             | Usage            |
 | ----------------------------------------------- | ---------------- |
