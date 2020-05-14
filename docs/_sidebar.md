@@ -9,6 +9,9 @@
 - Standards
 
   - [Présentation](standards.md)
+    - [Développement](developpement.md)
+    - [Sécurité](securite.md)
+    - [Kubernetes](kubernetes.md)
 
 * Infrastructure
 
