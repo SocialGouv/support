@@ -54,3 +54,5 @@ Pour accéder à votre cluster :
 - lancer `k9s -A` pour accéder au cluster et toutes vos ressources. enjoy :)
 
 Plus de détails sur l'administration kube avec k9s sur [cet article](https://opensource.com/article/20/5/kubernetes-administration).
+
+Une sonde [sentry-kubernetes](https://github.com/getsentry/sentry-kubernetes) est installée sur le cluster et permet de remonter toutes les erreurs : CronJob failed, probes... C'est une source d'information préciseuse quand quelque chose ne fonctionne pas dans vos déploiements. L'accès doit être demandé à la team SRE.
