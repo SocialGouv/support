@@ -21,6 +21,7 @@
 
   - [Sample app](https://github.com/SocialGouv/sample-next-app)
   - [Linters](https://github.com/SocialGouv/linters)
+  - [Renovate](https://github.com/SocialGouv/renovate-config)
   - [Images docker](https://github.com/SocialGouv/docker)
   - [Packages helm](https://github.com/SocialGouv/helm-charts)
   - [Jobs GitLab](https://github.com/SocialGouv/gitlab-ci-yml)

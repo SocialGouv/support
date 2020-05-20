@@ -24,6 +24,46 @@ Le groupe GitHub `SocialGouv` fournit plusieurs `secrets` utilisables dans vos j
 Ces trois variables vous permettent de commiter et publier sur npm dans le scope `@socialgouv` directement. cf [exemple](https://github.com/SocialGouv/linters/blob/e0d4f43ed2b8999f4e6662604be9695508598851/.github/workflows/ci.yml#L58-L76)
 
 
+## Utilisation de renovate
+
+Le bot `renovate` permet d'automatiser la maintenance des dépendances de votre projet.
+
+Vous devez ajouter un fichier `.github/renovate.json` dans votre projet avec la config souhaitée
+
+Nous proposons deux `presets` de base :
+
+### Config standard
+
+Pour une maintenance quotidienne de votre projet
+
+```js
+{
+  "enabled": true,
+  "extends": ["github>SocialGouv/renovate-config"]
+}
+```
+
+### Config light
+
+Pour une maintenance raisonnée de votre projet
+
+- patchs appliqués en groupe toutes les lundi matin automagiquement
+- mineurs tous les 1er du mois via une PR groupée
+- majors séparées tous les 1er du mois via des PR distinctes
+
+```js
+{
+  "enabled": true,
+  "extends": ["github>SocialGouv/renovate-config:light"]
+}
+```
+
+#### Customisation
+
+renovate propose de [nombreuses options](https://docs.renovatebot.com/) pour étendre ces `presets` et les adapter à vos besoins.
+
+Il est possible de consulter les logs des jobs renovate ici : https://app.renovatebot.com/dashboard
+
 ## Utiliser la CI GitLab
 
 Pour utiliser GitLab et y faire tourner des jobs de CI/CD, il faut :

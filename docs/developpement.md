@@ -8,12 +8,13 @@ GitHub est utilisé pour tous nos projets publics et exceptionnellement notre Gi
 
 - Utiliser la [licence Apache-2.0](https://www.numerique.gouv.fr/publications/politique-logiciel-libre/pratique/#aide-au-choix-de-la-licence) pour les codes sources
 - Standardiser le code avec nos linters : https://github.com/SocialGouv/linters
-- Maintenir son projet à jour avec notre config renovate : https://github.com/SocialGouv/renovate-config
+- Maintenir son projet à jour avec notre config renovate : https://github.com/SocialGouv/renovate-config cf [la FAQ](/faq?id=utilisation-de-renovate)
 - Conventionner les commits GIT : https://conventionalcommits.org/
 - Conventionner le versionning : https://semver.org
 - Conventionner les commentaires : https://conventionalcomments.org/
+- Releaser sur GitHub/npm : avec [semantic-release](https://github.com/semantic-release/semantic-release) cf [la FAQ](/faq?id=installer-semantic-release)
 
-Nous encourageons l'utilisation de [semantic-release](https://github.com/semantic-release/semantic-release) pour générer automagiquement les changelogs et releases.
+Nous encourageons l'utilisation de [semantic-release](/faq?id=installer-semantic-release) pour générer automagiquement les changelogs et releases.
 
 ### GIT Flow
 
