@@ -1,6 +1,9 @@
 # FAQ
 
-## Installer semantic-release
+## Installer semantic-release pour publier sur npm
+
+> Les packages npm doivent être publiés en tant que `@socialgouv/package-name`. 
+> Le champ author doit être positionné à `Fabrique numérique des Ministères Sociaux <contact@fabrique.social.gouv.fr> (https://fabrique.social.gouv.fr)`
 
 [semantic-release](https://github.com/semantic-release/semantic-release) permet de publier automatiquement votre package npm selon les règles de votre workflow GitHub.
 
@@ -10,10 +13,10 @@ Un exemple de référence est [dispo ici](https://github.com/SocialGouv/kosko-ch
 
 - Les règles du workflow GitHub : dans [.github/workflows/main.yml](https://github.com/SocialGouv/kosko-charts/blob/master/.github/workflows/main.yml)
 - La config semantic-release dans [.releaserc.yml](https://github.com/SocialGouv/kosko-charts/blob/master/.releaserc.yml)
+- Le champ `"publishConfig": { "access": "public" }` doit être renseigné dans le `package.json`
 
 Une fois le workflow implémenté, l'équipe SRE vous fournit un `NPM_TOKEN` pour la publication npm
 
-> Les packages npm doivent être publiés en tant que `@socialgouv/package-name`.
 
 ## Utiliser la CI GitLab
 
