@@ -25,5 +25,6 @@
   - [Images docker](https://github.com/SocialGouv/docker)
   - [Packages helm](https://github.com/SocialGouv/helm-charts)
   - [Jobs GitLab](https://github.com/SocialGouv/gitlab-ci-yml)
+  - [Charts kosko](https://github.com/SocialGouv/kosko-charts)
 
 * [**FAQ**](faq.md)
