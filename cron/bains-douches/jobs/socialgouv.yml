@@ -1,0 +1,5 @@
+SocialGouv/standup:
+  extends:
+    - .bathing
+  variables:
+    name: standup

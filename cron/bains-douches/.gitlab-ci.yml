@@ -1,0 +1,24 @@
+Test bains douches:
+  extends:
+    - .default_rules
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/bats:1.22.2
+  before_script:
+    - apk add jq
+
+    # Install laster yq version
+    # see https://github.com/mikefarah/yq/issues/190#issuecomment-621512382
+    - wget -q -O /usr/bin/yq
+      $(
+        wget -q -O - https://api.github.com/repos/mikefarah/yq/releases/latest |
+        jq -r '.assets[] |
+        select(.name == "yq_linux_amd64") |
+        .browser_download_url'
+      )
+    - chmod +x /usr/bin/yq
+
+    # Smoke test
+    - jq --version
+    - yq --version
+  script:
+    - cd cron/bains-douches
+    - bats -t test

@@ -1,2 +1,17 @@
 include:
+  - /cron/bains-douches/.gitlab-ci.yml
+  - /cron/.gitlab-ci.yml
   - /maintenance/tools/git-mirror-cleaner/.gitlab-ci.yml
+
+.default_rules:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: never
+    - when: on_success
+
+.cron_rules:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule" &&
+        $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      when: on_success
+    - when: never
