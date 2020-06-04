@@ -1,0 +1,19 @@
+
+
+workflow:
+  rules:
+    # Skip all gmc-* test branches
+    - if: $CI_COMMIT_REF_NAME =~ /^gmc-/
+      when: never
+    # Otherwise include the job and set to run normally
+    - when: always
+
+Test git-mirror-cleaner:
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/bats:1.22.2
+  variables:
+    GIT_STRATEGY: clone
+  before_script:
+    - apk add parallel
+  script:
+    - cd maintenance/tools/git-mirror-cleaner
+    - bats -t test
