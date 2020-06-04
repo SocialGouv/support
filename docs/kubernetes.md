@@ -56,3 +56,109 @@ Pour accéder à votre cluster :
 Plus de détails sur l'administration kube avec k9s sur [cet article](https://opensource.com/article/20/5/kubernetes-administration).
 
 Une sonde [sentry-kubernetes](https://github.com/getsentry/sentry-kubernetes) est installée sur le cluster et permet de remonter toutes les erreurs : CronJob failed, probes... C'est une source d'information préciseuse quand quelque chose ne fonctionne pas dans vos déploiements. L'accès doit être demandé à la team SRE.
+
+## Variable d'environnement dans Kubernetes
+
+On vous recommande de passer vos variables d'environnement dans par `envFrom`.
+
+```yaml
+# [...]
+  envFrom:
+    - configMapRef:
+        name: app-env
+    - secretRef:
+        name: app-env
+```
+
+### Variables de configuration
+
+Les variables qui configure le projet dans l'environnement déployé. Ces variables sont prédictible et ne sont pas nécéssairement cachées. Example : `NODE_ENV=PRODUCTION`
+
+Il est recommandé d'utiliser une [_ConfigMap_ par ensemble des variables du context](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables) et par environnement.
+
+```yaml
+# .k8s/environements/dev/app-env.configmap.yaml
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: app-env
+data:
+  NODE_ENV: "production"
+  GRAPHQL_ENDPOINT: "http://hasura/v1/graphql"
+  ACCOUNT_MAIL_SENDER: "contact@fabrique.social.gouv.fr"
+  FRONTEND_PORT: "${PORT}"
+  PRODUCTION: "false"
+```
+
+### Variables secrets
+
+Les variables de configuration qui ne doivent pas être divulgées. Ces variables sont sensibles et doivent être offusqué. Example : `JWT_SECRET=xxxxxxx`
+
+Il est recommandé d'utiliser un [_SealedSecret_ par ensemble des variables du context](https://github.com/bitnami-labs/sealed-secrets) et par environnement.
+
+L'équipe SRE est en charge de la gestion des valeurs dans le _SealedSecret_ utilisés par notre projet en dev comme en prod. Les valeurs de dev sont consultables par les développers de la startup en récupérant le _Secret_ du même nom.
+
+```yaml
+# .k8s/environements/dev/hasura-env.configmap.yaml
+kind: SealedSecret
+apiVersion: bitnami.com/v1alpha1
+metadata:
+  name: hasura-env
+  creationTimestamp:
+  annotations:
+    sealedsecrets.bitnami.com/cluster-wide: 'true'
+spec:
+  template:
+    metadata:
+      name: hasura-env
+      creationTimestamp:
+      annotations:
+        sealedsecrets.bitnami.com/cluster-wide: 'true'
+    type: Opaque
+  encryptedData:
+    ACCOUNT_EMAIL_SECRET: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx==
+    HASURA_GRAPHQL_ADMIN_SECRET: yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy==
+    HASURA_GRAPHQL_JWT_SECRET: zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz==
+```
+
+## Scellé un secret dans Kubernetes
+
+Nous utilisont [_SealedSecret_](https://github.com/bitnami-labs/sealed-secrets) pour scellé les secrets.
+
+```sh
+# Pour consulter les logs du sealed-secrets
+$ kubectl -n sealed-secrets-system logs $(kubectl -n sealed-secrets-system get pod --no-headers -o custom-columns=":metadata.name")
+```
+
+### Scellé un secret du projet
+
+Les secrets générer par le code pour sécuriser des communications entre services par example.
+
+```sh
+# Assurez vous de communiquer avec le bon cluster
+$ export KUBECONFIG=~/.kube/config-dev2
+# Assurez vous d'avoir le certificat correspondant au cluster
+$ export SEALED_SECRETS_CERT=https://kubeseal.dev2.fabrique.social.gouv.fr/v1/cert.pem
+# Scelle le secret jwt d'hasura par example
+$ printf '{"type":"HS256","key": "'$(gpg --gen-random --armor 1 512)'"}' \
+  | kubectl create secret generic app-env -o yaml --dry-run=client --from-file=HASURA_GRAPHQL_JWT_SECRET=/dev/stdin \
+  | kubeseal -o yaml --scope cluster-wide --merge-into .k8s/environements/prod/hasura-env.sealed-secret.yaml
+# Scelle le mot de passe admin d'hasura par example
+$ gpg --gen-random --armor 1 128 \
+  | kubectl create secret generic app-env -o yaml --dry-run=client --from-file=HASURA_GRAPHQL_ADMIN_SECRET=/dev/stdin \
+  | kubeseal -o yaml --scope cluster-wide --merge-into .k8s/environements/dev/hasura-env.sealed-secret.yaml
+```
+
+### Scellé un secret d'infra
+
+Les secrets générer par l'infra pour accéder à des services comme un base de données managées par example.
+
+```sh
+# Assurez vous de communiquer avec le bon cluster
+$ export KUBECONFIG=~/.kube/config-dev2
+# Assurez vous d'avoir le certificat correspondant au cluster
+$ export SEALED_SECRETS_CERT=https://kubeseal.dev2.fabrique.social.gouv.fr/v1/cert.pem
+# Les secrets générées par l'infra sont disponibles dans le namespace "<projet_name>-secret"
+$ kubectl -n sample-next-app-secret get secret azure-pg-admin-user -o json | kubeseal | jq ".spec.encryptedData.PGHOST"
+"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=="
+```
