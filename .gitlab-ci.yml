@@ -1,0 +1,2 @@
+include:
+  - /maintenance/tools/git-mirror-cleaner/.gitlab-ci.yml

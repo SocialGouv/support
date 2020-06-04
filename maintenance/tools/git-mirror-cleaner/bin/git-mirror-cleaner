@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+
+{
+
+gmc_clean() {
+  # local branches_to_remove=$(mktemp)
+
+  # cat ${branches_to_remove} | xargs -I{} -n1 git push ${SUPER} :{}
+  gmc_remove_mirror_branch foo
+  gmc_reset
+
+  echo "🧹 Mirror cleaned ✨"
+}
+
+#
+
+gmc_remove_mirror_branch() {
+  local mirror=$(gmc_get mirror)
+
+  if [ -z "${mirror}" ]; then
+    gmc_err 'A mirror branch is required.'
+    return 2
+  fi
+
+  if [ "$#" -lt 1 ]; then
+    gmc_err 'Not enough arguments'
+    return 5
+  fi
+
+  local branch
+  branch="${1}"
+
+  git push ${mirror} :${branch}
+}
+
+#
+
+gmc_set() {
+  local file="$(gmc_tmp)/${1}"
+  echo "${2}" > "${file}"
+}
+
+gmc_get() {
+  local file="$(gmc_tmp)/${1}"
+  if [ -f "${file}" ]; then
+    cat "${file}"
+  fi
+}
+
+#
+
+gmc_tmp() {
+  if [ -z "${GMC_TMP}" ]; then
+    GMC_TMP=$(mktemp -d /tmp/git-mirror-cleaner.XXXXXX)
+  fi
+  printf %s "${GMC_TMP}"
+}
+
+#
+
+gmc_err() {
+  >&2 gmc_echo "$@"
+}
+
+gmc_echo() {
+  command printf %s\\n "$*" 2>/dev/null
+}
+
+#
+# Unsets the various functions defined
+# during the execution of the cleaning script
+#
+gmc_reset() {
+  unset -f gmc_clean \
+    gmc_err \
+    gmc_echo \
+    gmc_get \
+    gmc_remove_mirror_branch \
+    gmc_set \
+    gmc_tmp \
+    gmc_reset
+
+  unset GMC_TMP
+}
+
+#
+
+export GMC_TMP=$(gmc_tmp)
+
+[ "_${GIT_MIRROR_CLEANER_ENV}" = "_testing" ] || gmc_clean
+
+}

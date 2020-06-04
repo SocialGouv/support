@@ -1,0 +1,11 @@
+Test git-mirror-cleaner:
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/bats:1.22.2
+  variables:
+    GIT_STRATEGY: clone
+  before_script:
+    - apk add bash git
+    - git remote set-url origin
+      "https://SocialGroovyBot:${SOCIALGROOVYBOT_GITLAB_TOKEN}@${CI_PROJECT_URL:8}"
+  script:
+    - cd maintenance/tools/git-mirror-cleaner
+    - bats -t test
