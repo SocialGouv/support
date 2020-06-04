@@ -59,7 +59,7 @@ Une sonde [sentry-kubernetes](https://github.com/getsentry/sentry-kubernetes) es
 
 ## Variable d'environnement dans Kubernetes
 
-On vous recommande de passer vos variables d'environnement dans par `envFrom`.
+On vous recommande de récupérer vos variables d'environnement avec `envFrom`.
 
 ```yaml
 # [...]
