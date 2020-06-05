@@ -33,7 +33,7 @@ setup() {
   assert_failure 5
 }
 
-@test "gmc_remove_mirror_branches: remove the foo brnach from mirror" {
+@test "gmc_remove_mirror_branches foo: remove the foo brnach from mirror" {
   gmc_set mirror origin >&3
 
   run gmc_remove_mirror_branches foo
@@ -41,7 +41,15 @@ setup() {
   assert_success
 }
 
-@test "gmc_remove_mirror_branches: remove the branches from mirror" {
+@test "gmc_remove_mirror_branches foo(bar)-quz-(oof): remove the foo(bar)-quz-(oof) brnach from mirror" {
+  gmc_set mirror origin >&3
+
+  run gmc_remove_mirror_branches "fix(modeles)-fix-wording-(BS)"
+  assert_output " - [deleted]         fix(modeles)-fix-wording-(BS)"
+  assert_success
+}
+
+@test "gmc_remove_mirror_branches foo bar buz: remove the branches from mirror" {
   gmc_set mirror origin >&3
 
   run gmc_remove_mirror_branches foo bar buz

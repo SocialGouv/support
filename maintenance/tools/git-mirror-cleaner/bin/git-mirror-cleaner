@@ -87,7 +87,7 @@ gmc_remove_mirror_branches() {
   branches="${@}"
   for branch in ${branches}
   do
-    sem --will-cite -j+0 "bash -c 'git push ${mirror} :${branch}'"
+    sem --will-cite -j+0 "bash -c 'git push ${mirror} \":${branch}\"'"
   done
   sem --wait
 }
