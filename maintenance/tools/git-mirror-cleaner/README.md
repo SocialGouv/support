@@ -12,7 +12,7 @@
 
 <h1 align="center">
   <p align="center">Git</p>
-  <img src=https://media.giphy.com/media/YxfllYGDqLRyE/giphy.gif width=693>
+  <img src="https://i.giphy.com/media/YxfllYGDqLRyE/giphy.webp" onerror="this.onerror=null;this.src='https://i.giphy.com/YxfllYGDqLRyE.gif';" width=693>
   <p align="center">Mirror Cleaner</p>
 </h1>
 
