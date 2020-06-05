@@ -149,7 +149,6 @@ gmc_reset() {
 export GMC_TMP=$(gmc_tmp) || exit $?
 # trap "rm -rf "${GMC_TMP}"" EXIT INT TERM
 # trap "gmc_reset" EXIT INT TERM
-# trap - EXIT INT TERM
 
 [ "_${GIT_MIRROR_CLEANER_ENV}" = "_testing" ] || gmc_clean $@
 

@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+
+{
+
+bathing_main() {
+  if [ "$#" -lt 1 ]; then
+    echo >&2 "Not enough arguments"
+    return 5
+  fi
+
+  local group_name
+  group_name="${1}"
+  local group_id
+  group_id=$(bathing_group_id "${group_name}")
+
+  bathing_get_projects "${group_id}" \
+  | bathing_trasform_to_gitlab_jobs
+}
+
+#
+
+bathing_group_id() {
+  if [ "$#" -lt 1 ]; then
+    echo >&2 "Not enough arguments"
+    return 5
+  fi
+
+  local group_name
+  group_name="${1}"
+
+  bathing_gitlab_api_get "/groups" \
+  | jq ".[] | select(.name==\"${group_name}\") .id"
+}
+
+bathing_get_projects() {
+  if [ "$#" -lt 1 ]; then
+    echo >&2 "Not enough arguments"
+    return 5
+  fi
+
+  local group_id="${1}"
+  local api_url=${GITLAB_API_URL:=$CI_API_V4_URL}
+
+  bathing_gitlab_api_get "/groups/${group_id}/projects?per_page=100"
+}
+
+bathing_trasform_to_gitlab_jobs() {
+  local dir="$(command cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  cat \
+  | jq -cf ${dir}/job-template.jq \
+  | yq read --prettyPrint -
+}
+#
+
+bathing_gitlab_api_get() {
+  if [ "$#" -lt 1 ]; then
+    echo >&2 "Not enough arguments"
+    return 5
+  fi
+
+  local api_url
+  api_url=${GITLAB_API_URL:=$CI_API_V4_URL}
+  local endpoint
+  endpoint="${1}"
+
+  wget \
+    --quiet \
+    --header "PRIVATE-TOKEN: ${GITLAB_API_TOKEN}" \
+    -O - \
+    "${api_url}${endpoint}"
+}
+
+#
+# Unsets the various functions defined
+# during the execution of the cleaning script
+#
+bathing_reset() {
+  unset -f bathing_main \
+    bathing_get_projects \
+    bathing_gitlab_api_get \
+    bathing_group_id \
+    bathing_trasform_to_gitlab_jobs \
+    bathing_reset
+}
+
+#
+
+[ "_${BATHING_ENV}" = "_testing" ] || bathing_main $@
+
+}
