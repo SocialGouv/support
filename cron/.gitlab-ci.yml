@@ -8,9 +8,9 @@ include:
   before_script:
     - apk add bash git parallel
   script:
-    - git clone https://github.com/SocialGouv/standup.git ${CI_BUILDS_DIR}/standup
-    - cd ${CI_BUILDS_DIR}/standup
-    - git remote add gitlab.factory.social.gouv https://SocialGroovyBot:${SOCIALGROOVYBOT_GITLAB_TOKEN}@gitlab.factory.social.gouv.fr/SocialGouv/standup.git
+    - git clone https://github.com/SocialGouv/${name}.git ${CI_BUILDS_DIR}/${name}
+    - cd ${CI_BUILDS_DIR}/${name}
+    - git remote add gitlab.factory.social.gouv https://SocialGroovyBot:${SOCIALGROOVYBOT_GITLAB_TOKEN}@gitlab.factory.social.gouv.fr/SocialGouv/${name}.git
     - ${CI_PROJECT_DIR}/maintenance/tools/git-mirror-cleaner/bin/git-mirror-cleaner origin gitlab.factory.social.gouv
 
 Sync SocialGouv group jobs:
