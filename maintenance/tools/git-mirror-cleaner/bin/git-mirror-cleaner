@@ -16,8 +16,8 @@ gmc_clean() {
   gmc_set origin "${origin}"
   gmc_set mirror "${mirror}"
 
-  git fetch ${origin} -p
-  git fetch ${mirror} -p
+  git fetch "${origin}" -p
+  git fetch "${mirror}" -p
 
   gmc_set origin_branches "$(gmc_get_remote_branches origin)"
   gmc_set mirror_branches "$(gmc_get_remote_branches mirror)"
@@ -29,15 +29,15 @@ gmc_clean() {
   if [[ -z "${branches_to_remove}" ]]; then
     count_to_remove=0
   else
-    count_to_remove=$( wc -l <<< ${branches_to_remove})
+    count_to_remove=$( wc -l <<< "${branches_to_remove}")
   fi
 
-  if [ ${count_to_remove} -eq 0 ]; then
+  if [ "${count_to_remove}" -eq 0 ]; then
     gmc_echo "Nothing to do"
   else
     gmc_echo "About to remove ${count_to_remove} branches from ${mirror}"
 
-    gmc_remove_mirror_branches $(tr '\n' ' ' <<< ${branches_to_remove})
+    gmc_remove_mirror_branches "$(tr '\n' ' ' <<< "${branches_to_remove}")"
 
     gmc_echo "🧹 Mirror cleaned ✨"
   fi
@@ -52,7 +52,7 @@ gmc_get_remote_branches() {
   fi
 
   local remote
-  remote=$(gmc_get ${1})
+  remote=$(gmc_get "${1}")
 
   if [ -z "${remote}" ]; then
     gmc_err "No '${1}' remote defined"
@@ -71,7 +71,8 @@ gmc_compare_origin_mirror() {
 }
 
 gmc_remove_mirror_branches() {
-  local mirror=$(gmc_get mirror)
+  local mirror
+  mirror=$(gmc_get mirror)
 
   if [ -z "${mirror}" ]; then
     gmc_err "A mirror branch is required."
@@ -84,7 +85,7 @@ gmc_remove_mirror_branches() {
   fi
 
   local branches
-  branches="${@}"
+  branches=$*
   for branch in ${branches}
   do
     sem --will-cite -j+0 "bash -c 'git push ${mirror} \":${branch}\"'"
@@ -95,12 +96,14 @@ gmc_remove_mirror_branches() {
 #
 
 gmc_set() {
-  local file="$(gmc_tmp)/${1}"
+  local file
+  file="$(gmc_tmp)/${1}"
   echo -e "${2}" > "${file}"
 }
 
 gmc_get() {
-  local file="$(gmc_tmp)/${1}"
+  local file
+  file="$(gmc_tmp)/${1}"
   if [ -f "${file}" ]; then
     cat "${file}"
   fi
@@ -146,10 +149,11 @@ gmc_reset() {
 
 #
 
-export GMC_TMP=$(gmc_tmp) || exit $?
+export GMC_TMP
+GMC_TMP=$(gmc_tmp) || exit $?
 # trap "rm -rf "${GMC_TMP}"" EXIT INT TERM
 # trap "gmc_reset" EXIT INT TERM
 
-[ "_${GIT_MIRROR_CLEANER_ENV}" = "_testing" ] || gmc_clean $@
+[ "_${GIT_MIRROR_CLEANER_ENV}" = "_testing" ] || gmc_clean "$@"
 
 }

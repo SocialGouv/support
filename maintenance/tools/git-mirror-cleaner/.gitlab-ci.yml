@@ -1,3 +1,10 @@
+Lint git-mirror-cleaner:
+  extends:
+    - .default_rules
+  image: koalaman/shellcheck-alpine:v0.7.1
+  script:
+    - shellcheck ./maintenance/tools/git-mirror-cleaner/bin/git-mirror-cleaner
+
 Test git-mirror-cleaner:
   extends:
     - .default_rules
