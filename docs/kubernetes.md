@@ -96,7 +96,7 @@ Les variables de configuration qui ne doivent pas être divulgées. Ces variable
 
 Il est recommandé d'utiliser un [_SealedSecret_ par ensemble des variables du context](https://github.com/bitnami-labs/sealed-secrets) et par environnement.
 
-L'équipe SRE est en charge de la gestion des valeurs dans le _SealedSecret_ utilisés par notre projet en dev comme en prod. Les valeurs de dev sont consultables par les développers de la startup en récupérant le _Secret_ du même nom.
+L'équipe SRE est en charge de la gestion des valeurs dans le _SealedSecret_ utilisés par notre projet en dev comme en prod. Les valeurs de dev sont consultables par les développeurs de la startup en récupérant le _Secret_ du même nom.
 
 ```yaml
 # .k8s/environements/dev/hasura-env.configmap.yaml
