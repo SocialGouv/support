@@ -130,7 +130,7 @@ Nous utilisont [_SealedSecret_](https://github.com/bitnami-labs/sealed-secrets) 
 $ kubectl -n sealed-secrets-system logs $(kubectl -n sealed-secrets-system get pod --no-headers -o custom-columns=":metadata.name")
 ```
 
-### Scellé un secret du projet
+### Sceller un secret du projet
 
 Les secrets générer par le code pour sécuriser des communications entre services par example.
 
