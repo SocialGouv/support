@@ -132,7 +132,7 @@ $ kubectl -n sealed-secrets-system logs $(kubectl -n sealed-secrets-system get p
 
 ### Sceller un secret du projet
 
-Les secrets générer par le code pour sécuriser des communications entre services par example.
+Les secrets générés par le code pour sécuriser des communications entre services par exemple.
 
 ```sh
 # Assurez vous de communiquer avec le bon cluster
