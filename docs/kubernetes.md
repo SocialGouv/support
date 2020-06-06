@@ -123,7 +123,7 @@ spec:
 
 ## Scellé un secret dans Kubernetes
 
-Nous utilisont [_SealedSecret_](https://github.com/bitnami-labs/sealed-secrets) pour scellé les secrets.
+Nous utilisons [_SealedSecret_](https://github.com/bitnami-labs/sealed-secrets) pour sceller les secrets.
 
 ```sh
 # Pour consulter les logs du sealed-secrets
