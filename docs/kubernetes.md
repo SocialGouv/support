@@ -72,7 +72,7 @@ On vous recommande de récupérer vos variables d'environnement avec `envFrom`.
 
 ### Variables de configuration
 
-Les variables qui configure le projet dans l'environnement déployé. Ces variables sont prédictible et ne sont pas nécéssairement cachées. Example : `NODE_ENV=PRODUCTION`
+Les variables qui configurent le projet dans l'environnement déployé. Ces variables sont prédictibles et non-chiffrées. Example : `NODE_ENV=PRODUCTION`
 
 Il est recommandé d'utiliser une [_ConfigMap_ par ensemble des variables du context](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables) et par environnement.
 
