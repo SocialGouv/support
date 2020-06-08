@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-{
-
 bathing_main() {
   if [ "$#" -lt 1 ]; then
     echo >&2 "Not enough arguments"
@@ -13,8 +11,12 @@ bathing_main() {
   local group_id
   group_id=$(bathing_group_id "${group_name}")
 
-  bathing_get_projects "${group_id}" \
-  | bathing_trasform_to_gitlab_jobs
+  bathing_get_projects "${group_id}" |
+    jq '[ .[] | select(.name!="conventions-collectives") ]' |
+    jq '[ .[] | select(.name!="maraudes-app") ]' |
+    jq '[ .[] | select(.name!="polyfill-service") ]' |
+    jq '[ .[] | select(.name!="traefigit") ]' |
+    bathing_trasform_to_gitlab_jobs
 }
 
 #
@@ -28,8 +30,8 @@ bathing_group_id() {
   local group_name
   group_name="${1}"
 
-  bathing_gitlab_api_get "/groups" \
-  | jq ".[] | select(.name==\"${group_name}\") .id"
+  bathing_gitlab_api_get "/groups" |
+    jq ".[] | select(.name==\"${group_name}\") .id"
 }
 
 bathing_get_projects() {
@@ -45,10 +47,10 @@ bathing_get_projects() {
 }
 
 bathing_trasform_to_gitlab_jobs() {
-  local dir="$(command cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-  cat \
-  | jq -cf ${dir}/job-template.jq \
-  | yq read --prettyPrint -
+  local dir="$(command cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  cat |
+    jq -cf ${dir}/job-template.jq |
+    yq read --prettyPrint -
 }
 #
 
@@ -86,5 +88,3 @@ bathing_reset() {
 #
 
 [ "_${BATHING_ENV}" = "_testing" ] || bathing_main $@
-
-}
