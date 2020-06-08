@@ -42,6 +42,7 @@ setup() {
     assert_equal "${*}" "42" || exit $?
     echo '[
       {"name": "local", "path_with_namespace": "SuperGroup/local"},
+      {"mirror": true, "name": "traefigit", "path_with_namespace": "SuperGroup/traefigit"},
       {"mirror": true, "name": "foo", "path_with_namespace": "SuperGroup/foo"},
       {"mirror": true, "name": "bar", "path_with_namespace": "SuperGroup/bar"}
     ]'
