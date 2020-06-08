@@ -43,11 +43,6 @@ SocialGouv/carnets:
   - .bathing
   variables:
     name: carnets
-SocialGouv/maraudes-app:
-  extends:
-  - .bathing
-  variables:
-    name: maraudes-app
 SocialGouv/maintenance:
   extends:
   - .bathing
@@ -113,11 +108,6 @@ SocialGouv/legi-detect:
   - .bathing
   variables:
     name: legi-detect
-SocialGouv/polyfill-service:
-  extends:
-  - .bathing
-  variables:
-    name: polyfill-service
 SocialGouv/siret2idcc:
   extends:
   - .bathing
@@ -173,11 +163,6 @@ SocialGouv/dila2sql:
   - .bathing
   variables:
     name: dila2sql
-SocialGouv/traefigit:
-  extends:
-  - .bathing
-  variables:
-    name: traefigit
 SocialGouv/emjpm:
   extends:
   - .bathing
@@ -198,8 +183,4 @@ SocialGouv/standup:
   - .bathing
   variables:
     name: standup
-SocialGouv/conventions-collectives:
-  extends:
-  - .bathing
-  variables:
-    name: conventions-collectives
+
