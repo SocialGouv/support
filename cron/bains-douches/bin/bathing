@@ -12,6 +12,9 @@ bathing_main() {
   group_id=$(bathing_group_id "${group_name}")
 
   bathing_get_projects "${group_id}" |
+    jq '[ .[] | select(.name!="conventions-collectives") ]' |
+    jq '[ .[] | select(.name!="maraudes-app") ]' |
+    jq '[ .[] | select(.name!="polyfill-service") ]' |
     jq '[ .[] | select(.name!="traefigit") ]' |
     bathing_trasform_to_gitlab_jobs
 }
