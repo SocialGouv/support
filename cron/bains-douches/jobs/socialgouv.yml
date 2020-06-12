@@ -1,190 +1,190 @@
 SocialGouv/serving-ml:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: serving-ml
 SocialGouv/support:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: support
 SocialGouv/cdtn-admin:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: cdtn-admin
 SocialGouv/cdtn-monolog:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: cdtn-monolog
 SocialGouv/contributions-data:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: contributions-data
 SocialGouv/cdtn-veille-git:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: veille-git
 SocialGouv/hasura:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: hasura
 SocialGouv/medle:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: medle
 SocialGouv/socialgouv-github-io:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: www
 SocialGouv/carnets:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: carnets
 SocialGouv/maintenance:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: maintenance
 SocialGouv/gitlab-ci-yml:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: gitlab-ci-yml
 SocialGouv/TextStyle:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: TextStyle
 SocialGouv/archifiltre-landing-page:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: archifiltre-landing-page
 SocialGouv/fiches-vdd:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: fiches-vdd
 SocialGouv/legi-data:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: legi-data
 SocialGouv/clone-moi-sur-github:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: clone-moi-sur-github
 SocialGouv/sample-next-app:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: sample-next-app
 SocialGouv/archifiltre:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: archifiltre
 SocialGouv/kali-data:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: kali-data
 SocialGouv/helm-charts:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: helm-charts
 SocialGouv/ds-dashboard:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: ds-dashboard
 SocialGouv/legi-detect:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: legi-detect
 SocialGouv/siret2idcc:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: siret2idcc
 SocialGouv/domifa:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: domifa
 SocialGouv/docker:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: docker
 SocialGouv/dila-api-client:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: dila-api-client
 SocialGouv/react-departements:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: react-departements
 SocialGouv/code-du-travail-numerique:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: code-du-travail-numerique
 SocialGouv/work-in-france:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: work-in-france
 SocialGouv/work-in-france-backoffice:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: work-in-france-backoffice
 SocialGouv/ds-aggregator:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: ds-aggregator
 SocialGouv/egapro:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: egapro
 SocialGouv/dila2sql:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: dila2sql
 SocialGouv/emjpm:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: emjpm
 SocialGouv/code-du-travail-backoffice:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: code-du-travail-backoffice
 SocialGouv/tremplin:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: tremplin
 SocialGouv/standup:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: standup
