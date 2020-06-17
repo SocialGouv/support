@@ -1,3 +1,13 @@
+SocialGouv/egapro-api:
+  extends:
+    - .bathing
+  variables:
+    name: egapro-api
+SocialGouv/cdtn-api:
+  extends:
+    - .bathing
+  variables:
+    name: cdtn-api
 SocialGouv/serving-ml:
   extends:
     - .bathing
