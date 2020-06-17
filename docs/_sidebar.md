@@ -12,6 +12,7 @@
     - [Développement](developpement.md)
     - [Sécurité](securite.md)
     - [Kubernetes](kubernetes.md)
+    - [Tests](tests.md)
 
 * Infrastructure
 
