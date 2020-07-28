@@ -90,7 +90,7 @@ data:
   PRODUCTION: "false"
 ```
 
-### Variables secrets
+### Sealed-secrets : Variables secretes
 
 Les variables de configuration secretes qui doivent être chiffrées. Example : `JWT_SECRET=xxxxxxx`
 
