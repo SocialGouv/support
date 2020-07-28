@@ -151,7 +151,7 @@ $ gpg --gen-random --armor 1 128 \
 
 ### Sceller un secret d'infra
 
-Les secrets générer par l'infra pour accéder à des services comme un base de données managées par example.
+Les secrets générés par l'infra pour accéder à des services comme une base de données managée par exemple.
 
 ```sh
 # Assurez vous de communiquer avec le bon cluster
