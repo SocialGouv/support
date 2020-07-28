@@ -92,7 +92,7 @@ data:
 
 ### Variables secrets
 
-Les variables de configuration qui ne doivent pas être divulguées. Ces variables sont sensibles et doivent être offusquées. Example : `JWT_SECRET=xxxxxxx`
+Les variables de configuration secretes qui doivent être chiffrées. Example : `JWT_SECRET=xxxxxxx`
 
 Il est recommandé d'utiliser un [_SealedSecret_ par ensemble des variables du context](https://github.com/bitnami-labs/sealed-secrets) et par environnement.
 
