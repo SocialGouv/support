@@ -70,7 +70,7 @@ On vous recommande de récupérer vos variables d'environnement dans vos contain
         name: app-env
 ```
 
-### Variables de configuration
+### ConfigMap : Variables de configuration
 
 Les variables qui configurent le projet dans l'environnement déployé. Ces variables sont prédictibles et non-chiffrées. Example : `NODE_ENV=PRODUCTION`
 
