@@ -142,7 +142,7 @@ $ export SEALED_SECRETS_CERT=https://kubeseal.dev2.fabrique.social.gouv.fr/v1/ce
 # Scelle le secret jwt d'hasura par example
 $ printf '{"type":"HS256","key": "'$(gpg --gen-random --armor 1 512)'"}' \
   | kubectl create secret generic app-env -o yaml --dry-run=client --from-file=HASURA_GRAPHQL_JWT_SECRET=/dev/stdin \
-  | kubeseal -o yaml --scope cluster-wide --merge-into .k8s/environements/prod/hasura-env.sealed-secret.yaml
+  | kubeseal -o yaml --merge-into .k8s/environements/prod/hasura-env.sealed-secret.yaml
 # Scelle le mot de passe admin d'hasura par example
 $ gpg --gen-random --armor 1 128 \
   | kubectl create secret generic app-env -o yaml --dry-run=client --from-file=HASURA_GRAPHQL_ADMIN_SECRET=/dev/stdin \
