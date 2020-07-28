@@ -149,7 +149,7 @@ $ gpg --gen-random --armor 1 128 \
   | kubeseal -o yaml --scope cluster-wide --merge-into .k8s/environements/dev/hasura-env.sealed-secret.yaml
 ```
 
-### Scellé un secret d'infra
+### Sceller un secret d'infra
 
 Les secrets générer par l'infra pour accéder à des services comme un base de données managées par example.
 
