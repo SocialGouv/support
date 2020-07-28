@@ -74,7 +74,7 @@ On vous recommande de récupérer vos variables d'environnement dans vos contain
 
 Les variables qui configurent le projet dans l'environnement déployé. Ces variables sont prédictibles et non-chiffrées. Example : `NODE_ENV=PRODUCTION`
 
-Il est recommandé d'utiliser une [_ConfigMap_ par ensemble des variables du context](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables) et par environnement.
+Il est recommandé d'utiliser une [_ConfigMap_ par container](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#configure-all-key-value-pairs-in-a-configmap-as-container-environment-variables) et par environnement.
 
 ```yaml
 # .k8s/environements/dev/app-env.configmap.yaml
