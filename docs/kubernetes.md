@@ -59,7 +59,7 @@ Une sonde [sentry-kubernetes](https://github.com/getsentry/sentry-kubernetes) es
 
 ## Variable d'environnement dans Kubernetes
 
-On vous recommande de récupérer vos variables d'environnement avec `envFrom`.
+On vous recommande de récupérer vos variables d'environnement dans vos containers avec `envFrom`. Ceci permet de récupérer directement toutes les variables contenues dans une ConfigMap et/ou un Sealed-Secret. 
 
 ```yaml
 # [...]
