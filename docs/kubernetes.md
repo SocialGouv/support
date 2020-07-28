@@ -94,7 +94,7 @@ data:
 
 Les variables de configuration secretes qui doivent être chiffrées. Example : `JWT_SECRET=xxxxxxx`
 
-Il est recommandé d'utiliser un [_SealedSecret_ par ensemble des variables du context](https://github.com/bitnami-labs/sealed-secrets) et par environnement.
+Il est recommandé d'utiliser un [_SealedSecret_ par container](https://github.com/bitnami-labs/sealed-secrets) et par environnement.
 
 L'équipe SRE est en charge de la gestion des valeurs dans le _SealedSecret_ utilisés par notre projet en dev comme en prod. Les valeurs de dev sont consultables par les développeurs de la startup en récupérant le _Secret_ du même nom.
 
