@@ -121,7 +121,7 @@ spec:
     HASURA_GRAPHQL_JWT_SECRET: zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz==
 ```
 
-## Scellé un secret dans Kubernetes
+## Sceller un secret dans Kubernetes
 
 Nous utilisons [_SealedSecret_](https://github.com/bitnami-labs/sealed-secrets) pour sceller les secrets.
 
