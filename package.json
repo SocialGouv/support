@@ -7,7 +7,7 @@
   "repository": "https://github.com/socialgouv/support",
   "license": "Apache-2.0",
   "devDependencies": {
-    "docsify": "4.11.3"
+    "docsify": "4.11.6"
   },
   "scripts": {
     "start": "docsify serve docs"
