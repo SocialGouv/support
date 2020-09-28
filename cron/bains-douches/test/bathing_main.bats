@@ -54,12 +54,12 @@ setup() {
   run bathing_main supergroup
   assert_output "SuperGroup/foo:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: foo
 SuperGroup/bar:
   extends:
-  - .bathing
+    - .bathing
   variables:
     name: bar"
   assert_success
