@@ -1,3 +1,28 @@
+SocialGouv/onvs:
+  extends:
+    - .bathing
+  variables:
+    name: onvs
+SocialGouv/datafiller-data:
+  extends:
+    - .bathing
+  variables:
+    name: datafiller-data
+SocialGouv/archifiltre-site:
+  extends:
+    - .bathing
+  variables:
+    name: archifiltre-site
+SocialGouv/emjpm-portail:
+  extends:
+    - .bathing
+  variables:
+    name: emjpm-portail
+SocialGouv/emjpm-editor-app:
+  extends:
+    - .bathing
+  variables:
+    name: emjpm-editor-app
 SocialGouv/egapro-api:
   extends:
     - .bathing
