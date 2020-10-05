@@ -129,6 +129,7 @@ Côté base de données, un audit log peut être nécessaire. Ex: https://github
 
 ### Docker
 
+- https://www.ssi.gouv.fr/administration/publication/recommandations-de-securite-relatives-au-deploiement-de-conteneurs-docker/
 - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 - https://snyk.io/blog/10-docker-image-security-best-practices/
 - https://github.com/OWASP/Docker-Security
