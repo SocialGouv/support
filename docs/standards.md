@@ -6,10 +6,10 @@
 
 💡 A lire, la [Politique de contribution aux logiciels libres de l’État](https://www.numerique.gouv.fr/publications/politique-logiciel-libre/)
 
-## [Développement](./developpement.md)
+- [Développement](./developpement.md)
 
-## [Sécurité](./securite.md)
+- [Sécurité](./securite.md)
 
-## [Kubernetes](./kubernetes.md)
+- [Kubernetes](./kubernetes.md)
 
-## [Tests](./tests.md)
+- [Tests](./tests.md)

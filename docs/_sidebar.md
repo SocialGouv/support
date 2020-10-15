@@ -24,7 +24,9 @@
   - [Linters](https://github.com/SocialGouv/linters)
   - [Renovate](https://github.com/SocialGouv/renovate-config)
   - [Images docker](https://github.com/SocialGouv/docker)
-  - [Packages helm](https://github.com/SocialGouv/helm-charts)
   - [Jobs GitLab](https://github.com/SocialGouv/gitlab-ci-yml)
+  - [Packages helm](https://github.com/SocialGouv/helm-charts)
+  - [Packages Kosko](https://github.com/SocialGouv/kosko-charts)
+  - [sre-tools](https://github.com/SocialGouv/sre-tools)
 
 * [**FAQ**](faq.md)
