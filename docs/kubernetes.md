@@ -41,6 +41,19 @@ Pour faire du profiling comme pour faire de l'analyse sur des données métier, 
 
 Le format des données exposées sur `/metrics` doit être en _Open Metrics_, et c'est généralement dispo dans les _libs_ & _frameworks_ que vous utilisez déjà. Un exemple de ce que l'on peut faire avec NodeJS : https://blog.risingstack.com/node-js-performance-monitoring-with-prometheus/
 
+Exemple de route `/metrics` :
+
+```
+appname_users_count 851
+appname_active_users_7days_count  71
+appname_session_count 23
+appname_publics_products_count 266
+appname_products_count 341
+appname_auditlog_count  12061
+```
+
+Voir les [best practices pour les métriques Prometheus](https://prometheus.io/docs/practices/naming/)
+
 ## Les outils pour utiliser kubernetes
 
 L'équipe SRE vous accompagne pour créer les [pipelines de déploiement](https://github.com/SocialGouv/gitlab-ci-yml) de vos applications vers k8s.
