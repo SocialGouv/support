@@ -57,17 +57,19 @@ Plus de détails sur l'administration kube avec k9s sur [cet article](https://op
 
 Une sonde [sentry-kubernetes](https://github.com/getsentry/sentry-kubernetes) est installée sur le cluster et permet de remonter toutes les erreurs : CronJob failed, probes... C'est une source d'information préciseuse quand quelque chose ne fonctionne pas dans vos déploiements. L'accès doit être demandé à la team SRE.
 
+[Grafana](https://grafana.fabrique.social.gouv.fr) permet de superviser finement tous les environnements, VMs et bases de données.
+
 ## Variable d'environnement dans Kubernetes
 
-On vous recommande de récupérer vos variables d'environnement dans vos containers avec `envFrom`. Ceci permet de récupérer directement toutes les variables contenues dans une ConfigMap et/ou un Sealed-Secret. 
+On vous recommande de récupérer vos variables d'environnement dans vos containers avec `envFrom`. Ceci permet de récupérer directement toutes les variables contenues dans une ConfigMap et/ou un Sealed-Secret.
 
 ```yaml
 # [...]
-  envFrom:
-    - configMapRef:
-        name: app-env
-    - secretRef:
-        name: app-env
+envFrom:
+  - configMapRef:
+      name: app-env
+  - secretRef:
+      name: app-env
 ```
 
 ### ConfigMap : Variables de configuration
@@ -106,14 +108,14 @@ metadata:
   name: hasura-env
   creationTimestamp:
   annotations:
-    sealedsecrets.bitnami.com/cluster-wide: 'true'
+    sealedsecrets.bitnami.com/cluster-wide: "true"
 spec:
   template:
     metadata:
       name: hasura-env
       creationTimestamp:
       annotations:
-        sealedsecrets.bitnami.com/cluster-wide: 'true'
+        sealedsecrets.bitnami.com/cluster-wide: "true"
     type: Opaque
   encryptedData:
     ACCOUNT_EMAIL_SECRET: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx==
@@ -123,42 +125,8 @@ spec:
 
 ## Sceller un secret dans Kubernetes
 
-Nous utilisons [_SealedSecret_](https://github.com/bitnami-labs/sealed-secrets) pour sceller les secrets.
+Nous utilisons [_SealedSecret_](https://github.com/bitnami-labs/sealed-secrets) pour chiffrer les secrets.
 
-```sh
-# Pour consulter les logs du sealed-secrets
-$ kubectl -n sealed-secrets-system logs $(kubectl -n sealed-secrets-system get pod --no-headers -o custom-columns=":metadata.name")
-```
+Les secrets sont alors versionnés dans GIT et déchiffrables uniquement au niveau du cluster.
 
-### Sceller un secret du projet
-
-Les secrets générés par le code pour sécuriser des communications entre services par exemple.
-
-```sh
-# Assurez vous de communiquer avec le bon cluster
-$ export KUBECONFIG=~/.kube/config-dev2
-# Assurez vous d'avoir le certificat correspondant au cluster
-$ export SEALED_SECRETS_CERT=https://kubeseal.dev2.fabrique.social.gouv.fr/v1/cert.pem
-# Scelle le secret jwt d'hasura par example
-$ printf '{"type":"HS256","key": "'$(gpg --gen-random --armor 1 512)'"}' \
-  | kubectl create secret generic app-env -o yaml --dry-run=client --from-file=HASURA_GRAPHQL_JWT_SECRET=/dev/stdin \
-  | kubeseal -o yaml --merge-into .k8s/environements/prod/hasura-env.sealed-secret.yaml
-# Scelle le mot de passe admin d'hasura par example
-$ gpg --gen-random --armor 1 128 \
-  | kubectl create secret generic app-env -o yaml --dry-run=client --from-file=HASURA_GRAPHQL_ADMIN_SECRET=/dev/stdin \
-  | kubeseal -o yaml --scope cluster-wide --merge-into .k8s/environements/dev/hasura-env.sealed-secret.yaml
-```
-
-### Sceller un secret d'infra
-
-Les secrets générés par l'infra pour accéder à des services comme une base de données managée par exemple.
-
-```sh
-# Assurez vous de communiquer avec le bon cluster
-$ export KUBECONFIG=~/.kube/config-dev2
-# Assurez vous d'avoir le certificat correspondant au cluster
-$ export SEALED_SECRETS_CERT=https://kubeseal.dev2.fabrique.social.gouv.fr/v1/cert.pem
-# Les secrets générées par l'infra sont disponibles dans le namespace "<projet_name>-secret"
-$ kubectl -n sample-next-app-secret get secret azure-pg-admin-user -o json | kubeseal | jq ".spec.encryptedData.PGHOST"
-"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=="
-```
+Le repo [`sre-tools`](https://github.com/SocialGouv/sre-tools) offre un CLI pour générer facilement les secrets et les ajouter dans votre projet.
