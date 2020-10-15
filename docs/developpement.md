@@ -47,8 +47,6 @@ Si vous utilisez le pipeline AutoDevOps fournit par [`@socialgouv/gitlab-ci-yml`
 
 ## Services à disposition
 
-- Web analytics : https://matomo.fabrique.social.gouv.fr
-- Suivi des exceptions : https://sentry.fabrique.social.gouv.fr
-- SMTP : https://tipimail.com
+Plusieurs services sont disponibles, [cf infrastucture](infrastructure?id=services-transverses)
 
 L'accès à ces services est à demander au besoin à l'équipe SRE.
