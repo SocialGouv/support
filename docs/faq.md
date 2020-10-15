@@ -2,7 +2,7 @@
 
 ## Installer semantic-release pour publier sur npm
 
-> Les packages npm doivent être publiés en tant que `@socialgouv/package-name`. 
+> Les packages npm doivent être publiés en tant que `@socialgouv/package-name`.
 > Le champ author doit être positionné à `Fabrique numérique des Ministères Sociaux <contact@fabrique.social.gouv.fr> (https://fabrique.social.gouv.fr)`
 
 [semantic-release](https://github.com/semantic-release/semantic-release) permet de publier automatiquement votre package npm selon les règles de votre workflow GitHub.
@@ -22,7 +22,6 @@ Le groupe GitHub `SocialGouv` fournit plusieurs `secrets` utilisables dans vos j
 - `SOCIALGROOVYBOT_EMAIL`
 
 Ces trois variables vous permettent de commiter et publier sur npm dans le scope `@socialgouv` directement. cf [exemple](https://github.com/SocialGouv/linters/blob/e0d4f43ed2b8999f4e6662604be9695508598851/.github/workflows/ci.yml#L58-L76)
-
 
 ## Utilisation de renovate
 
@@ -73,3 +72,27 @@ Pour utiliser GitLab et y faire tourner des jobs de CI/CD, il faut :
 - choisir le projet GitHub source
 
 GitLab synchronisera alors automatiquement le repo à chaque push sur GitHub et executera les jobs définis dans `.gitlab-ci.yml`
+
+## Next.js
+
+### Variables d'environnement côté frontend
+
+La [methode actuellement recommandée](https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration) est de préfixer ses variables avec `NEXT_PUBLIC_` et de les définir dans les settings/variables de votre projet GitLab. vous pouvez alors les récupérer avec un simple `process.env` dans le code client ou serveur.
+
+## Hasura
+
+### JWK_KEY
+
+Il vaut mieux utiliser une `JWK_KEY` statique plutôt qu'une `JWK_URL` qui nécessite que l'url soit disponible au démarrage d'hasura.
+
+## Kubernetes
+
+### comment débugger
+
+Utiliser rancher ou k9s pour aller dans votre namespace puis votre pod et inspecter les logs et events.
+
+### requests/limits
+
+Pour optimiser ces valeurs, scruter les graphs de grafana. Les `requests` sont les ressources minimales requises pour démarrer un pod. Les `limits` vont capper le CPU, et si la mémoire utilisée excède la limite définie, le pod sera tué et redémarré.
+
+Il est important d'ajuster finement ces valeurs pour optimiser les ressources sur le cluster et pouvoir aller vers de la scalabilité.
