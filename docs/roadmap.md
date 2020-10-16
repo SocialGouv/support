@@ -8,7 +8,7 @@
 
 #### 2. Développement de la Sample App
 
-- La sample recense les best practices à mettre en place
+- La sample-app recense les best practices à mettre en place
 - Elle inclus un pipeline K8S fonctionnel
 - Est maintenue par la communauté
 

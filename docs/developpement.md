@@ -13,23 +13,23 @@ GitHub est utilisé pour tous nos projets publics et exceptionnellement notre Gi
 - Conventionner le versionning : https://semver.org
 - Conventionner les commentaires : https://conventionalcomments.org/
 - Releaser sur GitHub/npm : avec [semantic-release](https://github.com/semantic-release/semantic-release) cf [la FAQ](/faq?id=installer-semantic-release)
+- Récupérer les erreurs applicatives dans notre sentry
 
 Nous encourageons l'utilisation de [semantic-release](/faq?id=installer-semantic-release) pour générer automagiquement les changelogs et releases.
 
 ### GIT Flow
 
-> les `releases` sont déclenchées via un Job manuel du pipeline et executent `semantic-release`
-
-[![](_media/git-flow-simple.png ":size=700x280")](https://excalidraw.com/#json=5398147975086080,1ttD0NIStZBZ8mcBLOEOPg)
+[![](_media/git-flow-simple.png ":size=700x280")](https://excalidraw.com/#json=6310453672148992,FwMPM_CsC9gVxxdMN2WzzA)
 
 - La branche par défaut est `master`
-- les `pull-requests` permettent de déployer des environnements de review.
-- Le clic sur le job `release` déclenche le déploiement d'un envrironnement de `pré-production`.
-- Le clic sur `deploy to prod` depuis un pipeline de release déclenche une mise en production.
+- Chaque `pull-request` permet de déployer un environnement de review.
+- Le clic sur le job `release` déclenche le déploiement d'un environnement de `pré-production`.
+- Le clic sur `trigger prodution` depuis un pipeline de release déclenche une mise en production.
 
-Ce flow est expliqué en détail dans https://nvie.com/posts/a-successful-git-branching-model
+Si vous utilisez le pipeline AutoDevOps fournit par [`@socialgouv/gitlab-ci-yml`](https://github.com/SocialGouv/gitlab-ci-yml/), vous pouvez automatiser certaines étapes :
 
-> 💡 Une fois le premier MVP réalisé, la branche `master` est protégée par des code reviews.
+- `AUTODEVOPS_RELEASE_AUTO` : chaque merge sur master déclenchera le process de release
+- `AUTODEVOPS_PRODUCTION_AUTO` : chaque nouvelle release déclenchera une mise en production
 
 ### Urls des environnements
 
@@ -37,7 +37,7 @@ Ce flow est expliqué en détail dans https://nvie.com/posts/a-successful-git-br
 | ----------------------------------------------- | ---------------- |
 | feature-x-[PRODUIT].dev.fabrique.social.gouv.fr | feature branches |
 | master-[PRODUIT].dev.fabrique.social.gouv.fr    | latest           |
-| vX.Y.Z-[PRODUIT].dev.fabrique.social.gouv.fr    | releases         |
+| preprod.dev.fabrique.social.gouv.fr             | releases         |
 | [PRODUIT].fabrique.social.gouv.fr               | production       |
 
 ## Accessibilité (A11Y)
@@ -47,8 +47,6 @@ Ce flow est expliqué en détail dans https://nvie.com/posts/a-successful-git-br
 
 ## Services à disposition
 
-- Web analytics : https://matomo.fabrique.social.gouv.fr
-- Suivi des exceptions : https://sentry.fabrique.social.gouv.fr
-- SMTP : https://tipimail.com
+Plusieurs services sont disponibles, [cf infrastucture](infrastructure?id=services-transverses)
 
 L'accès à ces services est à demander au besoin à l'équipe SRE.

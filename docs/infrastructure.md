@@ -22,6 +22,15 @@ La fabrique propose des [Postgres managés](https://azure.microsoft.com/fr-fr/se
 
 La restauration des données se fait sur demande à l'équipe OPS.
 
+## Services transverses
+
+| Service                                            | Usage                          |
+| -------------------------------------------------- | ------------------------------ |
+| [Matomo](https://matomo.fabrique.social.gouv.fr)   | Tracking web RGPD-friendly     |
+| [Sentry](https://sentry.fabrique.social.gouv.fr)   | Logs d'exceptions applicatives |
+| [Tipimail](https://tipimail.com)                   | Emails transctionnels          |
+| [Grafana](https://grafana.fabrique.social.gouv.fr) | Monitoring / supervision       |
+
 ## On-demand
 
 Si vous avez d'autres besoins, l'équipe SRE est à votre disposition pour en discuter.
