@@ -19,7 +19,7 @@ Nous encourageons l'utilisation de [semantic-release](/faq?id=installer-semantic
 
 ### GIT Flow
 
-[![](_media/git-flow-simple.png ":size=700x280")](https://excalidraw.com/#json=5398147975086080,1ttD0NIStZBZ8mcBLOEOPg)
+[![](_media/git-flow-simple.png ":size=700x280")](https://excalidraw.com/#json=6310453672148992,FwMPM_CsC9gVxxdMN2WzzA)
 
 - La branche par défaut est `master`
 - Chaque `pull-request` permet de déployer un environnement de review.
