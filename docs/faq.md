@@ -77,7 +77,7 @@ GitLab synchronisera alors automatiquement le repo à chaque push sur GitHub et 
 
 ### Variables d'environnement côté frontend
 
-La [methode actuellement recommandée](https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration) est de préfixer ses variables avec `NEXT_PUBLIC_` et de les définir dans les settings/variables de votre projet GitLab. vous pouvez alors les récupérer avec un simple `process.env` dans le code client ou serveur.
+La [methode actuellement recommandée](https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration) est d'utiliser des variables au build time en les prefixant par `NEXT_PUBLIC_` et en les ajoutant dans les settings/variables de votre projet GitLab. Vous pouvez alors les récupérer avec un simple `process.env` dans le code client ou serveur.
 
 ## Hasura
 
