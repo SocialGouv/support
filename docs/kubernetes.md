@@ -44,12 +44,24 @@ Le format des données exposées sur `/metrics` doit être en _Open Metrics_, et
 Exemple de route `/metrics` :
 
 ```
-appname_users_count 851
-appname_active_users_7days_count  71
-appname_session_count 23
-appname_publics_products_count 266
-appname_products_count 341
-appname_auditlog_count  12061
+# HELP appname_users_count Nombre total d'utilisateurs
+# TYPE appname_users_count counter
+appname_users_count 7
+# HELP appname_users_7days_count Utilisateurs actifs sur les 7 derniers jours
+# TYPE appname_users_7days_count counter
+appname_active_users_7days_count  0
+# HELP appname_session_count Sessions ouvertes
+# TYPE appname_session_count gauge
+appname_session_count 0
+# HELP appname_publics_products_count Nombre de produits publics
+# TYPE appname_publics_products_count counter
+appname_publics_products_count 9
+# HELP appname_products_count Nombre de produits total
+# TYPE appname_products_count counter
+appname_products_count 13
+# HELP appname_auditlog_count Nombre d'events dans l'auditlog PG
+# TYPE appname_auditlog_count counter
+appname_auditlog_count  245
 ```
 
 Voir les [best practices pour les métriques Prometheus](https://prometheus.io/docs/practices/naming/)
