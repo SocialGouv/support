@@ -79,6 +79,18 @@ GitLab synchronisera alors automatiquement le repo à chaque push sur GitHub et 
 
 La [methode actuellement recommandée](https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration) est d'utiliser des variables au build time en les prefixant par `NEXT_PUBLIC_` et en les ajoutant dans les settings/variables de votre projet GitLab. Vous pouvez alors les récupérer avec un simple `process.env` dans le code client ou serveur.
 
+## Azure Postgres
+
+### `ERROR: cannot execute xxx in a read-only transaction`
+
+Si le serveur est trop plein, il se met automatiquement en "read-only". Pour pouvoir faire le ménage, executer `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` pour reactiver la mode "writeable".
+
+Voir aussi la doc [Microsoft](https://docs.microsoft.com/fr-fr/azure/postgresql/concepts-pricing-tiers?WT.mc_id=Portal-Microsoft_Azure_Support#reaching-the-storage-limit).
+
+### `Too many failed login attempts`
+
+Par défaut, le `connection_throttling` est activé sur les logins PG. Il peut se désactiver via la console Azure PG / Server parameters puis désactiver  `connection_throttling`.
+
 ## Hasura
 
 ### JWK_KEY
