@@ -11,7 +11,7 @@ Le code applicatif qui à terme sera déployé sur un cluster Kubernetes se doit
 Les principales recommandations sont:
 
 - Versionnement du code (GIT)
-- **Exposition d’une _URL_ de _healthcheck_** sur `/health`
+- **Exposition d’une _URL_ de _healthcheck_** sur `/healthz`
 - **Application _stateless_**
 - **Configuration par variables d’environnement**
 - **La sortie des logs sur la sortie standard ou la sortie d’erreur**
