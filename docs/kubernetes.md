@@ -11,7 +11,7 @@ Le code applicatif qui à terme sera déployé sur un cluster Kubernetes se doit
 Les principales recommandations sont:
 
 - Versionnement du code (GIT)
-- **Exposition d’une _URL_ de _healthcheck_** sur `/health`
+- **Exposition d’une _URL_ de _healthcheck_** sur `/healthz`
 - **Application _stateless_**
 - **Configuration par variables d’environnement**
 - **La sortie des logs sur la sortie standard ou la sortie d’erreur**
@@ -37,7 +37,7 @@ _Long story short_ :
 
 ### Exposer les métriques de mon application
 
-Pour faire du profiling comme pour faire de l'analyse sur des données métier, vous pouver exposer un endpoint `/metrics` (ou avec un autre nom mais c'est un standard d'usage) qui sera scrappé par _Prometheus_, la brique de collecte du cluster K8s.
+Pour faire du profiling comme pour faire de l'analyse sur des données métier, vous pouver exposer un endpoint `/metrics` (ou avec un autre path mais c'est une convention) qui sera scrappé par _Prometheus_, la brique de collecte du cluster K8s.
 
 Le format des données exposées sur `/metrics` doit être en _Open Metrics_, et c'est généralement dispo dans les _libs_ & _frameworks_ que vous utilisez déjà. Un exemple de ce que l'on peut faire avec NodeJS : https://blog.risingstack.com/node-js-performance-monitoring-with-prometheus/
 
@@ -80,7 +80,7 @@ Pour accéder à votre cluster :
 
 Plus de détails sur l'administration kube avec k9s sur [cet article](https://opensource.com/article/20/5/kubernetes-administration).
 
-Une sonde [sentry-kubernetes](https://github.com/getsentry/sentry-kubernetes) est installée sur le cluster et permet de remonter toutes les erreurs : CronJob failed, probes... C'est une source d'information préciseuse quand quelque chose ne fonctionne pas dans vos déploiements. L'accès doit être demandé à la team SRE.
+Une sonde [sentry-kubernetes](https://github.com/getsentry/sentry-kubernetes) est installée sur le cluster et permet de remonter toutes les erreurs : CronJob failed, probes... C'est une source d'information précieuse quand quelque chose ne fonctionne pas dans vos déploiements. L'accès doit être demandé à la team SRE.
 
 [Grafana](https://grafana.fabrique.social.gouv.fr) permet de superviser finement tous les environnements, VMs et bases de données.
 
