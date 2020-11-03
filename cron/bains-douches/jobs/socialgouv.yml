@@ -98,11 +98,6 @@ SocialGouv/TextStyle:
     - .bathing
   variables:
     name: TextStyle
-SocialGouv/archifiltre-landing-page:
-  extends:
-    - .bathing
-  variables:
-    name: archifiltre-landing-page
 SocialGouv/fiches-vdd:
   extends:
     - .bathing
