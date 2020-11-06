@@ -203,11 +203,11 @@ SocialGouv/emjpm:
     - .bathing
   variables:
     name: emjpm
-SocialGouv/code-du-travail-backoffice:
+SocialGouv/cdtn-contrib:
   extends:
     - .bathing
   variables:
-    name: code-du-travail-backoffice
+    name: cdtn-contrib
 SocialGouv/tremplin:
   extends:
     - .bathing
