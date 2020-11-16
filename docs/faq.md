@@ -4,6 +4,7 @@
 
 > Les packages npm doivent être publiés en tant que `@socialgouv/package-name`.
 > Le champ author doit être positionné à `Fabrique numérique des Ministères Sociaux <contact@fabrique.social.gouv.fr> (https://fabrique.social.gouv.fr)`
+> La licence pas défaut doit-être Apache-2.0
 
 [semantic-release](https://github.com/semantic-release/semantic-release) permet de publier automatiquement votre package npm selon les règles de votre workflow GitHub.
 
@@ -89,7 +90,7 @@ Voir aussi la doc [Microsoft](https://docs.microsoft.com/fr-fr/azure/postgresql/
 
 ### `Too many failed login attempts`
 
-Par défaut, le `connection_throttling` est activé sur les logins PG. Il peut se désactiver via la console Azure PG / Server parameters puis désactiver  `connection_throttling`.
+Par défaut, le `connection_throttling` est activé sur les logins PG. Il peut se désactiver via la console Azure PG / Server parameters puis désactiver `connection_throttling`.
 
 ## Hasura
 
@@ -112,4 +113,3 @@ Il est important d'ajuster finement ces valeurs pour optimiser les ressources su
 ### Lancer un job de backup de la BDD
 
 Des jobs de backup des BDDs sont executés quotidiennement. Pour forcer un nouveau backup pour l'appli `xxx`, lancer `kubectl --context prod2 --namespace xxx create job --from=cronjob/backup-db-xxx my-backup`.
-
