@@ -117,6 +117,12 @@ data:
   PRODUCTION: "false"
 ```
 
+### Ingress : routing vers vos applications
+
+Nos clusters fournissent le routing et les certificats SSL vers vos applications via un `nginx ingress controller`.
+
+Chaque service exposé de votre application doit déclarer une `ingress rule` spécifique qui peut comporter des annotations spécifiques pour contôler les paramètres nginx (redirections, auth, rate-limiting...). cf [annotation ingress nginx](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations).
+
 ### Sealed-secrets : Variables secretes
 
 Les variables de configuration secretes qui doivent être chiffrées. Example : `JWT_SECRET=xxxxxxx`
