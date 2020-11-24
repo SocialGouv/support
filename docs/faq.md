@@ -76,7 +76,7 @@ GitLab synchronisera alors automatiquement le repo à chaque push sur GitHub et 
 
 ### `> ENOSPC: no space left on device, write`
 
-Ceci peut se produire lorsqu'il n'y a pas assez de mémoire pour le build docker.
+Ceci peut se produire lorsqu'il n'y a pas assez de mémoire pour le build docker dans un runner GitLab.
 
 Augmentez la mémoire dans les arguments de build docker `--shm-size 768M` (`DOCKER_BUILD_ARGS` dans l'autodevops)
 
