@@ -62,13 +62,13 @@ Pour une maintenance raisonnée de votre projet
 
 renovate propose de [nombreuses options](https://docs.renovatebot.com/) pour étendre ces `presets` et les adapter à vos besoins.
 
-Il est possible de consulter les logs des jobs renovate ici : https://app.renovatebot.com/dashboard
+Il est possible de consulter les logs des jobs renovate ici : <https://app.renovatebot.com/dashboard>
 
 ## Utiliser la CI GitLab
 
 Pour utiliser GitLab et y faire tourner des jobs de CI/CD, il faut :
 
-- créer un compte sur https://gitlab.factory.social.gouv.fr avec l'auth GitHub
+- créer un compte sur <https://gitlab.factory.social.gouv.fr> avec l'auth GitHub
 - créer un nouveau projet en choissant "CI/CD pipelines for external repo"
 - choisir le projet GitHub source
 
@@ -113,3 +113,62 @@ Il est important d'ajuster finement ces valeurs pour optimiser les ressources su
 ### Lancer un job de backup de la BDD
 
 Des jobs de backup des BDDs sont executés quotidiennement. Pour forcer un nouveau backup pour l'appli `xxx`, lancer `kubectl --context prod2 --namespace xxx create job --from=cronjob/backup-db-xxx my-backup`.
+
+## Mattermost
+
+### Mattermost Github integration
+
+Se connecter en utilisant le client Web (semble ne pas fonctionner sinon): <https://mattermost.fabrique.social.gouv.fr>
+
+Dans n'importe quel canal, taper:
+
+```bash
+/github connect
+```
+
+Puis cliquer sur le lien qui apparait pour autoriser l'accès à votre compte github.
+
+Commandes utiles:
+
+```bash
+# activer les notifications
+/github settings notifications on
+
+# s'abonner à un repo (pulls,issues,creates,deletes)
+/github subscriptions add SocialGouv/domifa
+
+# liste ses abonnements:
+/github subscriptions list
+```
+
+Source du plugin: <https://github.com/softdevteam/mattermost-github-integration>
+
+### Mattermost Gitlab integration
+
+Se connecter en utilisant le client Web (semble ne pas fonctionner sinon): <https://mattermost.fabrique.social.gouv.fr>
+
+Dans n'importe quel canal, taper:
+
+```bash
+/gitlab connect
+```
+
+Puis cliquer sur le lien qui apparait pour autoriser l'accès à votre compte gitlab.
+
+Commandes utiles:
+
+```bash
+# activer les notifications
+/gitlab settings notifications on
+
+# s'abonner à un repo (merges,issues,tag)
+/gitlab subscriptions add SocialGouv/domifa
+
+# si le plugin le demande, créer le webhook correspondant:
+/gitlab webhook add SocialGouv/domifa
+
+# liste ses abonnements:
+/gitlab subscriptions list
+```
+
+Source du plugin: <https://github.com/NotSqrt/mattermost-integration-gitlab>

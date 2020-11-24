@@ -53,7 +53,7 @@ sequenceDiagram
 
 ## Communication
 
-La communication courante entres les différentes équipes (Devs, SRE, Ops) se fait sur Mattermost.
+La communication courante entres les différentes équipes (Devs, SRE, Ops) se fait sur Mattermost (consulter la [FAQ](./faq.md) pour la configuration des plugins).
 
 Les demandes de supports sont faites via des [issues sur Github](https://github.com/SocialGouv/support/issues/new/choose), des Devs vers l'équipe SRE
 
