@@ -74,7 +74,7 @@ Pour utiliser GitLab et y faire tourner des jobs de CI/CD, il faut :
 
 GitLab synchronisera alors automatiquement le repo à chaque push sur GitHub et executera les jobs définis dans `.gitlab-ci.yml`
 
-### `> ENOSPC: no space left on device, write`
+### `> ENOSPC: no space left on device, write` while running `docker build`
 
 Ceci peut se produire lorsqu'il n'y a pas assez de mémoire pour le build docker dans un runner GitLab.
 
