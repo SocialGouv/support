@@ -1,3 +1,8 @@
+SocialGouv/ozensemble-site:
+  extends:
+    - .bathing
+  variables:
+    name: ozensemble-site
 SocialGouv/monsuivipsy-site:
   extends:
     - .bathing
