@@ -123,6 +123,15 @@ Nos clusters fournissent le routing et les certificats SSL vers vos applications
 
 Chaque service exposé de votre application doit déclarer une `ingress rule` spécifique qui peut comporter des annotations spécifiques pour contôler les paramètres nginx (redirections, auth, rate-limiting...). cf [annotation ingress nginx](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations).
 
+#### Noms de domaines externes
+
+Adresses des serveurs DNS à configurer sur votre nom de domaine :
+
+- Name server 1: `ns1-04.azure-dns.com.`
+- Name server 2: `ns2-04.azure-dns.net.`
+- Name server 3: `ns3-04.azure-dns.org.`
+- Name server 4: `ns4-04.azure-dns.info`
+
 ### Sealed-secrets : Variables secretes
 
 Les variables de configuration secretes qui doivent être chiffrées. Example : `JWT_SECRET=xxxxxxx`
