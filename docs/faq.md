@@ -136,7 +136,7 @@ Se connecter en utilisant le client Web (semble ne pas fonctionner sinon): <http
 Dans n'importe quel canal, taper:
 
 ```bash
-<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2FRqhvhmtttbjzy%2Fgiphy.gif&token=github" data-gitmeme-token="github"><img src="https://media0.giphy.com/media/Rqhvhmtttbjzy/giphy.gif" title="Created by gitme.me with /github"/></a> connect
+/github connect
 ```
 
 Puis cliquer sur le lien qui apparait pour autoriser l'accès à votre compte github.
@@ -145,13 +145,13 @@ Commandes utiles:
 
 ```bash
 # activer les notifications
-<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2FRqhvhmtttbjzy%2Fgiphy.gif&token=github" data-gitmeme-token="github"><img src="https://media0.giphy.com/media/Rqhvhmtttbjzy/giphy.gif" title="Created by gitme.me with /github"/></a> settings notifications on
+/github settings notifications on
 
 # s'abonner à un repo (pulls,issues,creates,deletes)
-<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2FRqhvhmtttbjzy%2Fgiphy.gif&token=github" data-gitmeme-token="github"><img src="https://media0.giphy.com/media/Rqhvhmtttbjzy/giphy.gif" title="Created by gitme.me with /github"/></a> subscriptions add SocialGouv/domifa
+/github subscriptions add SocialGouv/domifa
 
 # liste ses abonnements:
-<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2FRqhvhmtttbjzy%2Fgiphy.gif&token=github" data-gitmeme-token="github"><img src="https://media0.giphy.com/media/Rqhvhmtttbjzy/giphy.gif" title="Created by gitme.me with /github"/></a> subscriptions list
+/github subscriptions list
 ```
 
 Source du plugin: <https://github.com/softdevteam/mattermost-github-integration>
@@ -163,7 +163,7 @@ Se connecter en utilisant le client Web (semble ne pas fonctionner sinon): <http
 Dans n'importe quel canal, taper:
 
 ```bash
-<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FW6XSXWAYyYV46Vru1K%2Fgiphy.gif&token=gitlab" data-gitmeme-token="gitlab"><img src="https://media3.giphy.com/media/W6XSXWAYyYV46Vru1K/giphy.gif" title="Created by gitme.me with /gitlab"/></a> connect
+/gitlab connect
 ```
 
 Puis cliquer sur le lien qui apparait pour autoriser l'accès à votre compte gitlab.
@@ -172,16 +172,16 @@ Commandes utiles:
 
 ```bash
 # activer les notifications
-<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FW6XSXWAYyYV46Vru1K%2Fgiphy.gif&token=gitlab" data-gitmeme-token="gitlab"><img src="https://media3.giphy.com/media/W6XSXWAYyYV46Vru1K/giphy.gif" title="Created by gitme.me with /gitlab"/></a> settings notifications on
+/gitlab settings notifications on
 
 # s'abonner à un repo (merges,issues,tag)
-<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FW6XSXWAYyYV46Vru1K%2Fgiphy.gif&token=gitlab" data-gitmeme-token="gitlab"><img src="https://media3.giphy.com/media/W6XSXWAYyYV46Vru1K/giphy.gif" title="Created by gitme.me with /gitlab"/></a> subscriptions add SocialGouv/domifa
+/gitlab subscriptions add SocialGouv/domifa
 
 # si le plugin le demande, créer le webhook correspondant:
-<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FW6XSXWAYyYV46Vru1K%2Fgiphy.gif&token=gitlab" data-gitmeme-token="gitlab"><img src="https://media3.giphy.com/media/W6XSXWAYyYV46Vru1K/giphy.gif" title="Created by gitme.me with /gitlab"/></a> webhook add SocialGouv/domifa
+/gitlab webhook add SocialGouv/domifa
 
 # liste ses abonnements:
-<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FW6XSXWAYyYV46Vru1K%2Fgiphy.gif&token=gitlab" data-gitmeme-token="gitlab"><img src="https://media3.giphy.com/media/W6XSXWAYyYV46Vru1K/giphy.gif" title="Created by gitme.me with /gitlab"/></a> subscriptions list
+/gitlab subscriptions list
 ```
 
 Source du plugin: <https://github.com/NotSqrt/mattermost-integration-gitlab>
