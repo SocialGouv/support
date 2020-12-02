@@ -98,6 +98,13 @@ Voir aussi la doc [Microsoft](https://docs.microsoft.com/fr-fr/azure/postgresql/
 
 Par défaut, le `connection_throttling` est activé sur les logins PG. Il peut se désactiver via la console Azure PG / Server parameters puis désactiver `connection_throttling`.
 
+### Accès aux serveurs PG de dev
+
+ - Demander à l'équipe OPS d'ajouter votre clé publique sur le bastion
+ - Récupérer le secret `azure-pg-admin-user` de dev sur votre projet rancher
+ - Ouvrir un port local sur le serveur PG via le bastion : `ssh -L 1111:[app]dev.postgres.database.azure.com:5432 40.89.139.58`
+ - Utiliser psql directement : `psql posgres://[app]admin%40[app]dev:[password]@127.0.0.1:1111?sslmode=require`
+ 
 ## Hasura
 
 ### JWK_KEY
@@ -129,7 +136,7 @@ Se connecter en utilisant le client Web (semble ne pas fonctionner sinon): <http
 Dans n'importe quel canal, taper:
 
 ```bash
-/github connect
+<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2FRqhvhmtttbjzy%2Fgiphy.gif&token=github" data-gitmeme-token="github"><img src="https://media0.giphy.com/media/Rqhvhmtttbjzy/giphy.gif" title="Created by gitme.me with /github"/></a> connect
 ```
 
 Puis cliquer sur le lien qui apparait pour autoriser l'accès à votre compte github.
@@ -138,13 +145,13 @@ Commandes utiles:
 
 ```bash
 # activer les notifications
-/github settings notifications on
+<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2FRqhvhmtttbjzy%2Fgiphy.gif&token=github" data-gitmeme-token="github"><img src="https://media0.giphy.com/media/Rqhvhmtttbjzy/giphy.gif" title="Created by gitme.me with /github"/></a> settings notifications on
 
 # s'abonner à un repo (pulls,issues,creates,deletes)
-/github subscriptions add SocialGouv/domifa
+<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2FRqhvhmtttbjzy%2Fgiphy.gif&token=github" data-gitmeme-token="github"><img src="https://media0.giphy.com/media/Rqhvhmtttbjzy/giphy.gif" title="Created by gitme.me with /github"/></a> subscriptions add SocialGouv/domifa
 
 # liste ses abonnements:
-/github subscriptions list
+<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia0.giphy.com%2Fmedia%2FRqhvhmtttbjzy%2Fgiphy.gif&token=github" data-gitmeme-token="github"><img src="https://media0.giphy.com/media/Rqhvhmtttbjzy/giphy.gif" title="Created by gitme.me with /github"/></a> subscriptions list
 ```
 
 Source du plugin: <https://github.com/softdevteam/mattermost-github-integration>
@@ -156,7 +163,7 @@ Se connecter en utilisant le client Web (semble ne pas fonctionner sinon): <http
 Dans n'importe quel canal, taper:
 
 ```bash
-/gitlab connect
+<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FW6XSXWAYyYV46Vru1K%2Fgiphy.gif&token=gitlab" data-gitmeme-token="gitlab"><img src="https://media3.giphy.com/media/W6XSXWAYyYV46Vru1K/giphy.gif" title="Created by gitme.me with /gitlab"/></a> connect
 ```
 
 Puis cliquer sur le lien qui apparait pour autoriser l'accès à votre compte gitlab.
@@ -165,16 +172,16 @@ Commandes utiles:
 
 ```bash
 # activer les notifications
-/gitlab settings notifications on
+<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FW6XSXWAYyYV46Vru1K%2Fgiphy.gif&token=gitlab" data-gitmeme-token="gitlab"><img src="https://media3.giphy.com/media/W6XSXWAYyYV46Vru1K/giphy.gif" title="Created by gitme.me with /gitlab"/></a> settings notifications on
 
 # s'abonner à un repo (merges,issues,tag)
-/gitlab subscriptions add SocialGouv/domifa
+<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FW6XSXWAYyYV46Vru1K%2Fgiphy.gif&token=gitlab" data-gitmeme-token="gitlab"><img src="https://media3.giphy.com/media/W6XSXWAYyYV46Vru1K/giphy.gif" title="Created by gitme.me with /gitlab"/></a> subscriptions add SocialGouv/domifa
 
 # si le plugin le demande, créer le webhook correspondant:
-/gitlab webhook add SocialGouv/domifa
+<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FW6XSXWAYyYV46Vru1K%2Fgiphy.gif&token=gitlab" data-gitmeme-token="gitlab"><img src="https://media3.giphy.com/media/W6XSXWAYyYV46Vru1K/giphy.gif" title="Created by gitme.me with /gitlab"/></a> webhook add SocialGouv/domifa
 
 # liste ses abonnements:
-/gitlab subscriptions list
+<a href="https://gitme.me/image?url=https%3A%2F%2Fmedia3.giphy.com%2Fmedia%2FW6XSXWAYyYV46Vru1K%2Fgiphy.gif&token=gitlab" data-gitmeme-token="gitlab"><img src="https://media3.giphy.com/media/W6XSXWAYyYV46Vru1K/giphy.gif" title="Created by gitme.me with /gitlab"/></a> subscriptions list
 ```
 
 Source du plugin: <https://github.com/NotSqrt/mattermost-integration-gitlab>
