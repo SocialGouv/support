@@ -98,6 +98,13 @@ Voir aussi la doc [Microsoft](https://docs.microsoft.com/fr-fr/azure/postgresql/
 
 Par défaut, le `connection_throttling` est activé sur les logins PG. Il peut se désactiver via la console Azure PG / Server parameters puis désactiver `connection_throttling`.
 
+### Accès aux serveurs PG de dev
+
+ - Demander à l'équipe OPS d'ajouter votre clé publique sur le bastion
+ - Récupérer le secret `azure-pg-admin-user` de dev sur votre projet rancher
+ - Ouvrir un port local sur le serveur PG via le bastion : `ssh -L 1111:[app]dev.postgres.database.azure.com:5432 40.89.139.58`
+ - Utiliser psql directement : `psql posgres://[app]admin%40[app]dev:[password]@127.0.0.1:1111?sslmode=require`
+
 ## Hasura
 
 ### JWK_KEY
