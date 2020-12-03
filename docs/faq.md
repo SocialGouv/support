@@ -105,6 +105,8 @@ Par défaut, le `connection_throttling` est activé sur les logins PG. Il peut s
  - Ouvrir un port local sur le serveur PG via le bastion : `ssh -L 1111:[app]dev.postgres.database.azure.com:5432 40.89.139.58`
  - Utiliser psql directement : `psql posgres://[app]admin%40[app]dev:[password]@127.0.0.1:1111?sslmode=require`
 
+Voir la [procédure détaillée](https://gitlab.factory.social.gouv.fr/infra/documentation/-/blob/master/exploitation/databases/connexion_via_bastion.md)
+
 ## Hasura
 
 ### JWK_KEY
