@@ -66,6 +66,19 @@ appname_auditlog_count  245
 
 Voir les [best practices pour les métriques Prometheus](https://prometheus.io/docs/practices/naming/)
 
+#### Privatisation des métriques
+
+Si les métriques sont confidentielles, le endpoint doit être sécurisé. Pour cela, ajouter une annotation sur l'ingress nginx pour neutraliser l'accès externe :
+
+```yaml
+annotations:
+  nginx.ingress.kubernetes.io/configuration-snippet: |
+    location /metrics {
+      deny all;
+      return 403;
+    }
+```
+
 ## Les outils pour utiliser kubernetes
 
 L'équipe SRE vous accompagne pour créer les [pipelines de déploiement](https://github.com/SocialGouv/gitlab-ci-yml) de vos applications vers k8s.
