@@ -2,6 +2,8 @@
 
 ![big picture](_media/kubernetes-big-picture.png ":size=800x400")
 
+Une très bonne introduction à Kubernetes est lisible ici : https://sendilkumarn.com/blog/kubernetes-for-everyone/
+
 ## Best practices : 12 factors apps
 
 > Il s'agit de 12 principes d'architecture généraux et de processus utiles pour faire tourner une application dans un environnement _cloud_. Ça s'applique donc directement aux applications qui doivent tourner dans _K8s_. Voir aussi https://12factor.net/fr/
