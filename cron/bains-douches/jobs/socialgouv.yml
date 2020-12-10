@@ -73,11 +73,6 @@ SocialGouv/contributions-data:
     - .bathing
   variables:
     name: contributions-data
-SocialGouv/cdtn-veille-git:
-  extends:
-    - .bathing
-  variables:
-    name: veille-git
 SocialGouv/hasura:
   extends:
     - .bathing
