@@ -69,6 +69,8 @@ Voir références [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_
 
 Avertir par email l'utilisateur en cas de changement de mot passe.
 
+Voir aussi cet article sur les [forms de logins et passwords managers](https://hiddedevries.nl/en/blog/2018-01-13-making-password-managers-play-ball-with-your-login-form)
+
 ### DDOS
 
 Les mesures de prévention anti-DDOS et Waf doivent être mis en place en amont de l'application (côté infra/reverse-proxy)
