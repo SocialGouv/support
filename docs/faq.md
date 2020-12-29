@@ -95,6 +95,8 @@ gitlab_token=somepass
 sre-seal --name regcred "dockerconfigjson={\"auths\":{\"registry.gitlab.factory.social.gouv.fr/socialgouv/$gitlab_project\":{\"auth\":\"`echo -n \"$gitlab_user:$gitlab_token\"|base64`\",\"password\":\"$gitlab_token\",\"username\":\"$gitlab_user\"}}}"
 ```
 
+Dans le YAML généré, modifier le type de `Opaque` à `kubernetes.io/dockerconfigjson`
+
 > NB : ajouter `--cluster prod2 --namespace [app-namespace] --name regcred` pour un secret de production
 
 3) Référencez ce secret dans votre deploiement
