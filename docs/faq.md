@@ -80,6 +80,31 @@ Ceci peut se produire lorsqu'il n'y a pas assez de mémoire pour le build docker
 
 Augmentez la mémoire dans les arguments de build docker `--shm-size 768M` (`DOCKER_BUILD_ARGS` dans l'autodevops)
 
+### Créer un secret pour accéder à un registre GitLab privé
+
+1) Dans le projet GitLab, "Settings/Repository/Deploy Tokens", créer un nouveau token avec les droits `read_registry`
+
+2) Créez le sealed-secret
+
+```sh
+#!/bin/sh
+gitlab_project=some_gitlab_project_name
+gitlab_user=gitlab+deploy-token-xxx
+gitlab_token=somepass
+
+sre-seal --name regcred "dockerconfigjson={\"auths\":{\"registry.gitlab.factory.social.gouv.fr/socialgouv/$gitlab_project\":{\"auth\":\"`echo -n \"$gitlab_user:$gitlab_token\"|base64`\",\"password\":\"$gitlab_token\",\"username\":\"$gitlab_user\"}}}"
+```
+
+> NB : ajouter `--cluster prod2 --namespace [app-namespace] --name regcred` pour un secret de production
+
+3) Référencez ce secret dans votre deploiement
+
+```yaml
+  spec:
+    imagePullSecrets:
+      - name: regcred
+```
+
 ## Next.js
 
 ### Variables d'environnement côté frontend
