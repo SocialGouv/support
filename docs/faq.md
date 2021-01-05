@@ -82,9 +82,9 @@ Augmentez la mémoire dans les arguments de build docker `--shm-size 768M` (`DOC
 
 ### Créer un secret pour accéder à un registre GitLab privé
 
-1) Dans le projet GitLab, "Settings/Repository/Deploy Tokens", créer un nouveau token avec les droits `read_registry`
+1. Dans le projet GitLab, "Settings/Repository/Deploy Tokens", créer un nouveau token avec les droits `read_registry`
 
-2) Créez le sealed-secret
+2. Créez le sealed-secret
 
 ```sh
 #!/bin/sh
@@ -99,12 +99,12 @@ Dans le YAML généré, modifier le type de `Opaque` à `kubernetes.io/dockercon
 
 > NB : ajouter `--cluster prod2 --namespace [app-namespace] --name regcred` pour un secret de production
 
-3) Référencez ce secret dans votre deploiement
+3. Référencez ce secret dans votre deploiement
 
 ```yaml
-  spec:
-    imagePullSecrets:
-      - name: regcred
+spec:
+  imagePullSecrets:
+    - name: regcred
 ```
 
 ## Next.js
@@ -127,10 +127,10 @@ Par défaut, le `connection_throttling` est activé sur les logins PG. Il peut s
 
 ### Accès aux serveurs PG de dev
 
- - Demander à l'équipe OPS d'ajouter votre clé publique sur le bastion
- - Récupérer le secret `azure-pg-admin-user` de dev sur votre projet rancher
- - Ouvrir un port local (ex: 1111) sur le serveur PG via le bastion : `ssh -L 1111:[app]dev.postgres.database.azure.com:5432 40.89.139.58`
- - Utiliser psql directement : `psql posgres://[app]admin%40[app]dev:[password]@127.0.0.1:1111?sslmode=require`
+- Demander à l'équipe OPS d'ajouter votre clé publique sur le bastion
+- Récupérer le secret `azure-pg-admin-user` de dev sur votre projet rancher
+- Ouvrir un port local (ex: 1111) sur le serveur PG via le bastion : `ssh -L 1111:[app]dev.postgres.database.azure.com:5432 40.89.139.58`
+- Utiliser psql directement : `psql posgres://[app]admin%40[app]dev:[password]@127.0.0.1:1111?sslmode=require`
 
 Voir la [procédure détaillée](https://gitlab.factory.social.gouv.fr/infra/documentation/-/blob/master/exploitation/databases/connexion_via_bastion.md)
 
@@ -214,3 +214,7 @@ Commandes utiles:
 ```
 
 Source du plugin: <https://github.com/NotSqrt/mattermost-integration-gitlab>
+
+## Office 365
+
+Cf [page dédiée](outlook-office-365.md)
