@@ -113,6 +113,8 @@ spec:
 
 La [methode actuellement recommandée](https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration) est d'utiliser des variables au build time en les prefixant par `NEXT_PUBLIC_` et en les ajoutant dans les settings/variables de votre projet GitLab. Vous pouvez alors les récupérer avec un simple `process.env` dans le code client ou serveur.
 
+À noter que toute variable `NEXT_PUBLIC_*` définie lors du build (dans un .env ou via une variable d'env) sera remplacée dans le build par sa valeur et ne pourra plus être surchargée à l'éxécution.
+
 ## Azure Postgres
 
 ### `ERROR: cannot execute xxx in a read-only transaction`
