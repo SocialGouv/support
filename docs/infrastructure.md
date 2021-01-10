@@ -28,7 +28,8 @@ La restauration des données se fait sur demande à l'équipe OPS.
 | ------------------------------------------------------ | ----------------------------------- |
 | [Matomo](https://matomo.fabrique.social.gouv.fr)       | Tracking web RGPD-friendly          |
 | [Sentry](https://sentry.fabrique.social.gouv.fr)       | Logs d'exceptions applicatives      |
-| [Tipimail](https://tipimail.com)                       | Emails transctionnels               |
+| [Tipimail](https://tipimail.com)                       | Emails transactionnels              |
+| [UppTime](https://socialgouv.github.io/upptime)        | Uptime monitoring                   |
 | [Grafana](https://grafana.fabrique.social.gouv.fr)     | Monitoring / supervision            |
 | [Office365](/outlook-office-365.md)                    | Emails en `fabrique.social.gouv.fr` |
 | [NextCloud](https://nextcloud.fabrique.social.gouv.fr) | Drive/Fichiers partagés             |
