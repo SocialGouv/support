@@ -26,19 +26,19 @@ Nous encourageons l'utilisation de [semantic-release](/faq?id=installer-semantic
 - Le clic sur le job `release` déclenche le déploiement d'un environnement de `pré-production`.
 - Le clic sur `trigger prodution` depuis un pipeline de release déclenche une mise en production.
 
-Si vous utilisez le pipeline AutoDevOps fournit par [`@socialgouv/gitlab-ci-yml`](https://github.com/SocialGouv/gitlab-ci-yml/), vous pouvez automatiser certaines étapes :
+Si vous utilisez le pipeline AutoDevOps fournit par [`@socialgouv/gitlab-ci-yml`](https://github.com/SocialGouv/gitlab-ci-yml/), vous pouvez automatiser certaines étapes en ajoutant ces variables dans votre `.gitlab-ci.yml` :
 
 - `AUTODEVOPS_RELEASE_AUTO` : chaque merge sur master déclenchera le process de release
 - `AUTODEVOPS_PRODUCTION_AUTO` : chaque nouvelle release déclenchera une mise en production
 
 ### Urls des environnements
 
-| Url                                             | Usage            |
-| ----------------------------------------------- | ---------------- |
-| feature-x-[PRODUIT].dev.fabrique.social.gouv.fr | feature branches |
-| master-[PRODUIT].dev.fabrique.social.gouv.fr    | latest           |
-| preprod.dev.fabrique.social.gouv.fr             | releases         |
-| [PRODUIT].fabrique.social.gouv.fr               | production       |
+| Url                                              | Usage            |
+| ------------------------------------------------ | ---------------- |
+| feature-x-[PRODUIT].dev2.fabrique.social.gouv.fr | feature branches |
+| master-[PRODUIT].dev2.fabrique.social.gouv.fr    | latest           |
+| preprod-[PRODUIT].dev2.fabrique.social.gouv.fr   | releases         |
+| [PRODUIT].fabrique.social.gouv.fr                | production       |
 
 ## Accessibilité (A11Y)
 
