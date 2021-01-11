@@ -40,6 +40,8 @@ Les informations techniques ne doivent pas être exposées au runtime. Les serve
 - Définir l'attribut "integrity" sur l'ensemble des ressources link et script de la page (**SubResource Integrity**).
 - Gestion des **cookies** : utiliser les attributs de cookie **HttpOnly, Secure et SameSite**. Ne pas mettre SameSite à "None".
 - Auto-héberger l'ensemble des ressources de la page. Pour celles qui ne peuvent pas l'être et pour les traitements de moindre confiance, utiliser un WebWorker ou une iFrame avec l'attribut "sandbox".
+- Les verbes HTTP doivent être respectés, les opérations `GET` ne doivent pas modifier de données.
+- En cas d'utilisation de sessions, les opérations qui impactent des données doivent être protégées des [attaques de type CSRF](https://www.cert.ssi.gouv.fr/information/CERTA-2008-INF-003/) avec un système de jeton.
 
 Ex: https://github.com/helmetjs/helmet
 
