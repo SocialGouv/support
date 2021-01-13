@@ -224,6 +224,30 @@ Commandes utiles:
 
 Source du plugin: <https://github.com/NotSqrt/mattermost-integration-gitlab>
 
+### Mattermost Gitlab-CI integration
+
+Se rendre sur <https://mattermost.fabrique.social.gouv.fr/default/integrations/incoming_webhooks/add> et créer un webhook en sélectionant le canal sur lequel on souhaite publier les notifications. Récupérer l'url du webhook qui contiendra le token. Se rendre sur la page de configuration CI/CD du projet sur GitLab, example: https://gitlab.factory.social.gouv.fr/SocialGouv/emjpm/-/settings/ci_cd (remplacer emjpm par le nom du projet), et ajouter une variable intitulée `MATTERMOST_WEBHOOK` dans la sections `variables` et qui contiendra l'url du webhook.
+
+Dans le fichier `.gitlab-ci` à la racine du projet
+```yaml
+Ma notification mattermost:
+  image: registry.gitlab.factory.social.gouv.fr/devthejo/bash-curl:1.2.0
+  only:
+    refs:
+      - tags
+  script:
+    - |
+      echo '{"text":"🦊 release ready for production at '${CI_PIPELINE_URL}'"}' \
+        | curl -H 'Content-Type: application/json' ${MATTERMOST_WEBHOOK} -d @-
+```
+
+Pour échapper un texte multiline, l'envoyer sur `sed -z 's/\n/\\n/g'`:
+```bash
+NOTIF_MSG=$(./scripts/gitops/get-release-note | sed -z 's/\n/\\n/g')
+echo '{"text":"'${NOTIF_MSG}'"}' \
+  | curl -H 'Content-Type: application/json' ${MATTERMOST_WEBHOOK} -d @-
+```
+
 ## Office 365
 
 Cf [page dédiée](outlook-office-365.md)
