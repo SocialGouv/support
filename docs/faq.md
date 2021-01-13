@@ -237,7 +237,7 @@ Ma notification mattermost:
       - tags
   script:
     - |
-      echo '{"text":"🦊 release ready for production at '${CI_PIPELINE_URL}'"}' \
+      echo '{"text":"🦊 release ready for production at '${CI_ENVIRONMENT_URL}'"}' \
         | curl -H 'Content-Type: application/json' ${MATTERMOST_WEBHOOK} -d @-
 ```
 
