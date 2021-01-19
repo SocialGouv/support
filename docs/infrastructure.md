@@ -22,6 +22,10 @@ La fabrique propose des [Postgres managés](https://azure.microsoft.com/fr-fr/se
 
 La restauration des données se fait sur demande à l'équipe OPS.
 
+## Stockage object
+
+La fabrique propose du [stockage objet](https://docs.microsoft.com/fr-fr/azure/storage/blobs/storage-blobs-introduction) pour stocker des données dans les nuages.
+
 ## Services transverses
 
 | Service                                                | Usage                               |
