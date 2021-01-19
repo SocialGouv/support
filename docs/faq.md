@@ -70,6 +70,7 @@ Pour utiliser GitLab et y faire tourner des jobs de CI/CD, il faut :
 
 - créer un compte sur <https://gitlab.factory.social.gouv.fr> avec l'auth GitHub
 - créer un nouveau projet en choissant "CI/CD pipelines for external repo"
+- pour le token, utiliser un token `SocialGroovyBot` en se connectant via le compte GitLab du bot
 - choisir le projet GitHub source
 
 GitLab synchronisera alors automatiquement le repo à chaque push sur GitHub et executera les jobs définis dans `.gitlab-ci.yml`
