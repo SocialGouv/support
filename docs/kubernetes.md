@@ -83,21 +83,25 @@ annotations:
 
 ## Les outils pour utiliser kubernetes
 
-L'équipe SRE vous accompagne pour créer les [pipelines de déploiement](https://github.com/SocialGouv/gitlab-ci-yml) de vos applications vers k8s.
+L'équipe SRE vous accompagne pour créer les [pipelines de déploiement GitLab](https://github.com/SocialGouv/gitlab-ci-yml) de vos applications vers k8s.
 
-Le [CLI k9s](https://k9scli.io/) est l'outil ultime pour monitorer ses déploiements, consulter les logs, se connecter en shell à vos containers... [Rancher](https://rancher.com) est un équivalent en interface web.
+### Clients
+
+Le [CLI k9s](https://k9scli.io/) permet de monitorer ses déploiements, consulter les logs, se connecter en shell à vos containers... [Rancher](https://rancher.fabrique.social.gouv.fr) est un équivalent en interface web.
 
 Pour accéder à votre cluster :
 
 - installer `kubectl` et `k9s`
 - récupérer votre fichier `kubeconfig` depuis Rancher et le positionner dans `~/.kube/config`
-- lancer `k9s -A` pour accéder au cluster et toutes vos ressources. enjoy :)
+- lancer `k9s -A --namespace NAMESPACE` pour accéder à votre namespace. enjoy :)
 
 Plus de détails sur l'administration kube avec k9s sur [cet article](https://opensource.com/article/20/5/kubernetes-administration).
 
 Une sonde [sentry-kubernetes](https://github.com/getsentry/sentry-kubernetes) est installée sur le cluster et permet de remonter toutes les erreurs : CronJob failed, probes... C'est une source d'information précieuse quand quelque chose ne fonctionne pas dans vos déploiements. L'accès doit être demandé à la team SRE.
 
 [Grafana](https://grafana.fabrique.social.gouv.fr) permet de superviser finement tous les environnements, VMs et bases de données.
+
+Vous pouvez également consulter tous vos logs applicatifs dans Grafana avec Loki cf [faq#grafana](faq#grafana)
 
 ## Variable d'environnement dans Kubernetes
 
@@ -140,7 +144,7 @@ Chaque service exposé de votre application doit déclarer une `ingress rule` sp
 
 #### Noms de domaines externes
 
-Adresses des serveurs DNS à configurer sur votre nom de domaine :
+Adresses des serveurs DNS à configurer sur votre nom de domaine (à confirmer):
 
 - Name server 1: `ns1-04.azure-dns.com.`
 - Name server 2: `ns2-04.azure-dns.net.`

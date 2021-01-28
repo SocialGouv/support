@@ -108,6 +108,28 @@ spec:
     - name: regcred
 ```
 
+## Grafana
+
+### Dashoards
+
+Vous pouvez créer vos propres dashboards et vos propres groupes de dashboards qui regroupent les métriques techniques issues de l'infrastructure (réseau, storage, bases de donnés), du service (cpu, mem, hits...) ou de l'application si [vous exposez des métriques OpenMetrics](/kubernetes?id=exposer-les-métriques-de-mon-application)
+
+### Logs Loki
+
+Vous pouvez interroger vos logs applicatifs dans la section `Explore` de [Grafana](https://grafana.fabrique.social.gouv.fr/explore) avec [LogQL](https://grafana.com/docs/loki/latest/logql/).
+
+Les logs applicatifs doivent respecter les [bonnes pratiques de logging](/kubernetes?id=bien-logger-dans-docker-et-donc-k8s)
+
+#### Exemples
+
+##### Logs de vos containers : `{cluster="dev2", namespace=~"myapp.*"} |= "webhook"`
+
+Affiche les logs applicatifs qui contiennent `webhook` dans les namespaces `myapp*` du cluster `dev2`.
+
+##### Logs Ingress : `{cluster="dev2", namespace="ingress-basic"} | json | vhost=myapp.dev2.fabrique.social.gouv.fr status=403`
+
+Affiche les logs en erreur `403` du front nginx de votre application (ingress)
+
 ## Next.js
 
 ### Variables d'environnement côté frontend
@@ -130,7 +152,7 @@ Par défaut, le `connection_throttling` est activé sur les logins PG. Il peut s
 
 ### Accès aux serveurs PG de dev
 
-- Demander à l'équipe OPS d'ajouter votre clé publique sur le *bastion*
+- Demander à l'équipe OPS d'ajouter votre clé publique sur le _bastion_
 - Récupérer le secret `azure-pg-admin-user` de dev sur votre projet rancher
 - Ouvrir un port local (ex: 1111) sur le serveur PG via le bastion : `ssh -L 1111:[app]dev.postgres.database.azure.com:5432 factory@40.89.139.58`
 - Utiliser psql directement : `psql posgres://[app]admin%40[app]dev:[password]@127.0.0.1:1111?sslmode=require`
@@ -149,6 +171,8 @@ Il vaut mieux utiliser une `JWK_KEY` statique plutôt qu'une `JWK_URL` qui néce
 
 Utiliser rancher ou k9s pour aller dans votre namespace puis votre pod et inspecter les logs et events.
 
+Consulter les logs dans [Grafana](#grafana)
+
 ### requests/limits
 
 Pour optimiser ces valeurs, scruter les graphs de grafana. Les `requests` sont les ressources minimales requises pour démarrer un pod. Les `limits` vont capper le CPU, et si la mémoire utilisée excède la limite définie, le pod sera tué et redémarré.
@@ -161,10 +185,10 @@ Des jobs de backup des BDDs sont executés quotidiennement. Pour forcer un nouve
 
 ### IPs de sortie
 
-Nom                 | IP
---------------------|--------------------
-Runners Gitlab      | 51.11.226.128
-Cluster prod2       | 51.11.228.254
+| Nom            | IP            |
+| -------------- | ------------- |
+| Runners Gitlab | 51.11.226.128 |
+| Cluster prod2  | 51.11.228.254 |
 
 ## Mattermost
 
@@ -230,6 +254,7 @@ Source du plugin: <https://github.com/NotSqrt/mattermost-integration-gitlab>
 Se rendre sur <https://mattermost.fabrique.social.gouv.fr/default/integrations/incoming_webhooks/add> et créer un webhook en sélectionant le canal sur lequel on souhaite publier les notifications. Récupérer l'url du webhook qui contiendra le token. Se rendre sur la page de configuration CI/CD du projet sur GitLab, example: https://gitlab.factory.social.gouv.fr/SocialGouv/emjpm/-/settings/ci_cd (remplacer emjpm par le nom du projet), et ajouter une variable intitulée `MATTERMOST_WEBHOOK` dans la sections `variables` et qui contiendra l'url du webhook.
 
 Dans le fichier `.gitlab-ci` à la racine du projet
+
 ```yaml
 Ma notification mattermost:
   image: registry.gitlab.factory.social.gouv.fr/devthejo/bash-curl:1.2.0
@@ -243,6 +268,7 @@ Ma notification mattermost:
 ```
 
 Pour échapper un texte multiline, l'envoyer sur `sed -z 's/\n/\\n/g'`:
+
 ```bash
 NOTIF_MSG=$(./scripts/gitops/get-release-note | sed -z 's/\n/\\n/g')
 echo '{"text":"'${NOTIF_MSG}'"}' \
