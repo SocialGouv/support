@@ -37,6 +37,7 @@ La fabrique propose du [stockage objet](https://docs.microsoft.com/fr-fr/azure/s
 | [Grafana](https://grafana.fabrique.social.gouv.fr)     | Monitoring / supervision            |
 | [Office365](/outlook-office-365.md)                    | Emails en `fabrique.social.gouv.fr` |
 | [NextCloud](https://nextcloud.fabrique.social.gouv.fr) | Drive/Fichiers partagés             |
+| [Harbor](https://harbor.fabrique.social.gouv.fr)       | Registry docker                     |
 
 ## On-demand
 
