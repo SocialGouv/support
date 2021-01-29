@@ -50,7 +50,7 @@ bathing_trasform_to_gitlab_jobs() {
   local dir="$(command cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
   cat |
     jq -cf ${dir}/job-template.jq |
-    yq r --prettyPrint -
+    yq eval --prettyPrint -
 }
 #
 
