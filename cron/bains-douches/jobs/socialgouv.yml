@@ -48,11 +48,6 @@ SocialGouv/cdtn-api:
     - .bathing
   variables:
     name: cdtn-api
-SocialGouv/serving-ml:
-  extends:
-    - .bathing
-  variables:
-    name: serving-ml
 SocialGouv/support:
   extends:
     - .bathing
@@ -83,11 +78,6 @@ SocialGouv/medle:
     - .bathing
   variables:
     name: medle
-SocialGouv/socialgouv-github-io:
-  extends:
-    - .bathing
-  variables:
-    name: www
 SocialGouv/carnets:
   extends:
     - .bathing
@@ -153,11 +143,6 @@ SocialGouv/legi-detect:
     - .bathing
   variables:
     name: legi-detect
-SocialGouv/siret2idcc:
-  extends:
-    - .bathing
-  variables:
-    name: siret2idcc
 SocialGouv/domifa:
   extends:
     - .bathing
@@ -223,8 +208,3 @@ SocialGouv/tremplin:
     - .bathing
   variables:
     name: tremplin
-SocialGouv/standup:
-  extends:
-    - .bathing
-  variables:
-    name: standup
