@@ -78,11 +78,6 @@ SocialGouv/medle:
     - .bathing
   variables:
     name: medle
-SocialGouv/carnets:
-  extends:
-    - .bathing
-  variables:
-    name: carnets
 SocialGouv/maintenance:
   extends:
     - .bathing
