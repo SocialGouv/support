@@ -48,6 +48,22 @@
 Create a cron on GitLab that runs the master branch.  
 The main [.gitlab-ci.yml#L12-L17](https://github.com/SocialGouv/support/blob/master/.gitlab-ci.yml#L12-L17) CI/CD file will run the [jobs](./jobs/socialgouv.yml) if the pipeline is scheduled : `$CI_PIPELINE_SOURCE == "schedule` (see https://github.com/SocialGouv/support/blob/master/cron/.gitlab-ci.yml#L2).
 
-The  [jobs](./jobs/socialgouv.yml) are maintained by the [bathing bin](./bin/bathing).
+The  [jobs](./jobs/socialgouv.yml) are maintained by the [bathing bin](./bin/bathing).  
+The [bathing bin](./bin/bathing) is fetching GitLab projects and output yaml GitLab CI/CD bathing ready jobs.  
+
+```sh
+$ ./cron/bains-douches/bin/bathing supergroup 
+SuperGroup/foo:
+  extends:
+    - .bathing
+  variables:
+    name: foo
+SuperGroup/bar:
+  extends:
+    - .bathing
+  variables:
+    name: bar
+```
+see [./test/bathing_main.bats](https://github.com/SocialGouv/support/blob/master/cron/bains-douches/test/bathing_main.bats)
 
 The  [jobs](./jobs/socialgouv.yml) are mainly [`git-mirror-cleaner`](https://github.com/SocialGouv/support/tree/master/maintenance/tools/git-mirror-cleaner) for now (see https://github.com/SocialGouv/support/blob/master/cron/.gitlab-ci.yml#L14).
