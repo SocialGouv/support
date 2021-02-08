@@ -150,6 +150,21 @@ Voir aussi la doc [Microsoft](https://docs.microsoft.com/fr-fr/azure/postgresql/
 
 Par défaut, le `connection_throttling` est activé sur les logins PG. Il peut se désactiver via la console Azure PG / Server parameters puis désactiver `connection_throttling`.
 
+### `remaining connection slots are reserved for non-replication superuser connections`
+
+Les serveurs PG avec 1 core sont limités à 50 connections simultannées.
+
+Se connecter au serveur PG en admin et :
+
+```sql
+SELECT pg_terminate_backend(pid)
+    FROM pg_stat_activity
+    WHERE state = 'idle'
+      AND state_change < current_timestamp - INTERVAL '30' MINUTE;
+ ```
+
+See also [Limits in Azure Database for PostgreSQL](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/postgresql/concepts-limits.md#limits-in-azure-database-for-postgresql---single-server)
+
 ### Accès aux serveurs PG de dev
 
 - Demander à l'équipe OPS d'ajouter votre clé publique sur le _bastion_
