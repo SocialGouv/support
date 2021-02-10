@@ -106,7 +106,7 @@ Côté base de données, un audit log peut être nécessaire. Ex: https://github
 - **Upload** :
   - Limiter la taille du fichier
   - Vérifier type mime envoyé par le client et le comparer à une liste blanche pré-établie, le stocker, puis refléter la même valeur lors du download du fichier par un utilisateur
-  - Si un traitement doit être réaliser, le déporter sur un webservice dédié
+  - Si un traitement doit être réalisé, le déporter sur un webservice dédié
 - **Stockage** :
   - Stocker les fichiers dans un emplacement imposé, hors du document root, dans une partition dédiée, ou en base de données
   - Ne pas utiliser le nom fourni dans les en-têtes HTTP pour le stockage direct du fichier (exemple : utiliser un `sha-256` salé sur le nom ou encore un jeton d'accès aléatoire avec lequel la correspondance sera faite en base - ne pas conserver l'extension)
