@@ -170,7 +170,7 @@ See also [Limits in Azure Database for PostgreSQL](https://github.com/MicrosoftD
 - Demander à l'équipe OPS d'ajouter votre clé publique sur le _bastion_
 - Récupérer le secret `azure-pg-admin-user` de dev sur votre projet rancher
 - Ouvrir un port local (ex: 1111) sur le serveur PG via le bastion : `ssh -L 1111:[app]devserver.postgres.database.azure.com:5432 factory@40.89.139.58`
-- Puis utiliser psql directement : `docker run --rm -ti postgres:10 psql posgres://[app]admin%40[app]devdevserver:[password]@host.docker.internal:1111?sslmode=require`
+- Puis utiliser psql directement : `docker run --rm -ti postgres:10 psql posgres://[app]admin%40[app]devserver:[password]@host.docker.internal:1111?sslmode=require`
 
 Voir la [procédure détaillée](https://gitlab.factory.social.gouv.fr/infra/documentation/-/blob/master/exploitation/databases/connexion_via_bastion.md)
 
