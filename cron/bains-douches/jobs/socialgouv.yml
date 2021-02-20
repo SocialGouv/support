@@ -108,11 +108,6 @@ SocialGouv/clone-moi-sur-github:
     - .bathing
   variables:
     name: clone-moi-sur-github
-SocialGouv/sample-next-app:
-  extends:
-    - .bathing
-  variables:
-    name: sample-next-app
 SocialGouv/archifiltre:
   extends:
     - .bathing
