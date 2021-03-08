@@ -1,7 +1,7 @@
 Test git-mirror-cleaner:
   extends:
     - .default_rules
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/bats:1.22.2
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/bats:1.60.0
   variables:
     GIT_STRATEGY: clone
   before_script:
