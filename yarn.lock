@@ -312,17 +312,17 @@ destroy@~1.0.4:
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
 
-docsify-cli@^4.4.2:
-  version "4.4.2"
-  resolved "https://registry.yarnpkg.com/docsify-cli/-/docsify-cli-4.4.2.tgz#f4e788ff111e00a15d7727156c2bef04d021aa56"
-  integrity sha512-iCTRyKjjNiSroo5cgVkb/C86PsUEEsVV30PXp5GkzbcMG+mMxzBPmJ/8xukTLoeaQddEsSeSWW376eC2t4KQJw==
+docsify-cli@^4.4.3:
+  version "4.4.3"
+  resolved "https://registry.yarnpkg.com/docsify-cli/-/docsify-cli-4.4.3.tgz#5f75d9478d7da27ac1c129d446bf0d4fe70c93d9"
+  integrity sha512-oI/cD04b+hklNd9yKiN9p9EqGx9UKL6p4D0J3fS9L5fpwOti1F8p2rshGJTyArxUlw6EeEBtaJd4rzPzBkK+Lw==
   dependencies:
     chalk "^2.4.2"
     connect "^3.6.0"
     connect-livereload "^0.6.0"
     cp-file "^7.0.0"
-    docsify "^4.10.2"
-    docsify-server-renderer ">=4"
+    docsify "^4.12.1"
+    docsify-server-renderer ">=4.10.0"
     enquirer "^2.3.6"
     fs-extra "^8.1.0"
     get-port "^5.0.0"
@@ -334,18 +334,18 @@ docsify-cli@^4.4.2:
     yargonaut "^1.1.2"
     yargs "^14.2.0"
 
-docsify-server-renderer@>=4:
-  version "4.12.0"
-  resolved "https://registry.yarnpkg.com/docsify-server-renderer/-/docsify-server-renderer-4.12.0.tgz#f757e1a973ad75044acfbebe4d38c6a7d8b63fd2"
-  integrity sha512-0uTh+yFggwubJGx7y6XjorWqwMmL0iZVAZiHslMakmdqitQDQzoWR38MpPTrpx3hRAnQ3rniSuk+fFtDuOXDrg==
+docsify-server-renderer@>=4.10.0:
+  version "4.12.1"
+  resolved "https://registry.yarnpkg.com/docsify-server-renderer/-/docsify-server-renderer-4.12.1.tgz#f1d5ca156d4352ae78e64cf2243e98da3c249485"
+  integrity sha512-IYakkc+UxPS89N/Mq8MF4SKTQ1gtxN5nDEFAnJPf5TvQO+1fuxszHgv/hMprG5z/ms7PJb1w4nMykUfRW36+/A==
   dependencies:
     debug "^4.3.2"
-    docsify "^4.11.6"
+    docsify "^4.12.0"
     dompurify "^2.2.6"
     node-fetch "^2.6.0"
     resolve-pathname "^3.0.0"
 
-docsify@4.12.1, docsify@^4.10.2, docsify@^4.11.6:
+docsify@4.12.1, docsify@^4.12.0, docsify@^4.12.1:
   version "4.12.1"
   resolved "https://registry.yarnpkg.com/docsify/-/docsify-4.12.1.tgz#46c15a4c101397185835f7e6bdad7bd6cd02896b"
   integrity sha512-7v4UlCYLTmb83leJLIlheQlQ8kDTbTxcpMttRg0Uf92Nl//m0AcKFHoLLo5HHS4UhnO0KhDV8SKCdTR279zI9A==
