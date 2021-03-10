@@ -1,7 +1,7 @@
 Test bains douches:
   extends:
     - .default_rules
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/bats:4.7.1
+  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/bats:4.8.0
   before_script:
     - apk add jq
 
