@@ -192,7 +192,7 @@ SocialGouv/cdtn-contrib:
   extends:
     - .bathing
   variables:
-    name: cdtn-contrib
+    name: code-du-travail-backoffice
 SocialGouv/tremplin:
   extends:
     - .bathing
