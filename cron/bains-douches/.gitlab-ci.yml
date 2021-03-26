@@ -1,7 +1,7 @@
 Test bains douches:
   extends:
     - .default_rules
-  image: registry.gitlab.factory.social.gouv.fr/socialgouv/docker/bats:5.0.1
+  image: docker.pkg.github.com/socialgouv/docker/bats:5.0.1
   before_script:
     - apk add jq
 
@@ -9,10 +9,10 @@ Test bains douches:
     # see https://github.com/mikefarah/yq/issues/190#issuecomment-621512382
     - wget -q -O /usr/bin/yq
       $(
-        wget -q -O - https://api.github.com/repos/mikefarah/yq/releases/latest |
-        jq -r '.assets[] |
-        select(.name == "yq_linux_amd64") |
-        .browser_download_url'
+      wget -q -O - https://api.github.com/repos/mikefarah/yq/releases/latest |
+      jq -r '.assets[] |
+      select(.name == "yq_linux_amd64") |
+      .browser_download_url'
       )
     - chmod +x /usr/bin/yq
 

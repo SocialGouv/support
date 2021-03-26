@@ -161,7 +161,7 @@ SELECT pg_terminate_backend(pid)
     FROM pg_stat_activity
     WHERE state = 'idle'
       AND state_change < current_timestamp - INTERVAL '30' MINUTE;
- ```
+```
 
 See also [Limits in Azure Database for PostgreSQL](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/postgresql/concepts-limits.md#limits-in-azure-database-for-postgresql---single-server)
 
@@ -272,7 +272,7 @@ Dans le fichier `.gitlab-ci` à la racine du projet
 
 ```yaml
 Ma notification mattermost:
-  image: registry.gitlab.factory.social.gouv.fr/devthejo/bash-curl:1.2.0
+  image: docker.pkg.github.com/devthejo/bash-curl:1.2.0
   only:
     refs:
       - tags
