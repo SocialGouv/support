@@ -182,7 +182,7 @@ Exemple de commande pour restaurer un tel fichier :
 
 ```sh
 docker cp /path/to/backup.psql.gz [container]:/tmp/backup.psql.gz
-docker exec -ti [container] pg_restore -U [username] --clean --create --if-exists --no-owner --no-acl --verbose /tmp/backup.psql.gz
+docker exec -ti [container] pg_restore -U [username] -d [dbname] --clean --no-owner --no-acl --verbose /tmp/backup.psql.gz
 ```
 ## Hasura
 
