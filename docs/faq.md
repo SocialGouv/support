@@ -174,6 +174,16 @@ See also [Limits in Azure Database for PostgreSQL](https://github.com/MicrosoftD
 
 Voir la [procédure détaillée](https://gitlab.factory.social.gouv.fr/infra/documentation/-/blob/master/exploitation/databases/connexion_via_bastion.md)
 
+### Restauration de backup
+
+Les backups fournis par la team OPS sont issus de pg_dump.
+
+Exemple de commande pour restaurer un tel fichier : 
+
+```sh
+docker cp /path/to/backup.psql.gz [container]:/tmp/backup.psql.gz
+docker exec -ti [container] pg_restore -U [username] --clean --create --if-exists --no-owner --no-acl --verbose /tmp/backup.psql.gz
+```
 ## Hasura
 
 ### JWK_KEY
