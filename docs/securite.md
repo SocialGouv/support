@@ -16,6 +16,10 @@
 
 Les [cheat sheets OWASP](https://cheatsheetseries.owasp.org/) sont une très bonne référence.
 
+### Third-parties
+
+De manière générale il est déconseillé de référencer des scripts externes dans ses applications, comme des scripts ou CSS via CDN, google fonts ou autres services tiers; Privilégier l'utilisation de librairies dédiées que vous pouvez embarquer dans l'application elle-même.
+
 ### Maintenance des dépendances
 
 Les packages utilisés dans les applications doivent être maintenus à jour et scannés régulièrement, idéalement dans la CI.
@@ -36,7 +40,7 @@ Les informations techniques ne doivent pas être exposées au runtime. Les serve
 
 ### Sécurité navigateurs
 
-- Définir une **content security policy (CSP) stricte**, comme par exemple : en-tête HTTP Content-Security-Policy: default-src 'self'; frame-ancestors 'self';
+- Définir une **content security policy (CSP) stricte**, comme par exemple : en-tête HTTP Content-Security-Policy: default-src 'self'; frame-ancestors 'self'; Utiliser un outil comme [Laboratory](https://github.com/april/laboratory) pour profiler votre application et vérifier les headers CSP.
 - Définir l'attribut "integrity" sur l'ensemble des ressources link et script de la page (**SubResource Integrity**).
 - Gestion des **cookies** : utiliser les attributs de cookie **HttpOnly, Secure et SameSite**. Ne pas mettre SameSite à "None".
 - Auto-héberger l'ensemble des ressources de la page. Pour celles qui ne peuvent pas l'être et pour les traitements de moindre confiance, utiliser un WebWorker ou une iFrame avec l'attribut "sandbox".
