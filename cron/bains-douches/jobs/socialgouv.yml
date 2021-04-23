@@ -158,11 +158,6 @@ SocialGouv/code-du-travail-numerique:
     - .bathing
   variables:
     name: code-du-travail-numerique
-SocialGouv/work-in-france:
-  extends:
-    - .bathing
-  variables:
-    name: work-in-france
 SocialGouv/work-in-france-backoffice:
   extends:
     - .bathing
