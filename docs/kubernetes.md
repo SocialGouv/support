@@ -184,8 +184,17 @@ spec:
 
 ## Sceller un secret dans Kubernetes
 
-Nous utilisons [_SealedSecret_](https://github.com/bitnami-labs/sealed-secrets) pour chiffrer les secrets.
+Pour sceller un nouveau secret pour votre application, vous pouvez utiliser l'interface [WebSeal](https://socialgouv.github.io/sre-tools)
 
-Les secrets sont alors versionnés dans GIT et déchiffrables uniquement au niveau du cluster.
+Cette application permet de chiffrer votre secret (client-side) pour mettre à jour vos fichiers de sealed-secrets
 
-Le repo [`sre-tools`](https://github.com/SocialGouv/sre-tools) offre un CLI pour générer facilement les secrets et les ajouter dans votre projet.
+Deux cas possibles :
+
+ - **Développement** : le secret est déchiffrable cluster-wide
+ - **Production** : le secret est déchiffrable uniquement pour un `namespace` et un nom de `secret` donné. 
+
+Pour la *production*  pensez à bien à vérifier le `namespace` et le `nom du secret` spécifié.
+
+Copiez-collez ensuite le secret chiffré dans votre fichier de sealed-secrets pour le mettre à jour.
+
+L'équipe SRE est à votre disposition pour vous aider dans cette démarche
