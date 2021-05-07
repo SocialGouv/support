@@ -112,7 +112,7 @@ spec:
 
 ### Dashoards
 
-Vous pouvez créer vos propres dashboards et vos propres groupes de dashboards qui regroupent les métriques techniques issues de l'infrastructure (réseau, storage, bases de donnés), du service (cpu, mem, hits...) ou de l'application si [vous exposez des métriques OpenMetrics](/kubernetes?id=exposer-les-métriques-de-mon-application)
+Vous pouvez créer vos propres dashboards et vos propres groupes de dashboards qui regroupent les métriques techniques issues de l'infrastructure (réseau, storage, bases de donnés), du service (cpu, mem, hits...) ou de l'application si [vous exposez des métriques OpenMetrics](/kubernetes?id=exposer-les-métriques-de-mon-application). Pour interroger [Prometheus](https://prometheus.io/) qui expose les métriques, il faut utiliser le language PromQL. Exemples : https://timber.io/blog/promql-for-humans
 
 ### Logs Loki
 
