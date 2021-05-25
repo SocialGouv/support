@@ -161,7 +161,7 @@ SELECT pg_terminate_backend(pid)
     FROM pg_stat_activity
     WHERE state = 'idle'
       AND state_change < current_timestamp - INTERVAL '30' MINUTE;
- ```
+```
 
 See also [Limits in Azure Database for PostgreSQL](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/postgresql/concepts-limits.md#limits-in-azure-database-for-postgresql---single-server)
 
@@ -216,6 +216,20 @@ Des jobs de backup des BDDs sont executés quotidiennement. Pour forcer un nouve
 | Cluster prod2  | 51.11.228.254 |
 
 ## Mattermost
+
+### Mattermost reminder bot
+
+Reminder récurrent avec lien de meeting sur channel public:
+
+```bash
+/remind ~s-domifa-dev "
+# DOMIFA WEEKLY MEETING :stopwatch:
+:video_camera:  https://whereby.com/teamdomifa
+" every wednesday at 11:00AM
+```
+
+Autres exemples: <https://github.com/scottleedavis/mattermost-plugin-remind/wiki/Usage>
+Documentation: <https://github.com/scottleedavis/mattermost-plugin-remind>
 
 ### Mattermost Github integration
 
