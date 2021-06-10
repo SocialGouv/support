@@ -133,11 +133,6 @@ SocialGouv/legi-detect:
     - .bathing
   variables:
     name: legi-detect
-SocialGouv/domifa:
-  extends:
-    - .bathing
-  variables:
-    name: domifa
 SocialGouv/docker:
   extends:
     - .bathing
