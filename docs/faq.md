@@ -317,3 +317,16 @@ echo '{"text":"'${NOTIF_MSG}'"}' \
 ## Office 365
 
 Cf [page dédiée](outlook-office-365.md)
+
+## Nettoyage des environnements Kube de dev
+
+Les ressources de dev sont régulièrement nettoyées par Janitor :
+
+Ressource          | Durée de vie
+-------------------|-------------------
+dev/renovate*      | 48h
+dev/jobs/complete  | 24h
+dev/jobs/failed    | 7j
+prod/jobs/complete | 24h
+prod/jobs/failed   | 7j
+
