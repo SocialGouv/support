@@ -208,12 +208,14 @@ Il est important d'ajuster finement ces valeurs pour optimiser les ressources su
 
 Des jobs de backup des BDDs sont executés quotidiennement. Pour forcer un nouveau backup pour l'appli `xxx`, lancer `kubectl --context prod2 --namespace xxx create job --from=cronjob/backup-db-xxx my-backup`.
 
-### IPs de sortie
+### IPs du cluster
 
 | Nom            | IP            |
 | -------------- | ------------- |
-| Runners Gitlab | 51.11.226.128 |
-| Cluster prod2  | 51.11.228.254 |
+| Ingress PROD   | 20.74.14.77   |
+| Ingress DEV    | 40.66.60.240  |
+| Runner SCW1    | 51.15.230.115 |
+| Runner SCW2    | 51.158.120.34 |
 
 ## Mattermost
 
