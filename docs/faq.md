@@ -210,12 +210,14 @@ Des jobs de backup des BDDs sont executés quotidiennement. Pour forcer un nouve
 
 ### IPs du cluster
 
-| Nom            | IP            |
-| -------------- | ------------- |
-| Ingress PROD   | 20.74.14.77   |
-| Ingress DEV    | 40.66.60.240  |
-| Runner SCW1    | 51.15.230.115 |
-| Runner SCW2    | 51.158.120.34 |
+| Nom               | IP            |
+| ----------------- | ------------- |
+| Ingress PROD      | 20.74.14.77   |
+| Ingress DEV       | 40.66.60.240  |
+| IP de sortie PROD | 20.74.10.146  |
+| Runner SCW1       | 51.15.230.115 |
+| Runner SCW2       | 51.158.120.34 |
+
 
 ## Mattermost
 
