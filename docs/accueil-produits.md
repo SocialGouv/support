@@ -11,7 +11,7 @@ La Fabrique met à votre disposition :
 - Des services techniques
   - Github (Hébergement de code source)
   - Github (registry d'image)
-  - Github (actions (déploiement)
+  - Github (actions et déploiements)
   - DNS
   - SSL
   - Monitoring`*`, Alerting
