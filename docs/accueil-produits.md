@@ -9,6 +9,7 @@ La Fabrique met à votre disposition :
   - Serveurs PostgreSQL
   - Service de stockage (block et objet)
 - Des services techniques
+  - GitLab
   - Github (Hébergement de code source)
   - Github (registry d'image)
   - Github (actions et déploiements)
