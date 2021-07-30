@@ -3,11 +3,6 @@ SocialGouv/archifiltre-statistics:
     - .bathing
   variables:
     name: archifiltre-statistics
-SocialGouv/ozensemble-site:
-  extends:
-    - .bathing
-  variables:
-    name: ozensemble-site
 SocialGouv/monsuivipsy-site:
   extends:
     - .bathing
@@ -43,26 +38,11 @@ SocialGouv/egapro-api:
     - .bathing
   variables:
     name: egapro-api
-SocialGouv/cdtn-api:
-  extends:
-    - .bathing
-  variables:
-    name: cdtn-api
 SocialGouv/support:
   extends:
     - .bathing
   variables:
     name: support
-SocialGouv/cdtn-admin:
-  extends:
-    - .bathing
-  variables:
-    name: cdtn-admin
-SocialGouv/cdtn-monolog:
-  extends:
-    - .bathing
-  variables:
-    name: cdtn-monolog
 SocialGouv/contributions-data:
   extends:
     - .bathing
@@ -148,11 +128,6 @@ SocialGouv/react-departements:
     - .bathing
   variables:
     name: react-departements
-SocialGouv/code-du-travail-numerique:
-  extends:
-    - .bathing
-  variables:
-    name: code-du-travail-numerique
 SocialGouv/work-in-france-backoffice:
   extends:
     - .bathing
@@ -178,11 +153,6 @@ SocialGouv/emjpm:
     - .bathing
   variables:
     name: emjpm
-SocialGouv/cdtn-contrib:
-  extends:
-    - .bathing
-  variables:
-    name: code-du-travail-backoffice
 SocialGouv/tremplin:
   extends:
     - .bathing
