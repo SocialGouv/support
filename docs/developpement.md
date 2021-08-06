@@ -24,7 +24,7 @@ Nous encourageons l'utilisation de [semantic-release](/faq?id=installer-semantic
 - La branche par défaut est `master`
 - Chaque `pull-request` permet de déployer un environnement de review.
 - Le clic sur le job `release` déclenche le déploiement d'un environnement de `pré-production`.
-- Le clic sur `trigger prodution` depuis un pipeline de release déclenche une mise en production.
+- Le clic sur `trigger production` depuis un pipeline de release déclenche une mise en production.
 
 Si vous utilisez le pipeline AutoDevOps fournit par [`@socialgouv/gitlab-ci-yml`](https://github.com/SocialGouv/gitlab-ci-yml/), vous pouvez automatiser certaines étapes en ajoutant ces variables dans votre `.gitlab-ci.yml` :
 
