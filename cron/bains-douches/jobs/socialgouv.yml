@@ -123,11 +123,6 @@ SocialGouv/ds-aggregator:
     - .bathing
   variables:
     name: ds-aggregator
-SocialGouv/egapro:
-  extends:
-    - .bathing
-  variables:
-    name: egapro
 SocialGouv/dila2sql:
   extends:
     - .bathing
