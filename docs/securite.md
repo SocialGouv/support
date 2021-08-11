@@ -2,9 +2,9 @@
 
 > Tous les accès aux outils doivent être sécurisés par authentification double-facteurs (2FA)
 
-> Les variables d'environnement doivent être utilisées pour tout ce qui est secrets, tokens, logins, urls, hostnames... Ces données ne doivent en aucun cas être versionnées.
+> Les variables d'environnement doivent être utilisées pour tout ce qui est secrets, tokens, logins, urls, hostnames...
 
-> La gestion des secrets Kubernetes est assurée par [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets)
+> La gestion des secrets est assurée par des [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets) qui versionne les secrets chiffrés dans GIT.
 
 ## Outils
 
@@ -26,6 +26,8 @@ De manière générale il est déconseillé de référencer des scripts externes
 Les packages utilisés dans les applications doivent être maintenus à jour et scannés régulièrement, idéalement dans la CI.
 
 Les packages non utilisés ou obsolètes doivent être supprimés.
+
+Utilisez [renovate](https://github.com/SocialGouv/renovate-config) pour maintenir votre application à jour et prévoyez le temps nécessaire dans les sprints.
 
 ### Contrôles d'accès
 
