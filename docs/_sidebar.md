@@ -19,6 +19,8 @@
   - [Présentation](infrastructure.md)
   - [PRA/PCA](pra.md)
 
+* [**FAQ**](faq.md)
+
 * Projets
 
   - [Sample app](https://github.com/SocialGouv/sample-next-app)
@@ -30,4 +32,3 @@
   - [Packages Kosko](https://github.com/SocialGouv/kosko-charts)
   - [sre-tools](https://github.com/SocialGouv/sre-tools)
 
-* [**FAQ**](faq.md)
