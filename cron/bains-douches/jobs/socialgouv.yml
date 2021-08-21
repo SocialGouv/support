@@ -13,11 +13,6 @@ SocialGouv/datafiller-data:
     - .bathing
   variables:
     name: datafiller-data
-SocialGouv/emjpm-portail:
-  extends:
-    - .bathing
-  variables:
-    name: emjpm-portail
 SocialGouv/emjpm-editor-app:
   extends:
     - .bathing
