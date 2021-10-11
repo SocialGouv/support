@@ -16,6 +16,8 @@ Ces équipes soit joignables 5 jours sur 7, de 9h à 18h.
 
 Nous garantissons un taux de disponibilité des applications de 95%.
 
+Voir aussi [Disaster recovery PG](/disaster-recovery)
+
 ## Prévention
 
 Plusieurs mesures de prévention sont mises en place pour garantir la continuité de service.

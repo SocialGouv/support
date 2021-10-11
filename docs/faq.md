@@ -168,22 +168,13 @@ See also [Limits in Azure Database for PostgreSQL](https://github.com/MicrosoftD
 ### Accès aux serveurs PG de dev
 
 - Demander à l'équipe OPS d'ajouter votre clé publique sur le _bastion_
-- Récupérer le secret `azure-pg-admin-user` de dev sur votre projet rancher
+- Récupérer le secret qui correspond à l'environnement sur rancher ou k9s.
 - Ouvrir un port local (ex: 1111) sur le serveur PG via le bastion : `ssh -L 1111:[app]devserver.postgres.database.azure.com:5432 factory@40.89.139.58`
-- Puis utiliser psql directement : `docker run --rm -ti postgres:10 psql posgres://[app]admin%40[app]devserver:[password]@host.docker.internal:1111?sslmode=require`
 
-Voir la [procédure détaillée](https://gitlab.factory.social.gouv.fr/infra/documentation/-/blob/master/exploitation/databases/connexion_via_bastion.md)
+Puis dans un autre shell, utiliser psql directement : `psql postgres://[user]%40[app]devserver:[password]@127.0.0.1:1111?sslmode=require`
 
-### Restauration de backup
+Voir aussi [Disaster recovery](/disaster-recovery)
 
-Les backups fournis par la team OPS sont issus de pg_dump.
-
-Exemple de commande pour restaurer un tel fichier : 
-
-```sh
-docker cp /path/to/backup.psql.gz [container]:/tmp/backup.psql.gz
-docker exec -ti [container] pg_restore -U [username] -d [dbname] --clean --no-owner --no-acl --verbose /tmp/backup.psql.gz
-```
 ## Hasura
 
 ### JWK_KEY
@@ -217,7 +208,6 @@ Des jobs de backup des BDDs sont executés quotidiennement. Pour forcer un nouve
 | IP de sortie PROD | 20.74.10.146  |
 | Runner SCW1       | 51.15.230.115 |
 | Runner SCW2       | 51.158.120.34 |
-
 
 ## Mattermost
 
@@ -326,11 +316,11 @@ Cf [page dédiée](outlook-office-365.md)
 
 Les ressources de dev sont régulièrement nettoyées par Janitor :
 
-Ressource          | Durée de vie
--------------------|-------------------
-dev/renovate*      | 48h
-dev/jobs/complete  | 24h
-dev/jobs/failed    | 7j
-prod/jobs/complete | 24h
-prod/jobs/failed   | 7j
-
+| Ressource          | Durée de vie |
+| ------------------ | ------------ |
+| dev/\*             | 7j           |
+| dev/renovate\*     | 24h          |
+| dev/jobs/complete  | 24h          |
+| dev/jobs/failed    | 7j           |
+| prod/jobs/complete | 24h          |
+| prod/jobs/failed   | 7j           |
