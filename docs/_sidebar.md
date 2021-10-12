@@ -18,6 +18,7 @@
 
   - [Présentation](infrastructure.md)
   - [PRA/PCA](pra.md)
+  - [Disaster revovery](disaster-recovery.md)
 
 * [**FAQ**](faq.md)
 
@@ -31,4 +32,3 @@
   - [Packages helm](https://github.com/SocialGouv/helm-charts)
   - [Packages Kosko](https://github.com/SocialGouv/kosko-charts)
   - [sre-tools](https://github.com/SocialGouv/sre-tools)
-
