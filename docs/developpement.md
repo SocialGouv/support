@@ -42,7 +42,7 @@ Si vous utilisez le pipeline AutoDevOps fournit par [`@socialgouv/gitlab-ci-yml`
 
 ## Accessibilité (A11Y)
 
-- [référentiel RGAA](http://references.modernisation.gouv.fr/rgaa-accessibilite/)
+- [référentiel RGAA](https://design.numerique.gouv.fr/en/outils/audit-complementaire/)
 - [Guide du développeur RGAA 3](https://github.com/DISIC/guide-developpeur)
 
 ## Services à disposition
