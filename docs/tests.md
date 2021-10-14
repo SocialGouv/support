@@ -2,7 +2,153 @@
 
 ## Linters
 
-## TU
+---
+
+## Tests unitaires en React
+
+La façon la plus répandue de tester des composants en React est d'utiliser [Jest](https://jestjs.io/fr/) accompagnée de [testing-library](https://testing-library.com/).
+
+### Jest
+
+Jest est préconfiguré dans la plupart des outils (CRA et Next.js) et fonctionne out of the box (habituellement, avec la command `yarn test`).
+
+C'est un test runner qui possède un certain nombre de vérifications attendues.
+
+```jsx
+test('la meilleure saveur est le pamplemousse', () => {
+  expect(bestLaCroixFlavor()).toBe('grapefruit');
+});
+```
+
+Des exemples d'expect parmi les plus utiles : 
+
+- toBeNull()
+- toHaveLength(number)
+- toHaveBeenCalled()
+- toHaveBeenCalledTimes(number)
+- toBeFalsy
+- toEqual(value)
+- toMatch(regexp | string)
+- toThrow(error)
+
+Se reporter à [l'API d'expect](https://jestjs.io/fr/docs/expect) pour avoir la liste complète
+
+À noter également : 
+
+.not permet de tester l'opposé d'un expect : 
+
+```jsx
+test('la meilleure saveur n\'est pas coconut', () => {
+  expect(bestLaCroixFlavor()).not.toBe('coconut');
+});
+```
+
+#### Tests asynchrones
+
+Tester le retour d'une promesse avec `resolves` et `rejects`: 
+
+```jsx
+async function promisedLemon() {
+  return Promise.resolve("lemon")
+}
+
+async function throwOctopusError() {
+  throw new Error("octopus")
+}
+
+test("resolves to lemon", async () => {
+  await expect(promisedLemon()).resolves.toBe("lemon")
+  await expect(throwOctopusError()).rejects.toThrow("octopus")
+})
+```
+
+#### Tester avec des mocks
+
+Il est parfois indispensable de simuler des fonctions en test comme une API, une db, etc..
+
+Dans ce cas, on passe par des mocks : [https://jestjs.io/docs/mock-function-api](https://jestjs.io/docs/mock-function-api)
+
+Ces mocks peuvent avoir une implémentation ou non. Et on peut vérifier qu'ils ont été appelés, combien de fois et comment. 
+
+À noter que mocker une API peut se faire via la librairie [MSW](https://mswjs.io/docs/). 
+
+#### Tester avec des snapshots
+
+À minima, on peut tester avec des snapshots. Cela veut dire qu'on lancer une première fois le test, qui va exécuter l'implémentation du test et l'écrire dans le test.
+
+```jsx
+// On lance une première fois
+test("add with snapshot", () => {
+  expect(add(1, 2)).toMatchInlineSnapshot()
+})
+
+// Ensuite, le résultat de add(1, 2) est remplacé dans le fichier de test
+test("add with snapshot", () => {
+  expect(add(1, 2)).toMatchInlineSnapshot(`3`)
+})
+```
+
+Ceci peut être utile pour faire des tests rapides et éviter les non régressions. 
+
+Tip : lancer `yarn test —watchAll` pour  lancer les tests en continu et réagir aux modifications.
+
+### Testing library
+
+Testing library offre des utilitaires pour tester plus facilement une UI web. Il ajoute des fonctionnalités à Jest, en particulier pour accéder à tel noeud du DOM
+
+Avant de l'utiliser, il est conseillé de comprendre [les 3 types de queries](https://testing-library.com/docs/react-testing-library/cheatsheet#queries), getBy, findBy, queryBy. Chacun a son utilité, en fonction du mode synchrone/asynchrone, du fait que retrouver un élément est attendu ou bien une erreur, etc..
+
+```jsx
+import { render, screen, waitFor } from "@testing-library/react"
+import userEvent from "@testing-library/user-event"
+
+it("should show an error if no email is given", () => {
+  render(<ForgotPasswordPage />)
+
+  userEvent.type(screen.getByLabelText(/courriel/i), "")
+
+  userEvent.click(screen.getByRole("button", { name: /envoyer un email/i }))
+
+  expect(screen.getByRole("alert")).toHaveTextContent(/Veuillez renseigner le champ Courriel/i)
+})
+```
+
+L'idée est de render le composant React. Puis de manipuler et/ou de tester des éléments du DOM.
+
+Chacune des queries (getBy, findBy, queryBy) peuvent être utilisée avec différents types de recherches : 
+
+- screen.getByLabelText : récupérer un élément label dans la page
+- screen.getByRole : récupérer un élément du DOM par son rôle comme `screen.getByRole("button", { name: /envoyer un email/i })`
+
+Plus le type de recherche sera précis et proche de la vision utilisateur, meilleur il sera.
+
+**Référence**  
+
+- trouver un sélecteur pour testing-library : [testing-playground](https://testing-playground.com/)
+- [user-event](https://testing-library.com/docs/ecosystem-user-event) (recommandé) : une librairie supplémentaire qui fournit plus d'évènements que la méthode fireEvent.
+- [jest-dom](https://testing-library.com/docs/ecosystem-jest-dom) (recommandé) : une librairie supplémentaire qui étend les expect de Jest (ex: toBeInTheDocument, toBeVisible, toBeChecked, etc.)
+
+#### Tests asynchrones
+
+```jsx
+it("should show an error if no email is given", async () => {
+  render(<ResetPasswordPage />)
+
+  userEvent.type(screen.getByLabelText(/^Mot de passe$/i), "tototiti")
+  userEvent.type(screen.getByLabelText(/Confirmation mot de passe/i), "tototata")
+
+  userEvent.click(screen.getByRole("button", { name: /appliquer/i }))
+
+  await waitFor(() => expect(screen.getByText(/Les mots de passe ne correspondent pas/i)).toBeInTheDocument())
+})
+```
+
+Pour aller plus loin : 
+
+- [exemple de test](https://github.com/kentcdodds/bookshelf/blob/main/src/__tests__/book-screen.js#L51) dans Bookshelf (de Kent C Dodds)
+- [faker](https://github.com/marak/Faker.js/) permet de générer des jeux de test (ex: email, téléphone, etc.) et de randomiser ses inputs (best practice)
+
+---
 
 ## Tests end-to-end avec Gherkin
 
