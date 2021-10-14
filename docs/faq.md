@@ -206,6 +206,7 @@ Des jobs de backup des BDDs sont executés quotidiennement. Pour forcer un nouve
 | Ingress PROD      | 20.74.14.77   |
 | Ingress DEV       | 40.66.60.240  |
 | IP de sortie PROD | 20.74.10.146  |
+| IP de sortie DEV  | 20.74.14.116  |
 | Runner SCW1       | 51.15.230.115 |
 | Runner SCW2       | 51.158.120.34 |
 
