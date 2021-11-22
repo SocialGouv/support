@@ -24,11 +24,10 @@
 
 * Projets
 
-  - [Sample app](https://github.com/SocialGouv/sample-next-app)
+  - [GitHub actions](https://github.com/SocialGouv/actions)
   - [Linters](https://github.com/SocialGouv/linters)
   - [Renovate](https://github.com/SocialGouv/renovate-config)
   - [Images docker](https://github.com/SocialGouv/docker)
-  - [Jobs GitLab](https://github.com/SocialGouv/gitlab-ci-yml)
-  - [Packages helm](https://github.com/SocialGouv/helm-charts)
   - [Packages Kosko](https://github.com/SocialGouv/kosko-charts)
   - [sre-tools](https://github.com/SocialGouv/sre-tools)
+  - [dashlord](https://github.com/SocialGouv/dashlord)

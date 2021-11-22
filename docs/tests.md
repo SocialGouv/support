@@ -15,12 +15,12 @@ La façon la plus répandue de tester des composants en React est d'utiliser [Je
 C'est un test runner qui possède un certain nombre de vérifications attendues (`matchers`).
 
 ```js
-test('la meilleure saveur est le pamplemousse', () => {
-  expect(bestLaCroixFlavor()).toBe('grapefruit');
+test("la meilleure saveur est le pamplemousse", () => {
+  expect(bestLaCroixFlavor()).toBe("grapefruit");
 });
 ```
 
-Des exemples de `matchers` parmi les plus utiles : 
+Des exemples de `matchers` parmi les plus utiles :
 
 - toBeNull()
 - toHaveLength(number)
@@ -33,11 +33,11 @@ Des exemples de `matchers` parmi les plus utiles :
 
 Se reporter à [l'API expect](https://jestjs.io/fr/docs/expect) pour avoir la liste complète.
 
-À noter également, `.not`, pour tester l'opposé d'une valeur : 
+À noter également, `.not`, pour tester l'opposé d'une valeur :
 
 ```js
-test('la meilleure saveur n\'est pas coconut', () => {
-  expect(bestLaCroixFlavor()).not.toBe('coconut');
+test("la meilleure saveur n'est pas coconut", () => {
+  expect(bestLaCroixFlavor()).not.toBe("coconut");
 });
 ```
 
@@ -47,17 +47,17 @@ Tester le retour d'une promesse se fait via `resolves` et `rejects`:
 
 ```js
 async function promisedLemon() {
-  return Promise.resolve("lemon")
+  return Promise.resolve("lemon");
 }
 
 async function throwOctopusError() {
-  throw new Error("octopus")
+  throw new Error("octopus");
 }
 
 test("resolves to lemon", async () => {
-  await expect(promisedLemon()).resolves.toBe("lemon")
-  await expect(throwOctopusError()).rejects.toThrow("octopus")
-})
+  await expect(promisedLemon()).resolves.toBe("lemon");
+  await expect(throwOctopusError()).rejects.toThrow("octopus");
+});
 ```
 
 #### Tester avec des mocks
@@ -65,9 +65,9 @@ test("resolves to lemon", async () => {
 Il est parfois indispensable de simuler des fonctions en test comme une API, une db, etc..
 Dans ce cas, on passe par des `mocks` : [https://jestjs.io/docs/mock-function-api](https://jestjs.io/docs/mock-function-api)
 
-Ces `mocks` peuvent avoir une implémentation ou non. On peut vérifier qu'ils ont été appelés, combien de fois et comment. 
+Ces `mocks` peuvent avoir une implémentation ou non. On peut vérifier qu'ils ont été appelés, combien de fois et comment.
 
-À noter que mocker une API peut se faire via la librairie [MSW](https://mswjs.io/docs/). 
+À noter que mocker une API peut se faire via la librairie [MSW](https://mswjs.io/docs/).
 
 #### Tester avec des snapshots
 
@@ -79,40 +79,42 @@ Puis, les prochaines exécutions du test vérifierons réellement en comparant a
 ```js
 // On lance une première fois `yarn test`.
 test("add with snapshot", () => {
-  expect(add(1, 2)).toMatchInlineSnapshot() // ou bien toMatchSnapshot() => dans ce cas, le résultat sera stocké dans un fichier à part.
-})
+  expect(add(1, 2)).toMatchInlineSnapshot(); // ou bien toMatchSnapshot() => dans ce cas, le résultat sera stocké dans un fichier à part.
+});
 
 // Après l'exécution du test, le fichier a été modifié.
 test("add with snapshot", () => {
-  expect(add(1, 2)).toMatchInlineSnapshot(`3`)
-})
+  expect(add(1, 2)).toMatchInlineSnapshot(`3`);
+});
 ```
 
-Ce style de test n'est pas idéal puisqu'il ne vérifie pas que le résulat est fonctionnellement correct. 
-Mais il a son utilité pour écrire rapidement des tests et éviter les non régressions du code. 
+Ce style de test n'est pas idéal puisqu'il ne vérifie pas que le résulat est fonctionnellement correct.
+Mais il a son utilité pour écrire rapidement des tests et éviter les non régressions du code.
 
-Tip : lancer `yarn test —watchAll` pour  lancer les tests en continu et réagir aux modifications.
+Tip : lancer `yarn test —watchAll` pour lancer les tests en continu et réagir aux modifications.
 
 ### Testing library
 
-`Testing library` offre des utilitaires pour tester plus facilement une UI web. 
+`Testing library` offre des utilitaires pour tester plus facilement une UI web.
 Il ajoute des fonctionnalités à `Jest`, en particulier pour accéder aux noeuds du DOM.
 
 Avant de l'utiliser, il est conseillé de comprendre [les 3 types de queries](https://testing-library.com/docs/react-testing-library/cheatsheet#queries) (getBy, findBy, queryBy). Chacun a son utilité propre, en fonction du mode synchrone/asynchrone, du fait que retrouver un élément est attendu ou bien une erreur, etc..
 
 ```js
-import { render, screen, waitFor } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
+import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 it("should show an error if no email is given", () => {
-  render(<ForgotPasswordPage />)
+  render(<ForgotPasswordPage />);
 
-  userEvent.type(screen.getByLabelText(/courriel/i), "")
+  userEvent.type(screen.getByLabelText(/courriel/i), "");
 
-  userEvent.click(screen.getByRole("button", { name: /envoyer un email/i }))
+  userEvent.click(screen.getByRole("button", { name: /envoyer un email/i }));
 
-  expect(screen.getByRole("alert")).toHaveTextContent(/Veuillez renseigner le champ Courriel/i)
-})
+  expect(screen.getByRole("alert")).toHaveTextContent(
+    /Veuillez renseigner le champ Courriel/i
+  );
+});
 ```
 
 L'idée est :
@@ -121,14 +123,14 @@ L'idée est :
 2. manipuler l'UI via des évènements (optionnel)
 3. vérifier l'état du DOM
 
-Chacune des queries (getBy, findBy, queryBy) peut être utilisée avec différents mode de recherches (_By_): 
+Chacune des queries (getBy, findBy, queryBy) peut être utilisée avec différents mode de recherches (_By_):
 
 - `screen.getByLabelText` : récupérer un élément par son label dans la page
 - `screen.getByRole` : récupérer un élément du DOM par son rôle, tel que `screen.getByRole("button", { name: /envoyer un email/i })`
 
 Plus le mode de recherche sera précis et proche de la vision utilisateur, meilleur il sera.
 
-**Référence**  
+**Référence**
 
 - [testing-playground](https://testing-playground.com/) : trouver un bon sélecteur pour `testing-library`
 - [user-event](https://testing-library.com/docs/ecosystem-user-event) : une librairie supplémentaire qui fournit plus d'évènements que la méthode `fireEvent`.
@@ -138,24 +140,31 @@ Plus le mode de recherche sera précis et proche de la vision utilisateur, meill
 
 ```js
 it("should show an error if no email is given", async () => {
-  render(<ResetPasswordPage />)
+  render(<ResetPasswordPage />);
 
-  userEvent.type(screen.getByLabelText(/^Mot de passe$/i), "tototiti")
-  userEvent.type(screen.getByLabelText(/Confirmation mot de passe/i), "tototata")
+  userEvent.type(screen.getByLabelText(/^Mot de passe$/i), "tototiti");
+  userEvent.type(
+    screen.getByLabelText(/Confirmation mot de passe/i),
+    "tototata"
+  );
 
-  userEvent.click(screen.getByRole("button", { name: /appliquer/i }))
+  userEvent.click(screen.getByRole("button", { name: /appliquer/i }));
 
   // en supposant que la vérification des mdp est asynchrone
-  await waitFor(() => expect(screen.getByText(/Les mots de passe ne correspondent pas/i)).toBeInTheDocument())
-})
+  await waitFor(() =>
+    expect(
+      screen.getByText(/Les mots de passe ne correspondent pas/i)
+    ).toBeInTheDocument()
+  );
+});
 ```
 
-Pour aller plus loin : 
+Pour aller plus loin :
 
 - [exemple de test](https://github.com/kentcdodds/bookshelf/blob/main/src/__tests__/book-screen.js#L51) dans Bookshelf (Kent C. Dodds)
 - [faker](https://github.com/marak/Faker.js/) permet de générer des jeux de test (ex: email, téléphone, etc.) et de randomiser ses inputs (best practice)
 
-__Spécifiques à Next.js__
+**Spécifiques à Next.js**
 
 - https://github.com/toomuchdesign/next-page-tester : tester une page Next (avec le data fetching éventuel)
 - https://github.com/scottrippey/next-router-mock : mocker le router de Next dans ses tests
@@ -217,9 +226,3 @@ Dans le `package.json` principal du projet ajouter un script `"e2e": "yarn --cwd
 Puis lancer en local `CODECEPT_BASEURL=http://path/to/app yarn e2e test --steps` pour lancer les tests.
 
 Lire les [best practices et exemples Codecept](https://codecept.io/best).
-
-#### GitLab
-
-Un job exemple est dispo sur le [répo de demo](https://github.com/socialgouv/sample-next-app).
-
-Ce job doit s'executer après les éventuels migrate/seed de votre base de données.

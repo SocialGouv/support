@@ -37,9 +37,11 @@ Ex : https://github.com/nyambati/express-acl
 
 Mettre en place une **matrice des rôles** qui associe à chaque type de donnée des permissions de type lecture/écriture par rôle.
 
-### Leak d'informations techniques
+### Leak d'informations
 
 Les informations techniques ne doivent pas être exposées au runtime. Les serveurs et applications ne doivent pas fournir de header ou signature permettant de les identifier. (ex: header `Served-by`)
+
+Les développeur(se)s ne doivent en aucun cas recevoir de données de production sur leur poste de travail. Les équipes de dev doivent mettre en oeuvre des mécanismes de `seeds` pour travailler avec des volumes de donnés réalistes.
 
 ### Sécurité navigateurs
 
