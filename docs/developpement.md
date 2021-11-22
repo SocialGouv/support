@@ -15,8 +15,7 @@ GitHub est utilisé pour tous nos projets publics et exceptionnellement notre Gi
 - Releaser sur GitHub/npm : avec [semantic-release](https://github.com/semantic-release/semantic-release) cf [la FAQ](/faq?id=installer-semantic-release)
 - Récupérer les erreurs applicatives dans notre [sentry](https://sentry.fabrique.social.gouv.fr)
 - Utiliser [DashLord](https://dashlord.fabrique.social.gouv.fr) pour monitorer les bonnes pratiques.
-
-Nous encourageons l'utilisation de [semantic-release](/faq?id=installer-semantic-release) pour générer automagiquement les changelogs et releases.
+- Le [système de design de l'état](https://gouvfr.atlassian.net/wiki/spaces/DB/overview?homepageId=145359476) doit être utilisé par défaut. une implémentation React existe ici : https://github.com/dataesr/react-dsfr
 
 ### GIT Flow
 
