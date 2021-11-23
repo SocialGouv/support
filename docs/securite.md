@@ -47,7 +47,7 @@ Les informations techniques ne doivent pas être exposées au runtime. Les serve
 
 Les données de développement (GIT et bases de données) doivent être considérées comme publiques et ne pas utiliser de données sensibles ou personnelles.
 
-Les développeur(se)s ne doivent en aucun cas recevoir de données de production sur leur poste de travail. Les équipes de dev doivent mettre en oeuvre des mécanismes de `seeds` pour travailler avec des volumes de donnée réalistes.
+Les développeur(se)s ne doivent en aucun cas recevoir de données de production sur leur poste de travail. Les équipes de dev doivent mettre en oeuvre des mécanismes de `seeds` pour travailler avec des volumes de données réalistes.
 
 ### Sécurité navigateurs
 
