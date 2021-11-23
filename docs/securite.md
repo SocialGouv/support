@@ -45,7 +45,7 @@ Mettre en place une **matrice des rôles** qui associe à chaque type de donnée
 
 Les informations techniques ne doivent pas être exposées au runtime. Les serveurs et applications ne doivent pas fournir de header ou signature permettant de les identifier. (ex: header `Served-by`)
 
-Les données de développmenet (GIT et bases de données) doivent être considérées comme publiques et ne pas utiliser de données sensibles ou personnelles.
+Les données de développement (GIT et bases de données) doivent être considérées comme publiques et ne pas utiliser de données sensibles ou personnelles.
 
 Les développeur(se)s ne doivent en aucun cas recevoir de données de production sur leur poste de travail. Les équipes de dev doivent mettre en oeuvre des mécanismes de `seeds` pour travailler avec des volumes de donnée réalistes.
 
