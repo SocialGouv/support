@@ -4,9 +4,7 @@
 
 > Les applications, containers et scripts doivent respecter des standards ouverts pour être portables.
 
-Nous utilisons [notre GitLab interne](https://gitlab.factory.social.gouv.fr/) pour répliquer nos repos GitHub et y faire tourner les pipelines de CI/CD qui déploient les applications sur des **clusters Kubernetes sur Azure**.
-
-Les pipelines et images docker sont autant que possible mutualisés sur nos repos GitHub [gitlab-ci-yml](https://github.com/SocialGouv/gitlab-ci-yml) et [docker](https://github.com/SocialGouv/docker).
+L'ensemble des applications utilise des [GitHub actions @socialgouv](https://github.com/socialgouv/actions) pour l'automatisation, notamment le build des images docker et leur déploiement sur kubernetes.
 
 ## Kubernetes (K8S)
 
@@ -35,7 +33,6 @@ La fabrique propose du [stockage objet](https://docs.microsoft.com/fr-fr/azure/s
 | [Matomo](https://matomo.fabrique.social.gouv.fr)       | Tracking web RGPD-friendly          |
 | [Sentry](https://sentry.fabrique.social.gouv.fr)       | Logs d'exceptions applicatives      |
 | [Tipimail](https://tipimail.com)                       | Emails transactionnels              |
-| [UppTime](https://socialgouv.github.io/upptime)        | Uptime monitoring                   |
 | [Grafana](https://grafana.fabrique.social.gouv.fr)     | Monitoring / supervision            |
 | [Office365](/outlook-office-365.md)                    | Emails en `fabrique.social.gouv.fr` |
 | [NextCloud](https://nextcloud.fabrique.social.gouv.fr) | Drive/Fichiers partagés             |

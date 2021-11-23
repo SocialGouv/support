@@ -83,8 +83,6 @@ annotations:
 
 ## Les outils pour utiliser kubernetes
 
-L'équipe SRE vous accompagne pour créer les [pipelines de déploiement GitLab](https://github.com/SocialGouv/gitlab-ci-yml) de vos applications vers k8s.
-
 ### Clients
 
 Le [CLI k9s](https://k9scli.io/) permet de monitorer ses déploiements, consulter les logs, se connecter en shell à vos containers... [Rancher](https://rancher.fabrique.social.gouv.fr) est un équivalent en interface web.
@@ -190,10 +188,10 @@ Cette application permet de chiffrer votre secret (client-side) pour mettre à j
 
 Deux cas possibles :
 
- - **Développement** : le secret est déchiffrable cluster-wide
- - **Production** : le secret est déchiffrable uniquement pour un `namespace` et un nom de `secret` donné. 
+- **Développement** : le secret est déchiffrable cluster-wide
+- **Production** : le secret est déchiffrable uniquement pour un `namespace` et un nom de `secret` donné.
 
-Pour la *production*  pensez à bien à vérifier le `namespace` et le `nom du secret` spécifié.
+Pour la _production_ pensez à bien à vérifier le `namespace` et le `nom du secret` spécifié.
 
 Copiez-collez ensuite le secret chiffré dans votre fichier de sealed-secrets pour le mettre à jour.
 
