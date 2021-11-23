@@ -23,7 +23,7 @@ GitHub est utilisé pour tous nos projets publics et exceptionnellement notre Gi
 - Chaque `pull-request` permet de déployer un environnement de review.
 - Chaque merge sur `master` déclenche une release qui peut être poussée en préproduction puis production.
 
-[![](_media/git-flow-simple.png ":size=700x280")](https://excalidraw.com/#json=5098019938631680,IXyWEfTp2NTWbAiBT43D9g)
+[![](_media/git-flow-simple.png ":size=700x280")](https://excalidraw.com/#json=M-mLgWTqNx1DlJ1Yw3hkJ,GDHg5x6wLOlvDyn5h0oovQ)
 
 ### Urls des environnements
 
