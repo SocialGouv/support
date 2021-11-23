@@ -19,7 +19,7 @@ Les [cheat sheets OWASP](https://cheatsheetseries.owasp.org/) sont une très bon
 
 ### CODEOWNERS
 
-Les workflows d'intégration et déploiements continus des repositories SocialGouv sont protégés par la convention [CODEOWNERS](https://github.blog/2017-07-06-introducing-code-owners/) : tout changement potentiellement impactant sur l'infrastructure doit être revue par une personne de l'équipe OPS ou SRE. Ils seront automatiquement assignés aux issues qui touchent aux fichiers de CI lors d'une pull-request.
+Les workflows d'intégration et déploiements continus des repositories SocialGouv sont protégés par la convention [CODEOWNERS](https://github.blog/2017-07-06-introducing-code-owners/) : tout changement impactant potentiellement l'infrastructure doit être revue par une personne de l'équipe OPS ou SRE. Ils seront automatiquement assignés aux issues qui touchent aux fichiers de CI lors d'une pull-request.
 
 ### Third-parties
 
