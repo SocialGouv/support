@@ -49,6 +49,8 @@ Les données de développement (GIT et bases de données) doivent être considé
 
 Les développeur(se)s ne doivent en aucun cas recevoir de données de production sur leur poste de travail. Les équipes de dev doivent mettre en oeuvre des mécanismes de `seeds` pour travailler avec des volumes de données réalistes.
 
+Les applications ne doivent jamais logger d'information confidentielle ou de credentials sur la console. En effet ces informations pourraient remonter sur les outils de logging tels Sentry ou grafana.
+
 ### Sécurité navigateurs
 
 - Définir une **content security policy (CSP) stricte**, comme par exemple : en-tête HTTP Content-Security-Policy: default-src 'self'; frame-ancestors 'self'; Utiliser un outil comme [Laboratory](https://github.com/april/laboratory) pour profiler votre application et vérifier les headers CSP.
