@@ -37,6 +37,8 @@ Ce GIT Flow est implémenté dans les [GitHub actions @SocialGouv](https://githu
 
 ## Accessibilité (A11Y)
 
+L'accessibilité des applications mobiles et web doit être intégrée dès le démarrage des projets. L'objectif est d'atteindre minimum 75% de conformité au RGAA.
+
 - [référentiel RGAA](http://references.modernisation.gouv.fr/rgaa-accessibilite/)
 - [Extension browser assistant RGAA](https://design.numerique.gouv.fr/articles/2021-10-06-assistant-rgaa/)
 
