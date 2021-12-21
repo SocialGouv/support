@@ -25,6 +25,8 @@ GitHub est utilisé pour tous nos projets publics et exceptionnellement notre Gi
 
 [![](_media/git-flow-simple.png ":size=700x280")](https://excalidraw.com/#json=M-mLgWTqNx1DlJ1Yw3hkJ,GDHg5x6wLOlvDyn5h0oovQ)
 
+Ce GIT Flow est implémenté dans les [GitHub actions @SocialGouv](https://github.com/SocialGouv/actions), l'équipe SRE vous aidera à les mettre en place.
+
 ### Urls des environnements
 
 | Url                                             | Usage            |
