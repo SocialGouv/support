@@ -17,6 +17,10 @@
 
 Les [cheat sheets OWASP](https://cheatsheetseries.owasp.org/) sont une très bonne référence.
 
+### CODEOWNERS
+
+Les workflows d'intégration et déploiements continus des repositories SocialGouv sont protégés par la convention [CODEOWNERS](https://github.blog/2017-07-06-introducing-code-owners/) : tout changement impactant potentiellement l'infrastructure doit être revue par une personne de l'équipe OPS ou SRE. Ils seront automatiquement assignés aux issues qui touchent aux fichiers de CI lors d'une pull-request.
+
 ### Third-parties
 
 De manière générale il est déconseillé de référencer des scripts externes dans ses applications, comme des scripts ou CSS via CDN, google fonts ou autres services tiers; Privilégier l'utilisation de librairies dédiées que vous pouvez embarquer dans l'application elle-même.
@@ -37,9 +41,15 @@ Ex : https://github.com/nyambati/express-acl
 
 Mettre en place une **matrice des rôles** qui associe à chaque type de donnée des permissions de type lecture/écriture par rôle.
 
-### Leak d'informations techniques
+### Leak d'informations
 
 Les informations techniques ne doivent pas être exposées au runtime. Les serveurs et applications ne doivent pas fournir de header ou signature permettant de les identifier. (ex: header `Served-by`)
+
+Les données de développement (GIT et bases de données) doivent être considérées comme publiques et ne pas utiliser de données sensibles ou personnelles.
+
+Les développeur(se)s ne doivent en aucun cas recevoir de données de production sur leur poste de travail. Les équipes de dev doivent mettre en oeuvre des mécanismes de `seeds` pour travailler avec des volumes de données réalistes.
+
+Les applications ne doivent jamais logger d'information confidentielle ou de credentials sur la console. En effet ces informations pourraient remonter sur les outils de logging tels Sentry ou grafana.
 
 ### Sécurité navigateurs
 

@@ -4,7 +4,7 @@ include:
 .bathing:
   extends:
     - .cron_rules
-  image: alpine:3.14.2
+  image: alpine:3.15.0
   before_script:
     - apk add bash git parallel
   script:
@@ -16,7 +16,7 @@ include:
 Sync SocialGouv group jobs:
   extends:
     - .cron_rules
-  image: alpine:3.14.2
+  image: alpine:3.15.0
   allow_failure: true
   variables:
     GIT_AUTHOR_EMAIL: 45039513+SocialGroovyBot@users.noreply.github.com

@@ -64,23 +64,6 @@ renovate propose de [nombreuses options](https://docs.renovatebot.com/) pour ét
 
 Il est possible de consulter les logs des jobs renovate ici : <https://app.renovatebot.com/dashboard>
 
-## Utiliser la CI GitLab
-
-Pour utiliser GitLab et y faire tourner des jobs de CI/CD, il faut :
-
-- créer un compte sur <https://gitlab.factory.social.gouv.fr> avec l'auth GitHub
-- créer un nouveau projet en choissant "CI/CD pipelines for external repo"
-- pour le token, utiliser un token `SocialGroovyBot` en se connectant via le compte GitLab du bot
-- choisir le projet GitHub source
-
-GitLab synchronisera alors automatiquement le repo à chaque push sur GitHub et executera les jobs définis dans `.gitlab-ci.yml`
-
-### `> ENOSPC: no space left on device, write` while running `docker build`
-
-Ceci peut se produire lorsqu'il n'y a pas assez de mémoire pour le build docker dans un runner GitLab.
-
-Augmentez la mémoire dans les arguments de build docker `--shm-size 768M` (`DOCKER_BUILD_ARGS` dans l'autodevops)
-
 ### Créer un secret pour accéder à un registre GitLab privé
 
 1. Dans le projet GitLab, "Settings/Repository/Deploy Tokens", créer un nouveau token avec les droits `read_registry`
@@ -206,6 +189,7 @@ Des jobs de backup des BDDs sont executés quotidiennement. Pour forcer un nouve
 | Ingress PROD      | 20.74.14.77   |
 | Ingress DEV       | 40.66.60.240  |
 | IP de sortie PROD | 20.74.10.146  |
+| IP de sortie DEV  | 20.74.14.116  |
 | Runner SCW1       | 51.15.230.115 |
 | Runner SCW2       | 51.158.120.34 |
 
@@ -251,62 +235,6 @@ Commandes utiles:
 ```
 
 Source du plugin: <https://github.com/softdevteam/mattermost-github-integration>
-
-### Mattermost Gitlab integration
-
-Se connecter en utilisant le client Web (semble ne pas fonctionner sinon): <https://mattermost.fabrique.social.gouv.fr>
-
-Dans n'importe quel canal, taper:
-
-```bash
-/gitlab connect
-```
-
-Puis cliquer sur le lien qui apparait pour autoriser l'accès à votre compte gitlab.
-
-Commandes utiles:
-
-```bash
-# activer les notifications
-/gitlab settings notifications on
-
-# s'abonner à un repo (merges,issues,tag)
-/gitlab subscriptions add SocialGouv/domifa
-
-# si le plugin le demande, créer le webhook correspondant:
-/gitlab webhook add SocialGouv/domifa
-
-# liste ses abonnements:
-/gitlab subscriptions list
-```
-
-Source du plugin: <https://github.com/NotSqrt/mattermost-integration-gitlab>
-
-### Mattermost Gitlab-CI integration
-
-Se rendre sur <https://mattermost.fabrique.social.gouv.fr/default/integrations/incoming_webhooks/add> et créer un webhook en sélectionant le canal sur lequel on souhaite publier les notifications. Récupérer l'url du webhook qui contiendra le token. Se rendre sur la page de configuration CI/CD du projet sur GitLab, example: https://gitlab.factory.social.gouv.fr/SocialGouv/emjpm/-/settings/ci_cd (remplacer emjpm par le nom du projet), et ajouter une variable intitulée `MATTERMOST_WEBHOOK` dans la sections `variables` et qui contiendra l'url du webhook.
-
-Dans le fichier `.gitlab-ci` à la racine du projet
-
-```yaml
-Ma notification mattermost:
-  image: registry.gitlab.factory.social.gouv.fr/devthejo/bash-curl:1.2.0
-  only:
-    refs:
-      - tags
-  script:
-    - |
-      echo '{"text":"🦊 release ready for production at '${CI_ENVIRONMENT_URL}'"}' \
-        | curl -H 'Content-Type: application/json' ${MATTERMOST_WEBHOOK} -d @-
-```
-
-Pour échapper un texte multiline, l'envoyer sur `sed -z 's/\n/\\n/g'`:
-
-```bash
-NOTIF_MSG=$(./scripts/gitops/get-release-note | sed -z 's/\n/\\n/g')
-echo '{"text":"'${NOTIF_MSG}'"}' \
-  | curl -H 'Content-Type: application/json' ${MATTERMOST_WEBHOOK} -d @-
-```
 
 ## Office 365
 
