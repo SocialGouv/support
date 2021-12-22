@@ -22,6 +22,10 @@
 
 * [**FAQ**](faq.md)
 
+* Workshops
+
+  - [Kubernetes](workshops/kubernetes)
+
 * Projets
 
   - [GitHub actions](https://github.com/SocialGouv/actions)
