@@ -24,7 +24,7 @@
 
 * Workshops
 
-  - [Kubernetes](workshops/kubernetes)
+  - [Kubernetes](workshops/kubernetes/index.md)
 
 * Projets
 
