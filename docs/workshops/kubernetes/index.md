@@ -42,14 +42,19 @@ Kube c'est un peu comme React, mais pour les déploiements : vous décrivez les 
 
 ```sh
 # afficher les pods de mon namespace
-kubectl --context dev2 --namespace my-ns get pods
+kubectl --context dev --namespace my-ns get pods
+
+# afficher les ressources d'un namespace
+kubectl --context dev --namespace my-ns get deploy,pod,ingress,sealedsecret,secret,service,configmap
+
 # logs d'un pod
-kubectl --context dev2 --namespace my-ns logs [pod-name]
+kubectl --context dev --namespace my-ns logs [pod-name]
+
 # appliquer des manifests
-kubectl apply --context dev2 --namespace my-ns -f manifests.yaml
+kubectl apply --context dev --namespace my-ns -f manifests.yaml
 ```
 
-Chaque _ressource_ kubernetes est définie par un manifeste particulier.
+Chaque _ressource_ kubernetes est définie par un manifeste particulier qu'on peut récupérer en ajoutant `-ojson` ou `-oyaml` à la commande `kubectl`.
 
 Certains manifests sont chargés de créer d'autres manifests à la demande de kube. Par exemple, un `SealedSecret` génère un `Secret`, un `Deployment` génère un ou plusieurs `Pod`, et un `CronJob` déclenche des `Job`.
 

@@ -1,28 +1,28 @@
 # FAQ
 
-## Installer semantic-release pour publier sur npm
+## Semantic-release
+
+[Semantic-release](https://github.com/semantic-release/semantic-release) est utilisé pour créer des releases automatiques lors d'un merge sur la branche principale et `alpha, beta, next`.
+
+La release est conditionnée par la présence d'un commit conventionnel de type `fix: some fix` ou `feat: some new feature` ([semantic-relase default commit conventions](https://github.com/semantic-release/semantic-release#commit-message-format))
+
+Ajoutez un fichier [`.github/workflows/release.yml`](https://github.com/SocialGouv/standup/blob/8b130400ef80835f3d6fa0a8a56e98986a20e2f7/.github/workflows/release.yml) à votre repo.
+
+### Pour publier sur npm
 
 > Les packages npm doivent être publiés en tant que `@socialgouv/package-name`.
+
 > Le champ author doit être positionné à `Fabrique numérique des Ministères Sociaux <contact@fabrique.social.gouv.fr> (https://fabrique.social.gouv.fr)`
-> La licence pas défaut doit-être Apache-2.0
 
-[semantic-release](https://github.com/semantic-release/semantic-release) permet de publier automatiquement votre package npm selon les règles de votre workflow GitHub.
+> dans package.json, ajouter `"publishConfig":{"access": "public"}` s
 
-Il publie automatiquement vos changes sur GitHub et npm, et génère un changelog grâce aux [commits conventionnels](https://www.conventionalcommits.org/)
-
-Un exemple de référence est [dispo ici](https://github.com/SocialGouv/kosko-charts) :
-
-- Les règles du workflow GitHub : dans [.github/workflows/main.yml](https://github.com/SocialGouv/kosko-charts/blob/master/.github/workflows/main.yml)
-- La config semantic-release dans [.releaserc.yml](https://github.com/SocialGouv/kosko-charts/blob/master/.releaserc.yml)
-- Le champ `"publishConfig": { "access": "public" }` doit être renseigné dans le `package.json`
+Pour publier sur npm, il vous faudra un fichier `release.yml` particulier, [exemple](https://github.com/SocialGouv/react-departements/blob/4e60cecc7a65f0c41255b4747d1dba9f065b3c2c/.github/workflows/release.yml)
 
 Le groupe GitHub `SocialGouv` fournit plusieurs `secrets` utilisables dans vos jobs :
 
-- `SOCIALGROOVYBOT_NPM_TOKEN`
-- `SOCIALGROOVYBOT_NAME`
-- `SOCIALGROOVYBOT_EMAIL`
-
-Ces trois variables vous permettent de commiter et publier sur npm dans le scope `@socialgouv` directement. cf [exemple](https://github.com/SocialGouv/linters/blob/e0d4f43ed2b8999f4e6662604be9695508598851/.github/workflows/ci.yml#L58-L76)
+- `secrets.SOCIALGROOVYBOT_NPM_TOKEN`
+- `secrets.SOCIALGROOVYBOT_NAME`
+- `secrets.SOCIALGROOVYBOT_EMAIL`
 
 ## Utilisation de renovate
 
@@ -81,7 +81,7 @@ sre-seal --name regcred "dockerconfigjson={\"auths\":{\"registry.gitlab.factory.
 
 Dans le YAML généré, modifier le type de `Opaque` à `kubernetes.io/dockerconfigjson`
 
-> NB : ajouter `--cluster prod2 --namespace [app-namespace] --name regcred` pour un secret de production
+> NB : ajouter `--cluster prod --namespace [app-namespace] --name regcred` pour un secret de production
 
 3. Référencez ce secret dans votre deploiement
 
@@ -180,7 +180,7 @@ Il est important d'ajuster finement ces valeurs pour optimiser les ressources su
 
 ### Lancer un job de backup de la BDD
 
-Des jobs de backup des BDDs sont executés quotidiennement. Pour forcer un nouveau backup pour l'appli `xxx`, lancer `kubectl --context prod2 --namespace xxx create job --from=cronjob/backup-db-xxx my-backup`.
+Des jobs de backup des BDDs sont executés quotidiennement. Pour forcer un nouveau backup pour l'appli `xxx`, lancer `kubectl --context prod --namespace xxx create job --from=cronjob/backup-db-xxx my-backup`.
 
 ### IPs du cluster
 

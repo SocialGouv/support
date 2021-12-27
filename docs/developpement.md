@@ -1,6 +1,6 @@
 # Développement
 
-> Les solutions Google sont proscrites par le Ministère du fait de l'utilisation qui est faite des données collectées par Google. L'utilisation de services SAAS tiers doit être soumise à l'équipe #Legal de la fabrique.
+> L'utilisation de services SAAS tiers doit obligatoirement être soumise à l'équipe #Legal de la fabrique.
 
 ## Conventions de la fabrique
 
@@ -23,9 +23,11 @@ GitHub est utilisé pour tous nos projets publics et exceptionnellement notre Gi
 - Chaque `pull-request` permet de déployer un environnement de review.
 - Chaque merge sur `master` déclenche une release qui peut être poussée en préproduction puis production.
 
-[![](_media/git-flow-simple.png ":size=700x280")](https://excalidraw.com/#json=C7MTFWdQ53ao453K86doB,SgdphjWpmSiuDMBu-qwKVg)
+[![](_media/git-flow-simple.png ":size=1000x350")](https://excalidraw.com/#json=C7MTFWdQ53ao453K86doB,SgdphjWpmSiuDMBu-qwKVg)
 
 Ce GIT Flow est implémenté dans les [GitHub actions @SocialGouv](https://github.com/SocialGouv/actions), l'équipe SRE vous aidera à les mettre en place.
+
+:warning: La release est conditionnée par la présence d'un commit conventionnel de type `fix: some fix` ou `feat: some new feature`. (cf [semantic-relase default commit conventions](https://github.com/semantic-release/semantic-release#commit-message-format))
 
 ### Urls des environnements
 
