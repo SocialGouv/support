@@ -252,3 +252,26 @@ Les ressources de dev sont régulièrement nettoyées par Janitor :
 | dev/jobs/failed    | 7j           |
 | prod/jobs/complete | 24h          |
 | prod/jobs/failed   | 7j           |
+
+## Kosko-charts
+
+### Mettre à jour les snapshots de déploiement
+
+Si votre dossier `.socialgouv` contient un package.json :
+
+```sh
+cd .socialgouv
+yarn
+yarn test -u
+```
+
+Si votre dossier `.socialgouv` ne contient PAS un package.json :
+
+```sh
+cd .socialgouv
+curl https://raw.githubusercontent.com/SocialGouv/kosko-charts/master/templates/autodevops/{package.json,kosko.toml,babel.config.js} -O
+yarn
+yarn test -u
+```
+
+Ne pas versionner ces 3 fichiers
