@@ -16,11 +16,17 @@ Voir les [best practices Kubernetes](/kubernetes).
 
 ## Bases de données
 
+### PostgreSQL
+
 La fabrique propose des [Postgres managés](https://azure.microsoft.com/fr-fr/services/postgresql/#overview) qui sont backupés automatiquement, à J-7 en "just-in-time" puis via des archives quotidiennes au-delà.
 
 La restauration des données se fait sur demande à l'équipe OPS.
 
 Les seuls extensions PG disponibles sont listées ici : https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/postgresql/concepts-extensions.md
+
+### Elastic Search
+
+Nous pouvons mettre à disposition des clusters Elastic Search pour vos besoin (via ElasticCloud)
 
 ## Stockage object
 
