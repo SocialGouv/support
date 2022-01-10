@@ -32,7 +32,7 @@ Voir [Infrastructure](/infrastructure)
 
 La team SRE assure un suivi technique régulier auprès des startups lui permettant d’anticiper et de planifier les besoins des produits afin de faciliter leur intégration au sein de la plateforme de la Fabrique Numérique.
 
-Contactez-nous via le [channel mattermost `s/sre/support`](https://mattermost.num.social.gouv.fr/default/channels/s-sre-support)
+Contactez-nous via le [channel mattermost `support`](https://mattermost.fabrique.social.gouv.fr/default/channels/g-support)
 
 ## Moyens
 
