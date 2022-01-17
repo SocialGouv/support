@@ -118,6 +118,29 @@ end
 
 ### deploy d'un pod nu en pur kubernetes
 
+Avant de pouvoir créer un pod, il faut déjà un créer un namespace sur le cluster :
+
+Il est important de positionner la variable `projectId` en fonction de votre projet Rancher.
+
+`namespace.yml`
+
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: my-namespace
+  annotations:
+    field.cattle.io/projectId: "c-gjtkk:p-z6nmd" # important pour les droits
+```
+
+Le `projectId` correspond à l'ID de votre projet dans rancher.
+
+![](https://i.imgur.com/GJlziA6.png)
+
+```sh
+kubectl --context dev create -f namespace.yml
+```
+
 Un pod peut contenir un ou plusieurs _containers_ et _initContainers_.
 
 `pod.yml`
@@ -137,28 +160,6 @@ spec:
         - containerPort: 80
 ```
 
-Avant de pouvoir créer un pod, il faut déjà un créer un namespace sur le cluster :
-
-Il est important de positionner la variable `projectId` en fonction de votre projet Rancher.
-
-`namespace.yml`
-
-```yaml
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: my-namespace
-  annotations:
-    field.cattle.io/projectId: "aaa/bbbb" # important pour les droits
-```
-
-Le `projectId` correspond à l'ID de votre projet dans rancher.
-
-![](https://i.imgur.com/GJlziA6.png)
-
-```sh
-kubectl --context dev create -f namespace.yml
-```
 
 Ensuite on peut lui envoyer des ressources :
 
@@ -182,7 +183,7 @@ spec:
       protocol: TCP
       targetPort: 80
   selector:
-    app: my-app
+    app: web
 ```
 
 `ingress.yml`
@@ -194,7 +195,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
   labels:
-    app: my-app
+    app: web
   name: my-ingress
 spec:
   rules:
