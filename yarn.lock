@@ -141,9 +141,9 @@ chalk@^3.0.0:
     supports-color "^7.1.0"
 
 chokidar@^3.5.0:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.2.tgz#dba3976fcadb016f66fd365021d91600d01c1e75"
-  integrity sha512-ekGhOnNVPgT77r4K/U3GDhu+FQ2S8TnK/s2KbIGXi0SZWuwkZ2QNyfWdZW+TVfn84DpEP7rLeCt2UI6bJ8GwbQ==
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
+  integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
   dependencies:
     anymatch "~3.1.2"
     braces "~3.0.2"
@@ -254,7 +254,7 @@ debug@2.6.9:
   dependencies:
     ms "2.0.0"
 
-debug@^4.3.2:
+debug@^4.3.3:
   version "4.3.3"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.3.tgz#04266e0b70a98d4462e6e288e38259213332b664"
   integrity sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q==
@@ -316,17 +316,17 @@ docsify-cli@^4.4.3:
     yargs "^14.2.0"
 
 docsify-server-renderer@>=4.10.0:
-  version "4.12.1"
-  resolved "https://registry.yarnpkg.com/docsify-server-renderer/-/docsify-server-renderer-4.12.1.tgz#f1d5ca156d4352ae78e64cf2243e98da3c249485"
-  integrity sha512-IYakkc+UxPS89N/Mq8MF4SKTQ1gtxN5nDEFAnJPf5TvQO+1fuxszHgv/hMprG5z/ms7PJb1w4nMykUfRW36+/A==
+  version "4.12.2"
+  resolved "https://registry.yarnpkg.com/docsify-server-renderer/-/docsify-server-renderer-4.12.2.tgz#c59d9110536f006141957ae71de334c687b83bfd"
+  integrity sha512-/sCq0U0iGvc8mNN6VC5SeodiHUsA98rMsMFYXtQbWsS/jWArkSee8ATlH5KzGDJ/zjf9QOFrkjoanHCNaFWiPQ==
   dependencies:
-    debug "^4.3.2"
-    docsify "^4.12.0"
-    dompurify "^2.2.6"
-    node-fetch "^2.6.0"
+    debug "^4.3.3"
+    docsify "^4.12.1"
+    dompurify "^2.3.2"
+    node-fetch "^2.6.6"
     resolve-pathname "^3.0.0"
 
-docsify@4.12.2, docsify@^4.12.0, docsify@^4.12.1:
+docsify@4.12.2, docsify@^4.12.1:
   version "4.12.2"
   resolved "https://registry.yarnpkg.com/docsify/-/docsify-4.12.2.tgz#749115d2ff7d358780ea865e01f4a0162423d67f"
   integrity sha512-hpRez5upcvkYigT2zD8P5kH5t9HpSWL8yn/ZU/g04/WfAfxVNW6CPUVOOF1EsQUDxTRuyNTFOb6uUv+tPij3tg==
@@ -340,10 +340,10 @@ docsify@4.12.2, docsify@^4.12.0, docsify@^4.12.1:
     tinydate "^1.3.0"
     tweezer.js "^1.4.0"
 
-dompurify@^2.2.6, dompurify@^2.3.1:
-  version "2.3.4"
-  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.3.4.tgz#1cf5cf0105ccb4debdf6db162525bd41e6ddacc6"
-  integrity sha512-6BVcgOAVFXjI0JTjEvZy901Rghm+7fDQOrNIcxB4+gdhj6Kwp6T9VBhBY/AbagKHJocRkDYGd6wvI+p4/10xtQ==
+dompurify@^2.3.1, dompurify@^2.3.2:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.3.5.tgz#c83ed5a3ae5ce23e52efe654ea052ffb358dd7e3"
+  integrity sha512-kD+f8qEaa42+mjdOpKeztu9Mfx5bv9gVLO6K9jRx4uGvh6Wv06Srn4jr1wPNY2OOUGGSKHNFN+A8MA3v0E0QAQ==
 
 dot-prop@^5.2.0:
   version "5.3.0"
@@ -518,9 +518,9 @@ got@^9.6.0:
     url-parse-lax "^3.0.0"
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0:
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.8.tgz#e412b8d33f5e006593cbd3cee6df9f2cebbe802a"
-  integrity sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==
+  version "4.2.9"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.9.tgz#041b05df45755e587a24942279b9d113146e1c96"
+  integrity sha512-NtNxqUcXgpW2iMrfqSfR73Glt39K+BLwWsPs94yR63v45T0Wbej7eRmL5cWfwEgqXnmjQp3zaJTshdRW/qC2ZQ==
 
 has-ansi@^2.0.0:
   version "2.0.0"
@@ -691,9 +691,9 @@ latest-version@^5.0.0:
     package-json "^6.3.0"
 
 livereload-js@^3.3.1:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/livereload-js/-/livereload-js-3.3.2.tgz#c88b009c6e466b15b91faa26fd7c99d620e12651"
-  integrity sha512-w677WnINxFkuixAoUEXOStewzLYGI76XVag+0JWMMEyjJQKs0ibWZMxkTlB96Lm3EjZ7IeOxVziBEbtxVQqQZA==
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/livereload-js/-/livereload-js-3.3.3.tgz#3e4f5699f741fdf8be6dc9c46c523e4fc1abbd0d"
+  integrity sha512-a7Jipme3XIBIryJluWP5LQrEAvhobDPyScBe+q+MYwxBiMT2Ck7msy4tAdF8TAa33FMdJqX4guP81Yhiu6BkmQ==
 
 livereload@^0.9.1:
   version "0.9.3"
@@ -787,10 +787,10 @@ nested-error-stacks@^2.0.0:
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
 
-node-fetch@^2.6.0:
-  version "2.6.6"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.6.tgz#1751a7c01834e8e1697758732e9efb6eeadfaf89"
-  integrity sha512-Z8/6vRlTUChSdIgMa51jxQ4lrw/Jy5SOW10ObaA47/RElsAN2c5Pn8bTgFGWn/ibwzXTE8qwr1Yzx28vsecXEA==
+node-fetch@^2.6.6:
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
+  integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
   dependencies:
     whatwg-url "^5.0.0"
 
@@ -904,9 +904,9 @@ path-exists@^3.0.0:
   integrity sha1-zg6+ql94yxiSXqfYENe1mwEP1RU=
 
 picomatch@^2.0.4, picomatch@^2.2.1:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.0.tgz#f1f061de8f6a4bf022892e2d128234fb98302972"
-  integrity sha512-lY1Q/PiJGC2zOv/z391WOTD+Z02bCgsFfvxoXXf6h7kv9o+WmsmzYqrAwY63sNgOxE4xEdq0WyUnXfKeBrSvYw==
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
+  integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
 prepend-http@^2.0.0:
   version "2.0.0"
@@ -914,9 +914,9 @@ prepend-http@^2.0.0:
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
 prismjs@^1.23.0:
-  version "1.25.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.25.0.tgz#6f822df1bdad965734b310b315a23315cf999756"
-  integrity sha512-WCjJHl1KEWbnkQom1+SzftbtXMKQoezOCYs5rECqMN+jP+apI7ftoflyqigqzopSO3hMhTEb0mFClA8lkolgEg==
+  version "1.26.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.26.0.tgz#16881b594828bb6b45296083a8cbab46b0accd47"
+  integrity sha512-HUoH9C5Z3jKkl3UunCyiD5jwk0+Hz0fIgQ2nbwU2Oo/ceuTAQAg+pPVnfdt2TJWRVLcxKh9iuoYDUSc8clb5UQ==
 
 pump@^3.0.0:
   version "3.0.0"
