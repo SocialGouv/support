@@ -8,13 +8,19 @@ La release est conditionnée par la présence d'un commit conventionnel de type 
 
 Ajoutez un fichier [`.github/workflows/release.yml`](https://github.com/SocialGouv/standup/blob/8b130400ef80835f3d6fa0a8a56e98986a20e2f7/.github/workflows/release.yml) à votre repo.
 
+## Déployer un hotfix
+
+Si votre branche `master` a évolué, mais que vous souhaitez déployer un hotfix en préprod ou prod, créez une nouvelle branche `beta` ou `alpha` à partir de la derniere release et commitez un `fix:`.
+
+`semantic-release` déclenchera alors une release `alpha` ou `beta` puis le workflow `production` vous proposera de la déployer.
+
 ### Pour publier sur npm
 
 > Les packages npm doivent être publiés en tant que `@socialgouv/package-name`.
 
 > Le champ author doit être positionné à `Fabrique numérique des Ministères Sociaux <contact@fabrique.social.gouv.fr> (https://fabrique.social.gouv.fr)`
 
-> dans package.json, ajouter `"publishConfig":{"access": "public"}` s
+> dans package.json, ajouter `"publishConfig":{"access": "public"}`
 
 Pour publier sur npm, il vous faudra un fichier `release.yml` particulier, [exemple](https://github.com/SocialGouv/react-departements/blob/4e60cecc7a65f0c41255b4747d1dba9f065b3c2c/.github/workflows/release.yml)
 
