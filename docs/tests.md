@@ -98,7 +98,12 @@ Tip : lancer `yarn test —watchAll` pour lancer les tests en continu et réagir
 `Testing library` offre des utilitaires pour tester plus facilement une UI web.
 Il ajoute des fonctionnalités à `Jest`, en particulier pour accéder aux noeuds du DOM.
 
-Avant de l'utiliser, il est conseillé de comprendre [les 3 types de queries](https://testing-library.com/docs/react-testing-library/cheatsheet#queries) (getBy, findBy, queryBy). Chacun a son utilité propre, en fonction du mode synchrone/asynchrone, du fait que retrouver un élément est attendu ou bien une erreur, etc..
+[les 3 types de queries](https://testing-library.com/docs/react-testing-library/cheatsheet#queries) (getBy, findBy, queryBy) ont chacune leur utilité propre :
+
+On utilisera : 
+- `getBy*` pour vérifier que quelque chose est rendu.
+- `queryBy*` pour vérifier que quelque chose n'est *pas* rendu.
+- `findyBy*` pour vérifier que quelque chose est rendu, *au bout d'un moment* (i.e. de façon asynchrone).
 
 ```js
 import { render, screen, waitFor } from "@testing-library/react";
@@ -128,7 +133,8 @@ Chacune des queries (getBy, findBy, queryBy) peut être utilisée avec différen
 - `screen.getByLabelText` : récupérer un élément par son label dans la page
 - `screen.getByRole` : récupérer un élément du DOM par son rôle, tel que `screen.getByRole("button", { name: /envoyer un email/i })`
 
-Plus le mode de recherche sera précis et proche de la vision utilisateur, meilleur il sera.
+Plus le mode de recherche sera précis, meilleur il sera. 
+Le but étant de se rapprocher de la vision utilisateur et d'ignorer les détails d'implémentation afin que les tests soient aussi pérennes que possibles.
 
 **Référence**
 
