@@ -206,3 +206,5 @@ Avant d'envoyer un sealed-secret sur le cluster, il est utile de vérifier qu'il
 Ensuite, vérifier dans rancher ou k9s qu'un `Secret` avec les bonnes valeurs a bien été créé dans le bon namespace.
 
 :warning: ceci va écraser l'éventuel secret du meme namespace/nom existant. pensez à changer le nom du secret si besoin
+
+:warning: La manip n'est pas forcément possible en prod, car cela écraserait le secret existant. une possibilité est de renommer les clés du secret pour ne pas impacter les clés existantes.
