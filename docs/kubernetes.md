@@ -196,3 +196,13 @@ Pour la _production_ pensez à bien à vérifier le `namespace` et le `nom du se
 Copiez-collez ensuite le secret chiffré dans votre fichier de sealed-secrets pour le mettre à jour.
 
 L'équipe SRE est à votre disposition pour vous aider dans cette démarche
+
+## Tester la validité d'un sealed-secret 
+
+Avant d'envoyer un sealed-secret sur le cluster, il est utile de vérifier qu'il soit bien chiffré.
+
+`kubectl --context dev apply -f ./environments/dev/some.sealed-secret.yml`
+
+Ensuite, vérifier dans rancher ou k9s qu'un `Secret` avec les bonnes valeurs a bien été créé dans le bon namespace.
+
+:warning: ceci va écraser l'éventuel secret du meme namespace/nom existant. pensez à changer le nom du secret si besoin
