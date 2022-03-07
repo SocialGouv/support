@@ -25,7 +25,7 @@ La Fabrique met à votre disposition :
 
 `*` limité sur l'hébergement sur VM
 
-Pour un démarrage rapide des déploiements vous pouvez commencer la mise en place des services sur des machines virtuelles, l'équipe de la fabrique mettra en place pour vous la configuration nécessaire pour un déploiement sur [Kubernetes](https://kubernetes.io/fr/) en temps voulu.
+Pour un démarrage rapide des déploiements vous pouvez commencer la mise en place des services sur des machines virtuelles (ou Scalingo), l'équipe de la fabrique mettra en place pour vous la configuration nécessaire pour un déploiement sur [Kubernetes](https://kubernetes.io/fr/) en temps voulu.
 
 💡 Les équipes de la Fabrique sont à votre disposition dans toutes ces phases.
 
