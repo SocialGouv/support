@@ -45,6 +45,8 @@ Nous recommandons la mise en place de [semantic-release](https://github.com/sema
 
 Vos applications doivent être containerisées et respecter les bonnes pratiques [des 12 facteurs](https://12factor.net/fr/).
 
+Les scripts externes/API intégrés aux applications doivent être soumis à approbation de l'équipe Juridique/RGPD.
+
 Plus de détails sur le [guide des pratiques tech en vigueur à SocialGouv](standards.md).
 
 ### Noms de domaine
