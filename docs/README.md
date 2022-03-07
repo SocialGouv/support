@@ -36,4 +36,4 @@ Contactez-nous via le [channel mattermost `support`](https://mattermost.fabrique
 
 ## Moyens
 
-La team SRE dispose de moyens (ex: Azure) pour allouer des ressources de dev. Les ressources étant dédiées à une startup ou mutualisées entre différents produits.
+La team SRE dispose de moyens (ex: Azure, Scaleway) pour allouer des ressources de dev. Les ressources étant dédiées à une startup ou mutualisées entre différents produits.
