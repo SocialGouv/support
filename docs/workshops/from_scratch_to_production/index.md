@@ -74,6 +74,7 @@ un utilisateur par son UID chiffré dans la directive docker du `Dockerfile` (ex
 
 Dans un nouveau workflow github `review.yml` (i.e. dans un fichier `.github/workflows/review.yml`), ajouter un job qui utilise l'action toute prête `SocialGouv/actions/autodevops-build-register`:
 
+```yaml
     register-app:
       name: Build & Register app
       runs-on: ubuntu-latest
@@ -85,6 +86,7 @@ Dans un nouveau workflow github `review.yml` (i.e. dans un fichier `.github/work
             token: ${{ secrets.GITHUB_TOKEN }}
             dockerbuildargs: |
               GITHUB_SHA=${{ env.GITHUB_SHA }}
+```
 
 Ce job build l'image avec le Dockerfile par défaut à la racine et sauve l'image dans le registre github associé au dépôt.
 
@@ -107,19 +109,21 @@ Afin de déployer la review branch dans l'environnement de dev de SocialGouv, il
 
 Le **job de déploiement** à ajouter dans le fichier `.github/workflows/review.yml`  est :
 
-    deploy:
-      name: Deploy review branch
-      runs-on: ubuntu-latest
-      needs: [register-app]
-      steps:
-        - name: Use autodevops deployment
-          uses: SocialGouv/actions/autodevops-helm-deploy@v1
-          with:
-            environment: "dev"
-            token: ${{ secrets.GITHUB_TOKEN }}
-            kubeconfig: ${{ secrets.KUBECONFIG }}
-            rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
-            socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
+```yaml
+deploy:
+  name: Deploy review branch
+  runs-on: ubuntu-latest
+  needs: [register-app]
+  steps:
+    - name: Use autodevops deployment
+      uses: SocialGouv/actions/autodevops-helm-deploy@v1
+      with:
+        environment: "dev"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        kubeconfig: ${{ secrets.KUBECONFIG }}
+        rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
+        socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
+```
 
 Ensuite il faut créer **un dossier `.socialgouv`**, avec l'arborescence suivante :
 
@@ -131,17 +135,22 @@ Ensuite il faut créer **un dossier `.socialgouv`**, avec l'arborescence suivant
 Le fichier `values.project.yaml` minimaliste déclare notre composant unique (`app`), le nom du
 package et la route de health check. Il contient :
 
+
+```yaml
     components:
       app: true
 
     app:
       imagePackage: app
       probesPath: /healthz
+```
 
 Le fichier `values.dev.yaml` minimaliste contient seulement :
 
+```yaml
     app:
       replicas: 1
+```
 
 
 **Attention :** : pour que le déploiement fonctionne, il faut avoir réglé plusieurs variables d'environnement dans le dépôt (`KUBECONFIG`, `RANCHER_PROJECT_ID` et `SOCIALGOUV_BASE_DOMAIN`). Cette étape est effectuée par l'équipe SRE.
