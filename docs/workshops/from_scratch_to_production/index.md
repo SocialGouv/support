@@ -20,39 +20,39 @@
 
 
 ```yaml
-    name: Tests
+name: Tests
 
-    on:
-      pull_request:
-        branches:
-          - '**'
+on:
+  pull_request:
+    branches:
+      - '**'
 
-    concurrency:
-      cancel-in-progress: true
-      group: ${{ github.head_ref }}
+concurrency:
+  cancel-in-progress: true
+  group: ${{ github.head_ref }}
 
 
-    jobs:
-      test:
-        runs-on: ubuntu-latest
+jobs:
+  test:
+    runs-on: ubuntu-latest
 
-        steps:
-        - name: Checkout repository
-          uses: actions/checkout@v3
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-        - name: Node setup
-          uses: actions/setup-node@v2
-          with:
-            node-version: '16'
+    - name: Node setup
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
 
-        - name: Yarn cache setup
-          uses: c-hive/gha-yarn-cache@v2
+    - name: Yarn cache setup
+      uses: c-hive/gha-yarn-cache@v2
 
-        - name: Install dependencies
-          run: yarn --frozen-lockfile --prefer-offline
+    - name: Install dependencies
+      run: yarn --frozen-lockfile --prefer-offline
 
-        - name: Run lint
-          run: yarn lint
+    - name: Run lint
+      run: yarn lint
 ```
 
 
@@ -77,17 +77,17 @@ un utilisateur par son UID chiffré dans la directive docker du `Dockerfile` (ex
 Dans un nouveau workflow github `review.yml` (i.e. dans un fichier `.github/workflows/review.yml`), ajouter un job qui utilise l'action toute prête `SocialGouv/actions/autodevops-build-register`:
 
 ```yaml
-    register-app:
-      name: Build & Register app
-      runs-on: ubuntu-latest
-      steps:
-        - name: Use autodevops build and register
-          uses: SocialGouv/actions/autodevops-build-register@v1
-          with:
-            imageName: doc-demo-app/app
-            token: ${{ secrets.GITHUB_TOKEN }}
-            dockerbuildargs: |
-              GITHUB_SHA=${{ env.GITHUB_SHA }}
+register-app:
+  name: Build & Register app
+  runs-on: ubuntu-latest
+  steps:
+    - name: Use autodevops build and register
+      uses: SocialGouv/actions/autodevops-build-register@v1
+      with:
+        imageName: doc-demo-app/app
+        token: ${{ secrets.GITHUB_TOKEN }}
+        dockerbuildargs: |
+          GITHUB_SHA=${{ env.GITHUB_SHA }}
 ```
 
 Ce job build l'image avec le Dockerfile par défaut à la racine et sauve l'image dans le registre github associé au dépôt.
@@ -139,19 +139,19 @@ package et la route de health check. Il contient :
 
 
 ```yaml
-    components:
-      app: true
+components:
+  app: true
 
-    app:
-      imagePackage: app
-      probesPath: /healthz
+app:
+  imagePackage: app
+  probesPath: /healthz
 ```
 
 Le fichier `values.dev.yaml` minimaliste contient seulement :
 
 ```yaml
-    app:
-      replicas: 1
+app:
+  replicas: 1
 ```
 
 
