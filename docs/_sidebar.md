@@ -25,6 +25,7 @@
 * Workshops
 
   - [Kubernetes](workshops/kubernetes/index.md)
+  - [From scratch to production](workshops/from_scratch_to_production/index.md)
 
 * Projets
 
