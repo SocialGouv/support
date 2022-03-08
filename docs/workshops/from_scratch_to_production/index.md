@@ -19,6 +19,7 @@
 - créer un workflow github de test en ajoutant un fichier `.github/workflows/test.yml` avec par exemple :
 
 
+```yaml
     name: Tests
 
     on:
@@ -52,6 +53,7 @@
 
         - name: Run lint
           run: yarn lint
+```
 
 
 # Déployer une review branch
