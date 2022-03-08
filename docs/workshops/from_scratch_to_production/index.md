@@ -121,8 +121,28 @@ Le **job de déploiement** à ajouter dans le fichier `.github/workflows/review.
             rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
             socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 
-Ensuite il faut créer **un dossier `.socialgouv`**, avec dedans :
--
+Ensuite il faut créer **un dossier `.socialgouv`**, avec l'arborescence suivante :
+
+    .socialgouv/
+        chart/
+          values.project.yaml
+          values.dev.yaml
+
+Le fichier `values.project.yaml` minimaliste déclare notre composant unique (`app`), le nom du
+package et la route de health check. Il contient :
+
+    components:
+      app: true
+
+    app:
+      imagePackage: app
+      probesPath: /healthz
+
+Le fichier `values.dev.yaml` minimaliste contient seulement :
+
+    app:
+      replicas: 1
+
 
 **Attention :** : pour que le déploiement fonctionne, il faut avoir réglé plusieurs variables d'environnement dans le dépôt (`KUBECONFIG`, `RANCHER_PROJECT_ID` et `SOCIALGOUV_BASE_DOMAIN`). Cette étape est effectuée par l'équipe SRE.
 
