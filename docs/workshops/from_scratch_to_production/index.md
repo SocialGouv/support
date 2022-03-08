@@ -11,10 +11,7 @@
 
 ## Ajouter une pipeline de test
 
-- prérequis : avoir une commande qui lance un test. Avec une nouvelle app Next.js : 
-
-
-    yarn lint
+- prérequis : avoir une commande qui lance un test. Avec une nouvelle app Next.js : `yarn lint`.
         
 - créer un workflow github de test en ajoutant un fichier `.github/workflows/test.yml` avec par exemple :
 
