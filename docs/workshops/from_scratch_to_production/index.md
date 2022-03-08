@@ -148,14 +148,14 @@ Le fichier `values.dev.yaml` minimaliste contient seulement :
 
 
 
-## Pre-Prod
+# Déployer en preprod
 
-## Release
+# Faire une release
 
-## Prod
+# Déployer en produciton
 
 
-# Env variables
+# Variables d'environnement
 
 - front/back
 - run/build
