@@ -85,8 +85,6 @@ register-app:
       with:
         imageName: doc-demo-app/app
         token: ${{ secrets.GITHUB_TOKEN }}
-        dockerbuildargs: |
-          GITHUB_SHA=${{ env.GITHUB_SHA }}
 ```
 
 Ce job build l'image avec le Dockerfile par défaut à la racine et sauve l'image dans le registre github associé au dépôt.
