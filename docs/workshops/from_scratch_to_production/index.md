@@ -60,7 +60,7 @@ jobs:
     - name: Install dependencies
       run: yarn --frozen-lockfile --prefer-offline
 
-    - name: Run lint
+    - name: Run linter
       run: yarn lint
 ```
 
@@ -69,7 +69,18 @@ jobs:
 
 ## Build docker et vérifications en local
 
-- Copier les fichiers `Dockerfile` et `.dockerignore` du [template SocialGouv](https://github.com/socialgouv/template).
+- Copier les fichiers [Dockerfile](_media/workshop_from_scratch_to_production/Dockerfile ':ignore') et
+[.dockerignore](_media/workshop_from_scratch_to_production/dockerignore ':ignore') dans votre projet
+- Pour une application Next.js, il faut ajouter l'option suivante dans le fichier `next.config.js` :
+
+```javascript
+  experimental: {
+    outputStandalone: true
+  }
+```
+
+Voir un exemple de fichier [next.config.js](_media/workshop_from_scratch_to_production/next.config.js ':ignore') complet.
+
 - Build de l'image en local : 
  
         docker build -t nextjs-docker .
@@ -77,6 +88,7 @@ jobs:
 - Exécuter en local et vérifier sur http://localhost:3000 :
 
         docker run -p 3000:3000 nextjs-docker
+
 
 ?> **Note pour une application existante :** les containers doivent tourner sur des users non-privilégiés (UID > 0), et pour que ce soit vérifiable il faut identifier
 un utilisateur par son UID chiffré dans la directive docker du `Dockerfile` (ex `USER 101`).
