@@ -154,9 +154,17 @@ app:
 
 !> Pour que le déploiement fonctionne, il faut avoir réglé plusieurs variables d'environnement dans le dépôt (`KUBECONFIG`, `RANCHER_PROJECT_ID` et `SOCIALGOUV_BASE_DOMAIN`). Cette étape est effectuée par l'équipe SRE.
 
+# bonnes pratiques
+## Deactivate
 
+## codeql-analysis.yml
+
+
++ note : janitor delete auto après une certaine durée
 
 # Déployer en preprod
+
+dans l'étape de register, param d'environnement qui préfixe l'image, a priori pas en dev ni en prod
 
 # Faire une release
 
@@ -168,3 +176,6 @@ app:
 - front/back
 - run/build
 - sealed/configmap
+
+
+# DB
