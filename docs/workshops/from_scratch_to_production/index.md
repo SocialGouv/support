@@ -5,11 +5,13 @@
 ## Point de départ et prérequis 
 
 Plusieurs possibilités :
-- soit partir d'un **code existant** et le publier dans un dépôt github de [l'organisation SocialGouv](https://github.com/socialgouv)
+- soit partir d'un **code existant**
 - soit cloner le [template d'application de SocialGouv](https://github.com/socialgouv/template)
 - soit générer une application from scratch, par exemple en suivant le [tutorial Next.js](https://nextjs.org/docs/getting-started)
 
 !> Si vous ne clonez pas le template SocialGouv, il faut penser à ajouter une route de health check (vue simple qui renvoie un HTTP 200) sur la route `/healthz`.
+
+?> Dans tous les cas, il faut créer un dépôt github de [l'organisation SocialGouv](https://github.com/socialgouv) et y publier le code.
 
 ## Ajouter une pipeline de test
 
