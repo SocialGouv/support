@@ -26,7 +26,7 @@ on:
 
 concurrency:
   cancel-in-progress: true
-  group: ${{ github.head_ref }}
+  group: tests-${{ github.head_ref }}
 
 
 jobs:
