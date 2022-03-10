@@ -30,9 +30,11 @@ export default Page
 name: Tests
 
 on:
-  pull_request:
+  push:
     branches:
       - '**'
+    tags-ignore:
+      - v*
 
 concurrency:
   cancel-in-progress: true
