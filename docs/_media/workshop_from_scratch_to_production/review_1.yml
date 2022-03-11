@@ -1,0 +1,19 @@
+name: Review
+
+on:
+  push:
+    branches-ignore:
+      - master
+    tags-ignore:
+      - v*
+
+jobs:
+  register-app:
+    name: Build & Register app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use autodevops build and register
+        uses: SocialGouv/actions/autodevops-build-register@v1
+        with:
+          imageName: GITHUB_REPO_NAME/app
+          token: ${{ secrets.GITHUB_TOKEN }}

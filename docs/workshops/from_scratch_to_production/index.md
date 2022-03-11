@@ -74,9 +74,12 @@ jobs:
 
 ## Build docker et vérifications en local
 
-- Copier les fichiers [Dockerfile](_media/workshop_from_scratch_to_production/Dockerfile ':ignore') et
+WARNING: Cette section est actuellement rédigée uniquement pour une app Next.js. Pour un autre cas, il faut au minimum
+un fichier Dockerfile qui build un service web écoutant sur le port 3000.
+
+- copier les fichiers [Dockerfile](_media/workshop_from_scratch_to_production/Dockerfile ':ignore') et
 [.dockerignore](_media/workshop_from_scratch_to_production/dockerignore ':ignore') dans votre projet
-- Pour une application Next.js, il faut ajouter l'option suivante dans le fichier `next.config.js` :
+- ajouter l'option suivante dans le fichier `next.config.js` :
 
 ```javascript
   experimental: {
@@ -84,7 +87,7 @@ jobs:
   }
 ```
 
-Voir un exemple de fichier [next.config.js](_media/workshop_from_scratch_to_production/next.config.js ':ignore') complet.
+Exemple de fichier [next.config.js](_media/workshop_from_scratch_to_production/next.config.js ':ignore') complet.
 
 - Build de l'image en local : 
  
@@ -110,20 +113,21 @@ register-app:
     - name: Use autodevops build and register
       uses: SocialGouv/actions/autodevops-build-register@v1
       with:
-        imageName: doc-demo-app/app
+        imageName: GITHUB_REPO_NAME/app
         token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 Ce job build l'image avec le Dockerfile par défaut à la racine et sauve l'image dans le registre github associé au dépôt.
 
-Exemple de fichier : [`review.yml`](https://github.com/SocialGouv/doc-demo-app/blob/master/.github/workflows/review.yml)
+?> A ce stade, le fichier `review.yml` complet est : [review.yml](_media/workshop_from_scratch_to_production/review_1.yml ':ignore').
 
 
-**Attention :** dans la configuration de l'action, le paramètre
-`imageName` doit correspondre au nom du dépôt et au nom du service. Au départ il y a un seul service principal `app`, donc `imageName` est `doc-demo-app/app`.
+!> Dans la configuration de l'action, le paramètre
+`imageName` doit correspondre au nom du dépôt et au nom du service. Au départ il y a un seul service principal `app`, donc `imageName` est `GITHUB_REPO_NAME/app`,
+où il faut remplacer `GITHUB_REPO_NAME` par le nom de votre dépôt.
 
 
-**Vérification :** pour valider que l'image docker est buildée et accessible, aller dans l'onglet "Packages" de Github et lancer en local un `docker pull ...` du package tel qu'indiqué par github.
+!> Pour vérifier que l'image docker est buildée et accessible, aller dans l'onglet "Packages" de Github et lancer en local un `docker pull ...` du package tel qu'indiqué par github.
 
 
 ## Déploiement de la preview
@@ -150,6 +154,8 @@ deploy:
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 ```
+
+?> A ce stade, le fichier `review.yml` complet est : [review.yml](_media/workshop_from_scratch_to_production/review_2.yml ':ignore').
 
 Ensuite il faut créer **un dossier `.socialgouv`**, avec l'arborescence suivante :
 
