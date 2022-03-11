@@ -43,7 +43,7 @@ on:
 
 concurrency:
   cancel-in-progress: true
-  group: tests-${{ github.head_ref }}
+  group: tests-${{ github.ref }}
 
 
 jobs:
