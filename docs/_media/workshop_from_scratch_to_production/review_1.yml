@@ -15,5 +15,6 @@ jobs:
       - name: Use autodevops build and register
         uses: SocialGouv/actions/autodevops-build-register@v1
         with:
+          environment: dev
           imageName: GITHUB_REPO_NAME/app
           token: ${{ secrets.GITHUB_TOKEN }}

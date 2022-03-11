@@ -113,6 +113,7 @@ register-app:
     - name: Use autodevops build and register
       uses: SocialGouv/actions/autodevops-build-register@v1
       with:
+        environment: dev
         imageName: GITHUB_REPO_NAME/app
         token: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -148,7 +149,7 @@ deploy:
     - name: Use autodevops deployment
       uses: SocialGouv/actions/autodevops-helm-deploy@v1
       with:
-        environment: "dev"
+        environment: dev
         token: ${{ secrets.GITHUB_TOKEN }}
         kubeconfig: ${{ secrets.KUBECONFIG }}
         rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
