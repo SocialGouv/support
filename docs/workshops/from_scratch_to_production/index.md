@@ -1,5 +1,10 @@
 # Getting started
 
+# TL;DR
+Pour avoir une app déployée en production en 2 minutes sans lire la doc, c'est par ici :
+
+&#10145;&#65039; [template d'application SocialGouv](https://github.com/SocialGouv/template)
+
 # Intro
 
 ## Point de départ et prérequis 
