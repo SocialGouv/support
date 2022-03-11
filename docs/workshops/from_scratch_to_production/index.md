@@ -1,13 +1,13 @@
-# Getting started
+# Déployer en production from scratch
 
-# TL;DR
+## TL;DR
 Pour avoir une app déployée en production en 2 minutes sans lire la doc, c'est par ici :
 
 &#10145;&#65039; [template d'application SocialGouv](https://github.com/SocialGouv/template)
 
-# Intro
+## Intro
 
-## Point de départ et prérequis 
+### Point de départ et prérequis 
 
 Plusieurs possibilités :
 - soit partir d'un **code existant**
@@ -24,7 +24,7 @@ const Page = () => <div>It Works!</div>
 export default Page
 ```
 
-## Ajouter une pipeline de test
+### Ajouter une pipeline de test
 
 - prérequis : avoir une commande qui lance un test. Avec une nouvelle app Next.js : `yarn lint`.
         
@@ -70,9 +70,9 @@ jobs:
 ```
 
 
-# Déployer une review branch
+## Déployer une review branch
 
-## Build docker et vérifications en local
+### Build docker et vérifications en local
 
 WARNING: Cette section est actuellement rédigée uniquement pour une app Next.js. Pour un autre cas, il faut au minimum
 un fichier Dockerfile qui build un service web écoutant sur le port 3000.
@@ -101,7 +101,7 @@ Exemple de fichier [next.config.js](_media/workshop_from_scratch_to_production/n
 ?> **Note pour une application existante :** les containers doivent tourner sur des users non-privilégiés (UID > 0), et pour que ce soit vérifiable il faut identifier
 un utilisateur par son UID chiffré dans la directive docker du `Dockerfile` (ex `USER 101`).
 
-## Build et enregistrement de l'image docker au push
+### Build et enregistrement de l'image docker au push
 
 Dans un nouveau workflow github `review.yml` (i.e. dans un fichier `.github/workflows/review.yml`), ajouter un job qui utilise l'action toute prête `SocialGouv/actions/autodevops-build-register`:
 
@@ -131,7 +131,7 @@ où il faut remplacer `GITHUB_REPO_NAME` par le nom de votre dépôt.
 !> Pour vérifier que l'image docker est buildée et accessible, aller dans l'onglet "Packages" de Github et lancer en local un `docker pull ...` du package tel qu'indiqué par github.
 
 
-## Déploiement de la preview
+### Déploiement de la preview
 
 Afin de déployer la review branch dans l'environnement de dev de SocialGouv, il faut ajouter deux choses : 
 
@@ -188,28 +188,29 @@ app:
 
 !> Pour que le déploiement fonctionne, il faut avoir réglé plusieurs variables d'environnement dans le dépôt (`KUBECONFIG`, `RANCHER_PROJECT_ID` et `SOCIALGOUV_BASE_DOMAIN`). Cette étape est effectuée par l'équipe SRE.
 
-# bonnes pratiques
-## Deactivate
+## Bonnes pratiques
 
-## codeql-analysis.yml
+### Deactivate
+
+### codeql-analysis.yml
 
 
 + note : janitor delete auto après une certaine durée
 
-# Déployer en preprod
+## Déployer en preprod
 
 dans l'étape de register, param d'environnement qui préfixe l'image, a priori pas en dev ni en prod
 
-# Faire une release
+## Faire une release
 
-# Déployer en production
-
-
-# Variables d'environnement
-
-- front/back
-- run/build
-- sealed/configmap
+## Déployer en production
 
 
-# DB
+## Prochains sujets - soon
+
+- Les variables d'environnement
+  - front/back
+  - run/build
+  - sealed/configmap
+- App dynamique avec une DB
+- Monitoring/dashboards/logs
