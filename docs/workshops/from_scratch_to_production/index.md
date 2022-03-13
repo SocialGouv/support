@@ -182,12 +182,25 @@ app:
 
 ## Bonnes pratiques
 
-### Deactivate
+### Nettoyer les environnements de review
 
-### codeql-analysis.yml
+A chaque fois qu'une PR est fermée, c'est une bonne habitude de supprimer toutes les ressources qui ont été créées pour déployer la review branch.
 
+Pour ça, il faut ajouter un nouveau workflow `.github/workflows/deactivate.yml` qui se charge de tout nettoyer.
 
-+ note : janitor delete auto après une certaine durée
+Exemple de fichier complet : [deactivate.yml](_media/workshop_from_scratch_to_production/deactivate.yml ":ignore")
+
+?> Dans tous les cas, un janitor s'occupe de supprimer tous les ressources de review qui n'ont pas eu d'activité depuis 2 semaines. Il
+ne faut donc pas s'étonner que le déploiement d'une review branch ait disparu à son retour de vacances...
+
+### Détection des vulnérabilités
+
+Github propose des outils pour scanner le code automatiquement à la recherche de vulnérabilités. Pour l'activer, il suffit de :
+
+- aller dans l'onglet `Security` du dépôt github
+- dans la partie `Security Overview`, cliquer sur le bouton `Set up code scanning` puis `Configure CodeQL alerts`.
+
+Github propose alors de créer un nouveau workflow `.github/workflows/codeql-analysis.yml`. Il suffit de committer les changements proposés.
 
 ## Déployer en preprod
 
@@ -196,7 +209,6 @@ dans l'étape de register, param d'environnement qui préfixe l'image, a priori 
 ## Faire une release
 
 ## Déployer en production
-
 
 ## Prochains sujets - soon
 
