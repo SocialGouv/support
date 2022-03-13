@@ -1,35 +1,35 @@
 # Déployer en production from scratch
 
 ## TL;DR
+
 Pour avoir une app déployée en production en 2 minutes sans lire la doc, c'est par ici :
 
 &#10145;&#65039; [template d'application SocialGouv](https://github.com/SocialGouv/template)
 
 ## Intro
 
-### Point de départ et prérequis 
+### Point de départ et prérequis
 
 Plusieurs possibilités :
+
 - soit partir d'un **code existant**
 - soit générer une application from scratch, par exemple en suivant le [tutorial Next.js](https://nextjs.org/docs/getting-started)
 
-
 Dans tous les cas, il faut :
+
 - créer un dépôt github de [l'organisation SocialGouv](https://github.com/socialgouv) et y publier le code.
 - ajouter une route de health check (vue simple qui renvoie un HTTP 200) sur la route `/healthz`.
   Par exemple avec Next.js, créer un fichier `pages/healthz.js` qui contient :
-  
+
 ```javascript
-const Page = () => <div>It Works!</div>
-export default Page
+const Page = () => <div>It Works!</div>;
+export default Page;
 ```
 
 ### Ajouter une pipeline de test
 
 - prérequis : avoir une commande qui lance un test. Avec une nouvelle app Next.js : `yarn lint`.
-        
 - créer un workflow github de test en ajoutant un fichier `.github/workflows/test.yml` avec par exemple :
-
 
 ```yaml
 name: Tests
@@ -37,7 +37,7 @@ name: Tests
 on:
   push:
     branches:
-      - '**'
+      - "**"
     tags-ignore:
       - v*
 
@@ -45,30 +45,28 @@ concurrency:
   cancel-in-progress: true
   group: tests-${{ github.ref }}
 
-
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Node setup
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'
+      - name: Node setup
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
 
-    - name: Yarn cache setup
-      uses: c-hive/gha-yarn-cache@v2
+      - name: Yarn cache setup
+        uses: c-hive/gha-yarn-cache@v2
 
-    - name: Install dependencies
-      run: yarn --frozen-lockfile --prefer-offline
+      - name: Install dependencies
+        run: yarn --frozen-lockfile --prefer-offline
 
-    - name: Run linter
-      run: yarn lint
+      - name: Run linter
+        run: yarn lint
 ```
-
 
 ## Déployer une review branch
 
@@ -77,26 +75,25 @@ jobs:
 WARNING: Cette section est actuellement rédigée uniquement pour une app Next.js. Pour un autre cas, il faut au minimum
 un fichier Dockerfile qui build un service web écoutant sur le port 3000.
 
-- copier les fichiers [Dockerfile](_media/workshop_from_scratch_to_production/Dockerfile ':ignore') et
-[.dockerignore](_media/workshop_from_scratch_to_production/dockerignore ':ignore') dans votre projet
+- copier les fichiers [Dockerfile](_media/workshop_from_scratch_to_production/Dockerfile ":ignore") et
+  [.dockerignore](_media/workshop_from_scratch_to_production/dockerignore ":ignore") dans votre projet
 - ajouter l'option suivante dans le fichier `next.config.js` :
 
 ```javascript
-  experimental: {
-    outputStandalone: true
-  }
+experimental: {
+  outputStandalone: true;
+}
 ```
 
-Exemple de fichier [next.config.js](_media/workshop_from_scratch_to_production/next.config.js ':ignore') complet.
+Exemple de fichier [next.config.js](_media/workshop_from_scratch_to_production/next.config.js ":ignore") complet.
 
-- Build de l'image en local : 
- 
+- Build de l'image en local :
+
         docker build -t nextjs-docker .
 
 - Exécuter en local et vérifier sur http://localhost:3000 :
 
         docker run -p 3000:3000 nextjs-docker
-
 
 ?> **Note pour une application existante :** les containers doivent tourner sur des users non-privilégiés (UID > 0), et pour que ce soit vérifiable il faut identifier
 un utilisateur par son UID chiffré dans la directive docker du `Dockerfile` (ex `USER 101`).
@@ -120,25 +117,22 @@ register-app:
 
 Ce job build l'image avec le Dockerfile par défaut à la racine et sauve l'image dans le registre github associé au dépôt.
 
-?> A ce stade, le fichier `review.yml` complet est : [review.yml](_media/workshop_from_scratch_to_production/review_1.yml ':ignore').
-
+?> A ce stade, le fichier `review.yml` complet est : [review.yml](_media/workshop_from_scratch_to_production/review_1.yml ":ignore").
 
 !> Dans la configuration de l'action, le paramètre
 `imageName` doit correspondre au nom du dépôt et au nom du service. Au départ il y a un seul service principal `app`, donc `imageName` est `GITHUB_REPO_NAME/app`,
 où il faut remplacer `GITHUB_REPO_NAME` par le nom de votre dépôt.
 
-
 !> Pour vérifier que l'image docker est buildée et accessible, aller dans l'onglet "Packages" de Github et lancer en local un `docker pull ...` du package tel qu'indiqué par github.
-
 
 ### Déploiement de la preview
 
-Afin de déployer la review branch dans l'environnement de dev de SocialGouv, il faut ajouter deux choses : 
+Afin de déployer la review branch dans l'environnement de dev de SocialGouv, il faut ajouter deux choses :
 
 - un deuxième job dans le fichier existant `review.yml` qui va utiliser l'action de déploiement `SocialGouv/actions/autodevops-helm-deploy``
-- un dossier `.socialgouv` à la racine du dépôt 
+- un dossier `.socialgouv` à la racine du dépôt
 
-Le **job de déploiement** à ajouter dans le fichier `.github/workflows/review.yml`  est :
+Le **job de déploiement** à ajouter dans le fichier `.github/workflows/review.yml` est :
 
 ```yaml
 deploy:
@@ -156,7 +150,7 @@ deploy:
         socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
 ```
 
-?> A ce stade, le fichier `review.yml` complet est : [review.yml](_media/workshop_from_scratch_to_production/review_2.yml ':ignore').
+?> A ce stade, le fichier `review.yml` complet est : [review.yml](_media/workshop_from_scratch_to_production/review_2.yml ":ignore").
 
 Ensuite il faut créer **un dossier `.socialgouv`**, avec l'arborescence suivante :
 
@@ -167,7 +161,6 @@ Ensuite il faut créer **un dossier `.socialgouv`**, avec l'arborescence suivant
 
 Le fichier `values.project.yaml` minimaliste déclare notre composant unique (`app`), le nom du
 package et la route de health check. Il contient :
-
 
 ```yaml
 components:
@@ -184,7 +177,6 @@ Le fichier `values.dev.yaml` minimaliste contient seulement :
 app:
   replicas: 1
 ```
-
 
 !> Pour que le déploiement fonctionne, il faut avoir réglé plusieurs variables d'environnement dans le dépôt (`KUBECONFIG`, `RANCHER_PROJECT_ID` et `SOCIALGOUV_BASE_DOMAIN`). Cette étape est effectuée par l'équipe SRE.
 
