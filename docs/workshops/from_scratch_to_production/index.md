@@ -202,6 +202,12 @@ Github propose des outils pour scanner le code automatiquement à la recherche d
 
 Github propose alors de créer un nouveau workflow `.github/workflows/codeql-analysis.yml`. Il suffit de committer les changements proposés.
 
+### Mettre à jour les dépendances
+
+[Renovate](https://github.com/renovatebot/renovate) est un outil qui permet de suivre les dépendances d'un projet et de soumettre automatiquent des PR quand des mises à jour des paquets sont dispos.
+
+Cet outil est configuré à l'échelle de l'organisation SocialGouv, donc il va automatiquement proposer une première PR sur votre dépôt pour ajouter la configuration requise. Il suffit de la merger pour démarrer !
+
 ## Déployer en preprod
 
 dans l'étape de register, param d'environnement qui préfixe l'image, a priori pas en dev ni en prod
