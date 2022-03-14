@@ -210,7 +210,55 @@ Cet outil est configuré à l'échelle de l'organisation SocialGouv, donc il va 
 
 ## Déployer en preprod
 
-dans l'étape de register, param d'environnement qui préfixe l'image, a priori pas en dev ni en prod
+Cette étape est très proche de la review branch. Il suffit de créer un fichier `.github/workflows/preproduction.yml` qui contient :
+
+```yaml
+name: Preproduction
+
+on:
+  push:
+    branches:
+      - "master"
+    tags-ignore:
+      - v*
+
+concurrency:
+  cancel-in-progress: true
+  group: preproduction
+
+jobs:
+  register-app:
+    name: Build & Register app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use autodevops build and register
+        uses: SocialGouv/actions/autodevops-build-register@v1
+        with:
+          environment: preprod
+          imageName: GITHUB_REPO_NAME/app
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    name: Deploy preproduction
+    runs-on: ubuntu-latest
+    needs: [register-app]
+    steps:
+      - name: Use autodevops deployment
+        uses: SocialGouv/actions/autodevops-helm-deploy@v1
+        with:
+          environment: preprod
+          token: ${{ secrets.GITHUB_TOKEN }}
+          kubeconfig: ${{ secrets.KUBECONFIG }}
+          rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
+          socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
+```
+
+Les changements viennent :
+
+- dans les`conditions du `on` : on déploie tous les commits de master sauf les tags.
+- de `environment=preprod`
+
+?> Il faut toujours remplacer `GITHUB_REPO_NAME` par le nom de votre dépôt.
 
 ## Faire une release
 
