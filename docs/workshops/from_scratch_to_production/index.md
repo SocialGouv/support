@@ -195,7 +195,7 @@ Pour ça, il faut ajouter un nouveau workflow `.github/workflows/deactivate.yml`
 
 Exemple de fichier complet : [deactivate.yml](_media/workshop_from_scratch_to_production/deactivate.yml ":ignore")
 
-?> Dans tous les cas, un janitor s'occupe de supprimer tous les ressources de review qui n'ont pas eu d'activité depuis 2 semaines. Il
+?> Dans tous les cas, un [janitor](https://codeberg.org/hjacobs/kube-janitor) s'occupe de supprimer tous les ressources de review qui n'ont pas eu d'activité [depuis 1 semaine](https://socialgouv.github.io/support/#/faq?id=nettoyage-des-environnements-kube-de-dev). Il
 ne faut donc pas s'étonner que le déploiement d'une review branch ait disparu à son retour de vacances...
 
 ### Détection des vulnérabilités
