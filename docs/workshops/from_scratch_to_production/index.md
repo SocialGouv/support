@@ -70,6 +70,11 @@ jobs:
 
 ## Déployer une review branch
 
+Le déploiement d'une review branch se fait en deux étapes :
+
+- vous devez d'abord publier les images docker de vos applications sur le registry GitHub
+- puis déployer votre application à partir de ces images.
+
 ### Build docker et vérifications en local
 
 WARNING: Cette section est actuellement rédigée uniquement pour une app Next.js. Pour un autre cas, il faut au minimum
