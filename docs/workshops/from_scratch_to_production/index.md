@@ -157,7 +157,7 @@ deploy:
 
 ?> A ce stade, le fichier `review.yml` complet est : [review.yml](_media/workshop_from_scratch_to_production/review_2.yml ":ignore").
 
-Ensuite il faut créer **un dossier `.socialgouv`**, avec l'arborescence suivante :
+Ensuite il faut créer **un dossier `.socialgouv`**, qui contiendra la configuration de votre déploiement (format HELM), avec l'arborescence suivante :
 
     .socialgouv/
         chart/
