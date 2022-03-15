@@ -129,7 +129,7 @@ où il faut remplacer `GITHUB_REPO_NAME` par le nom de votre dépôt.
 
 Afin de déployer la review branch dans l'environnement de dev de SocialGouv, il faut ajouter deux choses :
 
-- un deuxième job dans le fichier existant `review.yml` qui va utiliser l'action de déploiement `SocialGouv/actions/autodevops-helm-deploy``
+- un deuxième job dans le fichier existant `review.yml` qui va utiliser l'action de déploiement `SocialGouv/actions/autodevops-helm-deploy`
 - un dossier `.socialgouv` à la racine du dépôt
 
 Le **job de déploiement** à ajouter dans le fichier `.github/workflows/review.yml` est :
