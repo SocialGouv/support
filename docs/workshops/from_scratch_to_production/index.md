@@ -213,6 +213,8 @@ Github propose alors de créer un nouveau workflow `.github/workflows/codeql-ana
 
 Cet outil est configuré à l'échelle de l'organisation SocialGouv, donc il va automatiquement proposer une première PR sur votre dépôt pour ajouter la configuration requise. Il suffit de la merger pour démarrer !
 
+Plus de détails dans la [FAQ renovate](https://socialgouv.github.io/support/#/faq?id=utilisation-de-renovate)
+
 ## Déployer en preprod
 
 Cette étape est très proche de la review branch. Il suffit de créer un fichier `.github/workflows/preproduction.yml` qui contient :
