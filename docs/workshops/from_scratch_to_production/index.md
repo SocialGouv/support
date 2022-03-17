@@ -103,6 +103,7 @@ Exemple de fichier [next.config.js](_media/workshop_from_scratch_to_production/n
 ?> **Note pour une application existante :** les containers doivent tourner sur des users non-privilégiés (UID > 0), et pour que ce soit vérifiable il faut identifier
 un utilisateur par son UID chiffré dans la directive docker du `Dockerfile` (ex `USER 101`).
 
+
 ### Build et enregistrement de l'image docker au push
 
 Dans un nouveau workflow github `review.yml` (i.e. dans un fichier `.github/workflows/review.yml`), ajouter un job qui utilise l'action toute prête `SocialGouv/actions/autodevops-build-register`:
@@ -134,8 +135,8 @@ où il faut remplacer `GITHUB_REPO_NAME` par le nom de votre dépôt.
 
 Afin de déployer la review branch dans l'environnement de dev de SocialGouv, il faut ajouter deux choses :
 
-- un deuxième job dans le fichier existant `review.yml` qui va utiliser l'action de déploiement `SocialGouv/actions/autodevops-helm-deploy`
-- un dossier `.socialgouv` à la racine du dépôt
+- un deuxième job dans le fichier existant `review.yml` qui va utiliser l'action de déploiement `SocialGouv/kube-workflow`
+- un dossier `.kube-workflow` à la racine du dépôt
 
 Le **job de déploiement** à ajouter dans le fichier `.github/workflows/review.yml` est :
 
@@ -146,42 +147,45 @@ deploy:
   needs: [register-app]
   steps:
     - name: Use autodevops deployment
-      uses: SocialGouv/actions/autodevops-helm-deploy@v1
+      uses: SocialGouv/kube-workflow@master
       with:
         environment: dev
         token: ${{ secrets.GITHUB_TOKEN }}
         kubeconfig: ${{ secrets.KUBECONFIG }}
-        rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
-        socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
+        rancherProjectId: ${{ secrets.RANCHER_PROJECT_ID }}
+        rancherProjectName: ${{ secrets.RANCHER_PROJECT_NAME }}
 ```
 
 ?> A ce stade, le fichier `review.yml` complet est : [review.yml](_media/workshop_from_scratch_to_production/review_2.yml ":ignore").
 
-Ensuite il faut créer **un dossier `.socialgouv`**, qui contiendra la configuration de votre déploiement (format HELM), avec l'arborescence suivante :
+Ensuite il faut créer **un dossier `.kube-workflow`**, qui contiendra la configuration de votre déploiement (format HELM), avec l'arborescence générale suivante :
 
-    .socialgouv/
-        chart/
-          values.project.yaml
-          values.dev.yaml
+    .kube-workflow/
+        common/
+          values.yaml
+        env/
+          dev/
+            templates/
+              ...
+            values.yml
+          preprod/
+            ...
+          prod/
+            ...
 
-Le fichier `values.project.yaml` minimaliste déclare notre composant unique (`app`), le nom du
+Pour l'instant, nous nous intéressons seulement au fichier `common/values.yaml`.
+
+Le fichier `common/values.yaml` minimaliste déclare notre composant unique (`app`), le nom du
 package et la route de health check. Il contient :
 
 ```yaml
-components:
-  app: true
-
 app:
+  enabled: true
   imagePackage: app
-  probesPath: /healthz
-```
-
-Le fichier `values.dev.yaml` minimaliste contient seulement :
-
-```yaml
-app:
+  probesPath: /api/healthz
   replicas: 1
 ```
+
 
 !> Pour que le déploiement fonctionne, il faut avoir réglé plusieurs variables d'environnement dans le dépôt (`KUBECONFIG`, `RANCHER_PROJECT_ID` et `SOCIALGOUV_BASE_DOMAIN`). Cette étape est effectuée par l'équipe SRE.
 
@@ -279,3 +283,5 @@ Les changements viennent :
   - sealed/configmap
 - App dynamique avec une DB
 - Monitoring/dashboards/logs
+
+
