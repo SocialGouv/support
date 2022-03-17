@@ -142,7 +142,7 @@ deploy:
   runs-on: ubuntu-latest
   needs: [register-app]
   steps:
-    - name: Use autodevops deployment
+    - name: Use kube-workflow deployment
       uses: SocialGouv/kube-workflow@master
       with:
         environment: dev
@@ -242,7 +242,7 @@ jobs:
         uses: SocialGouv/actions/autodevops-build-register@v1
         with:
           environment: preprod
-          imageName: GITHUB_REPO_NAME/app
+          imagePackage: app
           token: ${{ secrets.GITHUB_TOKEN }}
 
   deploy:
@@ -250,22 +250,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: [register-app]
     steps:
-      - name: Use autodevops deployment
-        uses: SocialGouv/actions/autodevops-helm-deploy@v1
+      - name: Use kube-workflow deployment
+        uses: SocialGouv/kube-workflow@master
         with:
           environment: preprod
           token: ${{ secrets.GITHUB_TOKEN }}
           kubeconfig: ${{ secrets.KUBECONFIG }}
-          rancherId: ${{ secrets.RANCHER_PROJECT_ID }}
-          socialgouvBaseDomain: ${{ secrets.SOCIALGOUV_BASE_DOMAIN }}
+          rancherProjectId: ${{ secrets.RANCHER_PROJECT_ID }}
+          rancherProjectName: ${{ secrets.RANCHER_PROJECT_NAME }}
 ```
 
 Les changements viennent :
 
 - dans les`conditions du `on` : on déploie tous les commits de master sauf les tags.
 - de `environment=preprod`
-
-?> Il faut toujours remplacer `GITHUB_REPO_NAME` par le nom de votre dépôt.
 
 ## Faire une release
 
