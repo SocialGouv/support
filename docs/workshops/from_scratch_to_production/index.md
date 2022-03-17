@@ -267,7 +267,82 @@ Les changements viennent :
 
 ## Faire une release
 
+Les releases sont faites automatiquement avec [semantic-release](https://github.com/semantic-release/semantic-release).
+
+Il faut créer un fichier `.github/workflows/release.yaml` qui contient :
+
+```yaml
+name: Release
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master, alpha, beta, next]
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: SocialGouv/actions/autodevops-release@v1
+        with:
+          author-name: ${{ secrets.SOCIALGROOVYBOT_NAME }}
+          author-email: ${{ secrets.SOCIALGROOVYBOT_EMAIL }}
+          github-token: ${{ secrets.SOCIALGROOVYBOT_BOTO_PAT }}
+```
+
+
+Plus de détails dans la [FAQ semantic-release](https://socialgouv.github.io/support/#/faq?id=semantic-release)
+
 ## Déployer en production
+
+Le déploiement en production est très proche de la préproduction. Il faut ajouter un fichier `.github/workflows/production.yaml` qui contient :
+
+```yaml
+name: Production
+
+on:
+  push:
+    tags:
+      - v*
+      
+concurrency:
+  cancel-in-progress: true
+  group: production
+
+jobs:
+  register-app:
+    name: Build & Register app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use autodevops build and register
+        uses: SocialGouv/actions/autodevops-build-register@v1
+        with:
+          environment: prod
+          imagePackage: app
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    name: Deploy production
+    runs-on: ubuntu-latest
+    needs: [register-app]
+    environment:
+      name: production
+      url: https://PROJECT_NAME.fabrique.social.gouv.fr/
+    steps:
+      - name: Use kube-workflow deployment
+        uses: SocialGouv/kube-workflow@master
+        with:
+          environment: prod
+          token: ${{ secrets.GITHUB_TOKEN }}
+          kubeconfig: ${{ secrets.KUBECONFIG }}
+          rancherProjectId: ${{ secrets.RANCHER_PROJECT_ID }}
+          rancherProjectName: ${{ secrets.RANCHER_PROJECT_NAME }}
+```
+
+Par rapport à la preproduction, on ajoute la clause `environment:` dans l'étape de `deploy` avec un url, pour que ce soit visible sur la page d'accueil du dépôt github et sur la page des actions.
+
+!> Il faut penser à remplacer `PROJECT_NAME` par le nom du projet, qui est en général le nom du dépôt github.
 
 ## Prochains sujets - soon
 
