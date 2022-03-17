@@ -29,7 +29,7 @@ export default Page;
 ### Ajouter une pipeline de test
 
 - prérequis : avoir une commande qui lance un test. Avec une nouvelle app Next.js : `yarn lint`.
-- créer un workflow github de test en ajoutant un fichier `.github/workflows/test.yml` avec par exemple :
+- créer un workflow github de test en ajoutant un fichier `.github/workflows/test.yaml` avec par exemple :
 
 ```yaml
 name: Tests
@@ -106,7 +106,7 @@ un utilisateur par son UID chiffré dans la directive docker du `Dockerfile` (ex
 
 ### Build et enregistrement de l'image docker au push
 
-Dans un nouveau workflow github `review.yml` (i.e. dans un fichier `.github/workflows/review.yml`), ajouter un job qui utilise l'action toute prête `SocialGouv/actions/autodevops-build-register`:
+Dans un nouveau workflow github `review.yaml` (i.e. dans un fichier `.github/workflows/review.yaml`), ajouter un job qui utilise l'action toute prête `SocialGouv/actions/autodevops-build-register`:
 
 ```yaml
 register-app:
@@ -117,17 +117,13 @@ register-app:
       uses: SocialGouv/actions/autodevops-build-register@v1
       with:
         environment: dev
-        imageName: GITHUB_REPO_NAME/app
+        imagePackage: app
         token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 Ce job build l'image avec le Dockerfile par défaut à la racine et sauve l'image dans le registre github associé au dépôt.
 
-?> A ce stade, le fichier `review.yml` complet est : [review.yml](_media/workshop_from_scratch_to_production/review_1.yml ":ignore").
-
-!> Dans la configuration de l'action, le paramètre
-`imageName` doit correspondre au nom du dépôt et au nom du service. Au départ il y a un seul service principal `app`, donc `imageName` est `GITHUB_REPO_NAME/app`,
-où il faut remplacer `GITHUB_REPO_NAME` par le nom de votre dépôt.
+?> A ce stade, le fichier `review.yaml` complet est : [review.yaml](_media/workshop_from_scratch_to_production/review_1.yaml ":ignore").
 
 !> Pour vérifier que l'image docker est buildée et accessible, aller dans l'onglet "Packages" de Github et lancer en local un `docker pull ...` du package tel qu'indiqué par github.
 
@@ -135,10 +131,10 @@ où il faut remplacer `GITHUB_REPO_NAME` par le nom de votre dépôt.
 
 Afin de déployer la review branch dans l'environnement de dev de SocialGouv, il faut ajouter deux choses :
 
-- un deuxième job dans le fichier existant `review.yml` qui va utiliser l'action de déploiement `SocialGouv/kube-workflow`
+- un deuxième job dans le fichier existant `review.yaml` qui va utiliser l'action de déploiement `SocialGouv/kube-workflow`
 - un dossier `.kube-workflow` à la racine du dépôt
 
-Le **job de déploiement** à ajouter dans le fichier `.github/workflows/review.yml` est :
+Le **job de déploiement** à ajouter dans le fichier `.github/workflows/review.yaml` est :
 
 ```yaml
 deploy:
@@ -156,7 +152,7 @@ deploy:
         rancherProjectName: ${{ secrets.RANCHER_PROJECT_NAME }}
 ```
 
-?> A ce stade, le fichier `review.yml` complet est : [review.yml](_media/workshop_from_scratch_to_production/review_2.yml ":ignore").
+?> A ce stade, le fichier `review.yaml` complet est : [review.yaml](_media/workshop_from_scratch_to_production/review_2.yaml ":ignore").
 
 Ensuite il faut créer **un dossier `.kube-workflow`**, qui contiendra la configuration de votre déploiement (format HELM), avec l'arborescence générale suivante :
 
@@ -167,7 +163,7 @@ Ensuite il faut créer **un dossier `.kube-workflow`**, qui contiendra la config
           dev/
             templates/
               ...
-            values.yml
+            values.yaml
           preprod/
             ...
           prod/
@@ -195,9 +191,9 @@ app:
 
 A chaque fois qu'une PR est fermée, c'est une bonne habitude de supprimer toutes les ressources qui ont été créées pour déployer la review branch.
 
-Pour ça, il faut ajouter un nouveau workflow `.github/workflows/deactivate.yml` qui se charge de tout nettoyer.
+Pour ça, il faut ajouter un nouveau workflow `.github/workflows/deactivate.yaml` qui se charge de tout nettoyer.
 
-Exemple de fichier complet : [deactivate.yml](_media/workshop_from_scratch_to_production/deactivate.yml ":ignore")
+Exemple de fichier complet : [deactivate.yaml](_media/workshop_from_scratch_to_production/deactivate.yaml ":ignore")
 
 ?> Dans tous les cas, un [janitor](https://codeberg.org/hjacobs/kube-janitor) s'occupe de supprimer tous les ressources de review qui n'ont pas eu d'activité [depuis 1 semaine](https://socialgouv.github.io/support/#/faq?id=nettoyage-des-environnements-kube-de-dev). Il
 ne faut donc pas s'étonner que le déploiement d'une review branch ait disparu à son retour de vacances...
@@ -221,7 +217,7 @@ Plus de détails dans la [FAQ renovate](https://socialgouv.github.io/support/#/f
 
 ## Déployer en preprod
 
-Cette étape est très proche de la review branch. Il suffit de créer un fichier `.github/workflows/preproduction.yml` qui contient :
+Cette étape est très proche de la review branch. Il suffit de créer un fichier `.github/workflows/preproduction.yaml` qui contient :
 
 ```yaml
 name: Preproduction
