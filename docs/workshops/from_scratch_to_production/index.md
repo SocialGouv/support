@@ -350,7 +350,7 @@ Ce qui change principalement par rapport à la preprod est qu'on ne déploie que
 
 !> Il faut penser à remplacer `PROJECT_NAME` par le nom du projet, qui est en général le nom du dépôt github.
 
-!> Les variables d'environnement du dépôt github doivent être mises à jour pour la prod (notament `KUBECONFIG`). C'est géré par l'équipe SRE.
+!> Les variables d'environnement du dépôt github doivent être mises à jour pour la prod (notamment `KUBECONFIG`). C'est géré par l'équipe SRE.
 
 ## Prochains sujets - soon
 
