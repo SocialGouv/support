@@ -183,7 +183,7 @@ app:
 ```
 
 
-!> Pour que le déploiement fonctionne, il faut avoir réglé plusieurs variables d'environnement dans le dépôt (`KUBECONFIG`, `RANCHER_PROJECT_ID` et `SOCIALGOUV_BASE_DOMAIN`). Cette étape est effectuée par l'équipe SRE.
+!> Pour que le déploiement fonctionne, il faut avoir réglé plusieurs variables d'environnement dans le dépôt (`KUBECONFIG`, `RANCHER_PROJECT_ID` et `RANCHER_PROJECT_NAME`). Cette étape est effectuée par l'équipe SRE.
 
 ## Bonnes pratiques
 
