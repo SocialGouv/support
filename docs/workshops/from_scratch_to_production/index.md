@@ -265,10 +265,10 @@ jobs:
 
 Les changements viennent :
 
-- dans les`conditions du `on` : on déploie tous les commits de master sauf les tags.
+- dans les conditions du `on:` : on déploie tous les commits de master sauf les tags.
 - de `environment=preprod`
 - de l'ajout d'une clause `environnement` avec nom et url pour spécifier à Github de ranger ce déploiement dans l'environnement de preproduction.
-
+`
 !> Il faut penser à remplacer `PROJECT_NAME` par le nom du projet, qui est en général le nom du dépôt github.
 
 ## Faire une release
@@ -345,6 +345,8 @@ jobs:
           rancherProjectId: ${{ secrets.RANCHER_PROJECT_ID }}
           rancherProjectName: ${{ secrets.RANCHER_PROJECT_NAME }}
 ```
+
+Ce qui change principalement par rapport à la preprod est qu'on ne déploie que les tags.
 
 !> Il faut penser à remplacer `PROJECT_NAME` par le nom du projet, qui est en général le nom du dépôt github.
 
