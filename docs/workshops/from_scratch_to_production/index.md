@@ -249,6 +249,9 @@ jobs:
     name: Deploy preproduction
     runs-on: ubuntu-latest
     needs: [register-app]
+    environment:
+      name: preproduction
+      url: https://PROJECT_NAME-preprod.dev.fabrique.social.gouv.fr/
     steps:
       - name: Use kube-workflow deployment
         uses: SocialGouv/kube-workflow@master
@@ -264,6 +267,9 @@ Les changements viennent :
 
 - dans les`conditions du `on` : on déploie tous les commits de master sauf les tags.
 - de `environment=preprod`
+- de l'ajout d'une clause `environnement` avec nom et url pour spécifier à Github de ranger ce déploiement dans l'environnement de preproduction.
+
+!> Il faut penser à remplacer `PROJECT_NAME` par le nom du projet, qui est en général le nom du dépôt github.
 
 ## Faire une release
 
@@ -340,9 +346,9 @@ jobs:
           rancherProjectName: ${{ secrets.RANCHER_PROJECT_NAME }}
 ```
 
-Par rapport à la preproduction, on ajoute la clause `environment:` dans l'étape de `deploy` avec un url, pour que ce soit visible sur la page d'accueil du dépôt github et sur la page des actions.
-
 !> Il faut penser à remplacer `PROJECT_NAME` par le nom du projet, qui est en général le nom du dépôt github.
+
+!> Les variables d'environnement du dépôt github doivent être mises à jour pour la prod (notament `KUBECONFIG`). C'est géré par l'équipe SRE.
 
 ## Prochains sujets - soon
 
