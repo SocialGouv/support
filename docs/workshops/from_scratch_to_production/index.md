@@ -185,6 +185,8 @@ app:
 
 !> Pour que le déploiement fonctionne, il faut avoir réglé plusieurs variables d'environnement dans le dépôt (`KUBECONFIG`, `RANCHER_PROJECT_ID` et `RANCHER_PROJECT_NAME`). Cette étape est effectuée par l'équipe SRE.
 
+?> Plus de détail sur la configuration sur-mesure de [kube-workflow](https://github.com/SocialGouv/kube-workflow).
+
 ## Bonnes pratiques
 
 ### Nettoyer les environnements de review
