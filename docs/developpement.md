@@ -17,6 +17,8 @@ GitHub est utilisé pour tous nos projets publics et exceptionnellement notre Gi
 - Utiliser [DashLord](https://dashlord.fabrique.social.gouv.fr) pour monitorer les bonnes pratiques.
 - Le [système de design de l'état](https://gouvfr.atlassian.net/wiki/spaces/DB/overview?homepageId=145359476) doit être utilisé par défaut. une implémentation React existe ici : https://github.com/dataesr/react-dsfr
 
+> 👉 👉 👉 Le repository [template](https://github.com/socialgouv/template) intègre toutes ces conventions par défaut.
+
 ### GIT Flow
 
 - La branche par défaut est `master`
