@@ -31,9 +31,10 @@
 
   - [template](https://github.com/SocialGouv/template) 
   - [GitHub actions](https://github.com/SocialGouv/actions)
+  - [kube-workflow](https://github.com/SocialGouv/kube-workflow)
   - [Linters](https://github.com/SocialGouv/linters)
   - [Renovate](https://github.com/SocialGouv/renovate-config)
-  - [dashlord](https://dashlord.fabrique.social.gouv.fr)
+  - [DashLord](https://dashlord.fabrique.social.gouv.fr)
   - [Images docker](https://github.com/SocialGouv/docker)
   - [sre-tools](https://github.com/SocialGouv/sre-tools)
 
