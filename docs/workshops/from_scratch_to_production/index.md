@@ -143,7 +143,7 @@ deploy:
   needs: [register-app]
   steps:
     - name: Use kube-workflow deployment
-      uses: SocialGouv/kube-workflow@master
+      uses: SocialGouv/kube-workflow@v1
       with:
         environment: dev
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -256,7 +256,7 @@ jobs:
       url: https://PROJECT_NAME-preprod.dev.fabrique.social.gouv.fr/
     steps:
       - name: Use kube-workflow deployment
-        uses: SocialGouv/kube-workflow@master
+        uses: SocialGouv/kube-workflow@v1
         with:
           environment: preprod
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -339,7 +339,7 @@ jobs:
       url: https://PROJECT_NAME.fabrique.social.gouv.fr/
     steps:
       - name: Use kube-workflow deployment
-        uses: SocialGouv/kube-workflow@master
+        uses: SocialGouv/kube-workflow@v1
         with:
           environment: prod
           token: ${{ secrets.GITHUB_TOKEN }}
