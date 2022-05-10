@@ -119,6 +119,8 @@ Affiche les logs applicatifs qui contiennent `webhook` dans les namespaces `myap
 
 Affiche les logs en erreur `403` du front nginx de votre application (ingress)
 
+Cf cheat sheet LOKI : https://megamorf.gitlab.io/cheat-sheets/loki/
+
 ## Next.js
 
 ### Variables d'environnement côté frontend
