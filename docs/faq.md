@@ -244,10 +244,6 @@ Commandes utiles:
 
 Source du plugin: <https://github.com/softdevteam/mattermost-github-integration>
 
-## Office 365
-
-Cf [page dédiée](outlook-office-365.md)
-
 ## Nettoyage des environnements Kube de dev
 
 Les ressources de dev sont régulièrement nettoyées par Janitor :
