@@ -15,7 +15,7 @@
 
 ### `talisman` : éviter la publication de secrets
 
-Publier involontairement un secret (par exemple un jeton d'accès) sur un dépôt public peut avoir beaucoup de conséquences indésirables. Une manière efficace d'éviter cela est d'exécuter un détecteur de secrets comme `talisman` sur le hook `pre-commit` de git. On utilisera `husky` pour gérer simplement le hook.
+Publier involontairement un secret (par exemple un jeton d'accès) sur un dépôt public peut avoir beaucoup de conséquences indésirables. Une manière efficace d'éviter cela est d'exécuter un détecteur de secrets comme `talisman` sur le hook `pre-commit` de git.
 
 ```bash
 yarn add -D husky is-ci node-talisman
@@ -30,7 +30,9 @@ yarn
 yarn husky add .husky/pre-commit "yarn node-talisman --githook pre-commit"
 ```
 
-Vous pouvez commit les changements et probablement observer un cas de faux positif de talisman sur les changements de `yarn.lock`. Dans ce cas, on lit attentivement le rapport, on corrige les éventuels problèmes réels puis on peut forcer le commit avec `git commit --no-verify`.
+On utilise `husky` pour gérer simplement le hook. Si vous utilisez déjà un gestionnaire de hooks, il suffit d'installer `node-talisman` et d'ajouter en pre-commit `yarn node-talisman --githook pre-commit`.
+
+On pourra observer des cas de faux positif de talisman, par exemple sur le fichier `yarn.lock` ou des données base64. Dans ce cas, on lit attentivement le rapport, on corrige les éventuels problèmes réels puis on peut forcer le commit avec `git commit --no-verify`.
 
 ## Best practices
 
