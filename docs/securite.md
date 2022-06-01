@@ -10,11 +10,14 @@
 
 ### DashLord : dashboard de sécurité et accessibilté
 
-Accessible ici (se connecter pour voir plus d'informations) : <https://dashlord.fabrique.social.gouv.fr>
-Votre projet est probablement déjà listé, sinon vous pouvez en faire la demande à l'équipe SRE.
-Voir aussi : <https://doc.incubateur.net/communaute/travailler-a-beta-gouv/jutilise-les-outils-de-la-communaute/dashlord>
+Accessible ici (se connecter pour voir plus d'informations) : <https://dashlord.fabrique.social.gouv.fr>.
+Voir aussi : <https://doc.incubateur.net/communaute/travailler-a-beta-gouv/jutilise-les-outils-de-la-communaute/dashlord>.
 
-### Talisman : éviter la publication de secrets
+### SonarCLoud : analyseur statique de code
+
+Les produits de l'organisation sont tous scannés et les résultats sont accessibles ici : <https://sonarcloud.io/organizations/socialgouv>.
+
+### Talisman : prévention de publication de secrets
 
 Publier involontairement un secret (par exemple un jeton d'accès) sur un dépôt public peut avoir beaucoup de conséquences indésirables. Une manière efficace d'éviter cela est d'exécuter un détecteur de secrets comme `talisman` sur le hook `pre-commit` de git.
 
