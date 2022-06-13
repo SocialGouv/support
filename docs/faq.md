@@ -201,6 +201,15 @@ Des jobs de backup des BDDs sont executés quotidiennement. Pour forcer un nouve
 | Runner SCW1       | 51.15.230.115 |
 | Runner SCW2       | 51.158.120.34 |
 
+### Noms de domaines externes
+
+Adresses des serveurs DNS à configurer sur votre nom de domaine (à confirmer):
+
+- Name server 1: `ns1-04.azure-dns.com.`
+- Name server 2: `ns2-04.azure-dns.net.`
+- Name server 3: `ns3-04.azure-dns.org.`
+- Name server 4: `ns4-04.azure-dns.info`
+
 ## Mattermost
 
 ### Mattermost reminder bot
