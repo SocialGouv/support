@@ -12,7 +12,7 @@ La qualité du modèle de données est cruciale dans le développement :
 
 Il est important de prendre le temps de concevoir un modèle de données cohérent et scalable que vous pourrez partager facilement avec les product owners (métier) et faire évoluer ensemble.
 
-![](_media/db-model.png ":size=1000x350")
+![](_media/db-model.png ":size=1000x450")
 
 ## Recommandations
 
