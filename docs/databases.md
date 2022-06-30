@@ -18,7 +18,7 @@ Il est important de prendre le temps de concevoir un modèle de données cohére
 
 - Les [ORMs](https://www.base-de-donnees.com/orm/) ne sont _pas_ recommandés
 - Utiliser [Postgres.js](https://github.com/porsager/postgres)
-- Utiliser ou outil qui gère les migrations (ex: )
+- Utiliser un outil qui gère les migrations (ex: )
 - Créer des fichiers de seed pour vos environnements de test/review
 - Maintenir un diagramme du modèle dans le repo (par ex avec: [draw.io](https://draw.io), [DBeaver](https://dbeaver.io/download/), [pg_diagram](https://github.com/qweeze/pg_diagram))
 - APIs: utiliser [hasura](https://hasura.io/) pour déléguer une grosse partie de l'API notamment l'auth
