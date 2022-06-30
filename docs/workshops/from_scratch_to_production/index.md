@@ -94,11 +94,15 @@ Exemple de fichier [next.config.js](_media/workshop_from_scratch_to_production/n
 
 - Build de l'image en local :
 
-        docker build -t nextjs-docker .
+```sh
+docker build -t nextjs-docker .
+```
 
 - Exécuter en local et vérifier sur http://localhost:3000 :
 
-        docker run -p 3000:3000 nextjs-docker
+```sh
+docker run -p 3000:3000 nextjs-docker
+```
 
 ?> **Note pour une application existante :** les containers doivent tourner sur des users non-privilégiés (UID > 0), et pour que ce soit vérifiable il faut identifier
 un utilisateur par son UID chiffré dans la directive docker du `Dockerfile` (ex `USER 101`).
