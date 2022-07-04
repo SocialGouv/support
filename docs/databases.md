@@ -16,8 +16,8 @@ Il est important de prendre le temps de concevoir un modèle de données cohére
 
 ## Recommandations
 
-- Les [ORMs](https://www.base-de-donnees.com/orm/) ne sont _pas_ recommandés
-- Utiliser [Postgres.js](https://github.com/porsager/postgres)
+- Les [ORMs](https://www.base-de-donnees.com/orm/) ne sont _pas_ recommandés, y préférrer des `query builders`.
+- En JS/TS ,utiliser la lib [Postgres.js](https://github.com/porsager/postgres) si possible
 - Utiliser un linter de tag SQL [eslint-plugin-sql-pretty](https://github.com/devthejo/eslint-plugin-sql-pretty)
 - Utiliser un outil qui gère les migrations (ex: [postgres-shift](https://github.com/porsager/postgres-shift), [hasura](https://hasura.io/docs/latest/graphql/core/migrations/migrations-setup/))
 - Créer des fichiers de seed pour vos environnements de test/review
@@ -26,7 +26,12 @@ Il est important de prendre le temps de concevoir un modèle de données cohére
   - [DBeaver](https://dbeaver.io/download/) outil d'administration complet de base de données, permettant d'exporter un ER modèle depuis une base de données existante pour pouvoir facilement retravailler dessus
   - [yEd](https://www.yworks.com/products/yed) gère le format de diagram exporté par DBeaver
   - [pg_diagram](https://github.com/qweeze/pg_diagram)
-- APIs: utiliser [hasura](https://hasura.io/) pour déléguer une grosse partie de l'API notamment l'auth
+
+### Hasura
+
+[hasura](https://hasura.io/) est un composant utilisé à la fabrique, qui se branche votre base PostgreSQL.
+
+Il permet d'exposer rapidement (low-code) une [API GraphQL avec des modèles, migrations, souscriptions, RBAC...](https://hasura.io/opensource/#features)
 
 ## Conventions
 
@@ -36,7 +41,7 @@ Il est important de prendre le temps de concevoir un modèle de données cohére
 
 ## Chiffrement
 
-[todo]: cf travaux Mano/Domifa ou [exemple chiffrement ?](https://medium.com/@jianshi_94445/encrypt-decrypt-your-data-using-native-postgres-functions-with-sequelize-js-c04948d96833)
+[todo]
 
 ## Skill up
 
