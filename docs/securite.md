@@ -8,12 +8,16 @@
 
 ## Outils
 
-- DashLord (dashboard sécurité / accessibilité pour chaque projet de la fabrique) : <https://doc.incubateur.net/communaute/travailler-a-beta-gouv/jutilise-les-outils-de-la-communaute/dashlord>
-- Tests sécu HTTP & SSL : https://observatory.mozilla.org/analyze/code.travail.gouv.fr
-- Scan containers et dépendances : [trivy](https://github.com/aquasecurity/trivy)
-- DAST Dynamic application security test : [Za proxy](https://www.zaproxy.org/) et [tutorial](https://github.com/rezen/zap-tutorial)
+### DashLord : dashboard de sécurité et accessibilté
 
-### `talisman` : éviter la publication de secrets
+Accessible ici (se connecter pour voir plus d'informations) : <https://dashlord.fabrique.social.gouv.fr>.
+Voir aussi : <https://doc.incubateur.net/communaute/travailler-a-beta-gouv/jutilise-les-outils-de-la-communaute/dashlord>.
+
+### SonarCLoud : analyseur statique de code
+
+Les produits de l'organisation sont tous scannés et les résultats sont accessibles ici : <https://sonarcloud.io/organizations/socialgouv>.
+
+### Talisman : prévention de publication de secrets
 
 Publier involontairement un secret (par exemple un jeton d'accès) sur un dépôt public peut avoir beaucoup de conséquences indésirables. Une manière efficace d'éviter cela est d'exécuter un détecteur de secrets comme `talisman` sur le hook `pre-commit` de git.
 
