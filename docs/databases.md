@@ -44,6 +44,7 @@ Il est important de prendre le temps de concevoir un modèle de données cohére
 - 🇫🇷 💙 [Vidéos PostgreSQL de xavki](https://www.youtube.com/playlist?list=PLn6POgpklwWonHjoGXXSIXJWYzPSy2FeJ) : 34 vidéos sur PostgreSQL et ses internals
 - [awesome-postgres](https://github.com/dhamaniasad/awesome-postgres)
 - [DB Modelization anti-patterns](https://tapoueh.org/blog/2018/03/database-modelization-anti-patterns/)
+- [Why using SQL query builder is an anti-pattern](https://gajus.medium.com/stop-using-knex-js-and-earn-30-bf410349856c)
 
 ## Related
 
