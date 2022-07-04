@@ -10,7 +10,7 @@ La qualité du modèle de données est cruciale dans le développement :
 - intégrité des données
 - sécurité...
 
-Il est important de prendre le temps de concevoir un modèle de données cohérent et scalable que vous pourrez partager facilement avec les product owners (métier) et faire évoluer ensemble.
+Il est important de prendre le temps de concevoir un modèle de données cohérent et scalable que vous pourrez partager facilement avec les product owners (métier) et faire évoluer ensemble. L'équipe SRE est à votre disposition pour vous aider dans cette démarche.
 
 ![](_media/db-model.png ":size=1000x450")
 
