@@ -29,7 +29,7 @@ Il est important de prendre le temps de concevoir un modèle de données cohére
 
 ### Hasura
 
-[hasura](https://hasura.io/) est un composant utilisé à la fabrique, qui se branche votre base PostgreSQL.
+[hasura](https://hasura.io/) est un composant battle-testé à la fabrique, qui se branche facilement sur votre base PostgreSQL.
 
 Il permet d'exposer rapidement (low-code) une [API GraphQL avec des modèles, migrations, souscriptions, RBAC...](https://hasura.io/opensource/#features)
 
