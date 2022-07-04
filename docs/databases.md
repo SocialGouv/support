@@ -20,7 +20,11 @@ Il est important de prendre le temps de concevoir un modèle de données cohére
 - Utiliser [Postgres.js](https://github.com/porsager/postgres)
 - Utiliser un outil qui gère les migrations (ex: [postgres-shift](https://github.com/porsager/postgres-shift), [hasura](https://hasura.io/docs/latest/graphql/core/migrations/migrations-setup/))
 - Créer des fichiers de seed pour vos environnements de test/review
-- Maintenir un diagramme du modèle dans le repo (par ex avec: [draw.io](https://draw.io), [DBeaver](https://dbeaver.io/download/), [pg_diagram](https://github.com/qweeze/pg_diagram))
+- Maintenir un diagramme du modèle dans le repo, quelque outils:
+  - [draw.io](https://draw.io) language standard ouvert, bien pour démarrer la réflexion from sratch sur le modèle de données au démarrage du projet avant même de commencer à coder
+  - [DBeaver](https://dbeaver.io/download/) outil d'administration complet de base de données, permettant d'exporter un ER modèle depuis une base de données existante pour pouvoir facilement retravailler dessus
+  - [yEd](https://www.yworks.com/products/yed) gère le format de diagram exporté par DBeaver
+  - [pg_diagram](https://github.com/qweeze/pg_diagram)
 - APIs: utiliser [hasura](https://hasura.io/) pour déléguer une grosse partie de l'API notamment l'auth
 
 ## Conventions
