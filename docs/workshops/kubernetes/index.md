@@ -1,4 +1,4 @@
-# Workshop Kubernetes/Kosko
+# Workshop Kubernetes from scratch
 
 ## Objectifs
 
