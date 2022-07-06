@@ -27,7 +27,7 @@ La partie CI/CD/github-actions/docker ne sont pas abordés dans _ce_ workshop.
 - [k9s](https://github.com/derailed/k9s) : rancher en CLI
 - [grafana](https://grafana.fabrique.social.gouv.fr) : supervision technique et logs (loki)
 - [kubectl](https://kubernetes.io/fr/docs/reference/kubectl/cheatsheet/) : CLI pour communiquer avec une API kube, configuré par `~/.kube/config`
-- Lens
+- [Lens Desktop](https://k8slens.dev/) : un GUI pour superviser des clusters Kube
 
 ## Étapes
 
