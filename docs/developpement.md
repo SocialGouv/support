@@ -19,9 +19,9 @@ GitHub est utilisé pour tous nos projets publics et exceptionnellement notre Gi
 
 > 👉 👉 👉 Le repository [template](https://github.com/socialgouv/template) intègre toutes ces conventions par défaut.
 
-### GIT Flow
+### Git flow : **trunk-based**
 
-- La branche par défaut est `master`
+- La branche par défaut est `master`.
 - Chaque `pull-request` permet de déployer un environnement de review.
 - Chaque merge sur `master` déclenche une release qui peut être poussée en préproduction puis production.
 
