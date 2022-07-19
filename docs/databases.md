@@ -51,6 +51,7 @@ Il permet d'exposer rapidement (low-code) une [API GraphQL avec des modèles, mi
 - 🇫🇷 💙 [Vidéos PostgreSQL de xavki](https://www.youtube.com/playlist?list=PLn6POgpklwWonHjoGXXSIXJWYzPSy2FeJ) : 34 vidéos sur PostgreSQL et ses internals
 - [awesome-postgres](https://github.com/dhamaniasad/awesome-postgres)
 - [DB Modelization anti-patterns](https://tapoueh.org/blog/2018/03/database-modelization-anti-patterns/)
+- 🇫🇷 💙 [Vidéo Devoxx "Ce que les développeurs doivent savoir sur les index"](https://www.youtube.com/watch?v=bo5j9xgiF48)
 
 ## Related
 
