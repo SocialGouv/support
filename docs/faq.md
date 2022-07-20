@@ -210,6 +210,8 @@ Adresses des serveurs DNS à configurer sur votre nom de domaine (à confirmer):
 - Name server 3: `ns3-04.azure-dns.org.`
 - Name server 4: `ns4-04.azure-dns.info`
 
+La fabrique peut gérer votre nom de domaine sur son compte OVH.
+
 ## Mattermost
 
 ### Mattermost reminder bot
