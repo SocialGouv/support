@@ -21,7 +21,7 @@ GitHub est utilisé pour tous nos projets publics et exceptionnellement notre Gi
 
 ### Git workflow : **trunk-based**
 
-- La branche par défaut est `master`.
+- La branche par défaut est `master` (ou `main`).
 - Chaque `pull-request` permet de déployer un environnement de review.
 - Chaque merge sur `master` déclenche une release qui peut être poussée en préproduction puis production.
 
