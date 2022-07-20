@@ -84,7 +84,7 @@ Si l'authentification est interne, fournir dans les seeds des utilisateurs de te
 
 L'application peut avoir besoin des secrets (notamment issus de fichier `.env`) pour fonctionner. On peut distinguer deux types de secrets :
 
-Le premier est une donnée connue par le serveur et qui ne doit pas être connue par le client (par exemple une clé privée servant à signer un JWT). Dans ce cas, le secret pourra être donné au développeur externe. Il faut seulement s'assurer que la valeur du secret fournie dans l'environnement de développement n'est pas la même que dans certaines versions déployées du produit. Dans notre exemple, cela signifie générer une nouvelle clé privée pour l'environnement de développement et prendre garde à ne pas laisser la même qu'en production, preproduction ou review.
+Le premier est un secret côté côté serveur (par exemple une clé privée servant à signer un JWT), dans ce cas,  il faut s'assurer de fournir une valeur spécifique à l'environnement de développement local et prendre garde à ne pas laisser la même qu'en production, preproduction ou review.
 
 Le second est une donnée connue par le serveur et qui doit être connue seulement des administrateurs du produit (par exemple un token d'accès à un service tiers, une API d'envoi de mail, etc.). Dans ce cas, le secret ne pourra pas être donné aux autres développeurs, même avec une valeur de remplacement. Il faut alors identifier quelles fonctions du produit ne pourront pas être laissées dans l'environnement de développement local. Par exemple, si on ne peut pas donner un certain token permettant de télécharger des données mais que l'on fournit à la place un échantillon de ces données au développeur, une fonctionnalité a été exclue mais le produit reste fonctionnel.
 
