@@ -40,9 +40,10 @@ La fabrique propose du [stockage objet](https://docs.microsoft.com/fr-fr/azure/s
 | [Sentry](https://sentry.fabrique.social.gouv.fr)       | Logs d'exceptions applicatives      |
 | [Tipimail](https://tipimail.com)                       | Emails transactionnels              |
 | [Grafana](https://grafana.fabrique.social.gouv.fr)     | Monitoring / supervision            |
-| [Emails](/emails.md)                    | Emails en `fabrique.social.gouv.fr` |
+| [Emails](/emails.md)                                   | Emails en `fabrique.social.gouv.fr` |
 | [NextCloud](https://nextcloud.fabrique.social.gouv.fr) | Drive/Fichiers partagés             |
 | [Harbor](https://harbor.fabrique.social.gouv.fr)       | Registry docker                     |
+| [OVH](https://ovh.com/)                                | Noms de domaine personnalisés       |
 
 ## On-demand
 
