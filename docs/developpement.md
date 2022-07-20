@@ -69,7 +69,7 @@ La contrainte principale à satisfaire est que n'importe qui puisse mettre en pl
 
 Si l'application a besoin de données pour fonctionner, créer des échantillons et les laisser à disposition sur le dépôt du projet. L'échantillon doit pouvoir être inséré dans la base de données simplement.
 
-Les données peuvent être privées ou confidentielles. Dans ce cas, il est évidemment important de transformer l'échantillon pour qu'il ne contienne que des données non sensibles.
+Les données peuvent être privées ou confidentielles. Dans ce cas, il est évidemment important de transformer l'échantillon pour qu'il ne contienne pas de donnée sensible.
 
 Voir par exemple https://hasura.io/docs/latest/graphql/core/hasura-cli/hasura_seed/.
 
