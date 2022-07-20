@@ -19,9 +19,9 @@ GitHub est utilisé pour tous nos projets publics et exceptionnellement notre Gi
 
 > 👉 👉 👉 Le repository [template](https://github.com/socialgouv/template) intègre toutes ces conventions par défaut.
 
-### GIT Flow
+### Git workflow : **trunk-based**
 
-- La branche par défaut est `master`
+- La branche par défaut est `master` (ou `main`).
 - Chaque `pull-request` permet de déployer un environnement de review.
 - Chaque merge sur `master` déclenche une release qui peut être poussée en préproduction puis production.
 
@@ -53,3 +53,51 @@ Pour un audit rapide, la DINUM propose l'audit flash : https://design.numerique.
 Plusieurs services sont disponibles, [cf infrastucture](infrastructure?id=services-transverses)
 
 L'accès à ces services est à demander au besoin à l'équipe SRE.
+
+## Contributions externes
+
+La Fabrique a plusieurs intérêts à ce que les projets soient non seulement _open source_ mais également ouverts aux contributions extérieures :
+
+- recevoir l'aide volontaire de personnes hors de l'organisation
+- simplifier l'accueil d'un nouveau membre dans l'équipe de développement
+- pouvoir demander des contributions comme exercice de recrutement
+- encourager la maintenabilité du code
+
+La contrainte principale à satisfaire est que n'importe qui puisse mettre en place facilement un environnement fonctionnel de développement et de test en ayant accès seulement au dépôt public.
+
+### Données
+
+Si l'application a besoin de données pour fonctionner, créer des échantillons et les laisser à disposition sur le dépôt du projet. L'échantillon doit pouvoir être inséré dans la base de données simplement.
+
+Les données peuvent être privées ou confidentielles. Dans ce cas, il est évidemment important de transformer l'échantillon pour qu'il ne contienne pas de donnée sensible.
+
+Voir par exemple https://hasura.io/docs/latest/graphql/core/hasura-cli/hasura_seed/.
+
+### Authentification
+
+S'il existe un système d'authentification qui empêche un contributeur externe d'utiliser normalement le produit, alors l'environnement local de développement doit permettre de contourner ce système d'authentification.
+
+Par exemple, si l'authentification se fait avec un OAuth Github qui vérifie que la personne est membre de l'organisation Github SocialGouv, alors un développeur externe sera bloqué et ne pourra pas tester l'application. La version locale de l'application doit donc remplacer ou modifier cet OAuth afin de permettre au développeur de travailler.
+
+Si l'authentification est interne, fournir dans les seeds des utilisateurs de test et les documenter.
+### Secrets
+
+L'application peut avoir besoin des secrets (notamment issus de fichier `.env`) pour fonctionner. On peut distinguer deux types de secrets :
+
+Le premier est un secret côté côté serveur (par exemple une clé privée servant à signer un JWT), dans ce cas,  il faut s'assurer de fournir une valeur spécifique à l'environnement de développement local et prendre garde à ne pas laisser la même qu'en production, preproduction ou review.
+
+Le second est une donnée connue par le serveur et qui ne peut pas être transmise aux développeurs externes (par exemple un token d'accès à un service tiers, une API d'envoi de mail, etc.). Dans ce cas, il faut s'assurer que le produit puisse fonctionner en local en mode dégradé même sans cette valeur. Par exemple, si on ne peut pas donner un certain token permettant de télécharger des données mais que l'on fournit à la place un échantillon de ces données au développeur, une fonctionnalité a été exclue mais le produit reste fonctionnel.
+
+#### .env.sample
+
+Une fois la liste des secrets à fournir en environnement de développement clairement établie, une des manières de les fournir sur le dépôt est des créer une fichier `.env.sample` que le développeur pourra copier vers `.env` après avoir cloné le dépôt.
+
+### Serveurs de développement
+
+La mise en place des serveurs de développement doit aussi être accessible. Le plus souvent, on pourra utiliser `docker-compose` pour assembler les composants de backend et les bases de données. Parallèlement, on pourra utiliser les serveurs de développement fournis avec les frameworks (React, Next.js) pour le frontend.
+
+### Documentation
+
+Une fois qu'un environnement de développement viable et accessible a été conçu, il est primordial de bien documenter comment un développeur peut le mettre en place facilement. Cela peut par exemple prendre la forme d'une section dans le README du projet qui décrit la mise place en précisant clairement les prérequis et l'ordre des étapes.
+
+En plus de la mise en place de l'environnement de développement, il est important de documenter le fonctionnement du produit, ses différents composants ainsi que leurs APIs afin de faciliter la prise en main de nouveaux développeurs.

@@ -14,7 +14,7 @@ Accessible ici (se connecter pour voir plus d'informations) : <https://dashlord.
 
 Voir aussi : <https://doc.incubateur.net/communaute/travailler-a-beta-gouv/jutilise-les-outils-de-la-communaute/dashlord>.
 
-### SonarCLoud : analyseur statique de code
+### SonarCloud : analyseur statique de code
 
 Les produits de l'organisation sont tous scannés et les résultats sont accessibles ici : <https://sonarcloud.io/organizations/socialgouv>.
 
