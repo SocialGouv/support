@@ -79,6 +79,7 @@ S'il existe un système d'authentification qui empêche un contributeur externe 
 
 Par exemple, si l'authentification se fait avec un OAuth Github qui vérifie que la personne est membre de l'organisation Github SocialGouv, alors un développeur externe sera bloqué et ne pourra pas tester l'application. La version locale de l'application doit donc remplacer ou modifier cet OAuth afin de permettre au développeur de travailler.
 
+Si l'authentification est interne, fournir dans les seeds des utilisateurs de test et les documenter.
 ### Secrets
 
 L'application peut avoir besoin des secrets (notamment issus de fichier `.env`) pour fonctionner. On peut distinguer deux types de secrets :
