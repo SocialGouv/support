@@ -21,4 +21,4 @@ Les applications doivent être distribuées via les comptes Apple et Google de l
 
 La fabrique met à disposition un compte Firebase pour les notifications Push.
 
-Cette solution peut être implémentée seulement à condition de n'envoyer QUE des notifications génériques, et en aucun cas des données personnelles. ex: `[nom appli]: nouvelle notification reçue`.
+Cette solution peut être implémentée seulement à condition de n'envoyer QUE des notifications génériques, et en aucun cas des données personnelles. ex: `[nom appli]: nouvelle notification reçue`. C'est l'application elle-même (ou son API) qui est chargée de "resolve" et afficher le message personnalisé.
