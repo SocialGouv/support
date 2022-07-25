@@ -15,3 +15,5 @@
 - [Kubernetes](./kubernetes.md)
 
 - [Tests](./tests.md)
+
+- [Dev mobile](./mobile.md)
