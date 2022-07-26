@@ -18,7 +18,7 @@ Il est important de prendre le temps de concevoir un modèle de données cohére
 
 ## Recommandations
 
-- Les [ORMs](https://www.base-de-donnees.com/orm/) ne sont _pas_ recommandés, y préférrer des `query builders`.
+- Les [ORMs](https://www.base-de-donnees.com/orm/) ne sont _pas_ recommandés, sauf si vous en maîtrisez tous les aspects (debug, relations...) et connaissez le SQL généré.
 - En JS/TS, utiliser la lib [Postgres.js](https://github.com/porsager/postgres) si possible
 - Utiliser un linter de tag SQL [eslint-plugin-sql-pretty](https://github.com/devthejo/eslint-plugin-sql-pretty)
 - Utiliser un outil qui gère les migrations (ex: [postgres-shift](https://github.com/porsager/postgres-shift), [hasura](https://hasura.io/docs/latest/graphql/core/migrations/migrations-setup/))
