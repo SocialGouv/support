@@ -20,7 +20,7 @@ Les produits de l'organisation sont tous scannés et les résultats sont accessi
 
 ### Talisman : prévention de publication de secrets
 
-Publier involontairement un secret (par exemple un jeton d'accès) sur un dépôt public peut avoir beaucoup de conséquences indésirables. Une manière efficace d'éviter cela est d'exécuter un détecteur de secrets comme `talisman` sur le hook `pre-commit` de git.
+Publier involontairement un secret (par exemple un jeton d'accès) sur un dépôt public peut avoir beaucoup de conséquences indésirables. Une manière efficace d'éviter cela est d'exécuter [un détecteur de secrets comme `talisman`](https://github.com/thoughtworks/talisman/) sur le hook `pre-commit` de git.
 
 ```bash
 yarn add -D husky is-ci node-talisman
@@ -33,6 +33,10 @@ yarn
 
 # exécuter node-talisman sur le hook de pre-commit
 yarn husky add .husky/pre-commit "yarn node-talisman --githook pre-commit"
+
+# configure le repo en JS
+echo "scopeconfig:\n  - scope: node" > .talismanrc
+
 ```
 
 On utilise `husky` pour gérer simplement le hook. Si vous utilisez déjà un gestionnaire de hooks, il suffit d'installer `node-talisman` et d'ajouter en pre-commit `yarn node-talisman --githook pre-commit`.
