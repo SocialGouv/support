@@ -160,7 +160,7 @@ See also [Limits in Azure Database for PostgreSQL](https://github.com/MicrosoftD
 
 - Demander à l'équipe OPS d'ajouter votre clé publique sur le _bastion_
 - Récupérer le secret qui correspond à l'environnement sur rancher ou k9s.
-- Ouvrir un port local (ex: 1111) sur le serveur PG via le bastion : `ssh -L 1111:[app]devserver.postgres.database.azure.com:5432 factory@40.89.139.58`
+- Ouvrir un port local (ex: 1111) sur le serveur PG via le bastion : `ssh -L 1111:[app]devserver.postgres.database.azure.com:5432 [user]@40.89.139.58`
 
 Puis dans un autre shell, utiliser psql directement : `psql postgres://[user]%40[app]devserver:[password]@127.0.0.1:1111?sslmode=require`
 
