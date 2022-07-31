@@ -32,16 +32,16 @@ npm set-script postinstall "is-ci || husky install"
 yarn
 
 # exécuter node-talisman sur le hook de pre-commit
-yarn husky add .husky/pre-commit "yarn node-talisman --githook pre-commit"
+yarn husky add .husky/pre-commit "exec < /dev/tty; yarn node-talisman --githook pre-commit -i"
 
 # configure le repo en JS
 echo "scopeconfig:\n  - scope: node" > .talismanrc
 
 ```
 
-On utilise `husky` pour gérer simplement le hook. Si vous utilisez déjà un gestionnaire de hooks, il suffit d'installer `node-talisman` et d'ajouter en pre-commit `yarn node-talisman --githook pre-commit`.
+On utilise `husky` pour gérer simplement le hook. Si vous utilisez déjà un gestionnaire de hooks, il suffit d'installer `node-talisman` et d'ajouter en pre-commit `yarn node-talisman --githook pre-commit -i`.
 
-On pourra observer des cas de faux positif de talisman, par exemple sur le fichier `yarn.lock` ou des données base64. Dans ce cas, on lit attentivement le rapport, on corrige les éventuels problèmes réels puis on peut forcer le commit avec `git commit --no-verify`.
+On pourra observer des cas de faux positif de talisman, par exemple sur le fichier `yarn.lock` ou des données base64. Dans ce cas, on lit attentivement le rapport, et on ajuste [le fichier `.talismanrc`](https://github.com/thoughtworks/talisman/#ignoring-files) en fonction.
 
 ## Best practices
 
