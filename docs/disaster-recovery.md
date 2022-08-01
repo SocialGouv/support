@@ -13,18 +13,28 @@ Exemple :
 
 ```bash
 # Connexion bastion
-ssh -L 1111:[app]devserver.postgres.database.azure.com:5432 factory@40.89.139.58
+ssh -L 1111:[app]devserver.postgres.database.azure.com:5432 [user]@40.89.139.58
 
 # Dans un autre shell :
-PGDATABASE="postgres://[user]%40[app]devserver:[password]@127.0.0.1:1111?sslmode=require"
+
+# Pour dumper une base cf https://docs.postgresql.fr/10/app-pgdump.html
+PGDATABASE="postgres://[user]%40[app]devserver:[password]@127.0.0.1:1111/[DBNAME_SOURCE]?sslmode=require"
+pg_dump --clean --if-exists --quote-all-identifiers \
+  -U postgres \
+  --format=custom \
+  -f /path/to/backup.psql;
+
+# Pour restaurer la base cf https://docs.postgresql.fr/10/app-pgrestore.html
+PGDATABASE="postgres://[user]%40[app]devserver:[password]@127.0.0.1:1111/[DBNAME_DESTINATION]?sslmode=require"
 pg_restore \
-  --dbname target-db \
   --clean --if-exists \
   --no-owner --no-acl \
   --role username \
   --verbose \
   /path/to/backup.psql
 ```
+
+:warning: Attention a toujours fermer une connexion bastion existante avant d'en ouvrir une autre poue éviter les erreurs.
 
 Voir aussi [Connexion via bastion](/faq#accès-aux-serveurs-pg-de-dev)
 
