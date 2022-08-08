@@ -21,4 +21,19 @@ Les applications doivent être distribuées via les comptes Apple et Google de l
 
 La fabrique met à disposition un compte Firebase pour les notifications Push.
 
-Cette solution peut être implémentée seulement à condition de n'envoyer QUE des notifications génériques, et en aucun cas des données personnelles. ex: `[nom appli]: nouvelle notification reçue`. C'est l'application elle-même (ou son API) qui est chargée de "resolve" et afficher le message personnalisé.
+L’utilisation d’outils proposés par Google peut poser des questions juridiques et politiques. Juridiquement, les juges européens et les CNIL européennes considèrent que les transferts de données vers les Etats-Unis sont illégaux. Politiquement, la circulaire du Premier ministre de 2021 indique à l’administration de mesurer son utilisation d’outils qui pourraient méconnaitre le droit européen.
+
+Nous vous proposons une utilisation encadrée de l’outil :
+
+- Les SE doivent envoyer des notifications ne contenant PAS de données personnelles ;
+- Le contenu des notifications ne doit PAS permettre de personnalisation pouvant identifier les personnes ;
+- Lorsque c’est possible techniquement, de réinitialiser l’ID technique le plus souvent possible.
+
+Quelques exemples d’autres administrations utilisant cet outil :
+
+- Ministère de l’intérieur
+- Ministère des solidarités et de la santé (MonEspaceSanté)
+
+Si votre service numérique nécessite la réalisation d’une analyse d’impact et une rencontre avec la DPO, n’hésitez pas à vous rapprocher de l’équipe RGPD de la Fabrique numérique (Thomas ou Osiris) via Mattermost.
+
+ex de notification: `[nom appli]: nouvelle notification reçue`. C'est alors l'application elle-même (ou son API) qui est chargée de "resolve" et afficher le message personnalisé.
