@@ -166,6 +166,12 @@ Puis dans un autre shell, utiliser psql directement : `psql postgres://[user]%40
 
 Voir aussi [Disaster recovery](/disaster-recovery)
 
+## Azure Storage
+
+### Hebergement vidéo
+
+Un stockage azure peut être utilisé pour stocker des vidéos hors de GIT. Il faut placer les videos dans un "blob container" public, et jouer la commande suivante pour autoriser le "seek" (headers content-range) : `az storage account blob-service-properties update --account-name xxxxx --default-service-version '2020-10-02'`
+
 ## Hasura
 
 ### JWK_KEY
