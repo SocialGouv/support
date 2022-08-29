@@ -7,13 +7,13 @@
 GitHub est utilisé pour tous nos projets publics et exceptionnellement notre GitLab interne pour les projets plus sensibles.
 
 - Utiliser la [licence Apache-2.0](https://www.numerique.gouv.fr/publications/politique-logiciel-libre/pratique/#aide-au-choix-de-la-licence) pour les codes sources
-- Standardiser le code avec nos linters : https://github.com/SocialGouv/linters
+- Standardiser le code avec les [linters SocialGouv](https://github.com/SocialGouv/linters) ou ceux de référence dans la communauté.
 - Maintenir son projet à jour avec notre config renovate : https://github.com/SocialGouv/renovate-config cf [la FAQ](/faq?id=utilisation-de-renovate)
 - Conventionner les commits GIT : https://conventionalcommits.org/
 - Conventionner le versionning : https://semver.org
 - Conventionner les commentaires : https://conventionalcomments.org/
 - Releaser sur GitHub/npm : avec [semantic-release](https://github.com/semantic-release/semantic-release) cf [la FAQ](/faq?id=installer-semantic-release)
-- Récupérer les erreurs applicatives dans notre [sentry](https://sentry.fabrique.social.gouv.fr)
+- Récupérer les erreurs applicatives dans [sentry](https://sentry.fabrique.social.gouv.fr)
 - Utiliser [DashLord](https://dashlord.fabrique.social.gouv.fr) pour monitorer les bonnes pratiques.
 - Le [système de design de l'état](https://gouvfr.atlassian.net/wiki/spaces/DB/overview?homepageId=145359476) doit être utilisé par défaut. une implémentation React existe ici : https://github.com/dataesr/react-dsfr
 
@@ -80,6 +80,7 @@ S'il existe un système d'authentification qui empêche un contributeur externe 
 Par exemple, si l'authentification se fait avec un OAuth Github qui vérifie que la personne est membre de l'organisation Github SocialGouv, alors un développeur externe sera bloqué et ne pourra pas tester l'application. La version locale de l'application doit donc remplacer ou modifier cet OAuth afin de permettre au développeur de travailler.
 
 Si l'authentification est interne, fournir dans les seeds des utilisateurs de test et les documenter.
+
 ### Secrets
 
 L'application peut avoir besoin des secrets (notamment issus de fichier `.env`) pour fonctionner. On peut distinguer deux types de secrets :
