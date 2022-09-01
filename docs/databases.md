@@ -55,6 +55,7 @@ Il permet d'exposer rapidement (low-code) une [API GraphQL avec des modèles, mi
 
 ## Related
 
+- [pgcli : psql on steroïds](https://www.pgcli.com/)
 - [Visual EXPLAIN](https://explain.depesz.com/s/6Pkc)
 - [PostgreSQL cheatsheet](https://quickref.me/postgres)
 - [PG audit log](https://github.com/hasura/audit-trigger)
