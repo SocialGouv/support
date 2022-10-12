@@ -7,28 +7,28 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 async function createConfig() {
   const mdxMermaid = await import('mdx-mermaid')
-  
+
   /** @type {import('@docusaurus/types').Config} */
   return {
-    title: 'My Site',
-    tagline: 'Dinosaurs are cool',
-    url: 'https://your-docusaurus-test-site.com',
+    title: "SocialGouv SRE documentation",
+    tagline: 'Support tech aux startups de la fabrique des Ministères sociaux',
+    url: 'https://socialgouv.github.io/support',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
-    favicon: 'img/favicon.ico',
+    favicon: 'img/favicon/favicon.ico',
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
-    organizationName: 'facebook', // Usually your GitHub org/user name.
-    projectName: 'docusaurus', // Usually your repo name.
+    organizationName: 'SocialGouv', // Usually your GitHub org/user name.
+    projectName: 'support', // Usually your repo name.
 
     // Even if you don't use internalization, you can use this field to set useful
     // metadata like html lang. For example, if your site is Chinese, you may want
     // to replace "en" with "zh-Hans".
     i18n: {
-      defaultLocale: 'en',
-      locales: ['en'],
+      defaultLocale: 'fr',
+      locales: ['fr'],
     },
 
     presets: [
@@ -70,11 +70,10 @@ async function createConfig() {
           items: [
             {
               type: 'doc',
-              docId: 'intro',
+              docId: 'documentation',
               position: 'left',
-              label: 'Tutorial',
+              label: 'Documentation',
             },
-            {to: '/blog', label: 'Blog', position: 'left'},
             {
               href: 'https://github.com/facebook/docusaurus',
               label: 'GitHub',
@@ -125,7 +124,7 @@ async function createConfig() {
               ],
             },
           ],
-          copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+          copyright: `Copyright © ${new Date().getFullYear()} La Fabrique des Ministères Sociaux.`,
         },
         prism: {
           theme: lightCodeTheme,
