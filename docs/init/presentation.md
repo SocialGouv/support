@@ -18,7 +18,7 @@ Au service des produits et de leurs équipes, la team SRE assure la portabilité
 
 En partenariat avec l’équipe OPS, la team SRE met en place une stack technique adaptée aux besoins des produits et aux contraintes du métier/environnement.
 
-Voir [Standards](/docs/standards)
+Voir [Standards](/docs/standards/developpement)
 
 ### 2. Portabilité et fiabilité des applications
 
@@ -26,7 +26,7 @@ La team SRE met en place des pipelines de CI/CD standards et compatibles avec no
 
 Nous mettons tout notre énergie pour fiabiliser les applications et garantir la sécurité et l'intégrité des données.
 
-Voir [Infrastructure](/docs/infrastructure)
+Voir [Infrastructure](/docs/infrastructure/presentation)
 
 ### 3. Support aux développeurs
 

@@ -47,7 +47,7 @@ Vos applications doivent être containerisées et respecter les bonnes pratiques
 
 Les scripts externes/API intégrés aux applications doivent être soumis à approbation de l'équipe Juridique/RGPD.
 
-Plus de détails sur le [guide des pratiques tech en vigueur à SocialGouv](standards.md).
+Plus de détails sur le [guide des pratiques tech en vigueur à SocialGouv](/docs/standards/developpement).
 
 ### Noms de domaine
 

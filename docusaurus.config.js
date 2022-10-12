@@ -40,12 +40,7 @@ async function createConfig() {
             sidebarPath: require.resolve('./sidebars.js'),
             remarkPlugins: [mdxMermaid.default],
             editUrl:
-              'https://github.com/socialgouv/support/tree/main/packages/docs',
-          },
-          blog: {
-            showReadingTime: true,
-            editUrl:
-              'https://github.com/socialgouv/support/tree/main/packages/blog',
+              'https://github.com/socialgouv/support/tree/main/',
           },
           theme: {
             customCss: require.resolve('./src/css/custom.css'),

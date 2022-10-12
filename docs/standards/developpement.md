@@ -50,7 +50,7 @@ Pour un audit rapide, la DINUM propose l'audit flash : https://design.numerique.
 
 ## Services à disposition
 
-Plusieurs services sont disponibles, [cf infrastucture](infrastructure?id=services-transverses)
+Plusieurs services sont disponibles, [cf infrastucture](/docs/infrastructure/presentation#services-transverses)
 
 L'accès à ces services est à demander au besoin à l'équipe SRE.
 

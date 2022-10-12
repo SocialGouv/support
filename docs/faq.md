@@ -101,13 +101,13 @@ spec:
 
 ### Dashoards
 
-Vous pouvez créer vos propres dashboards et vos propres groupes de dashboards qui regroupent les métriques techniques issues de l'infrastructure (réseau, storage, bases de donnés), du service (cpu, mem, hits...) ou de l'application si [vous exposez des métriques OpenMetrics](/docs/kubernetes#exposer-les-métriques-de-mon-application). Pour interroger [Prometheus](https://prometheus.io/) qui expose les métriques, il faut utiliser le language PromQL. Exemples : https://timber.io/blog/promql-for-humans
+Vous pouvez créer vos propres dashboards et vos propres groupes de dashboards qui regroupent les métriques techniques issues de l'infrastructure (réseau, storage, bases de donnés), du service (cpu, mem, hits...) ou de l'application si [vous exposez des métriques OpenMetrics](/docs/standards/kubernetes#exposer-les-métriques-de-mon-application). Pour interroger [Prometheus](https://prometheus.io/) qui expose les métriques, il faut utiliser le language PromQL. Exemples : https://timber.io/blog/promql-for-humans
 
 ### Logs Loki
 
 Vous pouvez interroger vos logs applicatifs dans la section `Explore` de [Grafana](https://grafana.fabrique.social.gouv.fr/explore) avec [LogQL](https://grafana.com/docs/loki/latest/logql/).
 
-Les logs applicatifs doivent respecter les [bonnes pratiques de logging](/docs/kubernetes#bien-logger-dans-docker-et-donc-k8s)
+Les logs applicatifs doivent respecter les [bonnes pratiques de logging](/docs/standards/kubernetes#bien-logger-dans-docker-et-donc-k8s)
 
 #### Exemples
 
@@ -164,7 +164,7 @@ See also [Limits in Azure Database for PostgreSQL](https://github.com/MicrosoftD
 
 Puis dans un autre shell, utiliser psql directement : `psql postgres://[user]%40[app]devserver:[password]@127.0.0.1:1111?sslmode=require`
 
-Voir aussi [Disaster recovery](/docs/disaster-recovery)
+Voir aussi [Disaster recovery](/docs/infrastructure/disaster-recovery)
 
 ## Azure Storage
 

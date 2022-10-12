@@ -44,4 +44,4 @@ La fonction "Restaurer" accessible sur la page du serveur Postgres sur le Portai
 
 Cette fonction créé un nouveau serveur PG avec de nouveau credentials à mettre à jour dans votre application.
 
-Voir aussi [Créer un secret pour kubernetes](/docs/kubernetes#sceller-un-secret-dans-kubernetes)
+Voir aussi [Créer un secret pour kubernetes](/docs/standards/kubernetes#sceller-un-secret-dans-kubernetes)
