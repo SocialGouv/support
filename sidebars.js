@@ -29,13 +29,16 @@ const sidebars = {
     {
       type: 'category',
       label: 'Infrastructure',
-      items: ['infrastructure/presentation', 
-      {
-        type: 'doc',
-        id: 'infrastructure/pra',
-        label: 'PRA/PCA'
-      }, 
-      'infrastructure/disaster-recovery', 'infrastructure/emails'],
+      items: [
+        'infrastructure/presentation', 
+        {
+          type: 'doc',
+          id: 'infrastructure/pra',
+          label: 'PRA/PCA'
+        }, 
+        'infrastructure/disaster-recovery', 
+        'infrastructure/emails'
+      ],
     },
     'faq',
     {
