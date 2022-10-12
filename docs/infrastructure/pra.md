@@ -1,4 +1,4 @@
-# Plan de reprise et continuité des activités
+# Plan de reprise et continuité des activités (PRA / CRA)
 
 ## Disaster recovery
 

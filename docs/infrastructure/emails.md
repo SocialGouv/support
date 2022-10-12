@@ -1,4 +1,4 @@
-# Comptes emails @fabrique.social.gouv.fr
+# Comptes emails
 
 Nous utilisons OVH pour ces emails. Pour demander un accès, aller sur le [channel ~support](https://mattermost.fabrique.social.gouv.fr/default/channels/g-support)
 

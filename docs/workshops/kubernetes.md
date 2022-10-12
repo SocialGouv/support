@@ -1,4 +1,4 @@
-# Workshop Kubernetes from scratch
+# Kubernetes from scratch
 
 ## Objectifs
 
