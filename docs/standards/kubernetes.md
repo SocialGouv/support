@@ -97,7 +97,7 @@ Plus de détails sur l'administration kube avec k9s sur la [cheatsheet](https://
 
 [Grafana](https://grafana.fabrique.social.gouv.fr) permet de superviser finement tous les environnements, VMs et bases de données.
 
-Vous pouvez également consulter tous vos logs applicatifs dans Grafana avec Loki cf [faq#grafana](faq#grafana)
+Vous pouvez également consulter tous vos logs applicatifs dans Grafana avec Loki cf [faq#grafana](/faq#grafana)
 
 ## Variable d'environnement dans Kubernetes
 
@@ -138,7 +138,7 @@ Nos clusters fournissent le routing et les certificats SSL vers vos applications
 
 Chaque service exposé de votre application doit déclarer une `ingress rule` spécifique qui peut comporter des annotations spécifiques pour contôler les paramètres nginx (redirections, auth, rate-limiting...). cf [annotation ingress nginx](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations).
 
-Pour les noms de domaines externes, cf [faq#noms-de-domaines-externes](faq#noms-de-domaines-externes)
+Pour les noms de domaines externes, cf [faq#noms-de-domaines-externes](/faq#noms-de-domaines-externes)
 
 ### Sealed-secrets : Variables secretes
 

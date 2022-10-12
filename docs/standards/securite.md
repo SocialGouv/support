@@ -136,7 +136,7 @@ Il est recommandé de faire appel à la version asynchrone de ces fonctions, ou 
 
 Journaliser explicitement les erreurs issues de la logique de l'application, qui sont inconnues du runtime. par exemple à l'aide de sentry. La remontée d'exceptions dans sentry doit veiller à ne pas remonter de données sensibles (ex: cookies).
 
-L'application doit logger en JSON (cf [12 factors apps](/kubernetes.md))
+L'application doit logger en JSON (cf [12 factors apps](/standards/kubernetes.md))
 
 Côté base de données, un audit log peut être nécessaire. Ex: https://github.com/hasura/audit-trigger
 
