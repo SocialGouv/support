@@ -16,7 +16,7 @@ async function createConfig() {
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
-    favicon: 'img/favicon/favicon.ico',
+    favicon: 'img/favicon.ico',
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
@@ -39,17 +39,13 @@ async function createConfig() {
           docs: {
             remarkPlugins: [mdxMermaid.default],
             sidebarPath: require.resolve('./sidebars.js'),
-            // Please change this to your repo.
-            // Remove this to remove the "edit this page" links.
             editUrl:
-              'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+              'https://github.com/socialgouv/support/tree/main/packages/docs',
           },
           blog: {
             showReadingTime: true,
-            // Please change this to your repo.
-            // Remove this to remove the "edit this page" links.
             editUrl:
-              'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+              'https://github.com/socialgouv/support/tree/main/packages/blog',
           },
           theme: {
             customCss: require.resolve('./src/css/custom.css'),
@@ -62,20 +58,20 @@ async function createConfig() {
       /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
       ({
         navbar: {
-          title: 'My Site',
+          title: 'SocialGouv SRE',
           logo: {
-            alt: 'My Site Logo',
-            src: 'img/logo.svg',
+            alt: 'SocialGouv SRE Logo',
+            src: 'img/marianne.jpeg',
           },
           items: [
             {
               type: 'doc',
-              docId: 'documentation',
+              docId: 'README',
               position: 'left',
               label: 'Documentation',
             },
             {
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/facebook/socialgouv',
               label: 'GitHub',
               position: 'right',
             },
@@ -85,46 +81,90 @@ async function createConfig() {
           style: 'dark',
           links: [
             {
-              title: 'Docs',
+              title: 'Liens utiles',
               items: [
                 {
-                  label: 'Tutorial',
-                  to: '/docs/intro',
-                },
-              ],
-            },
-            {
-              title: 'Community',
-              items: [
-                {
-                  label: 'Stack Overflow',
-                  href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-                },
-                {
-                  label: 'Discord',
-                  href: 'https://discordapp.com/invite/docusaurus',
-                },
-                {
-                  label: 'Twitter',
-                  href: 'https://twitter.com/docusaurus',
-                },
-              ],
-            },
-            {
-              title: 'More',
-              items: [
-                {
-                  label: 'Blog',
-                  to: '/blog',
+                  label: 'Site de la fabrique',
+                  href: 'https://www.fabrique.social.gouv.fr/',
                 },
                 {
                   label: 'GitHub',
-                  href: 'https://github.com/facebook/docusaurus',
+                  href: 'https://github.com/SocialGouv',
+                },
+                {
+                  label: 'Mattermost',
+                  href: 'https://mattermost.fabrique.social.gouv.fr/'
+                },
+                {
+                  label: 'Nextcloud',
+                  href: 'https://nextcloud.fabrique.social.gouv.fr/'
+                }, 
+                {
+                  label: 'GitLab',
+                  href: 'https://gitlab.fabrique.social.gouv.fr/'
+                },
+                {
+                  label: 'Matomo',
+                  href: 'https://matomo.fabrique.social.gouv.fr/i'
+                },
+                {
+                  label: 'HedgeDoc',
+                  href: 'https://pad.incubateur.net/'
+                }, 
+                {
+                  label: 'Rancher',
+                  href: 'https://rancher.fabrique.social.gouv.fr/',
+                },
+                {
+                  label: 'Sentry',
+                  href: 'https://sentry.fabrique.social.gouv.fr/'
+                },
+              ],
+            },
+            {
+              title: 'Projet',
+              items: [
+                {
+                  label: 'Template',
+                  href: 'https://github.com/SocialGouv/template',
+                },
+                {
+                  label: 'Kontinuous',
+                  href: 'https://github.com/SocialGouv/kontinuous',
+                },
+                {
+                  label: 'Github Actions',
+                  href: 'https://github.com/SocialGouv/actions',
+                },
+                {
+                  label: 'Image Docker',
+                  href: 'https://github.com/SocialGouv/docker',
+                },
+                {
+                  label: 'Linters',
+                  href: 'https://github.com/SocialGouv/linters',
+                },
+                {
+                  label: 'Renovate',
+                  href: 'https://github.com/SocialGouv/renovate-config',
+                },
+              ],
+            },
+            {
+              title: 'Outils',
+              items: [
+                {
+                  label: 'DashLord',
+                  href: 'https://socialgouv.github.io/dashlord-fabrique/',
+                },
+                {
+                  label: 'Sre Tools',
+                  href: 'https://socialgouv.github.io/sre-tools/',
                 },
               ],
             },
           ],
-          copyright: `Copyright © ${new Date().getFullYear()} La Fabrique des Ministères Sociaux.`,
+          copyright: `Copyright © ${new Date().getFullYear()} La Fabrique des Ministères Sociaux 🇫🇷`,
         },
         prism: {
           theme: lightCodeTheme,

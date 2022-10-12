@@ -1,6 +1,4 @@
-# Website
-
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+# Site des SRE de la Fabrique des Ministères Sociaux 🇫🇷
 
 ### Installation
 
@@ -8,7 +6,7 @@ This website is built using [Docusaurus 2](https://docusaurus.io/), a modern sta
 $ yarn
 ```
 
-### Local Development
+### Pour lancer en local
 
 ```
 $ yarn start
@@ -16,7 +14,7 @@ $ yarn start
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-### Build
+### Pour builder
 
 ```
 $ yarn build
