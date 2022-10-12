@@ -80,8 +80,8 @@ Le déploiement d'une review branch se fait en deux étapes :
 WARNING: Cette section est actuellement rédigée uniquement pour une app Next.js. Pour un autre cas, il faut au minimum
 un fichier Dockerfile qui build un service web écoutant sur le port 3000.
 
-- copier les fichiers [Dockerfile](_media/workshop_from_scratch_to_production/Dockerfile ":ignore") et
-  [.dockerignore](_media/workshop_from_scratch_to_production/dockerignore ":ignore") dans votre projet
+- copier les fichiers [Dockerfile](/assets/Dockerfile.txt) et
+  [.dockerignore](/assets/.dockerignore.txt) dans votre projet
 - ajouter l'option suivante dans le fichier `next.config.js` :
 
 ```javascript
@@ -90,7 +90,7 @@ experimental: {
 }
 ```
 
-Exemple de fichier [next.config.js](_media/workshop_from_scratch_to_production/next.config.js ":ignore") complet.
+Exemple de fichier [next.config.js](/assets/next.config.js) complet.
 
 - Build de l'image en local :
 
@@ -127,7 +127,7 @@ register-app:
 
 Ce job build l'image avec le Dockerfile par défaut à la racine et sauve l'image dans le registre github associé au dépôt.
 
-?> A ce stade, le fichier `review.yaml` complet est : [review.yaml](_media/workshop_from_scratch_to_production/review_1.yaml ":ignore").
+?> A ce stade, le fichier `review.yaml` complet est : [review.yaml](/assets/review_1.yaml).
 
 !> Pour vérifier que l'image docker est buildée et accessible, aller dans l'onglet "Packages" de Github et lancer en local un `docker pull ...` du package tel qu'indiqué par github.
 
@@ -156,7 +156,7 @@ deploy:
         rancherProjectName: ${{ secrets.RANCHER_PROJECT_NAME }}
 ```
 
-?> A ce stade, le fichier `review.yaml` complet est : [review.yaml](_media/workshop_from_scratch_to_production/review_2.yaml ":ignore").
+?> A ce stade, le fichier `review.yaml` complet est : [review.yaml](/assets/review_2.yaml).
 
 Ensuite il faut créer **un dossier `.kube-workflow`**, qui contiendra la configuration de votre déploiement (format HELM), avec l'arborescence générale suivante :
 
@@ -199,7 +199,7 @@ A chaque fois qu'une PR est fermée, c'est une bonne habitude de supprimer toute
 
 Pour ça, il faut ajouter un nouveau workflow `.github/workflows/deactivate.yaml` qui se charge de tout nettoyer.
 
-Exemple de fichier complet : [deactivate.yaml](_media/workshop_from_scratch_to_production/deactivate.yaml ":ignore")
+Exemple de fichier complet : [deactivate.yaml](/assets/deactivate.yaml)
 
 ?> Dans tous les cas, un [janitor](https://codeberg.org/hjacobs/kube-janitor) s'occupe de supprimer tous les ressources de review qui n'ont pas eu d'activité [depuis 1 semaine](https://socialgouv.github.io/support/#/faq?id=nettoyage-des-environnements-kube-de-dev). Il
 ne faut donc pas s'étonner que le déploiement d'une review branch ait disparu à son retour de vacances...

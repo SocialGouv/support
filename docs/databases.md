@@ -14,7 +14,7 @@ Il est important de prendre le temps de concevoir un modèle de données cohére
 
 **L'équipe SRE est à votre disposition pour vous aider dans cette démarche.**
 
-![](_media/db-model.png ":size=1000x450")
+![](/img/db-model.png ":size=1000x450")
 
 ## Recommandations
 

@@ -36,7 +36,7 @@ pg_restore \
 
 :warning: Attention a toujours fermer une connexion bastion existante avant d'en ouvrir une autre poue éviter les erreurs.
 
-Voir aussi [Connexion via bastion](/faq#accès-aux-serveurs-pg-de-dev)
+Voir aussi [Connexion via bastion](/docs/faq#accès-aux-serveurs-pg-de-dev)
 
 ### Avec la fonction "Restaurer" du portail Azure
 
@@ -44,4 +44,4 @@ La fonction "Restaurer" accessible sur la page du serveur Postgres sur le Portai
 
 Cette fonction créé un nouveau serveur PG avec de nouveau credentials à mettre à jour dans votre application.
 
-Voir aussi [Créer un secret pour kubernetes](/kubernetes#sceller-un-secret-dans-kubernetes)
+Voir aussi [Créer un secret pour kubernetes](/docs/kubernetes#sceller-un-secret-dans-kubernetes)

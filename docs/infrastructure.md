@@ -12,7 +12,7 @@ Notre cible de déploiement est Kubernetes.
 
 Vous devez donc containeriser votre application, à minima avec docker-compose.
 
-Voir les [best practices Kubernetes](/kubernetes).
+Voir les [best practices Kubernetes](/docs/kubernetes).
 
 ## Bases de données
 

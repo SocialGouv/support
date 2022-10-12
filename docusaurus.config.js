@@ -37,8 +37,8 @@ async function createConfig() {
         /** @type {import('@docusaurus/preset-classic').Options} */
         ({
           docs: {
-            remarkPlugins: [mdxMermaid.default],
             sidebarPath: require.resolve('./sidebars.js'),
+            remarkPlugins: [mdxMermaid.default],
             editUrl:
               'https://github.com/socialgouv/support/tree/main/packages/docs',
           },

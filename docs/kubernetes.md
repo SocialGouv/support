@@ -1,6 +1,6 @@
 # Kubernetes (K8S)
 
-![big picture](_media/kubernetes-big-picture.png ":size=800x400")
+![big picture](/img/kubernetes-big-picture.png ":size=800x400")
 
 Une très bonne introduction à Kubernetes est lisible ici : https://sendilkumarn.com/blog/kubernetes-for-everyone/
 
