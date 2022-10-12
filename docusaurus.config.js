@@ -12,7 +12,7 @@ async function createConfig() {
   return {
     title: "SocialGouv SRE documentation",
     tagline: 'Support tech aux startups de la fabrique des Ministères sociaux',
-    url: 'https://socialgouv.github.io/support',
+    url: 'https://socialgouv.github.io/support/',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
