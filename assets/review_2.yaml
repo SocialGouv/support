@@ -1,0 +1,34 @@
+name: Review
+
+on:
+  push:
+    branches-ignore:
+      - master
+    tags-ignore:
+      - v*
+
+jobs:
+  register-app:
+    name: Build & Register app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use autodevops build and register
+        uses: SocialGouv/actions/autodevops-build-register@v1
+        with:
+          environment: dev
+          imagePackage: app
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    name: Deploy review branch
+    runs-on: ubuntu-latest
+    needs: [register-app]
+    steps:
+      - name: Use kube-workflow deployment
+        uses: SocialGouv/kube-workflow@v1
+        with:
+          environment: dev
+          token: ${{ secrets.GITHUB_TOKEN }}
+          kubeconfig: ${{ secrets.KUBECONFIG }}
+          rancherProjectId: ${{ secrets.RANCHER_PROJECT_ID }}
+          rancherProjectName: ${{ secrets.RANCHER_PROJECT_NAME }}
