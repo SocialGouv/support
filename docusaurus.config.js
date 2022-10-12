@@ -124,10 +124,6 @@ async function createConfig() {
                   href: 'https://github.com/SocialGouv/template',
                 },
                 {
-                  label: 'Kontinuous',
-                  href: 'https://github.com/SocialGouv/kontinuous',
-                },
-                {
                   label: 'Github Actions',
                   href: 'https://github.com/SocialGouv/actions',
                 },
@@ -155,6 +151,10 @@ async function createConfig() {
                 {
                   label: 'Sre Tools',
                   href: 'https://socialgouv.github.io/sre-tools/',
+                },
+                {
+                  label: 'Kontinuous',
+                  href: 'https://github.com/SocialGouv/kontinuous',
                 },
               ],
             },

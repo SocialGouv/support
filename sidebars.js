@@ -29,14 +29,20 @@ const sidebars = {
     {
       type: 'category',
       label: 'Infrastructure',
-      items: ['infrastructure/presentation', 'infrastructure/disaster-recovery', 'infrastructure/pra', 'infrastructure/emails'],
+      items: ['infrastructure/presentation', 
+      {
+        type: 'doc',
+        id: 'infrastructure/pra',
+        label: 'PRA/PCA'
+      }, 
+      'infrastructure/disaster-recovery', 'infrastructure/emails'],
     },
+    'faq',
     {
       type: 'category',
       label: 'Workshops',
       items: ['workshops/production', 'workshops/kubernetes'],
-    },
-    'faq'
+    }
   ],
 };
 

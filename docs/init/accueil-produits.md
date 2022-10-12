@@ -1,4 +1,4 @@
-# Accueil des produits à la Fabrique numérique des ministères sociaux
+# Accueil des produits
 
 ### Hébergement
 
