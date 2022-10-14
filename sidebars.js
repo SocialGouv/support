@@ -21,6 +21,7 @@ const sidebars = {
       collapsed: false,
       collapsible: true
     },
+    'guide-survie',
     {
       type: 'category',
       label: 'Standards',
