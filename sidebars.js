@@ -45,7 +45,8 @@ const sidebars = {
       type: 'category',
       label: 'Workshops',
       items: ['workshops/production', 'workshops/kubernetes'],
-    }
+    },
+    'descente'
   ],
 };
 
