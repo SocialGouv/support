@@ -180,7 +180,7 @@ Cette application permet de chiffrer votre secret (client-side) pour mettre à j
 Deux cas possibles :
 
 - **Développement** : le secret est déchiffrable cluster-wide
-- **Production** : le secret est déchiffrable uniquement pour un `namespace` et un `secret name` donné.
+- **Production** : le secret est déchiffrable uniquement pour un `namespace` donné.
 
 Pour la _production_ pensez à bien à vérifier le `namespace` et le `secret name` spécifié. Le `secret name` est le nom du secret lié à l'application, par exemple `app`, `api` ou  `app-sealed-secret` ; on peut trouver ce nom dans le champ `metadata.name` du fichier de secret. Ce nom peut-être indiqué dans les déploiements (par exemple dans le fichier `.kube-workflow/values.yaml`, dans la partie `envFrom.secretRef`  pour inclure les secrets déchiffrés dans l'environnement d'un container).
 
