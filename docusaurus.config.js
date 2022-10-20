@@ -154,7 +154,7 @@ async function createConfig() {
                 },
                 {
                   label: 'Kontinuous',
-                  href: 'https://github.com/SocialGouv/kontinuous',
+                  href: 'https://socialgouv.github.io/kontinuous/',
                 },
               ],
             },
