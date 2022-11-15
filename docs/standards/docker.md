@@ -34,5 +34,5 @@ WORKDIR /app
 COPY --from=build /app/ /app/
 
 # Note: Don't use "yarn start" as it doesn't handle linux signals (graceful shutdown for instance)
-CMD ["node", "dist/app.js"
+CMD ["node", "dist/app.js"]
 ```
