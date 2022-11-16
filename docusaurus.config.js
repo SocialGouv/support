@@ -66,7 +66,7 @@ async function createConfig() {
               label: 'Documentation',
             },
             {
-              href: 'https://github.com/facebook/socialgouv',
+              href: 'https://github.com/socialgouv',
               label: 'GitHub',
               position: 'right',
             },
