@@ -9,7 +9,7 @@
 ARG NODE_VERSION=16-slim
 
 #--- Build stage
-FROM node:$NODE_VERSION as build
+FROM node:$NODE_VERSION as build # utiliser uniquement des images officielles
 
 # Build a rootless image for security reasons, and use an user id rather than a user name
 USER 1000
