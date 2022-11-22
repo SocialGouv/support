@@ -24,7 +24,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Standards',
-      items: ['standards/developpement', 'standards/databases', 'standards/securite', 'standards/kubernetes', 'standards/tests', 'standards/mobile'],
+      items: ['standards/developpement', 'standards/databases', 'standards/securite', 'standards/kubernetes', 'standards/tests', 'standards/mobile', 'standards/docker'],
     },
     {
       type: 'category',
