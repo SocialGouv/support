@@ -16,9 +16,11 @@ USER 1000
 WORKDIR /app
 
 COPY package.json yarn.lock ./
-# Don't add "--production" here as dev dependencies are usually required to build the app
-RUN yarn install
+# Don't add "--production" here as dev dependencies are usually required to build the app.
+# Use "--frozen-lockfile" to be sure package.json has not been updated without updating yarn.lock too.
+RUN yarn --frozen-lockfile
 
+# Warning: don't forget to have a `.dockerignore` file when doing a `COPY . .` to limit docker build context.
 COPY . .
 
 # Note: re-run "yarn install" with production flag to remove dev dependencies, and then clean for the run stage
@@ -35,4 +37,22 @@ COPY --from=build /app/ /app/
 
 # Note: Don't use "yarn start" as it doesn't handle linux signals (graceful shutdown for instance)
 CMD ["node", "dist/app.js"]
+```
+
+
+Example content of a `.dockerignore` file:
+
+```
+*.md
+.git
+**/dist
+**/build
+**/node_modules
+**/.next
+**/.docz
+**/coverage
+node_modules
+npm-debug.log
+yarn-error.log
+.next
 ```
