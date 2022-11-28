@@ -30,13 +30,12 @@ pg_dump --clean --if-exists --quote-all-identifiers \
   -f /path/to/backup.psql;
 
 # Pour restaurer la base cf https://docs.postgresql.fr/10/app-pgrestore.html
-PGDATABASE=DB_DESTINATION
-PGHOST=127.0.0.1
-PGPORT=1111
-PGUSER=user@appdevserver
-PGPASSWORD=xxx
-PGSSLMODE=require
-pg_restore \
+export PGDATABASE=DB_DESTINATION
+export PGHOST=127.0.0.1
+export PGPORT=1111
+export PGUSER=user@appdevserver
+export PGPASSWORD=xxx
+export PGSSLMODE=require
   --clean --if-exists \
   --no-owner --no-acl \
   --role username \
