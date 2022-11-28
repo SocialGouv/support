@@ -18,15 +18,24 @@ ssh -L 1111:[app]devserver.postgres.database.azure.com:5432 [user]@40.89.139.58
 # Dans un autre shell :
 
 # Pour dumper une base cf https://docs.postgresql.fr/10/app-pgdump.html
-PGDATABASE="postgres://[user]%40[app]devserver:[password]@127.0.0.1:1111/[DBNAME_SOURCE]?sslmode=require"
+export PGDATABASE=DB_SOURCE
+export PGHOST=127.0.0.1
+export PGPORT=1111
+export PGUSER=user@appdevserver
+export PGPASSWORD=xxx
+export PGSSLMODE=require
 pg_dump --clean --if-exists --quote-all-identifiers \
   -U postgres \
   --format=custom \
   -f /path/to/backup.psql;
 
 # Pour restaurer la base cf https://docs.postgresql.fr/10/app-pgrestore.html
-PGDATABASE="postgres://[user]%40[app]devserver:[password]@127.0.0.1:1111/[DBNAME_DESTINATION]?sslmode=require"
-pg_restore \
+export PGDATABASE=DB_DESTINATION
+export PGHOST=127.0.0.1
+export PGPORT=1111
+export PGUSER=user@appdevserver
+export PGPASSWORD=xxx
+export PGSSLMODE=require
   --clean --if-exists \
   --no-owner --no-acl \
   --role username \
