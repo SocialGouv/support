@@ -1,4 +1,4 @@
-# Disaster reccovery
+# Disaster recovery
 
 ## PostgreSQL
 
