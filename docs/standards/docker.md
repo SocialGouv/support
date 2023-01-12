@@ -1,11 +1,11 @@
-# Build des images Docker
+# Images Docker
 
-## Optimisation d'une image Docker pour nodejs
+> Les images Docker doivent pouvoir tourner en `root-less` et tourner avec un uid>0
 
-
+## Optimisation d'une image Docker pour NodeJS
 
 ```
-# If applicable, use slim version as it is around 300 Mo smaller
+# If possible, use slim version as it is smaller
 ARG NODE_VERSION=16-slim
 
 #--- Build stage
@@ -39,7 +39,6 @@ COPY --from=build /app/ /app/
 CMD ["node", "dist/app.js"]
 ```
 
-
 Example content of a `.dockerignore` file:
 
 ```
@@ -56,3 +55,11 @@ npm-debug.log
 yarn-error.log
 .next
 ```
+
+## exemple avec Hasura
+
+Cf https://github.com/SocialGouv/emjpm/blob/master/packages/hasura/Dockerfile
+
+## exemple avec Strapi
+
+Cf https://github.com/SocialGouv/1000jours/pull/1281/files
