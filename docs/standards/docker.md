@@ -5,8 +5,8 @@
 ## Optimisation d'une image Docker pour NodeJS
 
 ```
-# If possible, use alpine version as it is smaller
-ARG NODE_VERSION=16-alpine
+# If possible, use slim version as it is smaller
+ARG NODE_VERSION=16-slim
 
 #--- Build stage
 FROM node:$NODE_VERSION as build # utiliser uniquement des images officielles
