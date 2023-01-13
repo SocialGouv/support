@@ -2,6 +2,8 @@
 
 > Les images Docker doivent pouvoir tourner en `root-less` et tourner avec un uid>0
 
+> Vous devez utiliser uniquement des images Docker officielles et les surcharger éventuellement
+
 ## Optimisation d'une image Docker pour NodeJS
 
 ```
