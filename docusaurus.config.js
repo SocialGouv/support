@@ -100,7 +100,7 @@ async function createConfig() {
                 },
                 {
                   label: 'Matomo',
-                  href: 'https://matomo.fabrique.social.gouv.fr/i'
+                  href: 'https://matomo.fabrique.social.gouv.fr/'
                 },
                 {
                   label: 'HedgeDoc',
