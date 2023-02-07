@@ -177,7 +177,7 @@ Il est possible d'ajouter des annotations pour forcer les headers directement su
 
 ##### Avec kontinuous ou kube-workflow :
 
-Dans le `values.yaml` de votre application :
+Exemple dans le `values.yaml` de votre application :
 
 ```yaml
 app:
