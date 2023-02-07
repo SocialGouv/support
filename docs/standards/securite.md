@@ -188,6 +188,8 @@ app:
         more_set_headers "X-Content-Type-Options: nosniff";
 ```
 
+La CSP est à adapter selon vos scripts externes; vous pouvez la définir manuellement ou avec l'extension [CSP laboratory](https://github.com/april/laboratory).
+
 Le repo [template](https://github.com/SocialGouv/template) présente l'intégration dans un Next.js statique (branche `main`) ou avec un serveur (branche `hasura`).
 
 #### Côté applicatif
