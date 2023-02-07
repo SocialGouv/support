@@ -175,9 +175,7 @@ Plusieurs possibilités pour corriger vos headers :
 
 Il est possible d'ajouter des annotations pour forcer les headers directement sur la route de votre application.
 
-##### Avec kontinuous ou kube-workflow :
-
-Exemple dans le `values.yaml` de votre application :
+Exemple avec kontinuous ou kube-workflow, dans le `values.yaml` de votre application :
 
 ```yaml
 app:
@@ -191,6 +189,10 @@ app:
 ```
 
 Le repo [template](https://github.com/SocialGouv/template) présente l'intégration dans un Next.js statique (branche `main`) ou avec un serveur (branche `hasura`).
+
+#### Côté applicatif
+
+Il est possible d'ajouter les headers côté applicatif, par exemple avec [helmet](https://github.com/helmetjs/helmet).
 
 
 ## Références
