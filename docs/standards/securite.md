@@ -163,6 +163,36 @@ Côté base de données, un audit log peut être nécessaire. Ex: https://github
   - Utiliser l'en-tête `Content-Type` avec la valeur émise lors de l'upload
   - Utiliser l'en-tête `X-Content-Type-Options: nosniff` afin d'empêcher le navigateur d'inférer le type du fichier et de lui demander de respecter le Content-Type que l'on aura positionné.
 
+## FAQ
+
+### Mettre à jour les headers HTTP de mes applications
+
+Inspectez les headers HTTP de votre frontend avec [Mozilla HTTP Obervatory](https://observatory.mozilla.org/). Vous pouvez également les retrouver sur [DashLord](https://dashlord-full.fabrique.social.gouv.fr/).
+
+Plusieurs possibilités pour corriger vos headers :
+
+#### Directement via l'Ingress
+
+Il est possible d'ajouter des annotations pour forcer les headers directement sur la route de votre application.
+
+##### Avec kontinuous ou kube-workflow :
+
+Dans le `values.yaml` de votre application :
+
+```yaml
+app:
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        more_set_headers "Content-Security-Policy: default-src 'none'; connect-src 'self' https://*.gouv.fr; font-src 'self'; img-src 'self'; prefetch-src 'self' https://*.gouv.fr; script-src 'self' https://*.gouv.fr; frame-src 'self' https://*.gouv.fr; style-src 'self' 'unsafe-inline'";
+        more_set_headers "X-Frame-Options: deny";
+        more_set_headers "X-XSS-Protection: 1; mode=block";
+        more_set_headers "X-Content-Type-Options: nosniff";
+```
+
+Le repo [template](https://github.com/SocialGouv/template) présente l'intégration dans un Next.js statique (branche `main`) ou avec un serveur (branche `hasura`).
+
+
 ## Références
 
 ### Général
