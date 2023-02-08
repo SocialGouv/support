@@ -167,7 +167,7 @@ Côté base de données, un audit log peut être nécessaire. Ex: https://github
 
 ### Mettre à jour les headers HTTP de mes applications
 
-Inspectez les headers HTTP de votre frontend avec [Mozilla HTTP Obervatory](https://observatory.mozilla.org/). Vous pouvez également les retrouver sur [DashLord](https://dashlord-full.fabrique.social.gouv.fr/).
+Inspectez les headers HTTP de votre frontend avec [Mozilla HTTP Observatory](https://observatory.mozilla.org/). Vous pouvez également les retrouver sur [DashLord](https://dashlord-full.fabrique.social.gouv.fr/).
 
 Plusieurs possibilités pour corriger vos headers :
 
