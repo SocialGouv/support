@@ -8,7 +8,7 @@ La release est conditionnée par la présence d'un commit conventionnel de type 
 
 Ajoutez un fichier [`.github/workflows/release.yml`](https://github.com/SocialGouv/standup/blob/8b130400ef80835f3d6fa0a8a56e98986a20e2f7/.github/workflows/release.yml) à votre repo.
 
-## Déployer un hotfix
+### Déployer un hotfix
 
 Si votre branche `master` a évolué, mais que vous souhaitez déployer un hotfix en préprod ou prod, créez une nouvelle branche `beta` ou `alpha` à partir de la derniere release et commitez un `fix:`.
 
@@ -125,9 +125,7 @@ Cf cheat sheet LOKI : https://megamorf.gitlab.io/cheat-sheets/loki/
 
 ### Variables d'environnement côté frontend
 
-La [methode actuellement recommandée](https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration) est d'utiliser des variables au build time en les prefixant par `NEXT_PUBLIC_` et en les ajoutant dans les settings/variables de votre projet GitLab. Vous pouvez alors les récupérer avec un simple `process.env` dans le code client ou serveur.
-
-À noter que toute variable `NEXT_PUBLIC_*` définie lors du build (dans un .env ou via une variable d'env) sera remplacée dans le build par sa valeur et ne pourra plus être surchargée à l'éxécution.
+Voir l'implémentation de [template](https://github.com/SocialGouv/template)
 
 ## Azure Postgres
 
@@ -273,26 +271,3 @@ Les ressources de dev sont régulièrement nettoyées par Janitor :
 | dev/jobs/failed    | 7j           |
 | prod/jobs/complete | 24h          |
 | prod/jobs/failed   | 7j           |
-
-## Kosko-charts
-
-### Mettre à jour les snapshots de déploiement
-
-Si votre dossier `.socialgouv` contient un package.json :
-
-```sh
-cd .socialgouv
-yarn
-yarn test -u
-```
-
-Si votre dossier `.socialgouv` ne contient PAS un package.json :
-
-```sh
-cd .socialgouv
-curl https://raw.githubusercontent.com/SocialGouv/kosko-charts/master/templates/autodevops/{package.json,kosko.toml,babel.config.js} -O
-yarn
-yarn test -u
-```
-
-Ne pas versionner ces 3 fichiers
