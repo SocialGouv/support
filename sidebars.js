@@ -64,6 +64,11 @@ const sidebars = {
       items: [
         {
           type: "link",
+          label: "OnBoarding Fabrique",
+          href: "https://docs.google.com/presentation/d/1E4A8UekFjCDS8WOLpD1wyos6IkTQ09shHDsdoiLofHA",
+        },
+        {
+          type: "link",
           label: "Guide de survie de la PR",
           href: "https://docs.google.com/presentation/d/1x9H2-SHsF6mXuByijX7u3gTC5CeT4nmbpI1z-NOtyUE",
         },
