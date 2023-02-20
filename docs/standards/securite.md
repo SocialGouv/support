@@ -200,7 +200,7 @@ Il est possible d'ajouter les headers côté applicatif, par exemple avec [helme
 
 Si vous souhaitez chiffrer des fichiers côté serveur, vous pouvez utiliser le module [streaming-file-encryption](https://github.com/SocialGouv/streaming-file-encryption).
 
-La sécurité de ce module repose sur la connaissance nécessaire de 3 informations disctinces pour pouvoir déchiffrer un fichier :
+La sécurité de ce module repose sur la connaissance nécessaire de 3 informations disctinctes pour pouvoir déchiffrer un fichier :
 
  - Le `mainSecret` à définir en tant que variable d'environnement côté applicatif
  - Le `context` à stocker dans votre base de données et lié à votre fichier
