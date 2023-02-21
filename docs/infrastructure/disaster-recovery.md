@@ -38,9 +38,9 @@ export PGPASSWORD=xxx
 export PGSSLMODE=require
 pg_restore --clean --if-exists \
   --no-owner --no-acl \
-  --role username \
   --verbose \
-  -f /path/to/backup.psql
+  --dbname DATABASE \
+  /path/to/backup.psql
 ```
 
 :warning: Attention a toujours fermer une connexion bastion existante avant d'en ouvrir une autre poue éviter les erreurs.
