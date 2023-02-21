@@ -36,11 +36,11 @@ export PGPORT=1111
 export PGUSER=user@appdevserver
 export PGPASSWORD=xxx
 export PGSSLMODE=require
-  --clean --if-exists \
+pg_restore --clean --if-exists \
   --no-owner --no-acl \
   --role username \
   --verbose \
-  /path/to/backup.psql
+  -f /path/to/backup.psql
 ```
 
 :warning: Attention a toujours fermer une connexion bastion existante avant d'en ouvrir une autre poue éviter les erreurs.
