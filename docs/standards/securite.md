@@ -196,6 +196,25 @@ Le repo [template](https://github.com/SocialGouv/template) présente l'intégrat
 
 Il est possible d'ajouter les headers côté applicatif, par exemple avec [helmet](https://github.com/helmetjs/helmet).
 
+### Chiffrer des fichiers
+
+Si vous souhaitez chiffrer des fichiers côté serveur, vous pouvez utiliser le module [streaming-file-encryption](https://github.com/SocialGouv/streaming-file-encryption).
+
+La sécurité de ce module repose sur la connaissance nécessaire de 3 informations disctinctes pour pouvoir déchiffrer un fichier :
+
+ - Le `mainSecret` à définir en tant que variable d'environnement côté applicatif
+ - Le `context` à stocker dans votre base de données et lié à votre fichier
+ - Le `ciphertext` à stocker sur un volume disque persistant
+
+:warning: il est essentiel de stocker ces données dans des espaces isolés.
+
+Les fichiers chiffrés répondent aux propriétés cryptographiques suivantes :
+
+ - Résistance à la falsification (modification des données)
+ - Résistance à la troncature (suppression des données à chaque extrémité ou au milieu)
+ - Résistance à l'extension (ajout de données à chaque extrémité ou au milieu)
+ - Résistance à la réorganisation (échange de pages de données)
+
 
 ## Références
 
