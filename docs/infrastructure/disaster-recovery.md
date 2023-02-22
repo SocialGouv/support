@@ -36,10 +36,10 @@ export PGPORT=1111
 export PGUSER=user@appdevserver
 export PGPASSWORD=xxx
 export PGSSLMODE=require
-  --clean --if-exists \
+pg_restore --clean --if-exists \
   --no-owner --no-acl \
-  --role username \
   --verbose \
+  --dbname DATABASE \
   /path/to/backup.psql
 ```
 
