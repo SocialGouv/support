@@ -22,7 +22,9 @@ La fabrique propose des [Postgres managés](https://azure.microsoft.com/fr-fr/se
 
 La restauration des données se fait sur demande à l'équipe OPS.
 
-Les seuls extensions PG disponibles sont listées ici : https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/postgresql/concepts-extensions.md
+Les seuls extensions PG disponibles sont [listées ici](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/postgresql/concepts-extensions.md).
+
+Voir aussi les [bonnes pratiques liées aux BDD](/docs/standards/databases) et [comment accéder à ses instances de base de données](https://socialgouv.github.io/support/docs/faq#acc%C3%A8s-aux-serveurs-pg-de-dev).
 
 ### Elastic Search
 
