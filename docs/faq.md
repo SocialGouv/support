@@ -127,7 +127,7 @@ Cf cheat sheet LOKI : https://megamorf.gitlab.io/cheat-sheets/loki/
 
 Voir l'implémentation de [template](https://github.com/SocialGouv/template)
 
-## Azure Postgres
+## Bases de données Azure Postgres
 
 ### `ERROR: cannot execute xxx in a read-only transaction`
 
@@ -154,7 +154,7 @@ SELECT pg_terminate_backend(pid)
 
 See also [Limits in Azure Database for PostgreSQL](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/postgresql/concepts-limits.md#limits-in-azure-database-for-postgresql---single-server)
 
-### Accès aux serveurs PG de dev
+### Accès aux serveurs de bases de données PG de dev
 
 - Demander à l'équipe OPS d'ajouter votre clé publique sur le _bastion_
 - Récupérer le secret qui correspond à l'environnement sur rancher ou k9s.
