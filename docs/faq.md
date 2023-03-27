@@ -218,7 +218,7 @@ La fabrique peut gérer votre nom de domaine sur son compte OVH.
 
 ### Nginx : request entity too large
 
-Si vous **devez** envoyer de gros fichiers, vous pouvez être limité à l'envoi avec cette erreur côté serveur; dans ce cas, ajoutez les [annotations ingress nginx] (https://docs.nginx.com/nginx-ingress-controller/configuration/ingress-resources/advanced-configuration-with-annotations/) suivantes dans votre `values.yaml` :
+Si vous **devez** envoyer de gros fichiers, vous pouvez être limité à l'envoi avec cette erreur côté serveur; dans ce cas, ajoutez les [annotations ingress nginx](https://docs.nginx.com/nginx-ingress-controller/configuration/ingress-resources/advanced-configuration-with-annotations/) suivantes dans votre `values.yaml` :
 
 ```yaml
 my-component:
