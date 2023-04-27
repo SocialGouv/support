@@ -227,6 +227,18 @@ my-component:
       nginx.ingress.kubernetes.io/proxy-body-size: 512m
 ```
 
+### Nginx : custom headers
+
+Vous pouvez facilement ajouter des headers customs sur votre "ingress" nginx :
+
+```yaml
+app:
+  ingress:
+    annotations:
+      nginx.ingress.kubernetes.io/server-snippet: |
+         add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+```
+
 ## Mattermost
 
 ### Mattermost reminder bot
