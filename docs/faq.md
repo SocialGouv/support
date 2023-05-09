@@ -156,7 +156,7 @@ See also [Limits in Azure Database for PostgreSQL](https://github.com/MicrosoftD
 
 ### Accès aux serveurs de bases de données PG de dev
 
-#### Méthode 1
+#### Méthode 1 (obsolète)
 
 - Demander à l'équipe OPS d'ajouter votre clé publique sur le _bastion_
 - Récupérer le secret qui correspond à l'environnement sur rancher ou k9s.
@@ -168,13 +168,13 @@ Puis dans un autre shell, utiliser psql directement : `psql postgres://[user]%40
 
 - Téléchargez Teleport Connect et installez tsh client. [Ici](https://goteleport.com/download/)
 - Lancez l'application Teleport Connect
-- Renseigner l'addresse suivante quand elle vous est demandée: **teleport.fabrique.social.gouv.fr** et authentifiez avec Github
+- Renseignez l'addresse suivante quand elle vous est demandée: **teleport.fabrique.social.gouv.fr** et authentifiez vous avec Github
 - Naviguez dans l'onglet database
-- Cliquer sur connect (avec le user PostgresAdmins) puis renseigner le nom de la db postgres que vous souhaitez accéder et cliquer sur run
+- Cliquer sur connect (avec le user `PostgresAdmins`) puis renseigner le nom de la db postgres que vous souhaitez accéder et cliquer sur run
 
-**Notez bien que vous devez faire parti de la team administrateur de votre startup sur github pour pouvoir accéder à la db**
+**Notez bien que vous devez faire partie de la team `Admins` de votre startup sur GitHub pour pouvoir accéder à la db**
 
-**De plus vous accéderez à la base de donnée en administrateur, vous êtes responsable de vos actions.**
+** :warning: De plus vous accéderez à la base de donnée en administrateur, vous êtes responsable de vos actions.**
 
 Voir aussi [Disaster recovery](/docs/infrastructure/disaster-recovery)
 
