@@ -48,7 +48,6 @@ const sidebars = {
           id: "infrastructure/pra",
           label: "PRA/PCA",
         },
-        "infrastructure/disaster-recovery",
         "infrastructure/emails",
       ],
     },
