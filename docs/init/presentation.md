@@ -10,7 +10,7 @@ Cette documentation est _vivante_, tu peux demander des améliorations ou la com
 
 Au service des produits et de leurs équipes, la team SRE assure la portabilité des applications, le respect des best practices et standards ainsi que le support aux développeurs.
 
-[![](/img/teams.svg ":size=600x500")]([https://excalidraw.com/#json=6249038793932800,yBgzwcanigJBX4fwshKIFw](https://excalidraw.com/#json=ckpApn5YpZZ28ZekLHeif,x4mBQGnbZOKUmPg3JIj_kQ))
+[![](/img/teams.svg ":size=600x500")](https://excalidraw.com/#json=ckpApn5YpZZ28ZekLHeif,x4mBQGnbZOKUmPg3JIj_kQ)
 
 ## Rôles
 
