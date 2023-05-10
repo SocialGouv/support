@@ -176,8 +176,6 @@ Puis dans un autre shell, utiliser psql directement : `psql postgres://[user]%40
 
 ** :warning: De plus vous accéderez à la base de donnée en administrateur, vous êtes responsable de vos actions.**
 
-Voir aussi [Disaster recovery](/docs/infrastructure/disaster-recovery)
-
 ## Azure Storage
 
 ### Hebergement vidéo
