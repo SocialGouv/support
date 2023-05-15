@@ -89,7 +89,7 @@ const sidebars = {
         {
           type: "link",
           label: "ChatGPT",
-          href: "/static/presentation-ChatGPT.pptx",
+          href: "/presentation-ChatGPT.pptx",
         },
       ],
     },
