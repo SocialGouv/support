@@ -86,6 +86,11 @@ const sidebars = {
           label: "Metabase",
           href: "https://docs.google.com/presentation/d/1ov0sU89iiVtebNPplolaNwYU8JWIaXc1M6Z7mfn1nKA",
         },
+        {
+          type: "link",
+          label: "ChatGPT",
+          href: "/static/presentation-ChatGPT.pptx",
+        },
       ],
     },
   ],
