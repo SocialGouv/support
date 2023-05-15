@@ -28,6 +28,7 @@ const sidebars = {
     {
       type: "category",
       label: "Standards",
+      collapsed: false,
       items: [
         "standards/developpement",
         "standards/databases",
@@ -60,6 +61,7 @@ const sidebars = {
     {
       type: "category",
       label: "Présentations",
+      collapsed: false,
       items: [
         {
           type: "link",
@@ -89,7 +91,7 @@ const sidebars = {
         {
           type: "link",
           label: "ChatGPT",
-          href: "/presentation-ChatGPT.pptx",
+          href: "https://socialgouv.github.io/support/presentation-ChatGPT.pptx",
         },
       ],
     },
