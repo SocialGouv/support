@@ -171,7 +171,7 @@ Vous pouvez vous connecter à vos instances PosrtgreSQL via Teleport.
 #### Alternative via le CLI teleport `tsh`
 
  - Téléchargez et installez le [CLI Teleport](https://goteleport.com/download/)
- - Localement, se logger sur teleport avec : `tsh login teleport.fabrique.social.gouv.fr --auth=github`
+ - Localement, se logger sur teleport avec : `tsh login --proxy=teleport.fabrique.social.gouv.fr teleport.fabrique.social.gouv.fr --auth=github`
  - Se connecter à une DB avec psql : `tsh db connect --db-user=PostgresAdmins --db-name=postgres [DBNAME]`
 
 💡 Pour configurer un client Postgres avec teleport, cf https://goteleport.com/docs/connect-your-client/gui-clients/
