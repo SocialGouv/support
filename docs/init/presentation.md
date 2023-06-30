@@ -1,6 +1,6 @@
 # Présentation
 
-Si tu viens d'arriver, tu dois tout d'abord te créer [une issue d'onboarding](https://github.com/SocialGouv/www/issues/new/choose).
+Si tu viens d'arriver, tu dois tout d'abord t'inscrire [sur notre secretariat](https://secretariat.fabrique.social.gouv.fr/onboarding).
 
 Cette documentation est _vivante_, tu peux demander des améliorations ou la compléter via [GitHub](https://github.com/socialgouv/support/edit/master/docs/).
 
