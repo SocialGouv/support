@@ -41,7 +41,7 @@ COPY --from=build /app/ /app/
 CMD ["node", "dist/app.js"]
 ```
 
-Example content of a `.dockerignore` file:
+Il est important d'avoir un `.dockerignore` complet, pour limiter la taille de l'image et optimiser le cache et les builds :
 
 ```
 *.md
