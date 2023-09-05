@@ -4,6 +4,8 @@
 
 > Vous devez utiliser uniquement des images Docker officielles et les surcharger éventuellement
 
+> Vous devez utiliser des [versions LTS](https://nodejs.dev/fr/about/releases/) maintenues à jour avec renovate (ou DependaBot).
+
 ## Optimisation d'une image Docker pour NodeJS
 
 ```
