@@ -62,7 +62,7 @@ yarn-error.log
 
 ## exemple avec Hasura
 
-Cf https://github.com/SocialGouv/emjpm/blob/master/packages/hasura/Dockerfile
+Cf https://github.com/SocialGouv/template/blob/hasura/hasura/Dockerfile
 
 ## exemple avec Strapi
 
