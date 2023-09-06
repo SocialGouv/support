@@ -62,6 +62,3 @@ L'url officielle des startups est `[startup].fabrique.social.gouv.fr`
 - **Support/SRE** : julien.bouquillon@sg.social.gouv.fr
 - **Infra** : igor.renquin@sg.social.gouv.fr
 
----
-
-Cf également les [conditions d'accueil des produits](https://hackmd.io/JnzZk1SdTjyWfxF57mSCpQ).
