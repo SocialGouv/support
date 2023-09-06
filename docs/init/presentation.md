@@ -37,8 +37,3 @@ Contactez-nous via le [channel mattermost `support`](https://mattermost.fabrique
 ## Moyens
 
 La team SRE dispose de moyens (ex: Azure, Scaleway, OVH) pour allouer des ressources de dev. Les ressources étant dédiées à une startup ou mutualisées entre différents produits.
-
-> Ces best practices présentent les exigences en terme de développement et permettent d'aligner les équipes sur des standards communs.
-
-> C'est une documentation vivante, qui évolue avec les technologies et la communauté de la fabrique.
-
