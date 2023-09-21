@@ -47,7 +47,7 @@ La conformité aux référentiels régéneraux qui s'appliquent à l'adminitrati
 ### Synthèse des attentes
 
 |   Niveau   | Recommandation                                                                                                   |
-|:----------:|:-----------------------------------------------------------------------------------------------------------------|
+|:-----------|:-----------------------------------------------------------------------------------------------------------------|
 | Obligation | La `déclaration d'accessibilité` doit être accessible via le chemin : `[URL produit]/accessibilite`              |
 | Obligation | La `déclaration d'accessibilité` doit être présente et en cohérente avec le niveau de conformité du produit      |
 | Obligation | Les `mentions légales` doivent être accessible via le chemin : `[URL produit]/mentions-legales`                  |
@@ -70,7 +70,7 @@ La DINUM propose l'outil ARA pour démarrer son audit d'accessibilité : https:/
 #### Synthèse des attentes
 
 |   Niveau   | Recommandation                                                                                            |
-|:----------:|:----------------------------------------------------------------------------------------------------------|
+|:-----------|:----------------------------------------------------------------------------------------------------------|
 | Obligation | Le score d'accessibilité doit être supérieur à `75%`                                                      |
 
 
