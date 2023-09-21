@@ -39,6 +39,25 @@ Ce GIT Flow est implémenté dans les [GitHub actions @SocialGouv](https://githu
 | [PRODUIT]-preprod.dev.fabrique.social.gouv.fr   | preproduction    |
 | [PRODUIT].fabrique.social.gouv.fr               | production       |
 
+
+## Conformité
+
+La conformité aux référentiels régéneraux qui s'appliquent à l'adminitration doivent être intégrés au produit. 
+
+### Synthèse des attentes
+
+|   Niveau   | Recommandation                                                                                                   |
+|:----------:|:-----------------------------------------------------------------------------------------------------------------|
+| Obligation | La `déclaration d'accessibilité` doit être accessible via le chemin : `[URL produit]/accessibilite`              |
+| Obligation | La `déclaration d'accessibilité` doit être présente et en cohérente avec le niveau de conformité du produit      |
+| Obligation | Les `mentions légales` doivent être accessible via le chemin : `[URL produit]/mentions-legales`                  |
+| Obligation | Les `mentions légales` doivent être présentes et cohérentes                                                      |
+| Obligation | La `politique de confidentialité` doit être accessible via le chemin : `[URL produit]/politique-confidentialite` |
+| Obligation | La `politique de confidentialité` doit être présente et en cohérente                                             |
+| Obligation | Les `statistiques` du produit doivent être accessible via le chemin : `[URL produit]/stats`                      |
+| Obligation | Les `statistiques` du produit doivent être présentes et régulièrement mises à jours                              |
+
+
 ## Accessibilité (A11Y)
 
 L'accessibilité des applications mobiles et web doit être intégrée dès le démarrage des projets. L'objectif est d'atteindre minimum 75% de conformité au RGAA.
@@ -47,6 +66,13 @@ La DINUM propose l'outil ARA pour démarrer son audit d'accessibilité : https:/
 
 - [référentiel RGAA](https://design.numerique.gouv.fr/en/outils/audit-complementaire/)
 - [Extension browser assistant RGAA](https://design.numerique.gouv.fr/articles/2021-10-06-assistant-rgaa/)
+
+#### Synthèse des attentes
+
+|   Niveau   | Recommandation                                                                                            |
+|:----------:|:----------------------------------------------------------------------------------------------------------|
+| Obligation | Le score d'accessibilité doit être supérieur à `75%`                                                      |
+
 
 ## Services à disposition
 
