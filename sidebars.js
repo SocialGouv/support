@@ -70,6 +70,11 @@ const sidebars = {
         },
         {
           type: "link",
+          label: "Initiation GitHub",
+          href: "https://docs.google.com/presentation/d/1Sv_1c3tP0VfoCLQilNsu-KwuBHT_GaQO9ipUtdbrPYI/edit?usp=sharing",
+        },
+        {
+          type: "link",
           label: "Guide de survie de la PR",
           href: "https://docs.google.com/presentation/d/1x9H2-SHsF6mXuByijX7u3gTC5CeT4nmbpI1z-NOtyUE",
         },
@@ -93,6 +98,16 @@ const sidebars = {
           label: "ChatGPT",
           href: "https://socialgouv.github.io/support/presentation-ChatGPT.pptx",
         },
+        {
+          type: "link",
+          label: "Chiffrement e2e",
+          href: "https://docs.google.com/presentation/d/1K_yrQOZpc3qykPfR8U0-98OAecUYmT0kGYDo2GSC604/edit?usp=sharing",
+        },
+        {
+          type: "link",
+          label: "Présentation DashLord",
+          href: "https://docs.google.com/presentation/d/1dSQBmjENaVcCFrJEinFp5OzzduUSH5k_nOMROyG8wX0/edit?usp=sharing",
+        }
       ],
     },
   ],
