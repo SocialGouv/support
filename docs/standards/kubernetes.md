@@ -199,3 +199,14 @@ Ensuite, vérifier dans rancher ou k9s qu'un `Secret` avec les bonnes valeurs a 
 :warning: ceci va écraser l'éventuel secret du meme namespace/nom existant. pensez à changer le nom du secret si besoin
 
 :warning: La manip n'est pas forcément possible en prod, car cela écraserait le secret existant. une possibilité est de renommer les clés du secret pour ne pas impacter les clés existantes.
+
+## Synthèse des attentes
+
+|   Niveau    | Recommandation                                                          |
+|:------------|:------------------------------------------------------------------------|
+| Obligation  | Les logs sont envoyés vers les sorties standard `STDOUT` ou `STDERR`    |
+| Obligation  | Les logs sont envoyés au format `JSON` et `single-line`                 |
+| Obligation  | Les métriques sont exposés sur un endpoint `/metrics`                   |
+| Obligation  | Les valeurs de CPU `requests` et `limits` doivent être renseignées      |
+| Obligation  | Les valeurs de RAM `requests` et `limits` doivent être renseignées      |
+| Obligation  | Le HPA doit être activé et paramétré avec des valeurs `min=1`, `max=10` |
