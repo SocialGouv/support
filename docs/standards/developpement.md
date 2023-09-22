@@ -42,7 +42,7 @@ Ce GIT Flow est implémenté dans les [GitHub actions @SocialGouv](https://githu
 
 ## Conformité
 
-La conformité aux référentiels régéneraux qui s'appliquent à l'adminitration doivent être intégrés au produit. 
+La conformité aux référentiels régéneraux qui s'appliquent à l'administration doivent être intégrés au produit. 
 
 ### Synthèse des attentes
 
