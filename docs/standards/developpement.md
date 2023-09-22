@@ -53,7 +53,7 @@ La conformité aux référentiels régéneraux qui s'appliquent à l'administrat
 | Obligation | Les `mentions légales` doivent être accessible via le chemin : `[URL produit]/mentions-legales`                  |
 | Obligation | Les `mentions légales` doivent être présentes et cohérentes cf [modele](https://template.fabrique.social.gouv.fr/mentions-legales)                                                      |
 | Obligation | La `politique de confidentialité` doit être accessible via le chemin : `[URL produit]/politique-confidentialite` |
-| Obligation | La `politique de confidentialité` doit être présente et en cohérente                                             |
+| Obligation | La `politique de confidentialité` doit être présente et en cohérente cf [modele](https://template.fabrique.social.gouv.fr/politique-confidentialite)                                             |
 | Obligation | Les `statistiques` du produit doivent être accessible via le chemin : `[URL produit]/stats`                      |
 | Obligation | Les `statistiques` du produit doivent être présentes et régulièrement mises à jours                              |
 
