@@ -67,3 +67,16 @@ Cf https://github.com/SocialGouv/template/blob/hasura/hasura/Dockerfile
 ## exemple avec Strapi
 
 Cf https://github.com/SocialGouv/1000jours/pull/1281/files
+
+## Synthèse des attentes
+
+|     Niveau     | Recommandation                                                                       |
+|:-------------- |:-------------------------------------------------------------------------------------|
+|   Obligation   | Utiliser une des images source contenue dans la [liste maintenue par l'équipe SRE](https://github.com/SocialGouv/docker) ou une [docker official image](https://docs.docker.com/trusted-content/official-images/)     |
+|   Obligation   | Un conteneur s'exécute sans privilèges `rootless`                                    |
+|   Obligation   | Un UID numérique supérieur à `0` doit être défini numériquement dans le fichier `dockerfile`       |
+|   Obligation   | Ne pas embarquer de secret ou d'outillage de dev dans les images       |
+|   Obligation   | Le composant utilisé dans l'image utilise la version LTS en cours                    |
+|   Obligation   | Le fichier `.dockerignore` maintenu par l'équipe SRE doit être utilisé               |
+| Recommandation | Ne pas utiliser d'images de conteneurs basées sur `DEBIAN`, `UBUNTU`                 |
+|   Obligation   | Les images de containers doivent régulièrement être mises à jour                     |
