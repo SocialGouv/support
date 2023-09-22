@@ -49,7 +49,7 @@ La conformité aux référentiels régéneraux qui s'appliquent à l'administrat
 |   Niveau   | Recommandation                                                                                                   |
 |:-----------|:-----------------------------------------------------------------------------------------------------------------|
 | Obligation | La `déclaration d'accessibilité` doit être accessible via le chemin : `[URL produit]/accessibilite`              |
-| Obligation | La `déclaration d'accessibilité` doit être présente et en cohérente avec le niveau de conformité du produit      |
+| Obligation | La `déclaration d'accessibilité` doit être présente et en cohérente avec le niveau de conformité du produit cf [modele](https://betagouv.github.io/a11y-generateur-declaration/#create)      |
 | Obligation | Les `mentions légales` doivent être accessible via le chemin : `[URL produit]/mentions-legales`                  |
 | Obligation | Les `mentions légales` doivent être présentes et cohérentes                                                      |
 | Obligation | La `politique de confidentialité` doit être accessible via le chemin : `[URL produit]/politique-confidentialite` |
