@@ -72,7 +72,7 @@ Cf https://github.com/SocialGouv/1000jours/pull/1281/files
 
 |     Niveau     | Recommandation                                                                       |
 |:-------------- |:-------------------------------------------------------------------------------------|
-|   Obligation   | Utiliser une des images source contenue dans la liste maintenue par l'équipe SRE     |
+|   Obligation   | Utiliser une des images source contenue dans la [liste maintenue par l'équipe SRE](https://github.com/SocialGouv/docker) ou une [docker official image](https://docs.docker.com/trusted-content/official-images/)     |
 |   Obligation   | Un conteneur s'exécute sans privilèges `rootless`                                    |
 |   Obligation   | Un UID numérique supérieur à `0` doit être défini dans le fichier `dockerfile`       |
 | Recommandation | Le docker file doit inclure une ligne pour effectuer la mise à jour (ex: apk update) |
