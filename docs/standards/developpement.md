@@ -51,7 +51,7 @@ La conformité aux référentiels régéneraux qui s'appliquent à l'administrat
 | Obligation | La `déclaration d'accessibilité` doit être accessible via le chemin : `[URL produit]/accessibilite`              |
 | Obligation | La `déclaration d'accessibilité` doit être présente et en cohérente avec le niveau de conformité du produit cf [modele](https://betagouv.github.io/a11y-generateur-declaration/#create)      |
 | Obligation | Les `mentions légales` doivent être accessible via le chemin : `[URL produit]/mentions-legales`                  |
-| Obligation | Les `mentions légales` doivent être présentes et cohérentes                                                      |
+| Obligation | Les `mentions légales` doivent être présentes et cohérentes cf [modele](https://template.fabrique.social.gouv.fr/mentions-legales)                                                      |
 | Obligation | La `politique de confidentialité` doit être accessible via le chemin : `[URL produit]/politique-confidentialite` |
 | Obligation | La `politique de confidentialité` doit être présente et en cohérente                                             |
 | Obligation | Les `statistiques` du produit doivent être accessible via le chemin : `[URL produit]/stats`                      |
