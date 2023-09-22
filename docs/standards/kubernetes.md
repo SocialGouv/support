@@ -206,7 +206,7 @@ Ensuite, vérifier dans rancher ou k9s qu'un `Secret` avec les bonnes valeurs a 
 |:------------|:------------------------------------------------------------------------|
 | Obligation  | Les logs sont envoyés vers les sorties standard `STDOUT` ou `STDERR`    |
 | Obligation  | Les logs sont envoyés au format `JSON` et `single-line`                 |
-| Obligation  | Les métriques sont exposés sur un endpoint `/metrics`                   |
+| Obligation  | Les métriques applicatives sont exposés sur un endpoint `/metrics`                   |
 | Obligation  | Les valeurs de CPU `requests` et `limits` doivent être renseignées      |
 | Obligation  | Les valeurs de RAM `requests` et `limits` doivent être renseignées      |
 | Obligation  | Le HPA doit être activé et paramétré avec des valeurs `min=1`, `max=10` |
