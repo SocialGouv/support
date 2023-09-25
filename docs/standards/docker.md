@@ -78,5 +78,4 @@ Cf https://github.com/SocialGouv/1000jours/pull/1281/files
 |   Obligation   | Ne pas embarquer de secret ou d'outillage de dev dans les images       |
 |   Obligation   | Le composant utilisé dans l'image utilise la version LTS en cours                    |
 |   Obligation   | Le fichier `.dockerignore` maintenu par l'équipe SRE doit être utilisé               |
-| Recommandation | Ne pas utiliser d'images de conteneurs basées sur `DEBIAN`, `UBUNTU`                 |
 |   Obligation   | Les images de containers doivent régulièrement être mises à jour                     |
