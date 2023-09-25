@@ -39,6 +39,14 @@ Ce GIT Flow est implémenté dans les [GitHub actions @SocialGouv](https://githu
 | [PRODUIT]-preprod.dev.fabrique.social.gouv.fr   | preproduction    |
 | [PRODUIT].fabrique.social.gouv.fr               | production       |
 
+### Conventions de branche
+
+| Branche                                         | Usage               |
+| ----------------------------------------------- | ------------------- |
+| `fix/*, feat/*`                                 | déploiement auto    |
+| `persist/*`                                     | branche persistante |
+
+Ces conventions sont définies dans vos `.github/workflows`.
 
 ## Conformité
 
