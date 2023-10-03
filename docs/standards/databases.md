@@ -29,6 +29,22 @@ Il est important de prendre le temps de concevoir un modèle de données cohére
   - [yEd](https://www.yworks.com/products/yed) gère le format de diagram exporté par DBeaver
   - [pg_diagram](https://github.com/qweeze/pg_diagram)
 
+### Debug
+
+#### PgHero 
+
+Vous pouvez lancer localement [PGHero](https://github.com/ankane/pghero) et le connecter à votre base de données:
+
+ - Ouvrir un port localement avec un `port-forward` ou `teleport`
+ - Récupérer le secret `pg-app` dans votre namespace
+ - Lancer PGHero avec Docker : 
+
+```sh
+docker run -ti -e DATABASE_URL='postgresql://XXXX?sslmode=disable' -p 8080:8080 --net=host ankane/pghero
+```
+
+Puis ouvrir http://127.0.0.1:8080
+
 ### Hasura
 
 [hasura](https://hasura.io/) est un composant battle-testé à la fabrique, qui se branche facilement sur votre base PostgreSQL.
