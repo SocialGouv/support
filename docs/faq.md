@@ -158,7 +158,7 @@ See also [Limits in Azure Database for PostgreSQL](https://github.com/MicrosoftD
 
 **Notez bien que vous devez faire partie de la team `Admins` de votre startup sur GitHub pour pouvoir accéder à la db**
 
-Vous pouvez vous connecter à vos instances PosrtgreSQL via Teleport.
+Vous pouvez vous connecter à vos instances PostgreSQL via Teleport.
 
 - Téléchargez et installez le [GUI Teleport **Connect**](https://goteleport.com/download/) (c'est l'application **Teleport** qui est sélectionnée par défaut sur la page, il faut sélectionner **Teleport Connect**)
 - Lancez l'application Teleport Connect
@@ -170,9 +170,10 @@ Vous pouvez vous connecter à vos instances PosrtgreSQL via Teleport.
 
 #### Alternative via le CLI teleport `tsh`
 
- - Téléchargez et installez le [CLI Teleport](https://goteleport.com/download/)
- - Localement, se logger sur teleport avec : `tsh login --proxy=teleport.fabrique.social.gouv.fr teleport.fabrique.social.gouv.fr --auth=github`
- - Se connecter à une DB avec psql : `tsh db connect --db-user=PostgresAdmins --db-name=postgres [DBNAME]`
+- Téléchargez et installez le [CLI Teleport](https://goteleport.com/download/)
+- Localement, se logger sur teleport avec : `tsh login --proxy=teleport.fabrique.social.gouv.fr teleport.fabrique.social.gouv.fr --auth=github`
+- Se connecter à une DB avec psql : `tsh db connect --db-user=PostgresAdmins --db-name=postgres [DBNAME]`
+  - Pour ouvrir seulement un tunnel SSH et pouvoir connecter l'outil de votre choix (par exemple `pg_dump`) : `tsh proxy db --db-user=PostgresAdmins --db-name=postgres --tunnel [DBNAME]`
 
 💡 Pour configurer un client Postgres avec teleport, cf https://goteleport.com/docs/connect-your-client/gui-clients/
 
@@ -248,7 +249,7 @@ app:
   ingress:
     annotations:
       nginx.ingress.kubernetes.io/server-snippet: |
-         add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+        add_header Cache-Control 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
 ```
 
 ## Mattermost
