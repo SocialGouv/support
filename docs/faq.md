@@ -160,7 +160,7 @@ See also [Limits in Azure Database for PostgreSQL](https://github.com/MicrosoftD
 
 Vous pouvez vous connecter à vos instances PosrtgreSQL via Teleport.
 
-- Téléchargez et installez le [GUI Teleport **Connect**](https://goteleport.com/download/)
+- Téléchargez et installez le [GUI Teleport **Connect**](https://goteleport.com/download/) (c'est l'application **Teleport** qui est sélectionnée par défaut sur la page, il faut sélectionner **Teleport Connect**)
 - Lancez l'application Teleport Connect
 - Renseignez l'addresse suivante quand elle vous est demandée: **teleport.fabrique.social.gouv.fr** et authentifiez vous **avec Github**.
 - Naviguez dans l'onglet "Databases"
