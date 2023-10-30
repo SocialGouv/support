@@ -86,7 +86,7 @@ const sidebars = {
         {
           type: "link",
           label: "Kontinuous",
-          href: "https://docs.google.com/presentation/d/18TUqf4ew2lNp8w02mY7YiaKyWaEVneUA1ME4VzDlhsM",
+          href: "https://socialgouv.github.io/kontinuous",
         },
         {
           type: "link",
