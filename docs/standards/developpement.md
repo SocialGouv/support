@@ -50,7 +50,7 @@ Ces conventions sont définies dans vos `.github/workflows`.
 
 ## Accessibilité (A11Y)
 
-Voir [standards accessibilité](/docs/srandards/accessibilite)
+Voir [standards accessibilité](/docs/standards/accessibilite)
 
 #### Synthèse des attentes
 
