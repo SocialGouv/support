@@ -41,46 +41,39 @@ Ce GIT Flow est implémenté dans les [GitHub actions @SocialGouv](https://githu
 
 ### Conventions de branche
 
-| Branche                                         | Usage               |
-| ----------------------------------------------- | ------------------- |
-| `fix/*, feat/*`                                 | déploiement auto    |
-| `persist/*`                                     | branche persistante |
+| Branche         | Usage               |
+| --------------- | ------------------- |
+| `fix/*, feat/*` | déploiement auto    |
+| `persist/*`     | branche persistante |
 
 Ces conventions sont définies dans vos `.github/workflows`.
 
 ## Conformité
 
-La conformité aux référentiels régéneraux qui s'appliquent à l'administration doivent être intégrés au produit. 
+La conformité aux référentiels régéneraux qui s'appliquent à l'administration doivent être intégrés au produit.
 
 ### Synthèse des attentes
 
-|   Niveau   | Recommandation                                                                                                   |
-|:-----------|:-----------------------------------------------------------------------------------------------------------------|
-| Obligation | La `déclaration d'accessibilité` doit être accessible via le chemin : `[URL produit]/accessibilite`              |
-| Obligation | La `déclaration d'accessibilité` doit être présente et en cohérente avec le niveau de conformité du produit cf [modele](https://betagouv.github.io/a11y-generateur-declaration/#create)      |
-| Obligation | Les `mentions légales` doivent être accessible via le chemin : `[URL produit]/mentions-legales`                  |
+| Niveau     | Recommandation                                                                                                                                                                          |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Obligation | La `déclaration d'accessibilité` doit être accessible via le chemin : `[URL produit]/accessibilite`                                                                                     |
+| Obligation | La `déclaration d'accessibilité` doit être présente et en cohérente avec le niveau de conformité du produit cf [modele](https://betagouv.github.io/a11y-generateur-declaration/#create) |
+| Obligation | Les `mentions légales` doivent être accessible via le chemin : `[URL produit]/mentions-legales`                                                                                         |
 | Obligation | Les `mentions légales` doivent être présentes et cohérentes cf [modele](https://template.fabrique.social.gouv.fr/mentions-legales)                                                      |
-| Obligation | La `politique de confidentialité` doit être accessible via le chemin : `[URL produit]/politique-confidentialite` |
-| Obligation | La `politique de confidentialité` doit être présente et en cohérente cf [modele](https://template.fabrique.social.gouv.fr/politique-confidentialite)                                             |
-| Obligation | Les `statistiques` du produit doivent être accessible via le chemin : `[URL produit]/stats`                      |
-| Obligation | Les `statistiques` du produit doivent être présentes et régulièrement mises à jours                              |
-
+| Obligation | La `politique de confidentialité` doit être accessible via le chemin : `[URL produit]/politique-confidentialite`                                                                        |
+| Obligation | La `politique de confidentialité` doit être présente et en cohérente cf [modele](https://template.fabrique.social.gouv.fr/politique-confidentialite)                                    |
+| Obligation | Les `statistiques` du produit doivent être accessible via le chemin : `[URL produit]/stats`                                                                                             |
+| Obligation | Les `statistiques` du produit doivent être présentes et régulièrement mises à jours                                                                                                     |
 
 ## Accessibilité (A11Y)
 
-L'accessibilité des applications mobiles et web doit être intégrée dès le démarrage des projets. L'objectif est d'atteindre minimum 75% de conformité au RGAA.
-
-La DINUM propose l'outil ARA pour démarrer son audit d'accessibilité : https://ara.numerique.gouv.fr/
-
-- [référentiel RGAA](https://design.numerique.gouv.fr/en/outils/audit-complementaire/)
-- [Extension browser assistant RGAA](https://design.numerique.gouv.fr/articles/2021-10-06-assistant-rgaa/)
+Voir [standards accessibilité](/docs/srandards/accessibilite)
 
 #### Synthèse des attentes
 
-|   Niveau   | Recommandation                                                                                            |
-|:-----------|:----------------------------------------------------------------------------------------------------------|
-| Obligation | Le score d'accessibilité doit être supérieur à `75%`                                                      |
-
+| Niveau     | Recommandation                                       |
+| :--------- | :--------------------------------------------------- |
+| Obligation | Le score d'accessibilité doit être supérieur à `75%` |
 
 ## Services à disposition
 

@@ -31,6 +31,7 @@ const sidebars = {
       collapsed: false,
       items: [
         "standards/developpement",
+        "standards/accessibilite",
         "standards/databases",
         "standards/securite",
         "standards/kubernetes",
@@ -107,7 +108,7 @@ const sidebars = {
           type: "link",
           label: "Présentation DashLord",
           href: "https://docs.google.com/presentation/d/1dSQBmjENaVcCFrJEinFp5OzzduUSH5k_nOMROyG8wX0/edit?usp=sharing",
-        }
+        },
       ],
     },
   ],
