@@ -48,32 +48,16 @@ Ce GIT Flow est implémenté dans les [GitHub actions @SocialGouv](https://githu
 
 Ces conventions sont définies dans vos `.github/workflows`.
 
-## Conformité
-
-La conformité aux référentiels régéneraux qui s'appliquent à l'administration doivent être intégrés au produit.
-
-### Synthèse des attentes
-
-| Niveau     | Recommandation                                                                                                                                                                          |
-| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Obligation | La `déclaration d'accessibilité` doit être accessible via le chemin : `[URL produit]/accessibilite`                                                                                     |
-| Obligation | La `déclaration d'accessibilité` doit être présente et en cohérente avec le niveau de conformité du produit cf [modele](https://betagouv.github.io/a11y-generateur-declaration/#create) |
-| Obligation | Les `mentions légales` doivent être accessible via le chemin : `[URL produit]/mentions-legales`                                                                                         |
-| Obligation | Les `mentions légales` doivent être présentes et cohérentes cf [modele](https://template.fabrique.social.gouv.fr/mentions-legales)                                                      |
-| Obligation | La `politique de confidentialité` doit être accessible via le chemin : `[URL produit]/politique-confidentialite`                                                                        |
-| Obligation | La `politique de confidentialité` doit être présente et en cohérente cf [modele](https://template.fabrique.social.gouv.fr/politique-confidentialite)                                    |
-| Obligation | Les `statistiques` du produit doivent être accessible via le chemin : `[URL produit]/stats`                                                                                             |
-| Obligation | Les `statistiques` du produit doivent être présentes et régulièrement mises à jours                                                                                                     |
-
 ## Accessibilité (A11Y)
 
 Voir [standards accessibilité](/docs/srandards/accessibilite)
 
 #### Synthèse des attentes
 
-| Niveau     | Recommandation                                       |
-| :--------- | :--------------------------------------------------- |
-| Obligation | Le score d'accessibilité doit être supérieur à `75%` |
+| Niveau     | Recommandation                                                   |
+| :--------- | :--------------------------------------------------------------- |
+| Obligation | La déclaration d'accessibilité doit être affichée dans le footer |
+| Obligation | Le score d'accessibilité doit être supérieur à `75%`             |
 
 ## Services à disposition
 
@@ -129,3 +113,20 @@ La mise en place des serveurs de développement doit aussi être accessible. Le 
 Une fois qu'un environnement de développement viable et accessible a été conçu, il est primordial de bien documenter comment un développeur peut le mettre en place facilement. Cela peut par exemple prendre la forme d'une section dans le README du projet qui décrit la mise place en précisant clairement les prérequis et l'ordre des étapes.
 
 En plus de la mise en place de l'environnement de développement, il est important de documenter le fonctionnement du produit, ses différents composants ainsi que leurs APIs afin de faciliter la prise en main de nouveaux développeurs.
+
+## Conformité
+
+La conformité aux référentiels géneraux qui s'appliquent à l'administration doivent être intégrés dans le cycle de dévellement du produit.
+
+### Synthèse des attentes
+
+| Niveau     | Recommandation                                                                                                                                                                          |
+| :--------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Obligation | La `déclaration d'accessibilité` doit être accessible via le chemin : `[URL produit]/accessibilite`                                                                                     |
+| Obligation | La `déclaration d'accessibilité` doit être présente et en cohérente avec le niveau de conformité du produit cf [modele](https://betagouv.github.io/a11y-generateur-declaration/#create) |
+| Obligation | Les `mentions légales` doivent être accessible via le chemin : `[URL produit]/mentions-legales`                                                                                         |
+| Obligation | Les `mentions légales` doivent être présentes et cohérentes cf [modele](https://template.fabrique.social.gouv.fr/mentions-legales)                                                      |
+| Obligation | La `politique de confidentialité` doit être accessible via le chemin : `[URL produit]/politique-confidentialite`                                                                        |
+| Obligation | La `politique de confidentialité` doit être présente et en cohérente cf [modele](https://template.fabrique.social.gouv.fr/politique-confidentialite)                                    |
+| Obligation | Les `statistiques` du produit doivent être accessible via le chemin : `[URL produit]/stats`                                                                                             |
+| Obligation | Les `statistiques` du produit doivent être présentes et régulièrement mises à jours                                                                                                     |
