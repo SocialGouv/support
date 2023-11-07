@@ -25,23 +25,24 @@ Publier involontairement un secret (par exemple un jeton d'accès) sur un dépô
 ```bash
 yarn add -D husky is-ci node-talisman
 
-# husky se met en place sur toute exécution de "yarn install"
+# installer husky seulement si hors environnement de CI
 npm set-script postinstall "is-ci || husky install"
 
-# installation de husky
+# installation de husky grâce au script de postinstall
 yarn
 
 # exécuter node-talisman sur le hook de pre-commit
-yarn husky add .husky/pre-commit "exec < /dev/tty; yarn node-talisman --githook pre-commit -i"
+# on détecte ici si l'interaction via un terminal est possible afin de ne pas
+# crash quand le pre-commit est lancé par une application comme VSCode
+yarn husky add .husky/pre-commit "if sh -c ': >/dev/tty' >/dev/null 2>/dev/null; then exec </dev/tty; yarn node-talisman --githook pre-commit -i; else yarn node-talisman --githook pre-commit; fi"
 
 # configure le repo en JS
 echo "scopeconfig:\n  - scope: node" > .talismanrc
-
 ```
 
-On utilise `husky` pour gérer simplement le hook. Si vous utilisez déjà un gestionnaire de hooks, il suffit d'installer `node-talisman` et d'ajouter en pre-commit `yarn node-talisman --githook pre-commit -i`.
+On utilise `husky` pour gérer simplement le hook. Si vous utilisez déjà un gestionnaire de hooks, vous pouvez y ajouter `node-talisman` de manière similaire.
 
-On pourra observer des cas de faux positif de talisman, par exemple sur le fichier `yarn.lock` ou des données base64. Dans ce cas, on lit attentivement le rapport, et on ajuste [le fichier `.talismanrc`](https://github.com/thoughtworks/talisman/#ignoring-files) en fonction.
+On pourra observer des cas de faux positif de talisman, par exemple sur des migrations SQL ou des données en base64. Dans ce cas, on lit attentivement le rapport, et on ajuste [le fichier `.talismanrc`](https://github.com/thoughtworks/talisman/#ignoring-files) en fonction.
 
 ## Best practices
 
@@ -202,19 +203,18 @@ Si vous souhaitez chiffrer des fichiers côté serveur, vous pouvez utiliser le 
 
 La sécurité de ce module repose sur la connaissance nécessaire de 3 informations disctinctes pour pouvoir déchiffrer un fichier :
 
- - Le `mainSecret` à définir en tant que variable d'environnement côté applicatif
- - Le `context` à stocker dans votre base de données et lié à votre fichier
- - Le `ciphertext` à stocker sur un volume disque persistant
+- Le `mainSecret` à définir en tant que variable d'environnement côté applicatif
+- Le `context` à stocker dans votre base de données et lié à votre fichier
+- Le `ciphertext` à stocker sur un volume disque persistant
 
 :warning: il est essentiel de stocker ces données dans des espaces isolés.
 
 Les fichiers chiffrés répondent aux propriétés cryptographiques suivantes :
 
- - Résistance à la falsification (modification des données)
- - Résistance à la troncature (suppression des données à chaque extrémité ou au milieu)
- - Résistance à l'extension (ajout de données à chaque extrémité ou au milieu)
- - Résistance à la réorganisation (échange de pages de données)
-
+- Résistance à la falsification (modification des données)
+- Résistance à la troncature (suppression des données à chaque extrémité ou au milieu)
+- Résistance à l'extension (ajout de données à chaque extrémité ou au milieu)
+- Résistance à la réorganisation (échange de pages de données)
 
 ## Références
 
