@@ -54,11 +54,7 @@ const sidebars = {
       ],
     },
     "faq",
-    {
-      type: "category",
-      label: "Workshops",
-      items: ["workshops/production", "workshops/kubernetes"],
-    },
+    "workshops/index",
     {
       type: "category",
       label: "Présentations",
