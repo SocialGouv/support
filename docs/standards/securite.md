@@ -1,10 +1,10 @@
 # Sécurité
 
-> Tous les accès aux outils doivent être sécurisés par authentification double-facteurs (2FA)
+🔒 Tous les accès aux outils doivent être sécurisés par authentification double-facteurs (2FA)
 
-> Les variables d'environnement doivent être utilisées pour tout ce qui est secrets, tokens, logins, urls, hostnames...
+🌐 Les variables d'environnement doivent être utilisées pour tout ce qui est secrets, tokens, logins, urls, hostnames...
 
-> La gestion des secrets est assurée par des [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets) qui versionne les secrets chiffrés dans GIT.
+🛡️ La gestion des secrets est assurée par des [sealed-secrets](https://github.com/bitnami-labs/sealed-secrets) qui versionne les secrets chiffrés dans GIT.
 
 ## Outils
 
