@@ -68,7 +68,7 @@ Utilisez [renovate](https://github.com/SocialGouv/renovate-config) pour mainteni
 
 La mise en place d'un middleware de RBAC par lequel toutes les requêtes entrantes passent permet de rejeter au plus tôt les requêtes illégitimes et de mettre en place une liste blanche de pages ou endpoints non protégés (le comportement par défaut étant "protégé" pour éviter l'introduction de défauts de contrôle d'accès au fur et à mesure des développements).
 
-Ex : https://github.com/nyambati/express-acl
+Ex : <https://github.com/nyambati/express-acl>
 
 Mettre en place une **matrice des rôles** qui associe à chaque type de donnée des permissions de type lecture/écriture par rôle.
 
@@ -91,7 +91,7 @@ Les applications ne doivent jamais logger d'information confidentielle ou de cre
 - Les verbes HTTP doivent être respectés, les opérations `GET` ne doivent pas modifier de données.
 - En cas d'utilisation de sessions, les opérations qui impactent des données doivent être protégées des [attaques de type CSRF](https://www.cert.ssi.gouv.fr/information/CERTA-2008-INF-003/) avec un système de jeton.
 
-Ex: https://github.com/helmetjs/helmet
+Ex: <https://github.com/helmetjs/helmet>
 
 ### Sessions
 
@@ -139,7 +139,7 @@ Journaliser explicitement les erreurs issues de la logique de l'application, qui
 
 L'application doit logger en JSON (cf [12 factors apps](/standards/kubernetes.md))
 
-Côté base de données, un audit log peut être nécessaire. Ex: https://github.com/hasura/audit-trigger
+Côté base de données, un audit log peut être nécessaire. Ex: <https://github.com/hasura/audit-trigger>
 
 ### Upload de fichiers
 
@@ -221,20 +221,20 @@ Les fichiers chiffrés répondent aux propriétés cryptographiques suivantes :
 ### Général
 
 - [guide ANSSI de la sécurité agile](https://www.ssi.gouv.fr/uploads/2018/11/guide-securite-numerique-agile-anssi-pa-v1.pdf)
-- https://cheatsheetseries.owasp.org/
-- https://www.ssi.gouv.fr/guide/mot-de-passe/
-- Reset password best practices : https://www.troyhunt.com/everything-you-ever-wanted-to-know/
+- <https://cheatsheetseries.owasp.org/>
+- <https://www.ssi.gouv.fr/guide/mot-de-passe/>
+- Reset password best practices : <https://www.troyhunt.com/everything-you-ever-wanted-to-know/>
 
 ### NodeJS
 
-- https://www.sqreen.com/checklists/nodejs-security-handbook
-- https://github.com/goldbergyoni/nodebestpractices#6-security-best-practices
-- https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md
+- <https://www.sqreen.com/checklists/nodejs-security-handbook>
+- <https://github.com/goldbergyoni/nodebestpractices#6-security-best-practices>
+- <https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md>
 
 ### Docker
 
-- https://www.ssi.gouv.fr/administration/publication/recommandations-de-securite-relatives-au-deploiement-de-conteneurs-docker/
-- https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
-- https://snyk.io/blog/10-docker-image-security-best-practices/
-- https://github.com/OWASP/Docker-Security
-- https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Docker_Security_Cheat_Sheet.md
+- <https://www.ssi.gouv.fr/administration/publication/recommandations-de-securite-relatives-au-deploiement-de-conteneurs-docker/>
+- <https://docs.docker.com/develop/develop-images/dockerfile_best-practices/>
+- <https://snyk.io/blog/10-docker-image-security-best-practices/>
+- <https://github.com/OWASP/Docker-Security>
+- <https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Docker_Security_Cheat_Sheet.md>
