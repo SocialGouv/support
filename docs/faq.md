@@ -145,6 +145,8 @@ Voir l'implémentation de [template](https://github.com/SocialGouv/template)
  - via un client S3 : en récupérant le secret `backups` présent dans le namespace de la base de données
  - ou via kubectl : `kubectl exec -n[NAMESPACE] pg-2 -c postgres -- pg_dump -Fc -d [DATABASE] > backup.dump`
 
+Voir aussi : https://cloudnative-pg.io/documentation/current/troubleshooting/#emergency-backup
+
 ## Bases de données Azure Postgres
 
 ### `ERROR: cannot execute xxx in a read-only transaction`
