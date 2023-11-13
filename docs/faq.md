@@ -127,6 +127,24 @@ Cf cheat sheet LOKI : https://megamorf.gitlab.io/cheat-sheets/loki/
 
 Voir l'implémentation de [template](https://github.com/SocialGouv/template)
 
+
+## Bases de données Azure CNPG
+
+### Se connecter à la base via psql
+
+ - avec kubectl : `kubectl exec -ti -n [NAMESPACE] [POD] psql`
+ - avec un client Postgres:
+   - récupérer le secret `pg-app` dans le namespace de la base de données
+   - ouvrir un port-forward : `kubectl port-forward -n [NAMESPACE] [POD] 5435:5432`
+   - se connecter à `posgres://[USER]:[PASS]@127.0.0.1:5435/app?sslmode=disable`
+
+ > CNPG utilise des certificats SSL self-signés, il faut désactiver le SSL selon les clients
+
+### Récupération d'un dump
+
+ - via un client S3 : en récupérant le secret `backups` présent dans le namespace de la base de données
+ - ou via kubectl : `kubectl exec -n[NAMESPACE] pg-2 -c postgres -- pg_dump -Fc -d [DATABASE] > backup.dump`
+
 ## Bases de données Azure Postgres
 
 ### `ERROR: cannot execute xxx in a read-only transaction`
