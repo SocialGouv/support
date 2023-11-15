@@ -76,8 +76,8 @@ Le service REST utilisé est celui-ci :
 <https://github.com/benzino77/clamav-rest-api>.
 
 Il est nécessaire d'envoyer les fichiers à
-`http://clamav-rest.clamav.svc/api/v1/scan/api/v1/scan` encodés avec
-`multipart/form-data` et sous la clé `FILES`.
+`http://clamav-rest.clamav.svc/api/v1/scan` encodés avec `multipart/form-data`
+et sous la clé `FILES`.
 
 :::info
 
@@ -87,10 +87,9 @@ applications, les clients n'y ont pas accès.
 
 :::
 
-Exemple avec `node-fetch` :
+Exemple NodeJS :
 
 ```js
-const fetch = require("node-fetch");
 const FormData = require("form-data");
 const fs = require("fs");
 
