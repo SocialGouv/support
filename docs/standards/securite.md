@@ -79,6 +79,33 @@ Il est nécessaire d'envoyer les fichiers à
 `http://clamav-rest.clamav.svc/api/v1/scan/api/v1/scan` encodés avec
 `multipart/form-data` et sous la clé `FILES`.
 
+:::info
+
+Le service ClamAV n'est accessible que depuis l'intérieur de notre
+infrastructure. Un scan ne peut donc être demandé que depuis le backend des
+applications, les clients n'y ont pas accès.
+
+:::
+
+Exemple avec `node-fetch` :
+
+```js
+const fetch = require("node-fetch");
+const FormData = require("form-data");
+const fs = require("fs");
+
+const formData = new FormData();
+formData.append("FILES", fs.createReadStream("file1.txt"), "file1.txt");
+formData.append("FILES", fs.createReadStream("file2.txt"), "file2.txt");
+
+const res = await fetch("http://clamav-rest.clamav.svc/api/v1/scan", {
+  method: "POST",
+  body: formData,
+  headers: formData.getHeaders(),
+});
+console.log(await res.json());
+```
+
 :::caution
 
 Ce service de la Fabrique est expérimental. Aucune application ne doit bloquer
