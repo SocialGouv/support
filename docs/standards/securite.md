@@ -1,13 +1,13 @@
 # Sécurité
 
-🔒 Tous les accès aux outils doivent être sécurisés par authentification
-double-facteurs (2FA)
+🔒 Tous les accès aux outils doivent être sécurisés par authentificationà deux
+facteurs (2FA).
 
 🌐 Les variables d'environnement doivent être utilisées pour tout ce qui est
-secrets, tokens, logins, urls, hostnames...
+secrets, tokens, logins, urls, hostnames, etc.
 
 🛡️ La gestion des secrets est assurée par des
-[sealed-secrets](https://github.com/bitnami-labs/sealed-secrets) qui versionne
+[sealed-secrets](https://github.com/bitnami-labs/sealed-secrets) qui versionnent
 les secrets chiffrés dans GIT.
 
 ## Outils
@@ -47,7 +47,8 @@ yarn
 # crash quand le pre-commit est lancé par une application comme VSCode
 yarn husky add .husky/pre-commit "if sh -c ': >/dev/tty' >/dev/null 2>/dev/null; then exec </dev/tty; yarn node-talisman --githook pre-commit -i; else yarn node-talisman --githook pre-commit; fi"
 
-# configure le repo en JS
+# informe Talisman que le repo est en JS/TS
+# permet d'éviter de scanner yarn.lock par exemple
 echo "scopeconfig:\n  - scope: node" > .talismanrc
 ```
 
@@ -60,6 +61,30 @@ migrations SQL ou des données en base64. Dans ce cas, on lit attentivement le
 rapport, et on ajuste
 [le fichier `.talismanrc`](https://github.com/thoughtworks/talisman/#ignoring-files)
 en fonction.
+
+### ClamAV : scan antivirus de fichiers
+
+Lorsqu'un produit propose à ses utilisateurs de **téléverser des fichiers**, il
+est recommandé de **scanner** les fichiers pour y détecter de **potentiels
+virus**. Dans ce but, la Fabrique met à disposition un service **ClamAV**.
+
+Implémenter dans l'application la communication avec le service antivirus. On
+passera par une interface REST afin d'envoyer un ou plusieurs fichiers et la
+réponse mentionnera pour chacun d'eux si le fichier semble sain.
+
+Le service REST utilisé est celui-ci :
+<https://github.com/benzino77/clamav-rest-api>.
+
+Il est nécessaire d'envoyer les fichiers à
+`http://clamav-rest.clamav.svc/api/v1/scan/api/v1/scan` encodés avec
+`multipart/form-data` et sous la clé `FILES`.
+
+:::caution
+
+Ce service de la Fabrique est expérimental. Aucune application ne doit bloquer
+sur le scan antivirus car le service pourrait être indisponible.
+
+:::
 
 ## Best practices
 
