@@ -128,7 +128,7 @@ Cf cheat sheet LOKI : https://megamorf.gitlab.io/cheat-sheets/loki/
 Voir l'implémentation de [template](https://github.com/SocialGouv/template)
 
 
-## Bases de données Azure CNPG
+## Bases de données PostgreSQL CNPG
 
 ### Se connecter à la base via psql
 
