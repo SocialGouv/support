@@ -128,9 +128,11 @@ Cf cheat sheet LOKI : https://megamorf.gitlab.io/cheat-sheets/loki/
 Voir l'implémentation de [template](https://github.com/SocialGouv/template)
 
 
-## Bases de données PostgreSQL CNPG
+## Bases de données
 
-### Se connecter à la base via psql
+### PostgreSQL CNPG
+
+#### Se connecter à la base via psql
 
  - avec kubectl : `kubectl exec -ti -n [NAMESPACE] [POD] psql`
  - avec un client Postgres:
@@ -140,26 +142,26 @@ Voir l'implémentation de [template](https://github.com/SocialGouv/template)
 
  > CNPG utilise des certificats SSL self-signés, il faut désactiver le SSL selon les clients
 
-### Récupération d'un dump
+#### Récupération d'un dump
 
  - via un client S3 : en récupérant le secret `backups` présent dans le namespace de la base de données
  - ou via kubectl : `kubectl exec -n[NAMESPACE] pg-2 -c postgres -- pg_dump -Fc -d [DATABASE] > backup.dump`
 
 Voir aussi : https://cloudnative-pg.io/documentation/current/troubleshooting/#emergency-backup
 
-## Bases de données Azure Postgres
+### Bases de données Azure Postgres
 
-### `ERROR: cannot execute xxx in a read-only transaction`
+#### `ERROR: cannot execute xxx in a read-only transaction`
 
 Si le serveur est trop plein, il se met automatiquement en "read-only". Pour pouvoir faire le ménage, executer `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` pour reactiver la mode "writeable".
 
 Voir aussi la doc [Microsoft](https://docs.microsoft.com/fr-fr/azure/postgresql/concepts-pricing-tiers?WT.mc_id=Portal-Microsoft_Azure_Support#reaching-the-storage-limit).
 
-### `Too many failed login attempts`
+#### `Too many failed login attempts`
 
 Par défaut, le `connection_throttling` est activé sur les logins PG. Il peut se désactiver via la console Azure PG / Server parameters puis désactiver `connection_throttling`.
 
-### `remaining connection slots are reserved for non-replication superuser connections`
+#### `remaining connection slots are reserved for non-replication superuser connections`
 
 Les serveurs PG avec 1 core sont limités à 50 connections simultannées.
 
@@ -174,7 +176,7 @@ SELECT pg_terminate_backend(pid)
 
 See also [Limits in Azure Database for PostgreSQL](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/postgresql/concepts-limits.md#limits-in-azure-database-for-postgresql---single-server)
 
-### Accès aux serveurs de bases de données PG de dev
+#### Accès aux serveurs de bases de données PG de dev (Azure managé)
 
 **Notez bien que vous devez faire partie de la team `Admins` de votre startup sur GitHub pour pouvoir accéder à la db**
 
