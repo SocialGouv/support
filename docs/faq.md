@@ -130,7 +130,7 @@ Voir l'implémentation de [template](https://github.com/SocialGouv/template)
 
 ## Bases de données
 
-### PostgreSQL CNPG
+### Bases de données  PostgreSQL CNPG
 
 #### Se connecter à la base via psql
 
@@ -138,7 +138,7 @@ Voir l'implémentation de [template](https://github.com/SocialGouv/template)
  - avec un client Postgres:
    - récupérer le secret `pg-app` dans le namespace de la base de données
    - ouvrir un port-forward : `kubectl port-forward -n [NAMESPACE] [POD] 5435:5432`
-   - se connecter à `posgres://[USER]:[PASS]@127.0.0.1:5435/app?sslmode=disable`
+   - se connecter à `postgres://[USER]:[PASS]@127.0.0.1:5435/app?sslmode=disable`
 
  > CNPG utilise des certificats SSL self-signés, il faut désactiver le SSL selon les clients
 
