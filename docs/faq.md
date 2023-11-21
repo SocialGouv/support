@@ -132,6 +132,8 @@ Voir l'implémentation de [template](https://github.com/SocialGouv/template)
 
 ### Bases de données  PostgreSQL CNPG
 
+Vous aurez besoin de `kubectl` installé avec votre `KUBECONFIG` récupéré depuis [rancher](https://rancher.fabrique.social.gouv.fr).
+
 #### Se connecter à la base via psql
 
  - avec kubectl : `kubectl exec -ti -n [NAMESPACE] [POD] psql`
