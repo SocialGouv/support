@@ -130,19 +130,28 @@ Voir l'implémentation de [template](https://github.com/SocialGouv/template)
 
 ## Bases de données
 
-### Bases de données  PostgreSQL CNPG
+### Bases de données PostgreSQL CNPG
 
-Vous aurez besoin de `kubectl` installé avec votre `KUBECONFIG` récupéré depuis [rancher](https://rancher.fabrique.social.gouv.fr).
+Vous aurez besoin de `kubectl` installé avec les bons `KUBECONFIG` récupérés depuis [rancher](https://rancher.fabrique.social.gouv.fr).
 
-#### Se connecter à la base via psql
+:warning: Attention à bien utiliser [le bon contexte](https://enix.io/fr/blog/kubectl-commands/#kubectl-config-et-fichier-kubeconfig) lorsque vous utilisez `kubectl`.
 
- - avec kubectl : `kubectl exec -ti -n [NAMESPACE] [POD] psql`
- - avec un client Postgres:
-   - récupérer le secret `pg-app` dans le namespace de la base de données
-   - ouvrir un port-forward : `kubectl port-forward -n [NAMESPACE] [POD] 5435:5432`
-   - se connecter à `postgres://[USER]:[PASS]@127.0.0.1:5435/app?sslmode=disable`
+Identifiez vos noeuds PostgreSQL : `kubectl -n[NAMESPACE] get po --selector=cnpg.io/podRole=instance -o=custom-columns="NAME:.metadata.name,ROLE:.metadata.labels.role"`.
 
- > CNPG utilise des certificats SSL self-signés, il faut désactiver le SSL selon les clients
+Pour de la lecture seule, choisissez un `replica`, et `primary` si besoin d'écrire.
+
+ > :bulb: CNPG utilise des certificats SSL self-signés, il faut désactiver le SSL selon les clients
+
+#### Se connecter avec un client PostgreSQL
+
+  - récupérer le secret `pg-app` dans le namespace de la base de données : `kubectl -n[NAMESPACE] get secret pg-app -o jsonpath='{.data.DATABASE_URL}' | base64 -d`
+  - ouvrir un port-forward : `kubectl port-forward -n [NAMESPACE] [POD] 5435:5432`
+  - se connecter à `postgres://[USER]:[PASS]@127.0.0.1:5435/[DB]?sslmode=disable`
+
+##### Avec kubectl
+
+ On peut lancer un cli `psql` directement : `kubectl exec -ti -n [NAMESPACE] [POD] psql`. Ex: `kubectl exec -ti -n template pg-1 psql`. idem pour pg_dump & all.
+
 
 #### Récupération d'un dump
 
@@ -152,6 +161,8 @@ Vous aurez besoin de `kubectl` installé avec votre `KUBECONFIG` récupéré dep
 Voir aussi : https://cloudnative-pg.io/documentation/current/troubleshooting/#emergency-backup
 
 ### Bases de données Azure Postgres
+
+:warning: Les PG azure sont en cours de remplacement par des instances CNPG (cf paragraphe précédent).
 
 #### `ERROR: cannot execute xxx in a read-only transaction`
 
