@@ -348,7 +348,7 @@ Source du plugin: <https://github.com/softdevteam/mattermost-github-integration>
 
 ## Nettoyage des environnements Kube de dev
 
-Les ressources de dev sont régulièrement nettoyées par Janitor :
+Les ressources de dev sont détruites à la fermeture des branches ou sont nettoyées automatiquement par [kube-janitor](https://codeberg.org/hjacobs/kube-janitor) :
 
 | Ressource          | Durée de vie |
 | ------------------ | ------------ |
