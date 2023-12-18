@@ -244,12 +244,28 @@ Des jobs de backup des BDDs sont executés quotidiennement. Pour forcer un nouve
 
 ### IPs du cluster
 
+#### Azure
+
 | Nom               | IP            |
 | ----------------- | ------------- |
 | Ingress PROD      | 20.74.14.77   |
 | Ingress DEV       | 51.103.10.142 |
 | IP de sortie PROD | 20.74.10.146  |
 | IP de sortie DEV  | 20.74.14.116  |
+
+#### OVH
+
+| Nom               | IP             |
+| ----------------- | -------------- |
+| Ingress PROD      | 57.128.91.43   |
+| Ingress DEV       | 162.19.108.127 |
+| IP de sortie PROD | 57.128.58.116  |
+| IP de sortie DEV  | 57.128.42.205  |
+
+#### Scaleway
+
+| Nom               | IP            |
+| ----------------- | ------------- |
 | Runner SCW1       | 51.15.230.115 |
 | Runner SCW2       | 51.158.120.34 |
 
