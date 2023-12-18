@@ -37,7 +37,7 @@ _Long story short_ :
 - tous les logs doivent être envoyés sur `STDOUT` ou `STDERR`
 - Dès que c'est possible, utiliser le format de format de sortie `JSON` pour vos logs, et en `single-line`. Ils seront plus facilement indexables dans _Elasticsearch_, et donc plus faciles à exploiter.
 
-Voir également [les recommandations de sécu au sujet des logs](/docs/securite#logging)
+Voir également [les recommandations de sécu au sujet des logs](/docs/standards/securite#logging)
 
 ### Exposer les métriques de mon application
 
