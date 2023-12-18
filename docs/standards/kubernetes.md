@@ -37,6 +37,8 @@ _Long story short_ :
 - tous les logs doivent être envoyés sur `STDOUT` ou `STDERR`
 - Dès que c'est possible, utiliser le format de format de sortie `JSON` pour vos logs, et en `single-line`. Ils seront plus facilement indexables dans _Elasticsearch_, et donc plus faciles à exploiter.
 
+Voir également [les recommandations de sécu au sujet des logs](/docs/securite#logging)
+
 ### Exposer les métriques de mon application
 
 Pour faire du profiling comme pour faire de l'analyse sur des données métier, vous pouver exposer un endpoint `/metrics` (ou avec un autre path mais c'est une convention) qui sera scrappé par _Prometheus_, la brique de collecte du cluster K8s.
@@ -182,13 +184,13 @@ Deux cas possibles :
 - **Développement** : le secret est déchiffrable cluster-wide
 - **Production** : le secret est déchiffrable uniquement pour un `namespace` donné.
 
-Pour la _production_ pensez à bien à vérifier le `namespace` et le `secret name` spécifié. Le `secret name` est le nom du secret lié à l'application, par exemple `app`, `api` ou  `app-sealed-secret` ; on peut trouver ce nom dans le champ `metadata.name` du fichier de secret. Ce nom peut-être indiqué dans les déploiements (par exemple dans le fichier `.kube-workflow/values.yaml`, dans la partie `envFrom.secretRef`  pour inclure les secrets déchiffrés dans l'environnement d'un container).
+Pour la _production_ pensez à bien à vérifier le `namespace` et le `secret name` spécifié. Le `secret name` est le nom du secret lié à l'application, par exemple `app`, `api` ou `app-sealed-secret` ; on peut trouver ce nom dans le champ `metadata.name` du fichier de secret. Ce nom peut-être indiqué dans les déploiements (par exemple dans le fichier `.kube-workflow/values.yaml`, dans la partie `envFrom.secretRef` pour inclure les secrets déchiffrés dans l'environnement d'un container).
 
 Copiez-collez ensuite le secret chiffré dans votre fichier de sealed-secrets pour le mettre à jour.
 
 L'équipe SRE est à votre disposition pour vous aider dans cette démarche
 
-## Tester la validité d'un sealed-secret 
+## Tester la validité d'un sealed-secret
 
 Avant d'envoyer un sealed-secret sur le cluster, il est utile de vérifier qu'il soit bien chiffré.
 
@@ -202,12 +204,12 @@ Ensuite, vérifier dans rancher ou k9s qu'un `Secret` avec les bonnes valeurs a 
 
 ## Synthèse des attentes
 
-|   Niveau    | Recommandation                                                          |
-|:------------|:------------------------------------------------------------------------|
-| Obligation  | Les logs sont envoyés vers les sorties standard `STDOUT` ou `STDERR`    |
-| Obligation  | Les logs sont envoyés au format `JSON` et `single-line`                 |
-| Obligation  | Les métriques applicatives sont exposés sur un endpoint `/metrics`                   |
-| Obligation  | Les valeurs de CPU `requests` et `limits` doivent être renseignées      |
-| Obligation  | Les valeurs de RAM `requests` et `limits` doivent être renseignées      |
-| Obligation  | Le HPA doit être activé et paramétré avec des valeurs `min=1`, `max=10` |
-| Obligation  | Au moins une route de healthcheck doit être implémentée (ex: /healthz) |
+| Niveau     | Recommandation                                                          |
+| :--------- | :---------------------------------------------------------------------- |
+| Obligation | Les logs sont envoyés vers les sorties standard `STDOUT` ou `STDERR`    |
+| Obligation | Les logs sont envoyés au format `JSON` et `single-line`                 |
+| Obligation | Les métriques applicatives sont exposés sur un endpoint `/metrics`      |
+| Obligation | Les valeurs de CPU `requests` et `limits` doivent être renseignées      |
+| Obligation | Les valeurs de RAM `requests` et `limits` doivent être renseignées      |
+| Obligation | Le HPA doit être activé et paramétré avec des valeurs `min=1`, `max=10` |
+| Obligation | Au moins une route de healthcheck doit être implémentée (ex: /healthz)  |
