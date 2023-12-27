@@ -16,7 +16,7 @@ async function createConfig() {
     baseUrl: '/support/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
-    favicon: 'img/favicon.ico',
+    favicon: 'img/favicon.png',
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
@@ -56,7 +56,7 @@ async function createConfig() {
           title: 'SocialGouv SRE',
           logo: {
             alt: 'SocialGouv SRE Logo',
-            src: 'img/marianne.jpeg',
+            src: 'img/fabrique.png',
           },
           items: [
             {
