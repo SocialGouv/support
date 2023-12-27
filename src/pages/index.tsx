@@ -20,7 +20,7 @@ function HomepageHeader() {
             Accéder à la documentation
           </Link>
         </div>
-        <img src="img/marianne.jpeg" alt="logo" style={{marginTop: 20}}/>      
+        <img src="img/fabrique.png" alt="logo" style={{marginTop: 20}}/>      
       </div>
     </header>
   );
