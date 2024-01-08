@@ -260,16 +260,37 @@ asynchrone disponible.
 
 ### Logging
 
+#### Exceptions
+
 Journaliser explicitement les erreurs issues de la logique de l'application, qui
-sont inconnues du runtime. par exemple à l'aide de sentry. La remontée
-d'exceptions dans sentry doit veiller à ne pas remonter de données sensibles
+sont inconnues du runtime. par exemple à l'aide de [sentry](https://sentry.fabrique.social.gouv.fr). La remontée
+d'exceptions dans sentry doit veiller à ne pas remonter de données sensibles ou personnelles
 (ex: cookies).
 
-L'application doit logger en JSON (cf
-[12 factors apps](/standards/kubernetes.md))
+#### Logs applicatifs
+
+- L'application doit logger en JSON (cf [12 factors apps](/standards/kubernetes.md))
+- L'application ne doit logger **QUE** les données nécessaires au bon fonctionnement du service
+- Les utilisateurs de l'application doivent être informés de cette journalisation
+- Ces données techniques ne doivent **PAS** contenir de données permettant d'identifier un individu
+- Les logs peuvent être conservés jusqu'à 12 mois si nécessaire
+
+##### Position de la CNIL
+
+> “De ce point de vue, l’enregistrement de ces données de journalisation ne rend pas le traitement plus intrusif, sous réserve que leur existence ne mène pas à un dépassement de la durée de conservation des données. De plus, cette mesure peut apporter des garanties importantes pour la sécurité de ces données.”
+
+##### Actions à logger
+
+Certains actions peuvent être utiles à logger pour de l'audit de sécurité
+
+- actions destructives (suppression de données/fichiers)
+- auth: tentatives de login, logout, changement/reset de pwd
+- auth: erreurs 401/403
+- upload/download Téléchargement de document
+- exports de données
 
 Côté base de données, un audit log peut être nécessaire. Ex:
-<https://github.com/hasura/audit-trigger>
+<https://github.com/hasura/audit-trigger> ou [pgaudit](https://www.pgaudit.org)
 
 ### Upload de fichiers
 
