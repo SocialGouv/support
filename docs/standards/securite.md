@@ -37,7 +37,7 @@ sur le hook `pre-commit` de git.
 yarn add -D husky is-ci node-talisman
 
 # installer husky seulement si hors environnement de CI
-npm set-script postinstall "is-ci || husky install"
+npm pkg set scripts.postinstall="is-ci || husky install"
 
 # installation de husky grâce au script de postinstall
 yarn
@@ -45,7 +45,8 @@ yarn
 # exécuter node-talisman sur le hook de pre-commit
 # on détecte ici si l'interaction via un terminal est possible afin de ne pas
 # crash quand le pre-commit est lancé par une application comme VSCode
-yarn husky add .husky/pre-commit "if sh -c ': >/dev/tty' >/dev/null 2>/dev/null; then exec </dev/tty; yarn node-talisman --githook pre-commit -i; else yarn node-talisman --githook pre-commit; fi"
+mkdir .husky
+echo "if sh -c ': >/dev/tty' >/dev/null 2>/dev/null; then exec </dev/tty; yarn node-talisman --githook pre-commit -i; else yarn node-talisman --githook pre-commit; fi" >  .husky/pre-commit
 
 # informe Talisman que le repo est en JS/TS
 # permet d'éviter de scanner yarn.lock par exemple
