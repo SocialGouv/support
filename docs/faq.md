@@ -156,7 +156,9 @@ Pour de la lecture seule, choisissez un `replica`, et `primary` si besoin d'écr
 #### Récupération d'un dump
 
  - via un client S3 : en récupérant le secret `backups` présent dans le namespace de la base de données
- - ou via kubectl : `kubectl exec -n[NAMESPACE] pg-2 -c postgres -- pg_dump -Fc -d [DATABASE] > backup.dump`
+ - ou via kubectl : `kubectl --context CONTEXT -n NAMESPACE exec -ti pg-N -- pg_dump -Fc -d DATABASE -n public --no-privileges --quote-all-identifiers > backup.dump`
+
+Remplacer CONTEXT (ovh-dev ou ovh-prod), NAMESPACE, pg-N par le pod pg d'un replica en lecture ou du master si pas de replica en lecture.
 
 Voir aussi : https://cloudnative-pg.io/documentation/current/troubleshooting/#emergency-backup
 
