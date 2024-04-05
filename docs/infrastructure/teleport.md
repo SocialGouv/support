@@ -2,7 +2,7 @@
 
 ## Scission des environnement de dev et de prod
 
-Comme vous avez peut-être pu le remarquer, sur OVH, deux teleport sont accessible. 
+Sur OVH, deux teleport sont accessible. 
 Le premier servant a se connecter à l'envirronement de dev et se situant à l'addresse suivante: https://teleport-hp.fabrique.social.gouv.fr/
 
 
@@ -12,7 +12,7 @@ Le second servant a se connecter à l'envirronement de prod et se situant à l'a
 ## Connection à une base de donnée
 
 ### Pré-requis
-Malheuresement depuis la migration sur ovh nous n'avons pas pu reproduire le comportement d'Azure avec l'interface graphique. C'est pour cette raison que les seuls pré-requis sont l'installation de teleport v14 (que l'on peut télécharger [ici](https://goteleport.com/download/#install-links) ou a partir du terminal) et le cli psql.
+Installation de teleport v14 (que l'on peut télécharger [ici](https://goteleport.com/download/#install-links) ou a partir du terminal) et un client postgres.
 
 ### Utilisation
 
