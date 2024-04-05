@@ -24,7 +24,7 @@ La première chose à faire est de vous connectez au cluster à partir de ce der
 Pour la prod:
 
 ```
-tsh login --proxy=teleport-prod.fabrique.social.gouv.fr:443 teleport-prod --auth=github
+tsh login --proxy=teleport-prod.fabrique.social.gouv.fr:443 teleport-prod.fabrique.social.gouv.fr --auth=github
 ```
 
 ou
@@ -32,7 +32,7 @@ ou
 Pour le dev:
 
 ```
-tsh login --proxy=teleport-hp.fabrique.social.gouv.fr:443 teleport-dev --auth=github
+tsh login --proxy=teleport-hp.fabrique.social.gouv.fr:443 teleport-hp.fabrique.social.gouv.fr --auth=github
 ```
 
 Ensuite listé les base de données qui vous sont accessible avec la commande suivante :
