@@ -63,56 +63,6 @@ rapport, et on ajuste
 [le fichier `.talismanrc`](https://github.com/thoughtworks/talisman/#ignoring-files)
 en fonction.
 
-### ClamAV : scan antivirus de fichiers
-
-Lorsqu'un produit propose à ses utilisateurs de **téléverser des fichiers**, il
-est recommandé de **scanner** les fichiers pour y détecter de **potentiels
-virus**. Dans ce but, la Fabrique met à disposition un service **ClamAV**.
-
-Implémenter dans l'application la communication avec le service antivirus. On
-passera par une interface REST afin d'envoyer un ou plusieurs fichiers et la
-réponse mentionnera pour chacun d'eux si le fichier semble sain.
-
-Le service REST utilisé est celui-ci :
-<https://github.com/benzino77/clamav-rest-api>.
-
-Il est nécessaire d'envoyer les fichiers à
-`http://clamav-rest.clamav.svc/api/v1/scan` encodés avec `multipart/form-data`
-et sous la clé `FILES`.
-
-:::info
-
-Le service ClamAV n'est accessible que depuis l'intérieur de notre
-infrastructure. Un scan ne peut donc être demandé que depuis le backend des
-applications, les clients n'y ont pas accès.
-
-:::
-
-Exemple NodeJS :
-
-```js
-const FormData = require("form-data");
-const fs = require("fs");
-
-const formData = new FormData();
-formData.append("FILES", fs.createReadStream("file1.txt"), "file1.txt");
-formData.append("FILES", fs.createReadStream("file2.txt"), "file2.txt");
-
-const res = await fetch("http://clamav-rest.clamav.svc/api/v1/scan", {
-  method: "POST",
-  body: formData,
-  headers: formData.getHeaders(),
-});
-console.log(await res.json());
-```
-
-:::caution
-
-Ce service de la Fabrique est expérimental. Aucune application ne doit bloquer
-sur le scan antivirus car le service pourrait être indisponible.
-
-:::
-
 ## Best practices
 
 Les [cheat sheets OWASP](https://cheatsheetseries.owasp.org/) sont une très
