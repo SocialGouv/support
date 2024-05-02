@@ -70,7 +70,8 @@ en fonction.
 Ce service de la Fabrique est expérimental. Aucune application ne doit bloquer
 sur le scan antivirus car le service pourrait être indisponible.
 
-Pour le moment, il est nécessaire de demander explicitement à l'équipe SRE la création de l'instance associée à votre startup.
+Pour le moment, il est nécessaire de demander explicitement à l'équipe SRE la
+création de l'instance associée à votre startup.
 
 :::
 
@@ -86,14 +87,15 @@ Le service REST utilisé est celui-ci :
 <https://github.com/benzino77/clamav-rest-api>.
 
 Il est nécessaire d'envoyer les fichiers à
-`https://antivirus.fabrique.social.gouv.fr/{startup}/api/v1/scan` encodés avec `multipart/form-data`
-et sous la clé `FILES`.
+`https://antivirus.fabrique.social.gouv.fr/{startup}/api/v1/scan` encodés avec
+`multipart/form-data` et sous la clé `FILES`.
 
 :::info
 
 Le service ClamAV n'est accessible que depuis l'intérieur de notre
 infrastructure. Un scan ne peut donc être demandé que depuis le backend des
-applications, le front-end n'y ont pas accès. En outre, lors du développement local, le service n'est pas accessible.
+applications, le front-end n'y a pas accès. En outre, lors du développement
+local, le service n'est pas accessible.
 
 :::
 
@@ -106,12 +108,15 @@ const formData = new FormData();
 formData.append("FILES", new Blob([fs.readFileSync("file1.txt")]), "file1.txt");
 formData.append("FILES", new Blob([fs.readFileSync("file2.jpg")]), "file2.jpg");
 
-const res = await fetch("https://antivirus.fabrique.social.gouv.fr/vao/api/v1/scan", {
-  method: "POST",
-  body: formData,
-});
+const res = await fetch(
+  "https://antivirus.fabrique.social.gouv.fr/vao/api/v1/scan",
+  {
+    method: "POST",
+    body: formData,
+  },
+);
 
-console.log(await res.json())
+console.log(await res.json());
 ```
 
 ## Best practices
@@ -265,21 +270,29 @@ asynchrone disponible.
 #### Exceptions
 
 Journaliser explicitement les erreurs issues de la logique de l'application, qui
-sont inconnues du runtime. par exemple à l'aide de [sentry](https://sentry.fabrique.social.gouv.fr). La remontée
-d'exceptions dans sentry doit veiller à ne pas remonter de données sensibles ou personnelles
-(ex: cookies).
+sont inconnues du runtime. par exemple à l'aide de
+[sentry](https://sentry.fabrique.social.gouv.fr). La remontée d'exceptions dans
+sentry doit veiller à ne pas remonter de données sensibles ou personnelles (ex:
+cookies).
 
 #### Logs applicatifs
 
-- L'application doit logger en JSON (cf [12 factors apps](/standards/kubernetes.md))
-- L'application ne doit logger **QUE** les données nécessaires au bon fonctionnement du service
-- Les utilisateurs de l'application doivent être informés de cette journalisation
-- Ces données techniques ne doivent **PAS** contenir de données permettant d'identifier un individu
+- L'application doit logger en JSON (cf
+  [12 factors apps](/standards/kubernetes.md))
+- L'application ne doit logger **QUE** les données nécessaires au bon
+  fonctionnement du service
+- Les utilisateurs de l'application doivent être informés de cette
+  journalisation
+- Ces données techniques ne doivent **PAS** contenir de données permettant
+  d'identifier un individu
 - Les logs peuvent être conservés jusqu'à 12 mois si nécessaire
 
 ##### Position de la CNIL
 
-> “De ce point de vue, l’enregistrement de ces données de journalisation ne rend pas le traitement plus intrusif, sous réserve que leur existence ne mène pas à un dépassement de la durée de conservation des données. De plus, cette mesure peut apporter des garanties importantes pour la sécurité de ces données.”
+> “De ce point de vue, l’enregistrement de ces données de journalisation ne rend
+> pas le traitement plus intrusif, sous réserve que leur existence ne mène pas à
+> un dépassement de la durée de conservation des données. De plus, cette mesure
+> peut apporter des garanties importantes pour la sécurité de ces données.”
 
 ##### Actions à logger
 
