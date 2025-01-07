@@ -4992,9 +4992,9 @@ function generateUUID() {
 // EXTERNAL MODULE: ./node_modules/lunr/lunr.js
 var lunr = __webpack_require__(8291);
 var lunr_default = /*#__PURE__*/__webpack_require__.n(lunr);
-;// CONCATENATED MODULE: ./.docusaurus/@easyops-cn/docusaurus-search-local/default/generated.js
-__webpack_require__(6121)((lunr_default()));__webpack_require__(7923)((lunr_default()));__webpack_require__(6106)((lunr_default()));const language=["en","fr"];const removeDefaultStopWordFilter=false;const removeDefaultStemmer=false;const Mark=null;const searchIndexUrl="search-index{dir}.json?_=7a31e1b6";const searchResultLimits=8;const searchResultContextMaxLength=50;const explicitSearchResultPath=false;const searchBarShortcut=true;const searchBarShortcutHint=true;const searchBarPosition="right";const docsPluginIdForPreferredVersion=(/* unused pure expression or super */ null && (undefined));const indexDocs=true;const searchContextByPaths=null;const hideSearchBarWithNoSearchContext=false;const useAllContextsWithNoSearchContext=false;
-;// CONCATENATED MODULE: ./node_modules/@easyops-cn/docusaurus-search-local/dist/client/client/utils/proxiedGenerated.js
+;// CONCATENATED MODULE: ./.docusaurus/@easyops-cn/docusaurus-search-local/default/generated-constants.js
+__webpack_require__(6121)((lunr_default()));__webpack_require__(7923)((lunr_default()));__webpack_require__(6106)((lunr_default()));const removeDefaultStopWordFilter=false;const language=["en","fr"];const searchIndexUrl="search-index{dir}.json?_=986cf6b8";const searchResultLimits=8;
+;// CONCATENATED MODULE: ./node_modules/@easyops-cn/docusaurus-search-local/dist/client/client/utils/proxiedGeneratedConstants.js
 // This file is auto generated while building.
 
 ;// CONCATENATED MODULE: ./node_modules/@easyops-cn/docusaurus-search-local/dist/client/client/utils/tokenize.js
